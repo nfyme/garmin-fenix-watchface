@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="D:\Garmin\7pro WF1\F7-1\manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="1" lineNum="211" parent="globals/BottomBlockPicker" pc="268435457" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="2" lineNum="86" parent="globals/SettingsMenuDelegate" pc="268435469" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="3" lineNum="228" parent="globals/BottomBlockDelegate" pc="268435481" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="4" lineNum="45" parent="globals/SettingsMenuView" pc="268435493" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="5" lineNum="12" parent="globals/AppSettings/&lt;statics&gt;" pc="268435505" symbol="&lt;init&gt;"/>
+        <entry filename="d:\\Garmin\\7pro WF1\\F7-1\\.vscode\\gen\\006-B4375-00\\source\\Rez.mcgen" id="6" lineNum="7" parent="globals/Rez" pc="268435518" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="7" lineNum="13" parent="globals/F7_1View" pc="268435538" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="8" lineNum="170" parent="globals/WeekendColorPicker" pc="268435550" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="9" lineNum="187" parent="globals/WeekendColorDelegate" pc="268435562" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="10" lineNum="145" parent="globals/WeatherIntervalDelegate" pc="268435574" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="11" lineNum="126" parent="globals/WeatherIntervalPicker" pc="268435586" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1App.mc" id="12" lineNum="5" parent="globals/F7_1App" pc="268435598" symbol="&lt;init&gt;"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="213" parent="globals/BottomBlockPicker" pc="268435610" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="214" parent="globals/BottomBlockPicker" pc="268435613" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="216" parent="globals/BottomBlockPicker" pc="268435643" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="217" parent="globals/BottomBlockPicker" pc="268435662" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="217" parent="globals/BottomBlockPicker" pc="268435668" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="219" parent="globals/BottomBlockPicker" pc="268435671" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="220" parent="globals/BottomBlockPicker" pc="268435696" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="221" parent="globals/BottomBlockPicker" pc="268435747" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="13" lineNum="224" parent="globals/BottomBlockPicker" pc="268435800" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="14" lineNum="118" parent="globals/SettingsMenuDelegate" pc="268435817" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="14" lineNum="119" parent="globals/SettingsMenuDelegate" pc="268435819" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="15" lineNum="88" parent="globals/SettingsMenuDelegate" pc="268435835" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="15" lineNum="89" parent="globals/SettingsMenuDelegate" pc="268435837" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="92" parent="globals/SettingsMenuDelegate" pc="268435850" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="93" parent="globals/SettingsMenuDelegate" pc="268435853" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="95" parent="globals/SettingsMenuDelegate" pc="268435862" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="96" parent="globals/SettingsMenuDelegate" pc="268435873" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="102" parent="globals/SettingsMenuDelegate" pc="268435927" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="103" parent="globals/SettingsMenuDelegate" pc="268435938" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="109" parent="globals/SettingsMenuDelegate" pc="268435992" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="16" lineNum="110" parent="globals/SettingsMenuDelegate" pc="268436003" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="17" lineNum="244" parent="globals/BottomBlockDelegate" pc="268436057" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="17" lineNum="245" parent="globals/BottomBlockDelegate" pc="268436059" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="18" lineNum="232" parent="globals/BottomBlockDelegate" pc="268436075" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="18" lineNum="233" parent="globals/BottomBlockDelegate" pc="268436077" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="18" lineNum="234" parent="globals/BottomBlockDelegate" pc="268436089" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="19" lineNum="237" parent="globals/BottomBlockDelegate" pc="268436099" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="19" lineNum="238" parent="globals/BottomBlockDelegate" pc="268436102" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="19" lineNum="239" parent="globals/BottomBlockDelegate" pc="268436111" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="19" lineNum="240" parent="globals/BottomBlockDelegate" pc="268436131" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="19" lineNum="241" parent="globals/BottomBlockDelegate" pc="268436158" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="47" parent="globals/SettingsMenuView" pc="268436174" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="48" parent="globals/SettingsMenuView" pc="268436177" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="50" parent="globals/SettingsMenuView" pc="268436207" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="51" parent="globals/SettingsMenuView" pc="268436226" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="51" parent="globals/SettingsMenuView" pc="268436232" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="53" parent="globals/SettingsMenuView" pc="268436236" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="54" parent="globals/SettingsMenuView" pc="268436255" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="54" parent="globals/SettingsMenuView" pc="268436261" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="56" parent="globals/SettingsMenuView" pc="268436264" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="57" parent="globals/SettingsMenuView" pc="268436283" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="57" parent="globals/SettingsMenuView" pc="268436289" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="59" parent="globals/SettingsMenuView" pc="268436292" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="66" parent="globals/SettingsMenuView" pc="268436359" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="20" lineNum="73" parent="globals/SettingsMenuView" pc="268436420" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="21" lineNum="29" parent="globals/AppSettings" pc="268436482" symbol="getWeekendColor"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="21" lineNum="30" parent="globals/AppSettings" pc="268436485" symbol="getWeekendColor"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="21" lineNum="31" parent="globals/AppSettings" pc="268436504" symbol="getWeekendColor"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="21" lineNum="31" parent="globals/AppSettings" pc="268436534" symbol="getWeekendColor"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="21" lineNum="32" parent="globals/AppSettings" pc="268436537" symbol="getWeekendColor"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="22" lineNum="35" parent="globals/AppSettings" pc="268436546" symbol="getBottomBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="22" lineNum="36" parent="globals/AppSettings" pc="268436549" symbol="getBottomBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="22" lineNum="37" parent="globals/AppSettings" pc="268436568" symbol="getBottomBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="22" lineNum="37" parent="globals/AppSettings" pc="268436574" symbol="getBottomBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="22" lineNum="38" parent="globals/AppSettings" pc="268436577" symbol="getBottomBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="23" lineNum="23" parent="globals/AppSettings" pc="268436580" symbol="getWeatherInterval"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="23" lineNum="24" parent="globals/AppSettings" pc="268436583" symbol="getWeatherInterval"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="23" lineNum="25" parent="globals/AppSettings" pc="268436602" symbol="getWeatherInterval"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="23" lineNum="25" parent="globals/AppSettings" pc="268436632" symbol="getWeatherInterval"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="23" lineNum="26" parent="globals/AppSettings" pc="268436636" symbol="getWeatherInterval"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="25" lineNum="313" parent="globals/F7_1View" pc="268436645" symbol="drawSunrise"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="25" lineNum="314" parent="globals/F7_1View" pc="268436647" symbol="drawSunrise"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="25" lineNum="315" parent="globals/F7_1View" pc="268436664" symbol="drawSunrise"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="25" lineNum="316" parent="globals/F7_1View" pc="268436688" symbol="drawSunrise"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="25" lineNum="317" parent="globals/F7_1View" pc="268436718" symbol="drawSunrise"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="26" lineNum="685" parent="globals/F7_1View" pc="268436749" symbol="getDaysInMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="26" lineNum="686" parent="globals/F7_1View" pc="268436752" symbol="getDaysInMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="26" lineNum="687" parent="globals/F7_1View" pc="268436759" symbol="getDaysInMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="26" lineNum="687" parent="globals/F7_1View" pc="268436798" symbol="getDaysInMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="26" lineNum="688" parent="globals/F7_1View" pc="268436801" symbol="getDaysInMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="27" lineNum="697" parent="globals/F7_1View" pc="268436807" symbol="normHours"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="27" lineNum="698" parent="globals/F7_1View" pc="268436809" symbol="normHours"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="27" lineNum="698" parent="globals/F7_1View" pc="268436820" symbol="normHours"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="27" lineNum="699" parent="globals/F7_1View" pc="268436833" symbol="normHours"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="27" lineNum="699" parent="globals/F7_1View" pc="268436840" symbol="normHours"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="27" lineNum="700" parent="globals/F7_1View" pc="268436853" symbol="normHours"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="235" parent="globals/F7_1View" pc="268436856" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="236" parent="globals/F7_1View" pc="268436859" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="237" parent="globals/F7_1View" pc="268436871" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="238" parent="globals/F7_1View" pc="268436883" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="239" parent="globals/F7_1View" pc="268436886" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="241" parent="globals/F7_1View" pc="268436891" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="242" parent="globals/F7_1View" pc="268436897" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="245" parent="globals/F7_1View" pc="268436971" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="246" parent="globals/F7_1View" pc="268436977" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="247" parent="globals/F7_1View" pc="268436986" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="250" parent="globals/F7_1View" pc="268436997" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="251" parent="globals/F7_1View" pc="268437003" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="251" parent="globals/F7_1View" pc="268437021" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="251" parent="globals/F7_1View" pc="268437024" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="252" parent="globals/F7_1View" pc="268437027" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="253" parent="globals/F7_1View" pc="268437044" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="254" parent="globals/F7_1View" pc="268437051" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="254" parent="globals/F7_1View" pc="268437068" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="255" parent="globals/F7_1View" pc="268437071" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="256" parent="globals/F7_1View" pc="268437092" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="257" parent="globals/F7_1View" pc="268437114" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="260" parent="globals/F7_1View" pc="268437184" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="262" parent="globals/F7_1View" pc="268437187" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="263" parent="globals/F7_1View" pc="268437209" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="266" parent="globals/F7_1View" pc="268437279" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="269" parent="globals/F7_1View" pc="268437292" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="270" parent="globals/F7_1View" pc="268437298" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="271" parent="globals/F7_1View" pc="268437307" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="272" parent="globals/F7_1View" pc="268437320" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="275" parent="globals/F7_1View" pc="268437333" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="276" parent="globals/F7_1View" pc="268437347" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="279" parent="globals/F7_1View" pc="268437356" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="280" parent="globals/F7_1View" pc="268437361" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="281" parent="globals/F7_1View" pc="268437367" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="282" parent="globals/F7_1View" pc="268437392" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="285" parent="globals/F7_1View" pc="268437472" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="286" parent="globals/F7_1View" pc="268437481" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="289" parent="globals/F7_1View" pc="268437492" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="290" parent="globals/F7_1View" pc="268437498" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="291" parent="globals/F7_1View" pc="268437527" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="292" parent="globals/F7_1View" pc="268437538" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="293" parent="globals/F7_1View" pc="268437545" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="294" parent="globals/F7_1View" pc="268437562" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="294" parent="globals/F7_1View" pc="268437571" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="295" parent="globals/F7_1View" pc="268437590" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="297" parent="globals/F7_1View" pc="268437593" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="298" parent="globals/F7_1View" pc="268437614" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="302" parent="globals/F7_1View" pc="268437701" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="303" parent="globals/F7_1View" pc="268437710" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="303" parent="globals/F7_1View" pc="268437722" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="306" parent="globals/F7_1View" pc="268437745" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="307" parent="globals/F7_1View" pc="268437754" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="28" lineNum="307" parent="globals/F7_1View" pc="268437759" symbol="refreshWeatherCache"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="571" parent="globals/F7_1View" pc="268437769" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="572" parent="globals/F7_1View" pc="268437772" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="572" parent="globals/F7_1View" pc="268437780" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="574" parent="globals/F7_1View" pc="268437781" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="574" parent="globals/F7_1View" pc="268437789" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="574" parent="globals/F7_1View" pc="268437793" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="575" parent="globals/F7_1View" pc="268437799" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="575" parent="globals/F7_1View" pc="268437807" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="575" parent="globals/F7_1View" pc="268437811" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="576" parent="globals/F7_1View" pc="268437818" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="576" parent="globals/F7_1View" pc="268437826" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="576" parent="globals/F7_1View" pc="268437830" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="577" parent="globals/F7_1View" pc="268437837" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="577" parent="globals/F7_1View" pc="268437845" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="577" parent="globals/F7_1View" pc="268437849" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="578" parent="globals/F7_1View" pc="268437856" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="578" parent="globals/F7_1View" pc="268437864" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="578" parent="globals/F7_1View" pc="268437868" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="579" parent="globals/F7_1View" pc="268437875" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="579" parent="globals/F7_1View" pc="268437883" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="579" parent="globals/F7_1View" pc="268437887" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="580" parent="globals/F7_1View" pc="268437894" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="580" parent="globals/F7_1View" pc="268437902" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="580" parent="globals/F7_1View" pc="268437906" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="581" parent="globals/F7_1View" pc="268437913" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="581" parent="globals/F7_1View" pc="268437921" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="581" parent="globals/F7_1View" pc="268437925" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="582" parent="globals/F7_1View" pc="268437932" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="582" parent="globals/F7_1View" pc="268437936" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="583" parent="globals/F7_1View" pc="268437940" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="584" parent="globals/F7_1View" pc="268437953" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="585" parent="globals/F7_1View" pc="268437960" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="586" parent="globals/F7_1View" pc="268437982" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="587" parent="globals/F7_1View" pc="268438002" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="588" parent="globals/F7_1View" pc="268438013" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="589" parent="globals/F7_1View" pc="268438020" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="590" parent="globals/F7_1View" pc="268438042" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="590" parent="globals/F7_1View" pc="268438054" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="592" parent="globals/F7_1View" pc="268438055" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="593" parent="globals/F7_1View" pc="268438076" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="593" parent="globals/F7_1View" pc="268438083" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="594" parent="globals/F7_1View" pc="268438090" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="594" parent="globals/F7_1View" pc="268438099" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="595" parent="globals/F7_1View" pc="268438108" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="596" parent="globals/F7_1View" pc="268438122" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="597" parent="globals/F7_1View" pc="268438129" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="597" parent="globals/F7_1View" pc="268438137" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="598" parent="globals/F7_1View" pc="268438141" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="598" parent="globals/F7_1View" pc="268438155" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="599" parent="globals/F7_1View" pc="268438177" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="600" parent="globals/F7_1View" pc="268438184" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="600" parent="globals/F7_1View" pc="268438198" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="29" lineNum="602" parent="globals/F7_1View" pc="268438201" symbol="drawDashedArc"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="111" parent="globals/F7_1View" pc="268438214" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="112" parent="globals/F7_1View" pc="268438217" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="113" parent="globals/F7_1View" pc="268438227" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="114" parent="globals/F7_1View" pc="268438238" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="115" parent="globals/F7_1View" pc="268438251" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="116" parent="globals/F7_1View" pc="268438304" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="117" parent="globals/F7_1View" pc="268438311" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="118" parent="globals/F7_1View" pc="268438321" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="119" parent="globals/F7_1View" pc="268438340" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="120" parent="globals/F7_1View" pc="268438350" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="120" parent="globals/F7_1View" pc="268438357" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="30" lineNum="121" parent="globals/F7_1View" pc="268438364" symbol="getMoonPhase"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="205" parent="globals/F7_1View" pc="268438370" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="206" parent="globals/F7_1View" pc="268438373" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="207" parent="globals/F7_1View" pc="268438377" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="208" parent="globals/F7_1View" pc="268438394" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="209" parent="globals/F7_1View" pc="268438425" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="210" parent="globals/F7_1View" pc="268438434" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="210" parent="globals/F7_1View" pc="268438441" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="211" parent="globals/F7_1View" pc="268438444" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="211" parent="globals/F7_1View" pc="268438451" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="213" parent="globals/F7_1View" pc="268438458" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="214" parent="globals/F7_1View" pc="268438472" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="215" parent="globals/F7_1View" pc="268438503" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="217" parent="globals/F7_1View" pc="268438509" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="218" parent="globals/F7_1View" pc="268438540" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="220" parent="globals/F7_1View" pc="268438543" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="221" parent="globals/F7_1View" pc="268438560" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="222" parent="globals/F7_1View" pc="268438565" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="222" parent="globals/F7_1View" pc="268438573" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="224" parent="globals/F7_1View" pc="268438600" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="224" parent="globals/F7_1View" pc="268438608" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="227" parent="globals/F7_1View" pc="268438642" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="228" parent="globals/F7_1View" pc="268438659" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="31" lineNum="229" parent="globals/F7_1View" pc="268438671" symbol="drawMoonFallback"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="376" parent="globals/F7_1View" pc="268438688" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="377" parent="globals/F7_1View" pc="268438691" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="380" parent="globals/F7_1View" pc="268438700" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="381" parent="globals/F7_1View" pc="268438703" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="382" parent="globals/F7_1View" pc="268438706" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="383" parent="globals/F7_1View" pc="268438709" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="384" parent="globals/F7_1View" pc="268438712" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="387" parent="globals/F7_1View" pc="268438715" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="388" parent="globals/F7_1View" pc="268438727" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="388" parent="globals/F7_1View" pc="268438733" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="391" parent="globals/F7_1View" pc="268438742" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="392" parent="globals/F7_1View" pc="268438754" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="393" parent="globals/F7_1View" pc="268438760" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="394" parent="globals/F7_1View" pc="268438769" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="395" parent="globals/F7_1View" pc="268438778" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="396" parent="globals/F7_1View" pc="268438787" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="396" parent="globals/F7_1View" pc="268438798" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="399" parent="globals/F7_1View" pc="268438807" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="400" parent="globals/F7_1View" pc="268438814" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="401" parent="globals/F7_1View" pc="268438824" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="402" parent="globals/F7_1View" pc="268438831" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="403" parent="globals/F7_1View" pc="268438838" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="406" parent="globals/F7_1View" pc="268438845" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="407" parent="globals/F7_1View" pc="268438861" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="410" parent="globals/F7_1View" pc="268438888" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="411" parent="globals/F7_1View" pc="268438926" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="412" parent="globals/F7_1View" pc="268438943" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="413" parent="globals/F7_1View" pc="268438966" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="414" parent="globals/F7_1View" pc="268438983" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="417" parent="globals/F7_1View" pc="268439011" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="418" parent="globals/F7_1View" pc="268439042" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="419" parent="globals/F7_1View" pc="268439059" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="420" parent="globals/F7_1View" pc="268439079" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="421" parent="globals/F7_1View" pc="268439096" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="424" parent="globals/F7_1View" pc="268439121" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="425" parent="globals/F7_1View" pc="268439140" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="426" parent="globals/F7_1View" pc="268439147" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="427" parent="globals/F7_1View" pc="268439157" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="428" parent="globals/F7_1View" pc="268439164" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="429" parent="globals/F7_1View" pc="268439183" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="429" parent="globals/F7_1View" pc="268439194" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="430" parent="globals/F7_1View" pc="268439201" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="431" parent="globals/F7_1View" pc="268439214" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="432" parent="globals/F7_1View" pc="268439230" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="433" parent="globals/F7_1View" pc="268439248" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="434" parent="globals/F7_1View" pc="268439255" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="435" parent="globals/F7_1View" pc="268439271" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="440" parent="globals/F7_1View" pc="268439289" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="441" parent="globals/F7_1View" pc="268439320" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="442" parent="globals/F7_1View" pc="268439337" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="443" parent="globals/F7_1View" pc="268439357" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="444" parent="globals/F7_1View" pc="268439374" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="447" parent="globals/F7_1View" pc="268439399" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="448" parent="globals/F7_1View" pc="268439405" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="449" parent="globals/F7_1View" pc="268439422" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="450" parent="globals/F7_1View" pc="268439458" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="451" parent="globals/F7_1View" pc="268439475" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="32" lineNum="454" parent="globals/F7_1View" pc="268439503" symbol="drawSportBlock"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="460" parent="globals/F7_1View" pc="268439521" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="461" parent="globals/F7_1View" pc="268439524" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="461" parent="globals/F7_1View" pc="268439533" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="462" parent="globals/F7_1View" pc="268439534" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="463" parent="globals/F7_1View" pc="268439543" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="465" parent="globals/F7_1View" pc="268439576" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="466" parent="globals/F7_1View" pc="268439587" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="466" parent="globals/F7_1View" pc="268439594" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="467" parent="globals/F7_1View" pc="268439604" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="467" parent="globals/F7_1View" pc="268439610" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="468" parent="globals/F7_1View" pc="268439613" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="469" parent="globals/F7_1View" pc="268439623" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="470" parent="globals/F7_1View" pc="268439633" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="471" parent="globals/F7_1View" pc="268439728" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="472" parent="globals/F7_1View" pc="268439768" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="473" parent="globals/F7_1View" pc="268439830" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="474" parent="globals/F7_1View" pc="268439834" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="474" parent="globals/F7_1View" pc="268439866" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="475" parent="globals/F7_1View" pc="268439870" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="475" parent="globals/F7_1View" pc="268439875" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="476" parent="globals/F7_1View" pc="268439879" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="477" parent="globals/F7_1View" pc="268439886" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="478" parent="globals/F7_1View" pc="268439925" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="478" parent="globals/F7_1View" pc="268439928" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="479" parent="globals/F7_1View" pc="268439932" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="479" parent="globals/F7_1View" pc="268439937" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="479" parent="globals/F7_1View" pc="268439953" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="480" parent="globals/F7_1View" pc="268439963" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="481" parent="globals/F7_1View" pc="268439970" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="481" parent="globals/F7_1View" pc="268439975" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="482" parent="globals/F7_1View" pc="268439982" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="483" parent="globals/F7_1View" pc="268440031" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="484" parent="globals/F7_1View" pc="268440074" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="485" parent="globals/F7_1View" pc="268440088" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="486" parent="globals/F7_1View" pc="268440116" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="487" parent="globals/F7_1View" pc="268440128" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="488" parent="globals/F7_1View" pc="268440142" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="490" parent="globals/F7_1View" pc="268440171" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="491" parent="globals/F7_1View" pc="268440176" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="493" parent="globals/F7_1View" pc="268440209" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="494" parent="globals/F7_1View" pc="268440220" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="497" parent="globals/F7_1View" pc="268440269" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="498" parent="globals/F7_1View" pc="268440279" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="499" parent="globals/F7_1View" pc="268440296" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="500" parent="globals/F7_1View" pc="268440303" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="501" parent="globals/F7_1View" pc="268440324" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="502" parent="globals/F7_1View" pc="268440351" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="33" lineNum="505" parent="globals/F7_1View" pc="268440388" symbol="drawWeather"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="34" lineNum="195" parent="globals/F7_1View" pc="268440406" symbol="blitMoon"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="34" lineNum="196" parent="globals/F7_1View" pc="268440409" symbol="blitMoon"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="34" lineNum="197" parent="globals/F7_1View" pc="268440418" symbol="blitMoon"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="34" lineNum="198" parent="globals/F7_1View" pc="268440433" symbol="blitMoon"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="34" lineNum="200" parent="globals/F7_1View" pc="268440434" symbol="blitMoon"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="34" lineNum="201" parent="globals/F7_1View" pc="268440438" symbol="blitMoon"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="532" parent="globals/F7_1View" pc="268440476" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="533" parent="globals/F7_1View" pc="268440479" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="533" parent="globals/F7_1View" pc="268440488" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="534" parent="globals/F7_1View" pc="268440489" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="535" parent="globals/F7_1View" pc="268440509" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="536" parent="globals/F7_1View" pc="268440519" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="536" parent="globals/F7_1View" pc="268440525" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="537" parent="globals/F7_1View" pc="268440528" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="539" parent="globals/F7_1View" pc="268440579" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="540" parent="globals/F7_1View" pc="268440604" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="541" parent="globals/F7_1View" pc="268440615" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="542" parent="globals/F7_1View" pc="268440629" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="543" parent="globals/F7_1View" pc="268440650" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="544" parent="globals/F7_1View" pc="268440666" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="545" parent="globals/F7_1View" pc="268440697" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="546" parent="globals/F7_1View" pc="268440728" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="547" parent="globals/F7_1View" pc="268440745" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="35" lineNum="548" parent="globals/F7_1View" pc="268440764" symbol="drawPrecipRing"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="36" lineNum="51" parent="globals/F7_1View" pc="268440782" symbol="onShow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="36" lineNum="52" parent="globals/F7_1View" pc="268440784" symbol="onShow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="36" lineNum="53" parent="globals/F7_1View" pc="268440791" symbol="onShow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="36" lineNum="54" parent="globals/F7_1View" pc="268440800" symbol="onShow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="36" lineNum="55" parent="globals/F7_1View" pc="268440809" symbol="onShow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="605" parent="globals/F7_1View" pc="268440819" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="606" parent="globals/F7_1View" pc="268440822" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="607" parent="globals/F7_1View" pc="268440838" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="607" parent="globals/F7_1View" pc="268440866" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="608" parent="globals/F7_1View" pc="268440894" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="609" parent="globals/F7_1View" pc="268440904" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="610" parent="globals/F7_1View" pc="268440962" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="611" parent="globals/F7_1View" pc="268441020" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="612" parent="globals/F7_1View" pc="268441078" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="37" lineNum="613" parent="globals/F7_1View" pc="268441136" symbol="drawTriangleMarker"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="38" lineNum="61" parent="globals/F7_1View" pc="268441202" symbol="recalcDaily"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="38" lineNum="62" parent="globals/F7_1View" pc="268441204" symbol="recalcDaily"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="38" lineNum="63" parent="globals/F7_1View" pc="268441211" symbol="recalcDaily"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="38" lineNum="64" parent="globals/F7_1View" pc="268441244" symbol="recalcDaily"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="38" lineNum="65" parent="globals/F7_1View" pc="268441257" symbol="recalcDaily"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="39" lineNum="45" parent="globals/F7_1View" pc="268441267" symbol="loadSettings"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="39" lineNum="46" parent="globals/F7_1View" pc="268441269" symbol="loadSettings"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="39" lineNum="47" parent="globals/F7_1View" pc="268441287" symbol="loadSettings"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="39" lineNum="48" parent="globals/F7_1View" pc="268441305" symbol="loadSettings"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="68" parent="globals/F7_1View" pc="268441324" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="69" parent="globals/F7_1View" pc="268441327" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="70" parent="globals/F7_1View" pc="268441339" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="71" parent="globals/F7_1View" pc="268441351" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="72" parent="globals/F7_1View" pc="268441363" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="72" parent="globals/F7_1View" pc="268441380" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="73" parent="globals/F7_1View" pc="268441381" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="74" parent="globals/F7_1View" pc="268441395" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="75" parent="globals/F7_1View" pc="268441419" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="76" parent="globals/F7_1View" pc="268441432" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="77" parent="globals/F7_1View" pc="268441444" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="78" parent="globals/F7_1View" pc="268441471" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="79" parent="globals/F7_1View" pc="268441481" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="80" parent="globals/F7_1View" pc="268441505" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="81" parent="globals/F7_1View" pc="268441529" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="82" parent="globals/F7_1View" pc="268441545" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="83" parent="globals/F7_1View" pc="268441605" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="84" parent="globals/F7_1View" pc="268441621" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="85" parent="globals/F7_1View" pc="268441637" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="86" parent="globals/F7_1View" pc="268441653" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="87" parent="globals/F7_1View" pc="268441696" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="87" parent="globals/F7_1View" pc="268441718" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="88" parent="globals/F7_1View" pc="268441725" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="89" parent="globals/F7_1View" pc="268441732" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="94" parent="globals/F7_1View" pc="268441895" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="95" parent="globals/F7_1View" pc="268441917" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="96" parent="globals/F7_1View" pc="268441942" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="97" parent="globals/F7_1View" pc="268441949" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="99" parent="globals/F7_1View" pc="268442025" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="99" parent="globals/F7_1View" pc="268442036" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="99" parent="globals/F7_1View" pc="268442048" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="99" parent="globals/F7_1View" pc="268442060" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="100" parent="globals/F7_1View" pc="268442061" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="100" parent="globals/F7_1View" pc="268442072" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="100" parent="globals/F7_1View" pc="268442084" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="100" parent="globals/F7_1View" pc="268442096" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="101" parent="globals/F7_1View" pc="268442097" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="102" parent="globals/F7_1View" pc="268442125" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="103" parent="globals/F7_1View" pc="268442154" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="104" parent="globals/F7_1View" pc="268442172" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="105" parent="globals/F7_1View" pc="268442190" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="105" parent="globals/F7_1View" pc="268442199" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="106" parent="globals/F7_1View" pc="268442218" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="106" parent="globals/F7_1View" pc="268442227" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="107" parent="globals/F7_1View" pc="268442246" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="40" lineNum="108" parent="globals/F7_1View" pc="268442288" symbol="calculateSunTimes"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="41" lineNum="679" parent="globals/F7_1View" pc="268442331" symbol="getFirstDayOfMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="41" lineNum="680" parent="globals/F7_1View" pc="268442334" symbol="getFirstDayOfMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="41" lineNum="681" parent="globals/F7_1View" pc="268442341" symbol="getFirstDayOfMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="41" lineNum="681" parent="globals/F7_1View" pc="268442349" symbol="getFirstDayOfMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="41" lineNum="682" parent="globals/F7_1View" pc="268442356" symbol="getFirstDayOfMonth"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="508" parent="globals/F7_1View" pc="268442399" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="509" parent="globals/F7_1View" pc="268442402" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="509" parent="globals/F7_1View" pc="268442408" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="510" parent="globals/F7_1View" pc="268442409" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="510" parent="globals/F7_1View" pc="268442413" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="510" parent="globals/F7_1View" pc="268442417" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="511" parent="globals/F7_1View" pc="268442421" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="511" parent="globals/F7_1View" pc="268442428" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="512" parent="globals/F7_1View" pc="268442432" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="513" parent="globals/F7_1View" pc="268442455" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="514" parent="globals/F7_1View" pc="268442599" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="515" parent="globals/F7_1View" pc="268442743" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="515" parent="globals/F7_1View" pc="268442755" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="516" parent="globals/F7_1View" pc="268442768" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="516" parent="globals/F7_1View" pc="268442780" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="517" parent="globals/F7_1View" pc="268442793" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="517" parent="globals/F7_1View" pc="268442800" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="518" parent="globals/F7_1View" pc="268442807" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="519" parent="globals/F7_1View" pc="268442832" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="519" parent="globals/F7_1View" pc="268442843" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="520" parent="globals/F7_1View" pc="268442844" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="520" parent="globals/F7_1View" pc="268442851" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="521" parent="globals/F7_1View" pc="268442858" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="521" parent="globals/F7_1View" pc="268442868" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="522" parent="globals/F7_1View" pc="268442878" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="522" parent="globals/F7_1View" pc="268442884" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="523" parent="globals/F7_1View" pc="268442888" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="42" lineNum="524" parent="globals/F7_1View" pc="268442926" symbol="drawWindArrow"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="562" parent="globals/F7_1View" pc="268443050" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="563" parent="globals/F7_1View" pc="268443052" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="563" parent="globals/F7_1View" pc="268443100" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="564" parent="globals/F7_1View" pc="268443103" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="565" parent="globals/F7_1View" pc="268443175" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="566" parent="globals/F7_1View" pc="268443178" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="567" parent="globals/F7_1View" pc="268443250" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="43" lineNum="568" parent="globals/F7_1View" pc="268443253" symbol="getThicknessByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="44" lineNum="691" parent="globals/F7_1View" pc="268443256" symbol="normDeg"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="44" lineNum="692" parent="globals/F7_1View" pc="268443258" symbol="normDeg"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="44" lineNum="692" parent="globals/F7_1View" pc="268443269" symbol="normDeg"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="44" lineNum="693" parent="globals/F7_1View" pc="268443282" symbol="normDeg"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="44" lineNum="693" parent="globals/F7_1View" pc="268443289" symbol="normDeg"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="44" lineNum="694" parent="globals/F7_1View" pc="268443302" symbol="normDeg"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="45" lineNum="41" parent="globals/F7_1View" pc="268443305" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="45" lineNum="42" parent="globals/F7_1View" pc="268443307" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="330" parent="globals/F7_1View" pc="268443320" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="331" parent="globals/F7_1View" pc="268443323" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="332" parent="globals/F7_1View" pc="268443335" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="333" parent="globals/F7_1View" pc="268443352" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="334" parent="globals/F7_1View" pc="268443361" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="335" parent="globals/F7_1View" pc="268443369" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="336" parent="globals/F7_1View" pc="268443391" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="337" parent="globals/F7_1View" pc="268443413" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="338" parent="globals/F7_1View" pc="268443423" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="339" parent="globals/F7_1View" pc="268443440" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="340" parent="globals/F7_1View" pc="268443447" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="340" parent="globals/F7_1View" pc="268443451" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="341" parent="globals/F7_1View" pc="268443455" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="343" parent="globals/F7_1View" pc="268443468" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="344" parent="globals/F7_1View" pc="268443479" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="346" parent="globals/F7_1View" pc="268443512" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="347" parent="globals/F7_1View" pc="268443528" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="348" parent="globals/F7_1View" pc="268443550" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="349" parent="globals/F7_1View" pc="268443558" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="350" parent="globals/F7_1View" pc="268443575" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="351" parent="globals/F7_1View" pc="268443605" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="355" parent="globals/F7_1View" pc="268443645" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="355" parent="globals/F7_1View" pc="268443649" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="356" parent="globals/F7_1View" pc="268443653" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="357" parent="globals/F7_1View" pc="268443665" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="358" parent="globals/F7_1View" pc="268443681" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="359" parent="globals/F7_1View" pc="268443691" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="360" parent="globals/F7_1View" pc="268443699" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="361" parent="globals/F7_1View" pc="268443716" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="363" parent="globals/F7_1View" pc="268443752" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="365" parent="globals/F7_1View" pc="268443785" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="366" parent="globals/F7_1View" pc="268443816" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="367" parent="globals/F7_1View" pc="268443823" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="367" parent="globals/F7_1View" pc="268443831" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="367" parent="globals/F7_1View" pc="268443834" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="46" lineNum="369" parent="globals/F7_1View" pc="268443851" symbol="drawCalendar"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="47" lineNum="320" parent="globals/F7_1View" pc="268443869" symbol="drawSunset"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="47" lineNum="321" parent="globals/F7_1View" pc="268443871" symbol="drawSunset"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="47" lineNum="322" parent="globals/F7_1View" pc="268443888" symbol="drawSunset"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="47" lineNum="323" parent="globals/F7_1View" pc="268443912" symbol="drawSunset"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="47" lineNum="324" parent="globals/F7_1View" pc="268443948" symbol="drawSunset"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="619" parent="globals/F7_1View" pc="268443985" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="620" parent="globals/F7_1View" pc="268443988" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="621" parent="globals/F7_1View" pc="268444004" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="623" parent="globals/F7_1View" pc="268444012" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="624" parent="globals/F7_1View" pc="268444021" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="625" parent="globals/F7_1View" pc="268444030" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="626" parent="globals/F7_1View" pc="268444042" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="628" parent="globals/F7_1View" pc="268444059" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="628" parent="globals/F7_1View" pc="268444074" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="630" parent="globals/F7_1View" pc="268444085" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="631" parent="globals/F7_1View" pc="268444103" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="633" parent="globals/F7_1View" pc="268444138" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="636" parent="globals/F7_1View" pc="268444149" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="640" parent="globals/F7_1View" pc="268444164" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="641" parent="globals/F7_1View" pc="268444211" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="642" parent="globals/F7_1View" pc="268444247" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="644" parent="globals/F7_1View" pc="268444280" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="646" parent="globals/F7_1View" pc="268444304" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="646" parent="globals/F7_1View" pc="268444308" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="647" parent="globals/F7_1View" pc="268444312" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="648" parent="globals/F7_1View" pc="268444338" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="649" parent="globals/F7_1View" pc="268444355" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="651" parent="globals/F7_1View" pc="268444386" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="653" parent="globals/F7_1View" pc="268444404" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="654" parent="globals/F7_1View" pc="268444430" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="655" parent="globals/F7_1View" pc="268444447" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="657" parent="globals/F7_1View" pc="268444477" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="658" parent="globals/F7_1View" pc="268444494" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="660" parent="globals/F7_1View" pc="268444517" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="663" parent="globals/F7_1View" pc="268444530" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="664" parent="globals/F7_1View" pc="268444541" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="666" parent="globals/F7_1View" pc="268444560" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="669" parent="globals/F7_1View" pc="268444576" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="670" parent="globals/F7_1View" pc="268444593" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="672" parent="globals/F7_1View" pc="268444615" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="48" lineNum="673" parent="globals/F7_1View" pc="268444632" symbol="onUpdate"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="129" parent="globals/F7_1View" pc="268444658" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="130" parent="globals/F7_1View" pc="268444661" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="130" parent="globals/F7_1View" pc="268444681" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="132" parent="globals/F7_1View" pc="268444682" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="134" parent="globals/F7_1View" pc="268444686" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="135" parent="globals/F7_1View" pc="268444702" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="136" parent="globals/F7_1View" pc="268444710" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="139" parent="globals/F7_1View" pc="268444711" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="148" parent="globals/F7_1View" pc="268444751" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="149" parent="globals/F7_1View" pc="268444770" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="150" parent="globals/F7_1View" pc="268444784" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="152" parent="globals/F7_1View" pc="268444792" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="153" parent="globals/F7_1View" pc="268444799" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="154" parent="globals/F7_1View" pc="268444806" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="157" parent="globals/F7_1View" pc="268444810" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="158" parent="globals/F7_1View" pc="268444827" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="159" parent="globals/F7_1View" pc="268444858" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="160" parent="globals/F7_1View" pc="268444867" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="160" parent="globals/F7_1View" pc="268444874" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="162" parent="globals/F7_1View" pc="268444877" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="163" parent="globals/F7_1View" pc="268444884" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="169" parent="globals/F7_1View" pc="268444891" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="171" parent="globals/F7_1View" pc="268444905" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="172" parent="globals/F7_1View" pc="268444936" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="175" parent="globals/F7_1View" pc="268444942" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="176" parent="globals/F7_1View" pc="268444973" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="179" parent="globals/F7_1View" pc="268444976" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="180" parent="globals/F7_1View" pc="268444993" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="181" parent="globals/F7_1View" pc="268444998" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="181" parent="globals/F7_1View" pc="268445006" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="183" parent="globals/F7_1View" pc="268445033" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="183" parent="globals/F7_1View" pc="268445041" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="188" parent="globals/F7_1View" pc="268445075" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="189" parent="globals/F7_1View" pc="268445092" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="190" parent="globals/F7_1View" pc="268445104" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="49" lineNum="192" parent="globals/F7_1View" pc="268445120" symbol="ensureMoonBuffer"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="551" parent="globals/F7_1View" pc="268445130" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="552" parent="globals/F7_1View" pc="268445132" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="554" parent="globals/F7_1View" pc="268445252" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="555" parent="globals/F7_1View" pc="268445258" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="555" parent="globals/F7_1View" pc="268445298" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="556" parent="globals/F7_1View" pc="268445303" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="556" parent="globals/F7_1View" pc="268445359" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="557" parent="globals/F7_1View" pc="268445365" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="558" parent="globals/F7_1View" pc="268445445" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1View.mc" id="50" lineNum="559" parent="globals/F7_1View" pc="268445449" symbol="getColorByCondition"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="172" parent="globals/WeekendColorPicker" pc="268445452" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="173" parent="globals/WeekendColorPicker" pc="268445455" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="175" parent="globals/WeekendColorPicker" pc="268445485" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="176" parent="globals/WeekendColorPicker" pc="268445504" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="176" parent="globals/WeekendColorPicker" pc="268445510" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="178" parent="globals/WeekendColorPicker" pc="268445513" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="179" parent="globals/WeekendColorPicker" pc="268445538" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="180" parent="globals/WeekendColorPicker" pc="268445589" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="51" lineNum="183" parent="globals/WeekendColorPicker" pc="268445642" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="52" lineNum="203" parent="globals/WeekendColorDelegate" pc="268445659" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="52" lineNum="204" parent="globals/WeekendColorDelegate" pc="268445661" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="53" lineNum="191" parent="globals/WeekendColorDelegate" pc="268445677" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="53" lineNum="192" parent="globals/WeekendColorDelegate" pc="268445679" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="53" lineNum="193" parent="globals/WeekendColorDelegate" pc="268445691" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="54" lineNum="196" parent="globals/WeekendColorDelegate" pc="268445701" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="54" lineNum="197" parent="globals/WeekendColorDelegate" pc="268445704" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="54" lineNum="198" parent="globals/WeekendColorDelegate" pc="268445713" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="54" lineNum="199" parent="globals/WeekendColorDelegate" pc="268445733" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="54" lineNum="200" parent="globals/WeekendColorDelegate" pc="268445760" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="55" lineNum="162" parent="globals/WeatherIntervalDelegate" pc="268445776" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="55" lineNum="163" parent="globals/WeatherIntervalDelegate" pc="268445778" symbol="onBack"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="56" lineNum="149" parent="globals/WeatherIntervalDelegate" pc="268445794" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="56" lineNum="150" parent="globals/WeatherIntervalDelegate" pc="268445796" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="56" lineNum="151" parent="globals/WeatherIntervalDelegate" pc="268445808" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="57" lineNum="154" parent="globals/WeatherIntervalDelegate" pc="268445818" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="57" lineNum="155" parent="globals/WeatherIntervalDelegate" pc="268445821" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="57" lineNum="156" parent="globals/WeatherIntervalDelegate" pc="268445830" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="57" lineNum="158" parent="globals/WeatherIntervalDelegate" pc="268445850" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="57" lineNum="159" parent="globals/WeatherIntervalDelegate" pc="268445883" symbol="onSelect"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="128" parent="globals/WeatherIntervalPicker" pc="268445899" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="129" parent="globals/WeatherIntervalPicker" pc="268445902" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="131" parent="globals/WeatherIntervalPicker" pc="268445932" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="132" parent="globals/WeatherIntervalPicker" pc="268445951" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="132" parent="globals/WeatherIntervalPicker" pc="268445957" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="134" parent="globals/WeatherIntervalPicker" pc="268445961" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="136" parent="globals/WeatherIntervalPicker" pc="268445968" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="137" parent="globals/WeatherIntervalPicker" pc="268445984" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="138" parent="globals/WeatherIntervalPicker" pc="268446019" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1Settings.mc" id="58" lineNum="141" parent="globals/WeatherIntervalPicker" pc="268446072" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1App.mc" id="59" lineNum="16" parent="globals/F7_1App" pc="268446089" symbol="getSettingsView"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1App.mc" id="59" lineNum="17" parent="globals/F7_1App" pc="268446091" symbol="getSettingsView"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1App.mc" id="60" lineNum="11" parent="globals/F7_1App" pc="268446138" symbol="getInitialView"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1App.mc" id="60" lineNum="12" parent="globals/F7_1App" pc="268446140" symbol="getInitialView"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1App.mc" id="61" lineNum="7" parent="globals/F7_1App" pc="268446166" symbol="initialize"/>
+        <entry filename="D:\\Garmin\\7pro WF1\\F7-1\\source\\F7_1App.mc" id="61" lineNum="8" parent="globals/F7_1App" pc="268446168" symbol="initialize"/>
+        <entry filename="d:\\Garmin\\7pro WF1\\F7-1\\.vscode\\gen\\006-B4375-00\\source\\Rez.mcgen" id="62" lineNum="13" parent="globals/Rez/Layouts" pc="268446181" symbol="MainLayout"/>
+        <entry filename="d:\\Garmin\\7pro WF1\\F7-1\\.vscode\\gen\\006-B4375-00\\source\\Rez.mcgen" id="62" lineNum="14" parent="globals/Rez/Layouts" pc="268446191" symbol="MainLayout"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry id="55" method="true" symbol="recalcDaily"/>
+        <entry id="37" method="true" symbol="drawSunset"/>
+        <entry id="27" method="true" symbol="blitMoon"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="39" method="true" symbol="drawWeather"/>
+        <entry id="8" object="true" symbol="BottomBlockDelegate"/>
+        <entry id="63" method="true" symbol="MainLayout"/>
+        <entry id="20" symbol="WEATHER_INTERVALS"/>
+        <entry field="true" id="70" symbol="Off"/>
+        <entry id="2" module="true" symbol="globals/AppSettings/&lt;statics&gt;"/>
+        <entry id="54" method="true" symbol="normHours"/>
+        <entry id="11" object="true" symbol="F7_1View"/>
+        <entry id="8390424" module="true" symbol="Storage"/>
+        <entry id="12" object="true" symbol="SettingsMenuDelegate"/>
+        <entry id="7" object="true" symbol="AppSettings"/>
+        <entry field="true" id="58" symbol="setStr"/>
+        <entry id="21" symbol="WEEKEND_COLORS"/>
+        <entry id="53" method="true" symbol="normDeg"/>
+        <entry id="8388924" module="true" symbol="Gregorian"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry field="true" id="59" symbol="settingBottomBlock"/>
+        <entry id="46" method="true" symbol="getThicknessByCondition"/>
+        <entry id="17" object="true" symbol="WeekendColorPicker"/>
+        <entry field="true" id="65" symbol="AppName"/>
+        <entry id="8388633" module="true" symbol="ActivityMonitor"/>
+        <entry id="6" module="true" symbol="globals/Rez/Strings"/>
+        <entry id="8388631" module="true" symbol="Activity"/>
+        <entry field="true" id="48" symbol="lastMoonDay"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="8389081" method="true" symbol="onBack"/>
+        <entry id="56" method="true" symbol="refreshWeatherCache"/>
+        <entry id="3" module="true" symbol="globals/Rez"/>
+        <entry id="30" method="true" symbol="calculateSunTimes"/>
+        <entry id="32" method="true" symbol="drawDashedArc"/>
+        <entry id="15" object="true" symbol="WeatherIntervalPicker"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry id="31" method="true" symbol="drawCalendar"/>
+        <entry field="true" id="74" symbol="Sunset"/>
+        <entry id="8391489" module="true" symbol="Weather"/>
+        <entry field="true" id="51" symbol="moonBuffer"/>
+        <entry field="true" id="29" symbol="cachedWeatherBlocks"/>
+        <entry id="45" method="true" symbol="getMoonPhase"/>
+        <entry id="24" method="true" symbol="getWeatherInterval"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry id="78" symbol="bottomBlock"/>
+        <entry field="true" id="8389067" symbol="height"/>
+        <entry id="36" method="true" symbol="drawSunrise"/>
+        <entry id="5" module="true" symbol="globals/Rez/Layouts"/>
+        <entry id="38" method="true" symbol="drawTriangleMarker"/>
+        <entry field="true" id="8389066" symbol="width"/>
+        <entry id="42" method="true" symbol="getColorByCondition"/>
+        <entry id="16" object="true" symbol="WeekendColorDelegate"/>
+        <entry id="77" symbol="weekendColor"/>
+        <entry field="true" id="67" symbol="Date"/>
+        <entry field="true" id="57" symbol="riseStr"/>
+        <entry id="41" method="true" symbol="ensureMoonBuffer"/>
+        <entry id="14" object="true" symbol="WeatherIntervalDelegate"/>
+        <entry id="4" module="true" symbol="globals/Rez/Drawables"/>
+        <entry field="true" id="64" symbol="Alarm"/>
+        <entry field="true" id="71" symbol="On"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry id="8389619" method="true" symbol="onSelect"/>
+        <entry id="8388645" module="true" symbol="Time"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="10" object="true" symbol="F7_1App"/>
+        <entry id="8391770" method="true" symbol="createBufferedBitmap"/>
+        <entry field="true" id="75" symbol="TillSunset"/>
+        <entry id="22" symbol="WEEKEND_COLOR_NAMES"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry field="true" id="62" symbol="LauncherIcon"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry field="true" id="73" symbol="Sunrise"/>
+        <entry field="true" id="72" symbol="Phone"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry id="43" method="true" symbol="getDaysInMonth"/>
+        <entry id="23" method="true" symbol="getBottomBlock"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry field="true" id="66" symbol="Battery"/>
+        <entry field="true" id="8389872" symbol="floorsClimbed"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry id="34" method="true" symbol="drawPrecipRing"/>
+        <entry id="35" method="true" symbol="drawSportBlock"/>
+        <entry field="true" id="49" symbol="lastWeatherMin"/>
+        <entry field="true" id="61" symbol="settingWeekendColor"/>
+        <entry id="8388641" module="true" symbol="Math"/>
+        <entry id="8391703" method="true" symbol="getSettingsView"/>
+        <entry id="19" symbol="BLOCK_NAMES"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="13" object="true" symbol="SettingsMenuView"/>
+        <entry id="9" object="true" symbol="BottomBlockPicker"/>
+        <entry field="true" id="68" symbol="Day"/>
+        <entry id="40" method="true" symbol="drawWindArrow"/>
+        <entry field="true" id="52" symbol="moonPhase"/>
+        <entry id="76" symbol="weatherInterval"/>
+        <entry field="true" id="60" symbol="settingWeatherInterval"/>
+        <entry field="true" id="47" symbol="lastCalcDay"/>
+        <entry id="33" method="true" symbol="drawMoonFallback"/>
+        <entry id="26" module="true" symbol="Layouts"/>
+        <entry field="true" id="28" symbol="cachedPrecipData"/>
+        <entry id="50" method="true" symbol="loadSettings"/>
+        <entry id="25" method="true" symbol="getWeekendColor"/>
+        <entry id="8388642" module="true" symbol="Position"/>
+        <entry field="true" id="69" symbol="Month"/>
+        <entry id="44" method="true" symbol="getFirstDayOfMonth"/>
+        <entry field="true" id="18" symbol="_parentItem"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+        <entry field="true" id="8389642" symbol="title"/>
+    </symbolTable>
+    <localVars>
+        <entry endPc="268435815" name="currentIdx" stackId="1" startPc="268435613"/>
+        <entry endPc="268435799" name="i" stackId="2" startPc="268435696"/>
+        <entry endPc="268435789" name="label" stackId="3" startPc="268435696"/>
+        <entry arg="true" endPc="268436056" name="item" stackId="1" startPc="268435850"/>
+        <entry endPc="268436055" name="id" stackId="2" startPc="268435853"/>
+        <entry arg="true" endPc="268436098" name="parentItem" stackId="1" startPc="268436075"/>
+        <entry arg="true" endPc="268436173" name="item" stackId="1" startPc="268436099"/>
+        <entry endPc="268436172" name="idx" stackId="2" startPc="268436102"/>
+        <entry endPc="268436480" name="wIdx" stackId="1" startPc="268436177"/>
+        <entry endPc="268436480" name="cIdx" stackId="2" startPc="268436177"/>
+        <entry endPc="268436480" name="bIdx" stackId="3" startPc="268436177"/>
+        <entry arg="true" endPc="268436748" name="dc" stackId="1" startPc="268436645"/>
+        <entry arg="true" endPc="268436748" name="x" stackId="2" startPc="268436645"/>
+        <entry arg="true" endPc="268436748" name="y" stackId="3" startPc="268436645"/>
+        <entry arg="true" endPc="268436748" name="size" stackId="4" startPc="268436645"/>
+        <entry arg="true" endPc="268436806" name="year" stackId="1" startPc="268436749"/>
+        <entry arg="true" endPc="268436806" name="month" stackId="2" startPc="268436749"/>
+        <entry arg="true" endPc="268436855" name="h" stackId="1" startPc="268436807"/>
+        <entry arg="true" endPc="268437768" name="nowMin" stackId="1" startPc="268436856"/>
+        <entry endPc="268437767" name="cur" stackId="2" startPc="268436859"/>
+        <entry endPc="268437767" name="hourly" stackId="3" startPc="268436859"/>
+        <entry endPc="268437767" name="gotSomething" stackId="4" startPc="268436859"/>
+        <entry endPc="268437767" name="newBlocks" stackId="5" startPc="268436859"/>
+        <entry endPc="268437294" name="now" stackId="6" startPc="268437003"/>
+        <entry endPc="268437294" name="found3" stackId="7" startPc="268437003"/>
+        <entry endPc="268437294" name="found6" stackId="8" startPc="268437003"/>
+        <entry endPc="268437291" name="i" stackId="9" startPc="268437044"/>
+        <entry endPc="268437281" name="h" stackId="10" startPc="268437044"/>
+        <entry endPc="268437281" name="diff" stackId="11" startPc="268437044"/>
+        <entry endPc="268437767" name="newPrecip" stackId="12" startPc="268436859"/>
+        <entry endPc="268437468" name="ti" stackId="13" startPc="268437367"/>
+        <entry endPc="268437690" name="hh" stackId="16" startPc="268437538"/>
+        <entry endPc="268437690" name="ti" stackId="17" startPc="268437538"/>
+        <entry arg="true" endPc="268438213" name="dc" stackId="1" startPc="268437769"/>
+        <entry arg="true" endPc="268438213" name="cx" stackId="2" startPc="268437769"/>
+        <entry arg="true" endPc="268438213" name="cy" stackId="3" startPc="268437769"/>
+        <entry arg="true" endPc="268438213" name="radius" stackId="4" startPc="268437769"/>
+        <entry arg="true" endPc="268438213" name="hour" stackId="5" startPc="268437769"/>
+        <entry arg="true" endPc="268438213" name="condition" stackId="6" startPc="268437769"/>
+        <entry arg="true" endPc="268438213" name="precipChance" stackId="7" startPc="268437769"/>
+        <entry endPc="268438212" name="dashPx" stackId="8" startPc="268437772"/>
+        <entry endPc="268438212" name="gapPx" stackId="9" startPc="268437772"/>
+        <entry endPc="268438212" name="arcFrom" stackId="10" startPc="268437772"/>
+        <entry endPc="268438212" name="arcTo" stackId="11" startPc="268437772"/>
+        <entry endPc="268438212" name="degPerPx" stackId="12" startPc="268437772"/>
+        <entry endPc="268438212" name="dashDeg" stackId="13" startPc="268437772"/>
+        <entry endPc="268438212" name="gapDeg" stackId="14" startPc="268437772"/>
+        <entry endPc="268438212" name="cur" stackId="15" startPc="268437772"/>
+        <entry endPc="268438212" name="target" stackId="16" startPc="268437772"/>
+        <entry arg="true" endPc="268438369" name="year" stackId="1" startPc="268438214"/>
+        <entry arg="true" endPc="268438369" name="month" stackId="2" startPc="268438214"/>
+        <entry arg="true" endPc="268438369" name="day" stackId="3" startPc="268438214"/>
+        <entry arg="true" endPc="268438687" name="dc" stackId="1" startPc="268438370"/>
+        <entry arg="true" endPc="268438687" name="cx" stackId="2" startPc="268438370"/>
+        <entry arg="true" endPc="268438687" name="cy" stackId="3" startPc="268438370"/>
+        <entry endPc="268438686" name="r" stackId="4" startPc="268438373"/>
+        <entry endPc="268438641" name="dy" stackId="5" startPc="268438394"/>
+        <entry endPc="268438631" name="dxF" stackId="6" startPc="268438394"/>
+        <entry endPc="268438631" name="dx" stackId="7" startPc="268438394"/>
+        <entry endPc="268438631" name="xL" stackId="8" startPc="268438394"/>
+        <entry endPc="268438631" name="xR" stackId="9" startPc="268438394"/>
+        <entry endPc="268438631" name="termX" stackId="10" startPc="268438394"/>
+        <entry endPc="268438631" name="lightOnRight" stackId="11" startPc="268438394"/>
+        <entry arg="true" endPc="268439520" name="dc" stackId="1" startPc="268438688"/>
+        <entry arg="true" endPc="268439520" name="startY" stackId="2" startPc="268438688"/>
+        <entry endPc="268439519" name="w" stackId="3" startPc="268438691"/>
+        <entry endPc="268439519" name="hr" stackId="4" startPc="268438691"/>
+        <entry endPc="268439519" name="steps" stackId="5" startPc="268438691"/>
+        <entry endPc="268439519" name="stepsGoal" stackId="6" startPc="268438691"/>
+        <entry endPc="268439519" name="calories" stackId="7" startPc="268438691"/>
+        <entry endPc="268439519" name="floors" stackId="8" startPc="268438691"/>
+        <entry endPc="268439519" name="actInfo" stackId="9" startPc="268438691"/>
+        <entry endPc="268439519" name="amInfo" stackId="10" startPc="268438691"/>
+        <entry endPc="268439519" name="col1" stackId="11" startPc="268438691"/>
+        <entry endPc="268439519" name="col2" stackId="12" startPc="268438691"/>
+        <entry endPc="268439519" name="row1" stackId="13" startPc="268438691"/>
+        <entry endPc="268439519" name="row2" stackId="14" startPc="268438691"/>
+        <entry endPc="268439519" name="row3" stackId="15" startPc="268438691"/>
+        <entry endPc="268439519" name="hrStr" stackId="16" startPc="268438691"/>
+        <entry endPc="268439519" name="stepsStr" stackId="17" startPc="268438691"/>
+        <entry endPc="268439288" name="barW" stackId="18" startPc="268439140"/>
+        <entry endPc="268439288" name="barX" stackId="19" startPc="268439140"/>
+        <entry endPc="268439288" name="barY" stackId="20" startPc="268439140"/>
+        <entry endPc="268439288" name="pct" stackId="21" startPc="268439140"/>
+        <entry endPc="268439288" name="fillW" stackId="22" startPc="268439140"/>
+        <entry endPc="268439519" name="calStr" stackId="23" startPc="268438691"/>
+        <entry arg="true" endPc="268440405" name="dc" stackId="1" startPc="268439521"/>
+        <entry arg="true" endPc="268440405" name="y" stackId="2" startPc="268439521"/>
+        <entry endPc="268440404" name="w" stackId="3" startPc="268439524"/>
+        <entry endPc="268440404" name="xPos" stackId="4" startPc="268439524"/>
+        <entry endPc="268440387" name="i" stackId="5" startPc="268439587"/>
+        <entry endPc="268440377" name="bx" stackId="6" startPc="268439587"/>
+        <entry endPc="268440377" name="b" stackId="7" startPc="268439587"/>
+        <entry endPc="268440377" name="cond" stackId="8" startPc="268439587"/>
+        <entry endPc="268440377" name="precip" stackId="9" startPc="268439587"/>
+        <entry endPc="268440377" name="isRain" stackId="10" startPc="268439587"/>
+        <entry endPc="268440377" name="isSnow" stackId="11" startPc="268439587"/>
+        <entry endPc="268440377" name="isThunder" stackId="12" startPc="268439587"/>
+        <entry endPc="268440377" name="thickness" stackId="13" startPc="268439587"/>
+        <entry endPc="268440377" name="colW" stackId="14" startPc="268439587"/>
+        <entry endPc="268440377" name="hasPrecip" stackId="15" startPc="268439587"/>
+        <entry endPc="268440377" name="lineW" stackId="16" startPc="268439587"/>
+        <entry endPc="268440377" name="startX" stackId="17" startPc="268439587"/>
+        <entry endPc="268440377" name="tempColor" stackId="18" startPc="268439587"/>
+        <entry endPc="268440377" name="tempStr" stackId="19" startPc="268439587"/>
+        <entry endPc="268440377" name="windStr" stackId="20" startPc="268439587"/>
+        <entry endPc="268440377" name="botY" stackId="22" startPc="268440279"/>
+        <entry arg="true" endPc="268440475" name="dc" stackId="1" startPc="268440406"/>
+        <entry arg="true" endPc="268440475" name="cx" stackId="2" startPc="268440406"/>
+        <entry arg="true" endPc="268440475" name="cy" stackId="3" startPc="268440406"/>
+        <entry endPc="268440474" name="size" stackId="4" startPc="268440409"/>
+        <entry arg="true" endPc="268440781" name="dc" stackId="1" startPc="268440476"/>
+        <entry arg="true" endPc="268440781" name="cx" stackId="2" startPc="268440476"/>
+        <entry arg="true" endPc="268440781" name="cy" stackId="3" startPc="268440476"/>
+        <entry arg="true" endPc="268440781" name="radius" stackId="4" startPc="268440476"/>
+        <entry endPc="268440578" name="i" stackId="5" startPc="268440509"/>
+        <entry endPc="268440568" name="entry" stackId="6" startPc="268440509"/>
+        <entry endPc="268440780" name="nowInfo" stackId="7" startPc="268440479"/>
+        <entry endPc="268440780" name="hourIn12" stackId="8" startPc="268440479"/>
+        <entry endPc="268440780" name="totalMin" stackId="9" startPc="268440479"/>
+        <entry endPc="268440780" name="markerDeg" stackId="10" startPc="268440479"/>
+        <entry endPc="268440780" name="markerRad" stackId="11" startPc="268440479"/>
+        <entry endPc="268440780" name="mx" stackId="12" startPc="268440479"/>
+        <entry endPc="268440780" name="my" stackId="13" startPc="268440479"/>
+        <entry arg="true" endPc="268441201" name="dc" stackId="1" startPc="268440819"/>
+        <entry arg="true" endPc="268441201" name="cx" stackId="2" startPc="268440819"/>
+        <entry arg="true" endPc="268441201" name="cy" stackId="3" startPc="268440819"/>
+        <entry arg="true" endPc="268441201" name="angleDeg" stackId="4" startPc="268440819"/>
+        <entry arg="true" endPc="268441201" name="size" stackId="5" startPc="268440819"/>
+        <entry endPc="268441200" name="rad" stackId="6" startPc="268440822"/>
+        <entry endPc="268441200" name="tipX" stackId="7" startPc="268440822"/>
+        <entry endPc="268441200" name="tipY" stackId="8" startPc="268440822"/>
+        <entry endPc="268441200" name="perpRad" stackId="9" startPc="268440822"/>
+        <entry endPc="268441200" name="b1x" stackId="10" startPc="268440822"/>
+        <entry endPc="268441200" name="b1y" stackId="11" startPc="268440822"/>
+        <entry endPc="268441200" name="b2x" stackId="12" startPc="268440822"/>
+        <entry endPc="268441200" name="b2y" stackId="13" startPc="268440822"/>
+        <entry arg="true" endPc="268441266" name="info" stackId="1" startPc="268441202"/>
+        <entry endPc="268442329" name="posInfo" stackId="1" startPc="268441327"/>
+        <entry endPc="268442329" name="latLon" stackId="2" startPc="268441327"/>
+        <entry endPc="268442329" name="lat" stackId="3" startPc="268441327"/>
+        <entry endPc="268442329" name="lonDeg" stackId="4" startPc="268441327"/>
+        <entry endPc="268442329" name="now" stackId="5" startPc="268441327"/>
+        <entry endPc="268442329" name="jd" stackId="6" startPc="268441327"/>
+        <entry endPc="268442329" name="n" stackId="7" startPc="268441327"/>
+        <entry endPc="268442329" name="L" stackId="8" startPc="268441327"/>
+        <entry endPc="268442329" name="g" stackId="9" startPc="268441327"/>
+        <entry endPc="268442329" name="gRad" stackId="10" startPc="268441327"/>
+        <entry endPc="268442329" name="lambda" stackId="11" startPc="268441327"/>
+        <entry endPc="268442329" name="epsilon" stackId="12" startPc="268441327"/>
+        <entry endPc="268442329" name="epsRad" stackId="13" startPc="268441327"/>
+        <entry endPc="268442329" name="lamRad" stackId="14" startPc="268441327"/>
+        <entry endPc="268442329" name="decl" stackId="15" startPc="268441327"/>
+        <entry endPc="268442329" name="y" stackId="16" startPc="268441327"/>
+        <entry endPc="268442329" name="e" stackId="17" startPc="268441327"/>
+        <entry endPc="268442329" name="eq" stackId="18" startPc="268441327"/>
+        <entry endPc="268442329" name="solarNoon" stackId="19" startPc="268441327"/>
+        <entry endPc="268442329" name="zenithRad" stackId="20" startPc="268441327"/>
+        <entry endPc="268442329" name="cosH" stackId="21" startPc="268441327"/>
+        <entry endPc="268442329" name="Hhours" stackId="22" startPc="268441327"/>
+        <entry endPc="268442329" name="tzOffset" stackId="23" startPc="268441327"/>
+        <entry endPc="268442329" name="sunrise" stackId="24" startPc="268441327"/>
+        <entry endPc="268442329" name="sunset" stackId="25" startPc="268441327"/>
+        <entry endPc="268442329" name="rH" stackId="26" startPc="268441327"/>
+        <entry endPc="268442329" name="rM" stackId="27" startPc="268441327"/>
+        <entry endPc="268442329" name="sH" stackId="28" startPc="268441327"/>
+        <entry endPc="268442329" name="sM" stackId="29" startPc="268441327"/>
+        <entry arg="true" endPc="268442398" name="year" stackId="1" startPc="268442331"/>
+        <entry arg="true" endPc="268442398" name="month" stackId="2" startPc="268442331"/>
+        <entry arg="true" endPc="268443049" name="dc" stackId="1" startPc="268442399"/>
+        <entry arg="true" endPc="268443049" name="cx" stackId="2" startPc="268442399"/>
+        <entry arg="true" endPc="268443049" name="cy" stackId="3" startPc="268442399"/>
+        <entry arg="true" endPc="268443049" name="bearingDeg" stackId="4" startPc="268442399"/>
+        <entry endPc="268443048" name="size" stackId="5" startPc="268442402"/>
+        <entry endPc="268443048" name="headLen" stackId="6" startPc="268442402"/>
+        <entry endPc="268443048" name="headWidth" stackId="7" startPc="268442402"/>
+        <entry endPc="268443048" name="h" stackId="8" startPc="268442402"/>
+        <entry endPc="268443048" name="d" stackId="9" startPc="268442402"/>
+        <entry endPc="268443048" name="dir" stackId="10" startPc="268442402"/>
+        <entry endPc="268443048" name="tips" stackId="11" startPc="268442402"/>
+        <entry endPc="268443048" name="tails" stackId="12" startPc="268442402"/>
+        <entry endPc="268443048" name="tipX" stackId="13" startPc="268442402"/>
+        <entry endPc="268443048" name="tipY" stackId="14" startPc="268442402"/>
+        <entry endPc="268443048" name="tailX" stackId="15" startPc="268442402"/>
+        <entry endPc="268443048" name="tailY" stackId="16" startPc="268442402"/>
+        <entry endPc="268443048" name="dx" stackId="17" startPc="268442402"/>
+        <entry endPc="268443048" name="dy" stackId="18" startPc="268442402"/>
+        <entry endPc="268443048" name="len" stackId="19" startPc="268442402"/>
+        <entry endPc="268443048" name="ux" stackId="20" startPc="268442402"/>
+        <entry endPc="268443048" name="uy" stackId="21" startPc="268442402"/>
+        <entry endPc="268443048" name="baseX" stackId="22" startPc="268442402"/>
+        <entry endPc="268443048" name="baseY" stackId="23" startPc="268442402"/>
+        <entry endPc="268443048" name="px" stackId="24" startPc="268442402"/>
+        <entry endPc="268443048" name="py" stackId="25" startPc="268442402"/>
+        <entry arg="true" endPc="268443255" name="cond" stackId="1" startPc="268443050"/>
+        <entry arg="true" endPc="268443304" name="d" stackId="1" startPc="268443256"/>
+        <entry arg="true" endPc="268443868" name="dc" stackId="1" startPc="268443320"/>
+        <entry arg="true" endPc="268443868" name="startY" stackId="2" startPc="268443320"/>
+        <entry endPc="268443867" name="now" stackId="3" startPc="268443323"/>
+        <entry endPc="268443867" name="info" stackId="4" startPc="268443323"/>
+        <entry endPc="268443867" name="w" stackId="5" startPc="268443323"/>
+        <entry endPc="268443867" name="today" stackId="6" startPc="268443323"/>
+        <entry endPc="268443867" name="firstDow" stackId="7" startPc="268443323"/>
+        <entry endPc="268443867" name="daysInMonth" stackId="8" startPc="268443323"/>
+        <entry endPc="268443867" name="firstDowMon" stackId="9" startPc="268443323"/>
+        <entry endPc="268443867" name="todayDow" stackId="10" startPc="268443323"/>
+        <entry endPc="268443867" name="days" stackId="11" startPc="268443323"/>
+        <entry endPc="268443867" name="cellW" stackId="12" startPc="268443323"/>
+        <entry endPc="268443867" name="rowH" stackId="13" startPc="268443323"/>
+        <entry endPc="268443867" name="offsetX" stackId="14" startPc="268443323"/>
+        <entry endPc="268443644" name="i" stackId="15" startPc="268443479"/>
+        <entry endPc="268443634" name="textX" stackId="16" startPc="268443479"/>
+        <entry endPc="268443867" name="col" stackId="17" startPc="268443323"/>
+        <entry endPc="268443867" name="row" stackId="18" startPc="268443323"/>
+        <entry endPc="268443850" name="d" stackId="19" startPc="268443665"/>
+        <entry endPc="268443840" name="x" stackId="20" startPc="268443665"/>
+        <entry endPc="268443840" name="y" stackId="21" startPc="268443665"/>
+        <entry arg="true" endPc="268443984" name="dc" stackId="1" startPc="268443869"/>
+        <entry arg="true" endPc="268443984" name="x" stackId="2" startPc="268443869"/>
+        <entry arg="true" endPc="268443984" name="y" stackId="3" startPc="268443869"/>
+        <entry arg="true" endPc="268443984" name="size" stackId="4" startPc="268443869"/>
+        <entry arg="true" endPc="268444657" name="dc" stackId="1" startPc="268443985"/>
+        <entry endPc="268444656" name="w" stackId="2" startPc="268443988"/>
+        <entry endPc="268444656" name="h" stackId="3" startPc="268443988"/>
+        <entry endPc="268444656" name="now" stackId="4" startPc="268443988"/>
+        <entry endPc="268444656" name="info" stackId="5" startPc="268443988"/>
+        <entry endPc="268444656" name="absoluteMin" stackId="6" startPc="268443988"/>
+        <entry endPc="268444656" name="timeStr" stackId="7" startPc="268443988"/>
+        <entry endPc="268444656" name="batteryStr" stackId="8" startPc="268443988"/>
+        <entry endPc="268444656" name="btStr" stackId="9" startPc="268443988"/>
+        <entry endPc="268444656" name="iconSize" stackId="10" startPc="268443988"/>
+        <entry endPc="268444656" name="rowY" stackId="11" startPc="268443988"/>
+        <entry arg="true" endPc="268445129" name="day" stackId="1" startPc="268444658"/>
+        <entry endPc="268445128" name="size" stackId="2" startPc="268444661"/>
+        <entry endPc="268445128" name="bdc" stackId="3" startPc="268444661"/>
+        <entry endPc="268445128" name="cx" stackId="4" startPc="268444661"/>
+        <entry endPc="268445128" name="cy" stackId="5" startPc="268444661"/>
+        <entry endPc="268445128" name="r" stackId="6" startPc="268444661"/>
+        <entry endPc="268445074" name="dy" stackId="7" startPc="268444827"/>
+        <entry endPc="268445064" name="dxF" stackId="8" startPc="268444827"/>
+        <entry endPc="268445064" name="dx" stackId="9" startPc="268444827"/>
+        <entry endPc="268445064" name="xL" stackId="10" startPc="268444827"/>
+        <entry endPc="268445064" name="xR" stackId="11" startPc="268444827"/>
+        <entry endPc="268445064" name="termX" stackId="12" startPc="268444827"/>
+        <entry endPc="268445064" name="lightOnRight" stackId="13" startPc="268444827"/>
+        <entry arg="true" endPc="268445451" name="cond" stackId="1" startPc="268445130"/>
+        <entry endPc="268445657" name="currentIdx" stackId="1" startPc="268445455"/>
+        <entry endPc="268445641" name="i" stackId="2" startPc="268445538"/>
+        <entry endPc="268445631" name="label" stackId="3" startPc="268445538"/>
+        <entry arg="true" endPc="268445700" name="parentItem" stackId="1" startPc="268445677"/>
+        <entry arg="true" endPc="268445775" name="item" stackId="1" startPc="268445701"/>
+        <entry endPc="268445774" name="idx" stackId="2" startPc="268445704"/>
+        <entry arg="true" endPc="268445817" name="parentItem" stackId="1" startPc="268445794"/>
+        <entry arg="true" endPc="268445898" name="item" stackId="1" startPc="268445818"/>
+        <entry endPc="268445897" name="idx" stackId="2" startPc="268445821"/>
+        <entry endPc="268446087" name="currentIdx" stackId="1" startPc="268445902"/>
+        <entry endPc="268446087" name="labels" stackId="2" startPc="268445902"/>
+        <entry endPc="268446071" name="i" stackId="3" startPc="268445984"/>
+        <entry endPc="268446061" name="label" stackId="4" startPc="268445984"/>
+        <entry arg="true" endPc="268446193" name="dc" stackId="1" startPc="268446181"/>
+    </localVars>
+    <deviceInfo deviceVersion="5c7ae9cf907f88c116a91dc4ffd75be9b5b7d2e9" partNumber="006-B4375-00"/>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Alarm"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Day"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Off"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="TillSunset"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Battery"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Sunset"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Date"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Phone"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="On"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Sunrise"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Month"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="67" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/BottomBlockPicker" offset="206" parentId="globals" symbolId="BottomBlockPicker" type="class"/>
+        <dataEntry label="globals/SettingsMenuDelegate" offset="250" parentId="globals" symbolId="SettingsMenuDelegate" type="class"/>
+        <dataEntry label="globals/BottomBlockDelegate" offset="312" parentId="globals" symbolId="BottomBlockDelegate" type="class"/>
+        <dataEntry label="globals/SettingsMenuView" offset="383" parentId="globals" symbolId="SettingsMenuView" type="class"/>
+        <dataEntry label="globals/AppSettings" offset="427" parentId="globals" symbolId="AppSettings" type="class"/>
+        <dataEntry label="globals/AppSettings/&lt;statics&gt;" offset="475" parentId="AppSettings" symbolId="&lt;statics&gt;" type="module"/>
+        <dataEntry label="globals/Rez" offset="560" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/F7_1View" offset="613" parentId="globals" symbolId="F7_1View" type="class"/>
+        <dataEntry label="globals/WeekendColorPicker" offset="990" parentId="globals" symbolId="WeekendColorPicker" type="class"/>
+        <dataEntry label="globals/WeekendColorDelegate" offset="1034" parentId="globals" symbolId="WeekendColorDelegate" type="class"/>
+        <dataEntry label="globals/WeatherIntervalDelegate" offset="1105" parentId="globals" symbolId="WeatherIntervalDelegate" type="class"/>
+        <dataEntry label="globals/WeatherIntervalPicker" offset="1176" parentId="globals" symbolId="WeatherIntervalPicker" type="class"/>
+        <dataEntry label="globals/F7_1App" offset="1220" parentId="globals" symbolId="F7_1App" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="1282" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="1317" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="1352" parentId="Rez" symbolId="Strings" type="module"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435468" name="&lt;init&gt;" parent="BottomBlockPicker" startPc="268435457">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435480" name="&lt;init&gt;" parent="SettingsMenuDelegate" startPc="268435469">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435492" name="&lt;init&gt;" parent="BottomBlockDelegate" startPc="268435481">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435504" name="&lt;init&gt;" parent="SettingsMenuView" startPc="268435493">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="AppSettings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435517" name="&lt;init&gt;" parent="globals/AppSettings" startPc="268435505">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435537" name="&lt;init&gt;" parent="Rez" startPc="268435518">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435549" name="&lt;init&gt;" parent="F7_1View" startPc="268435538">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435561" name="&lt;init&gt;" parent="WeekendColorPicker" startPc="268435550">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435573" name="&lt;init&gt;" parent="WeekendColorDelegate" startPc="268435562">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435585" name="&lt;init&gt;" parent="WeatherIntervalDelegate" startPc="268435574">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435597" name="&lt;init&gt;" parent="WeatherIntervalPicker" startPc="268435586">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435609" name="&lt;init&gt;" parent="F7_1App" startPc="268435598">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435816" name="initialize" parent="BottomBlockPicker" startPc="268435610">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435834" name="onBack" parent="SettingsMenuDelegate" startPc="268435817">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435849" name="initialize" parent="SettingsMenuDelegate" startPc="268435835">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436056" name="onSelect" parent="SettingsMenuDelegate" startPc="268435850">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436074" name="onBack" parent="BottomBlockDelegate" startPc="268436057">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436098" name="initialize" parent="BottomBlockDelegate" startPc="268436075">
+            <param id="parentItem"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436173" name="onSelect" parent="BottomBlockDelegate" startPc="268436099">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436481" name="initialize" parent="SettingsMenuView" startPc="268436174">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436545" name="getWeekendColor" parent="AppSettings" startPc="268436482">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436579" name="getBottomBlock" parent="AppSettings" startPc="268436546">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436644" name="getWeatherInterval" parent="AppSettings" startPc="268436580">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="AppSettings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436748" name="drawSunrise" parent="F7_1View" startPc="268436645">
+            <param id="dc"/>
+            <param id="x"/>
+            <param id="y"/>
+            <param id="size"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436806" name="getDaysInMonth" parent="F7_1View" startPc="268436749">
+            <param id="year"/>
+            <param id="month"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436855" name="normHours" parent="F7_1View" startPc="268436807">
+            <param id="h"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437768" name="refreshWeatherCache" parent="F7_1View" startPc="268436856">
+            <param id="nowMin"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438213" name="drawDashedArc" parent="F7_1View" startPc="268437769">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="radius"/>
+            <param id="hour"/>
+            <param id="condition"/>
+            <param id="precipChance"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438369" name="getMoonPhase" parent="F7_1View" startPc="268438214">
+            <param id="year"/>
+            <param id="month"/>
+            <param id="day"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438687" name="drawMoonFallback" parent="F7_1View" startPc="268438370">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439520" name="drawSportBlock" parent="F7_1View" startPc="268438688">
+            <param id="dc"/>
+            <param id="startY"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440405" name="drawWeather" parent="F7_1View" startPc="268439521">
+            <param id="dc"/>
+            <param id="y"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440475" name="blitMoon" parent="F7_1View" startPc="268440406">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440781" name="drawPrecipRing" parent="F7_1View" startPc="268440476">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="radius"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440818" name="onShow" parent="F7_1View" startPc="268440782">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441201" name="drawTriangleMarker" parent="F7_1View" startPc="268440819">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="angleDeg"/>
+            <param id="size"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441266" name="recalcDaily" parent="F7_1View" startPc="268441202">
+            <param id="info"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441323" name="loadSettings" parent="F7_1View" startPc="268441267">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442330" name="calculateSunTimes" parent="F7_1View" startPc="268441324">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442398" name="getFirstDayOfMonth" parent="F7_1View" startPc="268442331">
+            <param id="year"/>
+            <param id="month"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443049" name="drawWindArrow" parent="F7_1View" startPc="268442399">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="bearingDeg"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443255" name="getThicknessByCondition" parent="F7_1View" startPc="268443050">
+            <param id="cond"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443304" name="normDeg" parent="F7_1View" startPc="268443256">
+            <param id="d"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443319" name="initialize" parent="F7_1View" startPc="268443305">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443868" name="drawCalendar" parent="F7_1View" startPc="268443320">
+            <param id="dc"/>
+            <param id="startY"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443984" name="drawSunset" parent="F7_1View" startPc="268443869">
+            <param id="dc"/>
+            <param id="x"/>
+            <param id="y"/>
+            <param id="size"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444657" name="onUpdate" parent="F7_1View" startPc="268443985">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445129" name="ensureMoonBuffer" parent="F7_1View" startPc="268444658">
+            <param id="day"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445451" name="getColorByCondition" parent="F7_1View" startPc="268445130">
+            <param id="cond"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445658" name="initialize" parent="WeekendColorPicker" startPc="268445452">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445676" name="onBack" parent="WeekendColorDelegate" startPc="268445659">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445700" name="initialize" parent="WeekendColorDelegate" startPc="268445677">
+            <param id="parentItem"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445775" name="onSelect" parent="WeekendColorDelegate" startPc="268445701">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445793" name="onBack" parent="WeatherIntervalDelegate" startPc="268445776">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445817" name="initialize" parent="WeatherIntervalDelegate" startPc="268445794">
+            <param id="parentItem"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445898" name="onSelect" parent="WeatherIntervalDelegate" startPc="268445818">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446088" name="initialize" parent="WeatherIntervalPicker" startPc="268445899">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446137" name="getSettingsView" parent="F7_1App" startPc="268446089">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446165" name="getInitialView" parent="F7_1App" startPc="268446138">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446180" name="initialize" parent="F7_1App" startPc="268446166">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446193" name="MainLayout" parent="Layouts" startPc="268446181">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>

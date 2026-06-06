@@ -1,0 +1,276 @@
+[ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [WatchUi,1,13,20]; ]
+using Toybox.WatchUi;
+[ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Graphics,2,13,21]; ]
+using Toybox.Graphics;
+[ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; ]
+using Toybox.System;
+[ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 5; @symbol_classdef = [F7_1View,5,6,14]; @symbol_extends<0> = [WatchUi,5,23,30]; @symbol_extends<1> = [WatchFace,5,31,40]; ]
+class F7_1View extends WatchUi.WatchFace {
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 8; @position = 8; @symbol_vardef = [fontIndex,8,8,17]; ]
+    var fontIndex = 2;
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 10; @symbol_functiondef = [getFont,10,13,20]; ]
+    function getFont() {
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_10_23_19_4_start:
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 11 8 ]
+        [ "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_10_23_19_4_start" "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_10_23_19_4_stop" ]
+        %fonts.1 = local;
+        symbol [ fonts %fonts.1 11 12 17 ];
+        %tmp.1 = newa 5;
+        symbol [ Graphics %tmp.2 12 12 20 ];
+        %tmp.2 = getm $.Toybox.Graphics;
+        symbol [ FONT_SYSTEM_SMALL %tmp.3 12 21 38 ];
+        %tmp.3 = getv %tmp.2 :FONT_SYSTEM_SMALL;
+        %tmp.4 = dup %tmp.1;
+        %tmp.5 = aputv %tmp.4 0 %tmp.3;
+        symbol [ Graphics %tmp.6 13 12 20 ];
+        %tmp.6 = getm $.Toybox.Graphics;
+        symbol [ FONT_SYSTEM_MEDIUM %tmp.7 13 21 39 ];
+        %tmp.7 = getv %tmp.6 :FONT_SYSTEM_MEDIUM;
+        %tmp.8 = dup %tmp.5;
+        %tmp.9 = aputv %tmp.8 1 %tmp.7;
+        symbol [ Graphics %tmp.10 14 12 20 ];
+        %tmp.10 = getm $.Toybox.Graphics;
+        symbol [ FONT_SYSTEM_LARGE %tmp.11 14 21 38 ];
+        %tmp.11 = getv %tmp.10 :FONT_SYSTEM_LARGE;
+        %tmp.12 = dup %tmp.9;
+        %tmp.13 = aputv %tmp.12 2 %tmp.11;
+        symbol [ Graphics %tmp.14 15 12 20 ];
+        %tmp.14 = getm $.Toybox.Graphics;
+        symbol [ FONT_SYSTEM_NUMBER_MEDIUM %tmp.15 15 21 46 ];
+        %tmp.15 = getv %tmp.14 :FONT_SYSTEM_NUMBER_MEDIUM;
+        %tmp.16 = dup %tmp.13;
+        %tmp.17 = aputv %tmp.16 3 %tmp.15;
+        symbol [ Graphics %tmp.18 16 12 20 ];
+        %tmp.18 = getm $.Toybox.Graphics;
+        symbol [ FONT_SYSTEM_NUMBER_HOT %tmp.19 16 21 43 ];
+        %tmp.19 = getv %tmp.18 :FONT_SYSTEM_NUMBER_HOT;
+        %tmp.20 = dup %tmp.17;
+        %tmp.21 = aputv %tmp.20 4 %tmp.19;
+        lputv %fonts.1 %tmp.21;
+        symbol [ fonts %fonts.1 11 12 17 ];
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 18 8 ]
+        %tmp.22 = lgetv %fonts.1;
+        symbol [ fonts %tmp.22 18 15 20 ];
+        symbol [ fontIndex %tmp.24 18 21 30 ];
+        %tmp.24 = getv ? :fontIndex;
+        %tmp.25 = agetv %tmp.22 %tmp.24;
+        ret %tmp.25;
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_10_23_19_4_stop:
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 21; @symbol_functiondef = [initialize,21,13,23]; ]
+    function initialize() as Void {
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_21_26_23_4_start:
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 22 8 ]
+        symbol [ WatchFace %tmp.2 22 8 17 ];
+        %tmp.2 = getv ? :WatchFace;
+        symbol [ initialize %tmp.3 22 18 28 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_21_26_23_4_stop:
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 25; @symbol_functiondef = [onLayout,25,13,21]; @symbol_param<0> = [dc,25,22,24]; ]
+    function onLayout(dc) {
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_25_26_27_4_start:
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 26 8 ]
+        %tmp.1 = self;
+        symbol [ setLayout %tmp.2 26 8 17 ];
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        symbol [ Rez %tmp.4 26 18 21 ];
+        %tmp.4 = getv ? :Rez;
+        symbol [ Layouts %tmp.5 26 22 29 ];
+        %tmp.5 = getv %tmp.4 :Layouts;
+        symbol [ WatchFace %tmp.6 26 30 39 ];
+        %tmp.6 = getv function %tmp.5 :WatchFace;
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 26 40 42 ];
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        invoke %tmp.1 %tmp.2(%tmp.8);
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_25_26_27_4_stop:
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 29; @symbol_functiondef = [onUpdate,29,13,21]; @symbol_param<0> = [dc,29,22,24]; ]
+    function onUpdate(dc) {
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_start:
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 31 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 31 8 10 ];
+        symbol [ setColor %tmp.2 31 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ Graphics %tmp.3 31 20 28 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.4 31 29 40 ];
+        %tmp.4 = getv %tmp.3 :COLOR_BLACK;
+        symbol [ Graphics %tmp.5 31 42 50 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.6 31 51 62 ];
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 32 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 32 8 10 ];
+        symbol [ clear %tmp.8 32 11 16 ];
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 35 8 ]
+        [ "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_start" "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_stop" ]
+        %clockTime.1 = local;
+        symbol [ clockTime %clockTime.1 35 12 21 ];
+        symbol [ System %tmp.9 35 24 30 ];
+        %tmp.9 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.10 35 31 43 ];
+        %tmp.10 = getv function %tmp.9 :getClockTime;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %clockTime.1 %tmp.11;
+        symbol [ clockTime %clockTime.1 35 12 21 ];
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 36 8 ]
+        [ "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_start" "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_stop" ]
+        %timeString.2 = local;
+        symbol [ timeString %timeString.2 36 12 22 ];
+        %tmp.12 = lgetv %clockTime.1;
+        symbol [ clockTime %tmp.12 36 25 34 ];
+        symbol [ hour %tmp.13 36 35 39 ];
+        %tmp.13 = getv %tmp.12 :hour;
+        symbol [ format %tmp.14 36 40 46 ];
+        %tmp.14 = getv function %tmp.13 :format;
+        %tmp.15 = "%02d";
+        %tmp.16 = invoke %tmp.13 %tmp.14(%tmp.15);
+        %tmp.17 = ":";
+        %tmp.18 = add %tmp.16 %tmp.17;
+        %tmp.19 = lgetv %clockTime.1;
+        symbol [ clockTime %tmp.19 36 63 72 ];
+        symbol [ min %tmp.20 36 73 76 ];
+        %tmp.20 = getv %tmp.19 :min;
+        symbol [ format %tmp.21 36 77 83 ];
+        %tmp.21 = getv function %tmp.20 :format;
+        %tmp.22 = "%02d";
+        %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
+        %tmp.24 = add %tmp.18 %tmp.23;
+        lputv %timeString.2 %tmp.24;
+        symbol [ timeString %timeString.2 36 12 22 ];
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 39 8 ]
+        [ "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_start" "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_stop" ]
+        %width.3 = local;
+        symbol [ width %width.3 39 12 17 ];
+        %tmp.25 = lgetv %dc;
+        symbol [ dc %tmp.25 39 20 22 ];
+        symbol [ getWidth %tmp.26 39 23 31 ];
+        %tmp.26 = getv function %tmp.25 :getWidth;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        lputv %width.3 %tmp.27;
+        symbol [ width %width.3 39 12 17 ];
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 40 8 ]
+        [ "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_start" "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_stop" ]
+        %height.4 = local;
+        symbol [ height %height.4 40 12 18 ];
+        %tmp.28 = lgetv %dc;
+        symbol [ dc %tmp.28 40 21 23 ];
+        symbol [ getHeight %tmp.29 40 24 33 ];
+        %tmp.29 = getv function %tmp.28 :getHeight;
+        %tmp.30 = invoke %tmp.28 %tmp.29();
+        lputv %height.4 %tmp.30;
+        symbol [ height %height.4 40 12 18 ];
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 43 8 ]
+        %tmp.31 = lgetv %dc;
+        symbol [ dc %tmp.31 43 8 10 ];
+        symbol [ setColor %tmp.32 43 11 19 ];
+        %tmp.32 = getv function %tmp.31 :setColor;
+        symbol [ Graphics %tmp.33 43 20 28 ];
+        %tmp.33 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.34 43 29 40 ];
+        %tmp.34 = getv %tmp.33 :COLOR_WHITE;
+        symbol [ Graphics %tmp.35 43 42 50 ];
+        %tmp.35 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.36 43 51 68 ];
+        %tmp.36 = getv %tmp.35 :COLOR_TRANSPARENT;
+        invoke %tmp.31 %tmp.32(%tmp.34, %tmp.36);
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 44 8 ]
+        [ "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_start" "D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_stop" ]
+        %font.5 = local;
+        symbol [ font %font.5 44 12 16 ];
+        %tmp.37 = self;
+        symbol [ getFont %tmp.38 44 19 26 ];
+        %tmp.38 = getv function %tmp.37 :getFont;
+        %tmp.39 = invoke %tmp.37 %tmp.38();
+        lputv %font.5 %tmp.39;
+        symbol [ font %font.5 44 12 16 ];
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 45 8 ]
+        %tmp.40 = lgetv %dc;
+        symbol [ dc %tmp.40 45 8 10 ];
+        symbol [ setFont %tmp.41 45 11 18 ];
+        %tmp.41 = getv function %tmp.40 :setFont;
+        %tmp.42 = lgetv %font.5;
+        symbol [ font %tmp.42 45 19 23 ];
+        invoke %tmp.40 %tmp.41(%tmp.42);
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 48 8 ]
+        %tmp.43 = lgetv %dc;
+        symbol [ dc %tmp.43 48 8 10 ];
+        symbol [ drawText %tmp.44 48 11 19 ];
+        %tmp.44 = getv function %tmp.43 :drawText;
+        %tmp.45 = lgetv %width.3;
+        symbol [ width %tmp.45 48 20 25 ];
+        %tmp.46 = 2;
+        %tmp.47 = div %tmp.45 %tmp.46;
+        %tmp.48 = lgetv %height.4;
+        symbol [ height %tmp.48 48 31 37 ];
+        %tmp.49 = 2;
+        %tmp.50 = div %tmp.48 %tmp.49;
+        %tmp.51 = lgetv %font.5;
+        symbol [ font %tmp.51 48 43 47 ];
+        %tmp.52 = lgetv %timeString.2;
+        symbol [ timeString %tmp.52 48 49 59 ];
+        symbol [ Graphics %tmp.53 49 20 28 ];
+        %tmp.53 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.54 49 29 48 ];
+        %tmp.54 = getv %tmp.53 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.55 49 51 59 ];
+        %tmp.55 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.56 49 60 80 ];
+        %tmp.56 = getv %tmp.55 :TEXT_JUSTIFY_VCENTER;
+        %tmp.57 = bitor %tmp.54 %tmp.56;
+        invoke %tmp.43 %tmp.44(%tmp.47, %tmp.50, %tmp.51, %tmp.52, %tmp.57);
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 52 8 ]
+        symbol [ View %tmp.59 52 8 12 ];
+        %tmp.59 = getv ? :View;
+        symbol [ onUpdate %tmp.60 52 13 21 ];
+        %tmp.60 = getv function %tmp.59 :onUpdate;
+        %tmp.61 = lgetv %dc;
+        symbol [ dc %tmp.61 52 22 24 ];
+        invoke %tmp.59 %tmp.60(%tmp.61);
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_29_26_53_4_stop:
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 55; @symbol_functiondef = [onPartialUpdate,55,13,28]; @symbol_param<0> = [dc,55,29,31]; ]
+    function onPartialUpdate(dc) {
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_55_33_57_4_start:
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 56 8 ]
+        %tmp.1 = self;
+        symbol [ onUpdate %tmp.2 56 8 16 ];
+        %tmp.2 = getv function %tmp.1 :onUpdate;
+        %tmp.3 = lgetv %dc;
+        symbol [ dc %tmp.3 56 17 19 ];
+        invoke %tmp.1 %tmp.2(%tmp.3);
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_55_33_57_4_stop:
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 59; @symbol_functiondef = [onExitSleep,59,13,24]; ]
+    function onExitSleep() {
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_59_27_61_4_start:
+[ "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc" 60 8 ]
+        %tmp.1 = self;
+        symbol [ onUpdate %tmp.2 60 8 16 ];
+        %tmp.2 = getv function %tmp.1 :onUpdate;
+        %tmp.3 = null;
+        invoke %tmp.1 %tmp.2(%tmp.3);
+D__Garmin_7pro_WF1_F7_1_source_F7_1View_mc_59_27_61_4_stop:
+    }
+    [ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 63; @symbol_functiondef = [onEnterSleep,63,13,25]; ]
+    function onEnterSleep() {
+    }
+}
+[ @file = "D:\Garmin\7pro WF1\F7-1\source\F7-1View.mc"; @line = 1; ]
+<init> {
+}

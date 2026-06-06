@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<strings>
+    <string id="AppName">Dark Watch</string>
+    <string id="Month">MONTH</string>
+    <string id="Date">DATE</string>
+    <string id="Day">DAY</string>
+    <string id="Phone">PHONE</string>
+    <string id="Battery">BATTERY</string>
+    <string id="Alarm">ALARM</string>
+    <string id="Sunrise">SUNRISE</string>
+    <string id="Sunset">SUNSET</string>
+    <string id="TillSunset">TILL SUNSET</string>
+    <string id="On">ON</string>
+    <string id="Off">OFF</string>
+</strings>
