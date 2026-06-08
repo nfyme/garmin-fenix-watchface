@@ -1,6 +1,6 @@
 using Toybox.WatchUi;
-using Toybox.Application.Storage;
 using Toybox.Graphics;
+using Toybox.Application;
 
 // ============================================================================
 // SETTINGS STORAGE
@@ -17,47 +17,79 @@ class AppSettings {
         Graphics.COLOR_LT_GRAY
     ];
 
+    static var TIME_COLORS = [
+        Graphics.COLOR_WHITE,
+        0xFF2222,
+        0xFF5500,
+        0x00AA00,
+        0x0055FF,
+        0xFFFF00,
+        Graphics.COLOR_LT_GRAY
+    ];
+
+    static var TIME_COLOR_NAMES  = ["White", "Red", "Orange", "Green", "Blue", "Yellow", "Gray"];
+    static var COLON_COLOR_NAMES = ["White", "Red", "Orange", "Green", "Blue", "Yellow", "Gray", "Hidden"];
+
+    static function getHourColor() {
+        var idx = Application.Properties.getValue("hourColor");
+        if (idx == null || idx < 0 || idx >= TIME_COLORS.size()) { idx = 0; }
+        return TIME_COLORS[idx];
+    }
+
+    static function getMinuteColor() {
+        var idx = Application.Properties.getValue("minuteColor");
+        if (idx == null || idx < 0 || idx >= TIME_COLORS.size()) { idx = 4; }
+        return TIME_COLORS[idx];
+    }
+
+    static function getColonColor() {
+        var idx = Application.Properties.getValue("colonColor");
+        if (idx == null || idx < 0 || idx >= TIME_COLORS.size() + 1) { idx = 0; }
+        if (idx == 7) { return -1; } // -1 = скрыть
+        return TIME_COLORS[idx];
+    }
+
     static var WEEKEND_COLOR_NAMES = ["Red", "Orange", "Green", "Blue", "Gray"];
     static var BLOCK_NAMES = ["Calendar", "Sport"];
 
     static function getWeatherInterval() {
-        var idx = Storage.getValue("weatherInterval");
+        var idx = Application.Properties.getValue("weatherInterval");
         if (idx == null || idx < 0 || idx >= WEATHER_INTERVALS.size()) { idx = 2; }
         return WEATHER_INTERVALS[idx];
     }
 
     static function getWeekendColor() {
-        var idx = Storage.getValue("weekendColor");
+        var idx = Application.Properties.getValue("weekendColor");
         if (idx == null || idx < 0 || idx >= WEEKEND_COLORS.size()) { idx = 0; }
         return WEEKEND_COLORS[idx];
     }
 
     static function getBottomBlock() {
-        var val = Storage.getValue("bottomBlock");
+        var val = Application.Properties.getValue("bottomBlock");
         if (val == null) { val = 0; }
         return val;
     }
 
     static function getPrecipRing() {
-        var val = Storage.getValue("precipRing");
+        var val = Application.Properties.getValue("precipRing");
         if (val == null) { val = true; }
         return val;
     }
 
     static function getPrecipForecast() {
-        var val = Storage.getValue("precipForecast");
+        var val = Application.Properties.getValue("precipForecast");
         if (val == null) { val = true; }
         return val;
     }
 
     static function getWeatherDisplay() {
-        var val = Storage.getValue("weatherDisplay");
+        var val = Application.Properties.getValue("weatherDisplay");
         if (val == null) { val = true; }
         return val;
     }
 
     static function getHeartRate() {
-        var val = Storage.getValue("heartRate");
+        var val = Application.Properties.getValue("heartRate");
         if (val == null) { val = true; }
         return val;
     }
@@ -71,14 +103,23 @@ class SettingsMenuView extends WatchUi.Menu2 {
     function initialize() {
         Menu2.initialize({ :title => "Dark Watch" });
 
-        var wIdx = Storage.getValue("weatherInterval");
+        var wIdx = Application.Properties.getValue("weatherInterval");
         if (wIdx == null) { wIdx = 2; }
 
-        var cIdx = Storage.getValue("weekendColor");
+        var cIdx = Application.Properties.getValue("weekendColor");
         if (cIdx == null) { cIdx = 0; }
 
-        var bIdx = Storage.getValue("bottomBlock");
+        var bIdx = Application.Properties.getValue("bottomBlock");
         if (bIdx == null) { bIdx = 0; }
+
+        var hcIdx = Application.Properties.getValue("hourColor");
+        if (hcIdx == null) { hcIdx = 0; }
+
+        var mcIdx = Application.Properties.getValue("minuteColor");
+        if (mcIdx == null) { mcIdx = 4; }
+
+        var ccIdx = Application.Properties.getValue("colonColor");
+        if (ccIdx == null) { ccIdx = 0; }
 
         Menu2.addItem(new WatchUi.MenuItem(
             "Weather update",
@@ -91,6 +132,27 @@ class SettingsMenuView extends WatchUi.Menu2 {
             "Weekend color",
             AppSettings.WEEKEND_COLOR_NAMES[cIdx],
             :weekendColor,
+            {}
+        ));
+
+                Menu2.addItem(new WatchUi.MenuItem(
+            "Hour color",
+            AppSettings.TIME_COLOR_NAMES[hcIdx],
+            :hourColor,
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Minute color",
+            AppSettings.TIME_COLOR_NAMES[mcIdx],
+            :minuteColor,
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Colon color",
+            AppSettings.COLON_COLOR_NAMES[ccIdx],
+            :colonColor,
             {}
         ));
 
@@ -131,6 +193,9 @@ class SettingsMenuView extends WatchUi.Menu2 {
             AppSettings.getHeartRate(),
             {}
         ));
+
+
+
     }
 }
 
@@ -172,17 +237,70 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         
 
         else if (id == :precipRing) {
-            Storage.setValue("precipRing", (item as WatchUi.ToggleMenuItem).isEnabled());
+            Application.Properties.setValue("precipRing",      (item as WatchUi.ToggleMenuItem).isEnabled());
         }
         else if (id == :precipForecast) {
-            Storage.setValue("precipForecast", (item as WatchUi.ToggleMenuItem).isEnabled());
+            Application.Properties.setValue("precipForecast", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
         else if (id == :weatherDisplay) {
-            Storage.setValue("weatherDisplay", (item as WatchUi.ToggleMenuItem).isEnabled());
+            Application.Properties.setValue("weatherDisplay", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
         else if (id == :heartRate) {
-            Storage.setValue("heartRate", (item as WatchUi.ToggleMenuItem).isEnabled());
+            Application.Properties.setValue("heartRate", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
+
+        else if (id == :hourColor) {
+            WatchUi.pushView(new ColorPicker("Hour color", "hourColor", AppSettings.TIME_COLOR_NAMES),
+                            new ColorPickerDelegate(item, "hourColor", AppSettings.TIME_COLOR_NAMES),
+                            WatchUi.SLIDE_LEFT);
+        }
+        else if (id == :minuteColor) {
+            WatchUi.pushView(new ColorPicker("Minute color", "minuteColor", AppSettings.TIME_COLOR_NAMES),
+                            new ColorPickerDelegate(item, "minuteColor", AppSettings.TIME_COLOR_NAMES),
+                            WatchUi.SLIDE_LEFT);
+        }
+        else if (id == :colonColor) {
+            WatchUi.pushView(new ColorPicker("Colon color", "colonColor", AppSettings.COLON_COLOR_NAMES),
+                            new ColorPickerDelegate(item, "colonColor", AppSettings.COLON_COLOR_NAMES),
+                            WatchUi.SLIDE_LEFT);
+        }
+    }
+
+    function onBack() {
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
+    }
+}
+
+class ColorPicker extends WatchUi.Menu2 {
+    function initialize(title, key, names) {
+        Menu2.initialize({ :title => title });
+        var currentIdx = Application.Properties.getValue(key);
+        if (currentIdx == null) { currentIdx = 0; }
+        for (var i = 0; i < names.size(); i++) {
+            var label = (i == currentIdx) ? "[ " + names[i] + " ]" : names[i];
+            Menu2.addItem(new WatchUi.MenuItem(label, null, i, {}));
+        }
+        Menu2.setFocus(currentIdx);
+    }
+}
+
+class ColorPickerDelegate extends WatchUi.Menu2InputDelegate {
+    var _parentItem;
+    var _key;
+    var _names;
+
+    function initialize(parentItem, key, names) {
+        Menu2InputDelegate.initialize();
+        _parentItem = parentItem;
+        _key        = key;
+        _names      = names;
+    }
+
+    function onSelect(item) {
+        var idx = item.getId();
+        Application.Properties.setValue(_key, idx);
+        _parentItem.setSubLabel(_names[idx]);
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
     function onBack() {
@@ -198,7 +316,7 @@ class WeatherIntervalPicker extends WatchUi.Menu2 {
     function initialize() {
         Menu2.initialize({ :title => "Weather update" });
 
-        var currentIdx = Storage.getValue("weatherInterval");
+        var currentIdx = Application.Properties.getValue("weatherInterval");
         if (currentIdx == null) { currentIdx = 2; }
 
         var labels = ["5 min", "10 min", "15 min", "30 min", "60 min"];
@@ -223,7 +341,7 @@ class WeatherIntervalDelegate extends WatchUi.Menu2InputDelegate {
 
     function onSelect(item) {
         var idx = item.getId();
-        Storage.setValue("weatherInterval", idx);
+        Application.Properties.setValue("weatherInterval", idx);
         // Обновляем subLabel прямо в родительском меню — оно живёт в стеке
         _parentItem.setSubLabel(AppSettings.WEATHER_INTERVALS[idx] + " min");
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
@@ -242,7 +360,7 @@ class WeekendColorPicker extends WatchUi.Menu2 {
     function initialize() {
         Menu2.initialize({ :title => "Weekend color" });
 
-        var currentIdx = Storage.getValue("weekendColor");
+        var currentIdx = Application.Properties.getValue("weekendColor");
         if (currentIdx == null) { currentIdx = 0; }
 
         for (var i = 0; i < AppSettings.WEEKEND_COLOR_NAMES.size(); i++) {
@@ -265,7 +383,7 @@ class WeekendColorDelegate extends WatchUi.Menu2InputDelegate {
 
     function onSelect(item) {
         var idx = item.getId();
-        Storage.setValue("weekendColor", idx);
+        Application.Properties.setValue("weekendColor", idx);
         _parentItem.setSubLabel(AppSettings.WEEKEND_COLOR_NAMES[idx]);
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
@@ -283,7 +401,7 @@ class BottomBlockPicker extends WatchUi.Menu2 {
     function initialize() {
         Menu2.initialize({ :title => "Bottom block" });
 
-        var currentIdx = Storage.getValue("bottomBlock");
+        var currentIdx = Application.Properties.getValue("bottomBlock");
         if (currentIdx == null) { currentIdx = 0; }
 
         for (var i = 0; i < AppSettings.BLOCK_NAMES.size(); i++) {
@@ -306,7 +424,7 @@ class BottomBlockDelegate extends WatchUi.Menu2InputDelegate {
 
     function onSelect(item) {
         var idx = item.getId();
-        Storage.setValue("bottomBlock", idx);
+        Application.Properties.setValue("bottomBlock", idx);
         _parentItem.setSubLabel(AppSettings.BLOCK_NAMES[idx]);
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }

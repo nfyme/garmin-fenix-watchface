@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<settings>
+    <setting propertyKey="@Properties.weatherInterval" title="@Strings.SettingWeatherInterval">
+        <settingConfig type="list">
+            <listEntry value="0">5 min</listEntry>
+            <listEntry value="1">10 min</listEntry>
+            <listEntry value="2">15 min</listEntry>
+            <listEntry value="3">30 min</listEntry>
+            <listEntry value="4">60 min</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.weekendColor" title="@Strings.SettingWeekendColor">
+        <settingConfig type="list">
+            <listEntry value="0">Red</listEntry>
+            <listEntry value="1">Orange</listEntry>
+            <listEntry value="2">Green</listEntry>
+            <listEntry value="3">Blue</listEntry>
+            <listEntry value="4">Gray</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.hourColor" title="@Strings.SettingHourColor">
+    <settingConfig type="list">
+            <listEntry value="0">White</listEntry>
+            <listEntry value="1">Red</listEntry>
+            <listEntry value="2">Orange</listEntry>
+            <listEntry value="3">Green</listEntry>
+            <listEntry value="4">Blue</listEntry>
+            <listEntry value="5">Yellow</listEntry>
+            <listEntry value="6">Gray</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.minuteColor" title="@Strings.SettingMinuteColor">
+        <settingConfig type="list">
+            <listEntry value="0">White</listEntry>
+            <listEntry value="1">Red</listEntry>
+            <listEntry value="2">Orange</listEntry>
+            <listEntry value="3">Green</listEntry>
+            <listEntry value="4">Blue</listEntry>
+            <listEntry value="5">Yellow</listEntry>
+            <listEntry value="6">Gray</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.colonColor" title="@Strings.SettingColonColor">
+    <settingConfig type="list">
+        <listEntry value="0">White</listEntry>
+        <listEntry value="1">Red</listEntry>
+        <listEntry value="2">Orange</listEntry>
+        <listEntry value="3">Green</listEntry>
+        <listEntry value="4">Blue</listEntry>
+        <listEntry value="5">Yellow</listEntry>
+        <listEntry value="6">Gray</listEntry>
+        <listEntry value="7">Hidden</listEntry>
+    </settingConfig>
+</setting>
+
+    <setting propertyKey="@Properties.bottomBlock" title="@Strings.SettingBottomBlock">
+        <settingConfig type="list">
+            <listEntry value="0">Calendar</listEntry>
+            <listEntry value="1">Sport</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.precipRing"     title="@Strings.SettingPrecipRing">
+        <settingConfig type="boolean"/>
+    </setting>
+    <setting propertyKey="@Properties.precipForecast" title="@Strings.SettingPrecipForecast">
+        <settingConfig type="boolean"/>
+    </setting>
+    <setting propertyKey="@Properties.weatherDisplay" title="@Strings.SettingWeather">
+        <settingConfig type="boolean"/>
+    </setting>
+    <setting propertyKey="@Properties.heartRate"      title="@Strings.SettingHeartRate">
+        <settingConfig type="boolean"/>
+    </setting>
+
+</settings>

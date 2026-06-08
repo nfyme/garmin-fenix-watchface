@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<properties>
+    <property id="weatherInterval" type="number">2</property>
+    <property id="weekendColor"    type="number">0</property>
+    <property id="bottomBlock"     type="number">0</property>
+    <property id="precipRing"      type="boolean">true</property>
+    <property id="precipForecast"  type="boolean">true</property>
+    <property id="weatherDisplay"  type="boolean">true</property>
+    <property id="heartRate"       type="boolean">true</property>
+    <property id="hourColor"   type="number">0</property>
+    <property id="minuteColor" type="number">4</property>
+    <property id="colonColor" type="number">0</property>
+
+</properties>

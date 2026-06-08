@@ -8,7 +8,7 @@ using Toybox.Math;
 using Toybox.Weather;
 using Toybox.ActivityMonitor;
 using Toybox.Activity;
-using Toybox.Application.Storage;
+using Toybox.Application;
 using Toybox.Lang;
 
 class F7_1View extends WatchUi.WatchFace {
@@ -168,12 +168,10 @@ class F7_1View extends WatchUi.WatchFace {
             var lightOnRight;
 
             if (moonPhase <= 0.5) {
-                // Новолуние → 1-я четверть → полнолуние: свет справа
-                termX        = cx - (dxF * (1.0 - moonPhase * 2.0)).toNumber();
+                termX        = cx + (dxF * (1.0 - moonPhase * 2.0)).toNumber();
                 lightOnRight = true;
             } else {
-                // Полнолуние → 3-я четверть → новолуние: свет слева
-                termX        = cx + (dxF * ((moonPhase - 0.5) * 2.0)).toNumber();
+                termX        = cx - (dxF * ((moonPhase - 0.5) * 2.0)).toNumber();
                 lightOnRight = false;
             }
 
@@ -212,10 +210,10 @@ class F7_1View extends WatchUi.WatchFace {
             var xL = cx - dx; var xR = cx + dx;
             var termX; var lightOnRight;
             if (moonPhase <= 0.5) {
-                termX = cx - (dxF * (1.0 - moonPhase * 2.0)).toNumber();
+                termX        = cx + (dxF * (1.0 - moonPhase * 2.0)).toNumber();
                 lightOnRight = true;
             } else {
-                termX = cx + (dxF * ((moonPhase - 0.5) * 2.0)).toNumber();
+                termX        = cx - (dxF * ((moonPhase - 0.5) * 2.0)).toNumber();
                 lightOnRight = false;
             }
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -674,9 +672,11 @@ function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
 
         ensureMoonBuffer(info.day);
 
-        var timeStr    = info.hour.format("%02d") + ":" + info.min.format("%02d");
+        //var timeStr    = info.hour.format("%02d") + ":" + info.min.format("%02d");
         var batteryStr = System.getSystemStats().battery.format("%.0f") + "%";
         var btStr      = System.getDeviceSettings().phoneConnected ? "BT:ON" : "BT:OFF";
+        var hourStr = info.hour.format("%02d");
+        var minStr  = info.min.format("%02d");        
 
         // Кольцо осадков — радиус 49% от ширины, чтобы касалось края
         var ringRadius = (w * 49 / 100);
@@ -706,8 +706,18 @@ function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
 
         // Время по центру — Y примерно 22% сверху
         var timeY = (h * 17 / 100);
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, timeStr, Graphics.TEXT_JUSTIFY_CENTER);
+        //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        //dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, timeStr, Graphics.TEXT_JUSTIFY_CENTER);
+        
+        // Часы рисуем три части
+            var colonWidth = dc.getTextWidthInPixels(":", Graphics.FONT_NUMBER_THAI_HOT);
+            dc.setColor(AppSettings.getHourColor(), Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx - colonWidth/2 - 2, timeY, Graphics.FONT_NUMBER_THAI_HOT, hourStr, Graphics.TEXT_JUSTIFY_RIGHT);
+            dc.setColor(AppSettings.getColonColor(), Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, ":", Graphics.TEXT_JUSTIFY_CENTER);
+            dc.setColor(AppSettings.getMinuteColor(), Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx + colonWidth/2 + 1, timeY, Graphics.FONT_NUMBER_THAI_HOT, minStr, Graphics.TEXT_JUSTIFY_LEFT);
+        
 
         // Погода на той же высоте что и время (рисуется поверх, сбоку)
         if (AppSettings.getWeatherDisplay()) {

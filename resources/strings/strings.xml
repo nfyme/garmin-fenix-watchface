@@ -12,4 +12,15 @@
     <string id="TillSunset">TILL SUNSET</string>
     <string id="On">ON</string>
     <string id="Off">OFF</string>
+    <string id="SettingWeatherInterval">Weather update</string>
+    <string id="SettingWeekendColor">Weekend color</string>
+    <string id="SettingBottomBlock">Bottom block</string>
+    <string id="SettingPrecipRing">Precip ring</string>
+    <string id="SettingPrecipForecast">Precip forecast</string>
+    <string id="SettingWeather">Weather</string>
+    <string id="SettingHeartRate">Heart rate</string>
+    <string id="SettingHourColor">Hour color</string>
+    <string id="SettingMinuteColor">Minute color</string>
+    <string id="SettingColonColor">Colon color</string>
+
 </strings>

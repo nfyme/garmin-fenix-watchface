@@ -9,3 +9,6 @@ Outer precipitation ring visualizes hourly rain and snow probability around the 
 Bottom block is switchable between monthly calendar (with weekend highlighting) and activity stats.
 
 Settings: weather refresh interval, weekend color, bottom block mode.
+
+CONNECT IQ Garmin store:
+https://apps.garmin.com/apps/a23cf354-bcfd-4bd5-bef2-8756ba127705
