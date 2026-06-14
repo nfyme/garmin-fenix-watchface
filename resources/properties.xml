@@ -8,7 +8,7 @@
     <property id="weatherDisplay"  type="boolean">true</property>
     <property id="heartRate"       type="boolean">true</property>
     <property id="hourColor"   type="number">0</property>
-    <property id="minuteColor" type="number">4</property>
+    <property id="minuteColor" type="number">0</property>
     <property id="colonColor" type="number">0</property>
 
 </properties>

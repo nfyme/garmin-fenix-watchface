@@ -16,7 +16,10 @@ module Rez {
     } // Layouts
 
     module Strings {
+        (:initialized) var SettingHourColor as ResourceId;
+        (:initialized) var SettingMinuteColor as ResourceId;
         (:initialized) var SettingWeatherInterval as ResourceId;
+        (:initialized) var SettingColonColor as ResourceId;
         (:initialized) var SettingBottomBlock as ResourceId;
         (:initialized) var SettingPrecipRing as ResourceId;
         (:initialized) var Date as ResourceId;

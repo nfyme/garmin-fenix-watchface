@@ -98,7 +98,7 @@
   }, {
     "key" : "minuteColor",
     "valueType" : "number",
-    "defaultValue" : 4,
+    "defaultValue" : 0,
     "configTitle" : "SettingMinuteColor",
     "configPrompt" : null,
     "configType" : "list",

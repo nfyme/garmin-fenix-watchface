@@ -1,19 +1,27 @@
 using Toybox.Application;
 using Toybox.WatchUi;
-using Toybox.Application.Storage;
 
 class F7_1App extends Application.AppBase {
+
+    var _view;
 
     function initialize() {
         AppBase.initialize();
     }
 
     function getInitialView() {
-        return [ new F7_1View() ];
+        _view = new F7_1View();
+        return [ _view ];
     }
 
-    // Вызывается при "Настроить циферблат" → UP → Customize
     function getSettingsView() {
         return [ new SettingsMenuView(), new SettingsMenuDelegate() ];
+    }
+
+    function onSettingsChanged() {
+        if (_view != null) {
+            _view.loadSettings();
+        }
+        WatchUi.requestUpdate();
     }
 }

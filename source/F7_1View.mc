@@ -153,33 +153,32 @@ class F7_1View extends WatchUi.WatchFace {
         var cx = size / 2;
         var cy = size / 2;
         var r  = MOON_R;
+        var phase = moonPhase;
+        if (phase >= 1.0) { phase = 0.0; }
 
         // Рисуем только освещённую часть белым
-        for (var dy = -r + 1; dy < r; dy++) {
-            var dxF = Math.sqrt((r * r - dy * dy).toFloat());
-            var dx  = dxF.toNumber();
-            if (dx == 0) { continue; }
+        if (phase > 0.03 && phase < 0.97) {
+            for (var dy = -r + 1; dy < r; dy++) {
+                var dxF = Math.sqrt((r * r - dy * dy).toFloat());
+                var dx  = dxF.toNumber();
+                if (dx == 0) { continue; }
 
-            var xL = cx - dx;
-            var xR = cx + dx;
+                var xL = cx - dx;
+                var xR = cx + dx;
 
-            // termX — граница тени/света
-            var termX;
-            var lightOnRight;
+                bdc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 
-            if (moonPhase <= 0.5) {
-                termX        = cx + (dxF * (1.0 - moonPhase * 2.0)).toNumber();
-                lightOnRight = true;
-            } else {
-                termX        = cx - (dxF * ((moonPhase - 0.5) * 2.0)).toNumber();
-                lightOnRight = false;
-            }
-
-            bdc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            if (lightOnRight) {
-                if (termX < xR) { bdc.drawLine(termX, cy + dy, xR, cy + dy); }
-            } else {
-                if (xL < termX) { bdc.drawLine(xL, cy + dy, termX, cy + dy); }
+                if (phase <= 0.5) {
+                        // Растущая: серп справа
+                        var k = 1.0 - phase * 4.0;
+                        var termX = cx + (dxF * k).toNumber();
+                        if (termX < xR) { bdc.drawLine(termX, cy + dy, xR, cy + dy); }
+                } else {
+                        // Убывающая: серп слева
+                        var k = phase * 4.0 - 3.0;
+                        var termX = cx - (dxF * k).toNumber();
+                        if (termX > xL) { bdc.drawLine(xL, cy + dy, termX, cy + dy); }
+                }
             }
         }
 
@@ -191,43 +190,29 @@ class F7_1View extends WatchUi.WatchFace {
         lastMoonDay = day;
     }
 
-    function blitMoon(dc, cx, cy) {
-        if (moonBuffer == null) {
-            drawMoonFallback(dc, cx, cy);
-            return;
+    function getDaysToNextPhase() {
+        var synodic = 29.53058867;
+        var daysInCycle = moonPhase * synodic;
+        
+        var toFull = 14.765 - daysInCycle;
+        if (toFull < 0) { toFull = toFull + synodic; }
+        
+        var toNew = synodic - daysInCycle;
+        if (toNew >= synodic) { toNew = 0.0; }
+        
+        if (toFull <= toNew) {
+            return [toFull.toNumber(), true]; // true = до полнолуния
+        } else {
+            return [toNew.toNumber(), false]; // false = до новолуния
         }
+    }
+
+    function blitMoon(dc, cx, cy) {
         var size = MOON_R * 2 + 4;
         dc.drawBitmap(cx - size / 2, cy - size / 2, moonBuffer.get());
     }
 
-    // Fallback если буфер недоступен
-    function drawMoonFallback(dc, cx, cy) {
-        var r = MOON_R;
-        for (var dy = -r + 1; dy < r; dy++) {
-            var dxF = Math.sqrt((r * r - dy * dy).toFloat());
-            var dx  = dxF.toNumber();
-            if (dx == 0) { continue; }
-            var xL = cx - dx; var xR = cx + dx;
-            var termX; var lightOnRight;
-            if (moonPhase <= 0.5) {
-                termX        = cx + (dxF * (1.0 - moonPhase * 2.0)).toNumber();
-                lightOnRight = true;
-            } else {
-                termX        = cx - (dxF * ((moonPhase - 0.5) * 2.0)).toNumber();
-                lightOnRight = false;
-            }
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            if (lightOnRight) {
-                if (termX < xR) { dc.drawLine(termX, cy + dy, xR, cy + dy); }
-            } else {
-                if (xL < termX) { dc.drawLine(xL, cy + dy, termX, cy + dy); }
-            }
-        }
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(1);
-        dc.drawCircle(cx, cy, r);
-    }
-
+    
     // -------------------------------------------------------------------------
     // Обновление кэша погоды
     // -------------------------------------------------------------------------
@@ -489,13 +474,33 @@ class F7_1View extends WatchUi.WatchFace {
 
             var tempStr = (b["temp"] != null) ? b["temp"].format("%+d") + "°" : "--°";
             var windStr = (b["wind"] != null) ? b["wind"].format("%d") : "--";
-            dc.setColor(tempColor, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(bx, y, Graphics.FONT_XTINY, tempStr + " " + windStr, Graphics.TEXT_JUSTIFY_CENTER);
 
+            // Измеряем ширину tempStr чтобы точно позиционировать windStr рядом
+            var tempDims = dc.getTextDimensions(tempStr + " ", Graphics.FONT_XTINY);
+            var fontHeight = dc.getFontHeight(Graphics.FONT_XTINY);
+
+            // Считаем общую ширину строки для центрирования блока
+            var windDims = dc.getTextDimensions(windStr, Graphics.FONT_XTINY);
+            var totalWidth = dc.getTextDimensions(tempStr + " " + windStr, Graphics.FONT_XTINY)[0] + 13; // +13 для стрелки ветра
+
+            var startXtemp = bx - totalWidth / 2; // левый край блока
+
+            // Рисуем tempStr
+            dc.setColor(tempColor, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(startXtemp, y, Graphics.FONT_XTINY, tempStr + " ", Graphics.TEXT_JUSTIFY_LEFT);
+
+            // Рисуем windStr синим
+            var windX = startXtemp + tempDims[0];
+            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(windX, y, Graphics.FONT_XTINY, windStr, Graphics.TEXT_JUSTIFY_LEFT);
+
+            // Стрелка ветра — синим, позиция от правого края windStr + отступ на основе высоты шрифта
             if (b["wdir"] != null) {
-                dc.setColor(tempColor, Graphics.COLOR_TRANSPARENT);
-                drawWindArrow(dc, bx + 26, y + 10, b["wdir"]);
+                var arrowOffset = windDims[0] + fontHeight / 3;
+                dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+                drawWindArrow(dc, windX + arrowOffset, y + fontHeight / 2, b["wdir"]);
             }
+
             if (AppSettings.getPrecipForecast()) {
                 if (hasPrecip) {
                     dc.setColor((isRain || isThunder) ? 0x0000AA : Graphics.COLOR_LT_GRAY,
@@ -648,10 +653,12 @@ function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
     dc.fillPolygon([[tipX, tipY], [b1x, b1y], [b2x, b2y]]);
 }
 
+
     // -------------------------------------------------------------------------
     // onUpdate
     // -------------------------------------------------------------------------
     function onUpdate(dc) {
+        
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         dc.clear();
 
@@ -697,6 +704,15 @@ function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
 
         // Луна по центру
         blitMoon(dc, cx, moonY);
+
+        // Подсчет дней до полнолуния и вывод цифры
+        var phaseResult = getDaysToNextPhase();
+        var daysTo = phaseResult[0];
+        var isToFull = phaseResult[1];
+        var moonLabel = daysTo.format("%d");
+        // Полнолуние — синий, новолуние — серый (луна тёмная)
+        dc.setColor(isToFull ? Graphics.COLOR_BLUE : Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, moonY - 10, Graphics.FONT_XTINY, moonLabel, Graphics.TEXT_JUSTIFY_CENTER);
 
         // Закат — зеркально
         var setX = cx + (w * 4 / 100) + 45;
