@@ -22,7 +22,7 @@ class F7_1View extends WatchUi.WatchFace {
     // Буфер луны (CIQ 4.x: createBufferedBitmap → Reference)
     var moonBuffer  = null;
     var lastMoonDay = -1;
-    const MOON_R    = 9;
+    // MOON_R теперь вычисляется динамически в ensureMoonBuffer
 
     // Кэш погоды
     var cachedWeatherBlocks = null;
@@ -54,6 +54,7 @@ class F7_1View extends WatchUi.WatchFace {
         lastCalcDay    = -1;
         lastWeatherMin = -1;
         lastMoonDay    = -1;
+        moonBuffer     = null; // сбрасываем буфер — экран мог смениться
     }
 
     // -------------------------------------------------------------------------
@@ -64,6 +65,7 @@ class F7_1View extends WatchUi.WatchFace {
         moonPhase   = getMoonPhase(info.year, info.month, info.day);
         lastCalcDay = info.day;
         lastMoonDay = -1;
+        moonBuffer  = null; // размер радиуса мог измениться
     }
 
     function calculateSunTimes() {
@@ -124,13 +126,12 @@ class F7_1View extends WatchUi.WatchFace {
 
     // -------------------------------------------------------------------------
     // Луна в BufferedBitmap (раз в день)
-    // Новый стиль: тонкое белое кольцо всегда + только освещённая часть белым
-    // Тёмная часть — прозрачная (не рисуем)
+    // moonR передаётся снаружи и зависит от размера экрана
     // -------------------------------------------------------------------------
-    function ensureMoonBuffer(day) {
+    function ensureMoonBuffer(day, moonR) {
         if (lastMoonDay == day && moonBuffer != null) { return; }
 
-        var size = MOON_R * 2 + 4;
+        var size = moonR * 2 + 4;
 
         if (!(Graphics has :createBufferedBitmap)) {
             moonBuffer = null;
@@ -138,12 +139,8 @@ class F7_1View extends WatchUi.WatchFace {
         }
 
         moonBuffer = Graphics.createBufferedBitmap({
-            :width   => size,
-            :height  => size //,
-//            :palette => [
- //               Graphics.COLOR_TRANSPARENT,
- //               Graphics.COLOR_WHITE
- //           ]
+            :width  => size,
+            :height => size
         });
 
         var bdc = moonBuffer.get().getDc();
@@ -152,11 +149,11 @@ class F7_1View extends WatchUi.WatchFace {
 
         var cx = size / 2;
         var cy = size / 2;
-        var r  = MOON_R;
+        var r  = moonR;
         var phase = moonPhase;
         if (phase >= 1.0) { phase = 0.0; }
 
-        // Рисуем только освещённую часть белым
+        // Освещённая часть
         if (phase > 0.03 && phase < 0.97) {
             for (var dy = -r + 1; dy < r; dy++) {
                 var dxF = Math.sqrt((r * r - dy * dy).toFloat());
@@ -169,20 +166,20 @@ class F7_1View extends WatchUi.WatchFace {
                 bdc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 
                 if (phase <= 0.5) {
-                        // Растущая: серп справа
-                        var k = 1.0 - phase * 4.0;
-                        var termX = cx + (dxF * k).toNumber();
-                        if (termX < xR) { bdc.drawLine(termX, cy + dy, xR, cy + dy); }
+                    // Растущая: серп справа
+                    var k = 1.0 - phase * 4.0;
+                    var termX = cx + (dxF * k).toNumber();
+                    if (termX < xR) { bdc.drawLine(termX, cy + dy, xR, cy + dy); }
                 } else {
-                        // Убывающая: серп слева
-                        var k = phase * 4.0 - 3.0;
-                        var termX = cx - (dxF * k).toNumber();
-                        if (termX > xL) { bdc.drawLine(xL, cy + dy, termX, cy + dy); }
+                    // Убывающая: серп слева
+                    var k = phase * 4.0 - 3.0;
+                    var termX = cx - (dxF * k).toNumber();
+                    if (termX > xL) { bdc.drawLine(xL, cy + dy, termX, cy + dy); }
                 }
             }
         }
 
-        // Тонкое кольцо поверх (всегда белое)
+        // Тонкое кольцо поверх
         bdc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         bdc.setPenWidth(1);
         bdc.drawCircle(cx, cy, r);
@@ -193,26 +190,26 @@ class F7_1View extends WatchUi.WatchFace {
     function getDaysToNextPhase() {
         var synodic = 29.53058867;
         var daysInCycle = moonPhase * synodic;
-        
+
         var toFull = 14.765 - daysInCycle;
         if (toFull < 0) { toFull = toFull + synodic; }
-        
+
         var toNew = synodic - daysInCycle;
         if (toNew >= synodic) { toNew = 0.0; }
-        
+
         if (toFull <= toNew) {
-            return [toFull.toNumber(), true]; // true = до полнолуния
+            return [toFull.toNumber(), true];  // до полнолуния
         } else {
-            return [toNew.toNumber(), false]; // false = до новолуния
+            return [toNew.toNumber(), false];  // до новолуния
         }
     }
 
-    function blitMoon(dc, cx, cy) {
-        var size = MOON_R * 2 + 4;
+    function blitMoon(dc, cx, cy, moonR) {
+        if (moonBuffer == null) { return; }
+        var size = moonR * 2 + 4;
         dc.drawBitmap(cx - size / 2, cy - size / 2, moonBuffer.get());
     }
 
-    
     // -------------------------------------------------------------------------
     // Обновление кэша погоды
     // -------------------------------------------------------------------------
@@ -292,7 +289,7 @@ class F7_1View extends WatchUi.WatchFace {
     }
 
     // -------------------------------------------------------------------------
-    // Иконки
+    // Иконки восход / закат
     // -------------------------------------------------------------------------
     function drawSunrise(dc, x, y, size) {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -312,69 +309,74 @@ class F7_1View extends WatchUi.WatchFace {
     // Календарь
     // -------------------------------------------------------------------------
     function drawCalendar(dc, startY) {
-        var now  = Time.now();
-        var info = Gregorian.info(now, Time.FORMAT_SHORT);
-        var w    = dc.getWidth();
-        var today       = info.day;
-        var firstDow    = getFirstDayOfMonth(info.year, info.month);
-        var daysInMonth = getDaysInMonth(info.year, info.month);
-        var firstDowMon = (firstDow + 6) % 7;
-        var todayDow    = (info.day_of_week - 2 + 7) % 7;
-        var days    = ["Mo","Tu","We","Th","Fr","Sa","Su"];
+    var now  = Time.now();
+    var info = Gregorian.info(now, Time.FORMAT_SHORT);
+    var w    = dc.getWidth();
+    var h    = dc.getHeight();
+    var today       = info.day;
+    var firstDow    = getFirstDayOfMonth(info.year, info.month);
+    var daysInMonth = getDaysInMonth(info.year, info.month);
+    var firstDowMon = (firstDow + 6) % 7;
+    var todayDow    = (info.day_of_week - 2 + 7) % 7;
+    var days = ["Mo","Tu","We","Th","Fr","Sa","Su"];
 
-        // Ширина ячейки — вся ширина делится на 7, но не больше 26
-        var cellW = w / 9;
-        if (cellW > 26) { cellW = 26; }
-        var rowH    = (dc.getHeight() * 6 / 100);  // ~7% высоты на строку
-        if (rowH < 13) { rowH = 13; }
-        var offsetX = (w - cellW * 7) / 2;
+    var fontH = dc.getFontHeight(Graphics.FONT_XTINY);
 
-        for (var i = 0; i < 7; i++) {
-            dc.setColor((i >= 5) ? settingWeekendColor : Graphics.COLOR_LT_GRAY,
-                        Graphics.COLOR_TRANSPARENT);
-            var textX = offsetX + cellW * i + cellW / 2;
-            dc.drawText(textX, startY, Graphics.FONT_XTINY, days[i], Graphics.TEXT_JUSTIFY_CENTER);
-            if (i == todayDow) {
-                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-                dc.drawLine(textX - 10, startY + 17, textX + 10, startY + 17);
-                dc.drawLine(textX - 10, startY + 18, textX + 10, startY + 18);
-            }
+    var cellW = w / 10.5;
+    if (cellW > 40) { cellW = 40; }
+    var offsetX = (w - cellW * 7) / 2;
+
+    // Доступная высота для календаря: от startY до нижней метки BT (10% снизу)
+    var availH = h - (h * 10 / 100) - startY;
+    // 7 строк: 1 заголовок + 6 недель. rowH — высота одной строки.
+    var rowH = availH / 6.5;
+    //if (rowH < fontH + 1) { rowH = fontH + 1; }
+
+    var underlineLen = (w * 7 / 100);
+
+    for (var i = 0; i < 7; i++) {
+        dc.setColor((i >= 5) ? settingWeekendColor : Graphics.COLOR_LT_GRAY,
+                    Graphics.COLOR_TRANSPARENT);
+        var textX = offsetX + cellW * i + cellW / 2;
+        dc.drawText(textX, startY, Graphics.FONT_XTINY, days[i], Graphics.TEXT_JUSTIFY_CENTER);
+        if (i == todayDow) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawLine(textX - underlineLen/2, startY + rowH+2,
+                        textX + underlineLen/2, startY + rowH+2);
+            dc.drawLine(textX - underlineLen/2, startY + rowH+1,
+                        textX + underlineLen/2, startY + rowH+1);
         }
-
-        var col = firstDowMon; var row = 1;
-        for (var d = 1; d <= daysInMonth; d++) {
-            var x = offsetX + col * cellW + cellW / 2;
-            var y = startY + row * rowH;
-            if (d == today) {
-                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-                dc.drawRectangle(offsetX + col * cellW + 2, y + 3, cellW - 4, rowH + 1);
-            }
-            dc.setColor((col >= 5) ? settingWeekendColor : Graphics.COLOR_WHITE,
-                        Graphics.COLOR_TRANSPARENT);
-            dc.drawText(x, y, Graphics.FONT_XTINY, d.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
-            col++;
-            if (col > 6) { col = 0; row++; }
-        }
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
     }
 
+    var col = firstDowMon; var row = 1;
+    for (var d = 1; d <= daysInMonth; d++) {
+        var x = offsetX + col * cellW + cellW / 2;
+        var y = startY + row * rowH;
+        if (d == today) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawRectangle(offsetX + col * cellW + 2, y + 1, cellW - 2, rowH+2 );
+        }
+        dc.setColor((col >= 5) ? settingWeekendColor : Graphics.COLOR_WHITE,
+                    Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, Graphics.FONT_XTINY, d.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
+        col++;
+        if (col > 6) { col = 0; row++; }
+    }
+    dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+}
+
     // -------------------------------------------------------------------------
-    // Спортивный блок: пульс, шаги, каллории, этажи
-    // Занимает ту же область что и календарь
+    // Спортивный блок
     // -------------------------------------------------------------------------
     function drawSportBlock(dc, startY) {
         var w = dc.getWidth();
+        var h = dc.getHeight();
 
-        // --- Данные ---
-        var hr        = null;
         var steps     = null;
         var stepsGoal = null;
         var calories  = null;
         var floors    = null;
 
-        
-
-        // Шаги, каллории, этажи
         var amInfo = ActivityMonitor.getInfo();
         if (amInfo != null) {
             steps     = amInfo.steps;
@@ -385,62 +387,65 @@ class F7_1View extends WatchUi.WatchFace {
 
         var col1 = w / 4;
         var col2 = w * 3 / 4;
-        var row1 = startY + 4;
-        var row2 = startY + 36;
-        var row3 = startY + 46;
 
-        // Разделительная линия сверху
-        // dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        // dc.drawLine(w / 8, startY+2, w * 7 / 8, startY+2);
+        // Отступы внутри блока — пропорционально высоте
+        var barOffsetY  = (h * 2 / 100);
+        var hrOffsetY   = (h * 4 / 100);
+        var stepsOffsetY = (h * 14 / 100);
+        var labelOffset  = (h * 9 / 100);
 
-        // Полоска прогресса шагов
+        var barW = w - (w * 4 / 100) * 2;
+        var barX = (w * 4 / 100);
+        var barY = startY + barOffsetY;
+        var barH = (h * 2 / 100);
+        if (barH < 3) { barH = 3; }
+
+        // Прогресс-бар шагов
         if (steps != null && stepsGoal != null && stepsGoal > 0) {
-            var barW  = w-12 ;
-            var barX  = 6 ;
-            var barY  = startY+6;
-            var pct   = steps.toFloat() / stepsGoal.toFloat();
+            var pct  = steps.toFloat() / stepsGoal.toFloat();
             if (pct > 1.0) { pct = 1.0; }
             var fillW = (barW * pct).toNumber();
             dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-            dc.drawRectangle(barX, barY, barW, 4);
+            dc.drawRectangle(barX, barY, barW, barH);
             if (fillW > 0) {
                 dc.setColor(0x00AA44, Graphics.COLOR_TRANSPARENT);
-                dc.fillRectangle(barX, barY, fillW, 4);
+                dc.fillRectangle(barX, barY, fillW, barH);
             }
         }
 
         // Пульс
         if (AppSettings.getHeartRate()) {
             var actInfo = Activity.getActivityInfo();
+            var hr = null;
             if (actInfo != null) { hr = actInfo.currentHeartRate; }
-            // --- Пульс (большой, по центру) ---
             var hrStr = (hr != null && hr > 0) ? hr.format("%d") : "--";
             dc.setColor(0xFF2222, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, row1, Graphics.FONT_NUMBER_MILD, hrStr, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w / 2, startY + hrOffsetY, Graphics.FONT_NUMBER_MILD, hrStr, Graphics.TEXT_JUSTIFY_CENTER);
             dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        // dc.drawText(w / 2, row1 + 28, Graphics.FONT_XTINY, "bpm", Graphics.TEXT_JUSTIFY_CENTER);
-            }
+        }
 
-        // --- Шаги (слева) ---
+        var row2 = startY + stepsOffsetY;
+
+        // Шаги
         var stepsStr = (steps != null) ? steps.format("%d") : "--";
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(col1, row2, Graphics.FONT_TINY, stepsStr, Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(col1, row2 + 23, Graphics.FONT_XTINY, "steps", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(col1, row2 + labelOffset, Graphics.FONT_XTINY, "steps", Graphics.TEXT_JUSTIFY_CENTER);
 
-        // --- Каллории (справа) ---
+        // Каллории
         var calStr = (calories != null) ? calories.format("%d") : "--";
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(col2, row2, Graphics.FONT_TINY, calStr, Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(col2, row2 + 23, Graphics.FONT_XTINY, "kcal", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(col2, row2 + labelOffset, Graphics.FONT_XTINY, "kcal", Graphics.TEXT_JUSTIFY_CENTER);
 
-        // --- Этажи (по центру снизу, если доступны) ---
+        // Этажи
         if (floors != null) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, row3, Graphics.FONT_TINY, floors.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w / 2, row2, Graphics.FONT_TINY, floors.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
             dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, row3 + 23, Graphics.FONT_XTINY, "floors", Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w / 2, row2 + labelOffset, Graphics.FONT_XTINY, "floors", Graphics.TEXT_JUSTIFY_CENTER);
         }
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -475,26 +480,21 @@ class F7_1View extends WatchUi.WatchFace {
             var tempStr = (b["temp"] != null) ? b["temp"].format("%+d") + "°" : "--°";
             var windStr = (b["wind"] != null) ? b["wind"].format("%d") : "--";
 
-            // Измеряем ширину tempStr чтобы точно позиционировать windStr рядом
             var tempDims = dc.getTextDimensions(tempStr + " ", Graphics.FONT_XTINY);
             var fontHeight = dc.getFontHeight(Graphics.FONT_XTINY);
 
-            // Считаем общую ширину строки для центрирования блока
             var windDims = dc.getTextDimensions(windStr, Graphics.FONT_XTINY);
-            var totalWidth = dc.getTextDimensions(tempStr + " " + windStr, Graphics.FONT_XTINY)[0] + 13; // +13 для стрелки ветра
+            var totalWidth = dc.getTextDimensions(tempStr + " " + windStr, Graphics.FONT_XTINY)[0] + 13;
 
-            var startXtemp = bx - totalWidth / 2; // левый край блока
+            var startXtemp = bx - totalWidth / 2;
 
-            // Рисуем tempStr
             dc.setColor(tempColor, Graphics.COLOR_TRANSPARENT);
             dc.drawText(startXtemp, y, Graphics.FONT_XTINY, tempStr + " ", Graphics.TEXT_JUSTIFY_LEFT);
 
-            // Рисуем windStr синим
             var windX = startXtemp + tempDims[0];
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
             dc.drawText(windX, y, Graphics.FONT_XTINY, windStr, Graphics.TEXT_JUSTIFY_LEFT);
 
-            // Стрелка ветра — синим, позиция от правого края windStr + отступ на основе высоты шрифта
             if (b["wdir"] != null) {
                 var arrowOffset = windDims[0] + fontHeight / 3;
                 dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
@@ -543,7 +543,7 @@ class F7_1View extends WatchUi.WatchFace {
     }
 
     // -------------------------------------------------------------------------
-    // Кольцо осадков (из кэша)
+    // Кольцо осадков
     // -------------------------------------------------------------------------
     function drawPrecipRing(dc, cx, cy, radius) {
         if (cachedPrecipData == null) { return; }
@@ -562,7 +562,6 @@ class F7_1View extends WatchUi.WatchFace {
         var markerDeg = 90.0 - totalMin.toFloat() * 0.5;
         var markerRad = markerDeg * Math.PI / 180.0;
 
-        // Маркер чуть внутри кольца
         var markerR = radius - (radius * 4 / 100);
         var mx = cx + (markerR * Math.cos(markerRad)).toNumber();
         var my = cy - (markerR * Math.sin(markerRad)).toNumber();
@@ -626,39 +625,26 @@ class F7_1View extends WatchUi.WatchFace {
         dc.setPenWidth(1);
     }
 
-function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
-    var rad = angleDeg * Math.PI / 180.0;
-    
-    // Уменьшаем высоту (было size, стало size * 0.6)
-    var height = size * 0.8;
-    // Увеличиваем ширину (было size * 0.5, стало size * 0.8)
-    var width = size * 1.2;
-    
-    // Острие треугольника
-    var tipX = (cx + height * Math.cos(rad)).toNumber();
-    var tipY = (cy - height * Math.sin(rad)).toNumber();
-    
-    // Перпендикуляр для основания
-    var perpRad = rad + Math.PI / 2.0;
-    var halfWidth = width / 2;
-    
-    // Первая точка основания
-    var b1x = (cx - height * 0.4 * Math.cos(rad) + halfWidth * Math.cos(perpRad)).toNumber();
-    var b1y = (cy + height * 0.4 * Math.sin(rad) - halfWidth * Math.sin(perpRad)).toNumber();
-    
-    // Вторая точка основания
-    var b2x = (cx - height * 0.4 * Math.cos(rad) - halfWidth * Math.cos(perpRad)).toNumber();
-    var b2y = (cy + height * 0.4 * Math.sin(rad) + halfWidth * Math.sin(perpRad)).toNumber();
-    
-    dc.fillPolygon([[tipX, tipY], [b1x, b1y], [b2x, b2y]]);
-}
-
+    function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
+        var rad = angleDeg * Math.PI / 180.0;
+        var height = size * 0.8;
+        var width = size * 1.2;
+        var tipX = (cx + height * Math.cos(rad)).toNumber();
+        var tipY = (cy - height * Math.sin(rad)).toNumber();
+        var perpRad = rad + Math.PI / 2.0;
+        var halfWidth = width / 2;
+        var b1x = (cx - height * 0.4 * Math.cos(rad) + halfWidth * Math.cos(perpRad)).toNumber();
+        var b1y = (cy + height * 0.4 * Math.sin(rad) - halfWidth * Math.sin(perpRad)).toNumber();
+        var b2x = (cx - height * 0.4 * Math.cos(rad) - halfWidth * Math.cos(perpRad)).toNumber();
+        var b2y = (cy + height * 0.4 * Math.sin(rad) + halfWidth * Math.sin(perpRad)).toNumber();
+        dc.fillPolygon([[tipX, tipY], [b1x, b1y], [b2x, b2y]]);
+    }
 
     // -------------------------------------------------------------------------
     // onUpdate
     // -------------------------------------------------------------------------
     function onUpdate(dc) {
-        
+
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         dc.clear();
 
@@ -669,6 +655,44 @@ function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
         var now  = Time.now();
         var info = Gregorian.info(now, Time.FORMAT_SHORT);
 
+        // -----------------------------------------------------------------------
+        // Все размерные константы — только здесь, пропорционально w/h
+        // На Fenix 7 Pro (280px): коэффициенты дают ровно те же значения px
+        // На Fenix 8 (454px): масштабируются автоматически
+        // -----------------------------------------------------------------------
+
+        // Луна
+        var moonR     = (w * 9 / 100);          // 9% от ширины → 25px @ 280, 40px @ 454  (было const 9)
+        // (было 9px — это примерно 3.2% от 280; возьмём 3.2% чтобы на 7 было как прежде)
+        // Пересчёт: 9/280 ≈ 3.2% → moonR = w * 32 / 1000
+        // Но 9/280 = 0.0321, для простоты moonR = (w * 32 + 500) / 1000
+        // Итого: при w=280 → (280*32+500)/1000 = (8960+500)/1000 = 9 ✓
+        //        при w=454 → (454*32+500)/1000 = (14528+500)/1000 = 15
+        moonR = (w * 32 + 500) / 1000;
+
+        // Верхняя строка
+        var rowY     = (h * 8 / 100);           // 8% сверху — уже пропорционально, ok
+        var iconSize = (w * 4 / 100);           // 4% от ширины — уже пропорционально, ok
+        var moonY    = (h * 11 / 100);          // 11% сверху
+
+        // Отступ иконок восхода/заката от центра
+        // было: cx ± (w*4/100) ± 45  — здесь 45px — фиксированный, не масштабируется
+        // 45/280 ≈ 16%, берём 16%: w * 16 / 100
+        var sunOffset = (w * 16 / 100);         // @ 280 → 44px ≈ 45 ✓,  @ 454 → 72px
+
+        // Смещение текста относительно иконки
+        // было: riseX = cx - (w*4/100) - 45  → cx - iconSize - sunOffset
+        var riseX = cx - iconSize - sunOffset;
+        var setX  = cx + iconSize + sunOffset;
+
+        // Время по центру
+        var timeY = (h * 17 / 100);
+
+        // Нижний блок
+        // drawCalendar/drawSportBlock начинается от cy
+
+        // -----------------------------------------------------------------------
+
         if (info.day != lastCalcDay) { recalcDaily(info); }
 
         var absoluteMin = info.hour * 60 + info.min;
@@ -677,82 +701,66 @@ function drawTriangleMarker(dc, cx, cy, angleDeg, size) {
             refreshWeatherCache(absoluteMin);
         }
 
-        ensureMoonBuffer(info.day);
+        ensureMoonBuffer(info.day, moonR);
 
-        //var timeStr    = info.hour.format("%02d") + ":" + info.min.format("%02d");
         var batteryStr = System.getSystemStats().battery.format("%.0f") + "%";
         var btStr      = System.getDeviceSettings().phoneConnected ? "BT:ON" : "BT:OFF";
         var hourStr = info.hour.format("%02d");
-        var minStr  = info.min.format("%02d");        
+        var minStr  = info.min.format("%02d");
 
-        // Кольцо осадков — радиус 49% от ширины, чтобы касалось края
+        // Кольцо осадков
         var ringRadius = (w * 49 / 100);
         if (AppSettings.getPrecipRing()) {
             drawPrecipRing(dc, cx, cy, ringRadius);
         }
 
-        // Верхняя строка: восход / луна / закат
-        var rowY     = (h * 8 / 100);          // ~8% сверху
-        var iconSize = (w * 4 / 100);          // ~4% от ширины
-        var moonY    = (h * 11 / 100);         // чуть ниже строки текста
-
-        // Восход — сдвигаем ближе к центру (30% от края до центра)
-        var riseX = cx - (w * 4 / 100) - 45;
-        drawSunrise(dc, riseX - iconSize-3, rowY + iconSize / 2, iconSize);
+        // Восход
+        drawSunrise(dc, riseX - iconSize - 3, rowY + iconSize / 2, iconSize);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(riseX, rowY, Graphics.FONT_XTINY, riseStr, Graphics.TEXT_JUSTIFY_LEFT);
 
-        // Луна по центру
-        blitMoon(dc, cx, moonY);
+        // Луна
+        blitMoon(dc, cx, moonY, moonR);
 
-        // Подсчет дней до полнолуния и вывод цифры
+        // Дни до фазы
         var phaseResult = getDaysToNextPhase();
         var daysTo = phaseResult[0];
         var isToFull = phaseResult[1];
         var moonLabel = daysTo.format("%d");
-        // Полнолуние — синий, новолуние — серый (луна тёмная)
         dc.setColor(isToFull ? Graphics.COLOR_BLUE : Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, moonY - 10, Graphics.FONT_XTINY, moonLabel, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(cx, moonY - (moonR + 2), Graphics.FONT_XTINY, moonLabel, Graphics.TEXT_JUSTIFY_CENTER);
 
-        // Закат — зеркально
-        var setX = cx + (w * 4 / 100) + 45;
+        // Закат
         drawSunset(dc, setX + iconSize/2 - 2, rowY + iconSize / 2, iconSize);
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawText(setX, rowY, Graphics.FONT_XTINY, setStr, Graphics.TEXT_JUSTIFY_RIGHT);
 
-        // Время по центру — Y примерно 22% сверху
-        var timeY = (h * 17 / 100);
-        //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        //dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, timeStr, Graphics.TEXT_JUSTIFY_CENTER);
-        
-        // Часы рисуем три части
-            var colonWidth = dc.getTextWidthInPixels(":", Graphics.FONT_NUMBER_THAI_HOT);
-            dc.setColor(AppSettings.getHourColor(), Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx - colonWidth/2 - 2, timeY, Graphics.FONT_NUMBER_THAI_HOT, hourStr, Graphics.TEXT_JUSTIFY_RIGHT);
-            dc.setColor(AppSettings.getColonColor(), Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, ":", Graphics.TEXT_JUSTIFY_CENTER);
-            dc.setColor(AppSettings.getMinuteColor(), Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx + colonWidth/2 + 1, timeY, Graphics.FONT_NUMBER_THAI_HOT, minStr, Graphics.TEXT_JUSTIFY_LEFT);
-        
+        // Время
+        var colonWidth = dc.getTextWidthInPixels(":", Graphics.FONT_NUMBER_THAI_HOT);
+        dc.setColor(AppSettings.getHourColor(), Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx - colonWidth/2 - 2, timeY, Graphics.FONT_NUMBER_THAI_HOT, hourStr, Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.setColor(AppSettings.getColonColor(), Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, ":", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(AppSettings.getMinuteColor(), Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx + colonWidth/2 + 1, timeY, Graphics.FONT_NUMBER_THAI_HOT, minStr, Graphics.TEXT_JUSTIFY_LEFT);
 
-        // Погода на той же высоте что и время (рисуется поверх, сбоку)
+        // Погода
         if (AppSettings.getWeatherDisplay()) {
             drawWeather(dc, timeY);
         }
 
-        
-        // Нижний блок — календарь или спорт
+        // Нижний блок
         if (settingBottomBlock == 1) {
             drawSportBlock(dc, cy);
         } else {
             drawCalendar(dc, cy);
         }
 
-        // Батарея сверху по центру
+        // Батарея
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, 0, Graphics.FONT_XTINY, batteryStr, Graphics.TEXT_JUSTIFY_CENTER);
 
-        // BT снизу по центру
+        // BT
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, h - (h * 10 / 100), Graphics.FONT_XTINY, btStr, Graphics.TEXT_JUSTIFY_CENTER);
     }
