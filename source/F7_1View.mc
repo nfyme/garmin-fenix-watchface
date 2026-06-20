@@ -320,7 +320,7 @@ class F7_1View extends WatchUi.WatchFace {
     var todayDow    = (info.day_of_week - 2 + 7) % 7;
     var days = ["Mo","Tu","We","Th","Fr","Sa","Su"];
 
-    var fontH = dc.getFontHeight(Graphics.FONT_XTINY);
+    //var fontH = dc.getFontHeight(Graphics.FONT_XTINY);
 
     var cellW = w / 10.5;
     if (cellW > 40) { cellW = 40; }
@@ -475,7 +475,7 @@ class F7_1View extends WatchUi.WatchFace {
             var lineW = 0; var startX = bx;
             if (hasPrecip) { lineW = (colW * precip / 100).toNumber(); startX = bx - lineW / 2; }
             var tempColor = Graphics.COLOR_WHITE;
-            if (isThunder) { tempColor = 0xAA0000; }
+            if (isThunder) { tempColor = 0xFF5500; }
 
             var tempStr = (b["temp"] != null) ? b["temp"].format("%+d") + "°" : "--°";
             var windStr = (b["wind"] != null) ? b["wind"].format("%d") : "--";

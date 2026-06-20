@@ -1,0 +1,297 @@
+{
+  "settings" : [ {
+    "key" : "weatherInterval",
+    "valueType" : "number",
+    "defaultValue" : 2,
+    "configTitle" : "SettingWeatherInterval",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal0$",
+      "value" : 0
+    }, {
+      "display" : "$literal1$",
+      "value" : 1
+    }, {
+      "display" : "$literal2$",
+      "value" : 2
+    }, {
+      "display" : "$literal3$",
+      "value" : 3
+    }, {
+      "display" : "$literal4$",
+      "value" : 4
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "weekendColor",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingWeekendColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal6$",
+      "value" : 1
+    }, {
+      "display" : "$literal7$",
+      "value" : 2
+    }, {
+      "display" : "$literal8$",
+      "value" : 3
+    }, {
+      "display" : "$literal9$",
+      "value" : 4
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "hourColor",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingHourColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal10$",
+      "value" : 0
+    }, {
+      "display" : "$literal5$",
+      "value" : 1
+    }, {
+      "display" : "$literal6$",
+      "value" : 2
+    }, {
+      "display" : "$literal7$",
+      "value" : 3
+    }, {
+      "display" : "$literal8$",
+      "value" : 4
+    }, {
+      "display" : "$literal11$",
+      "value" : 5
+    }, {
+      "display" : "$literal9$",
+      "value" : 6
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "minuteColor",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingMinuteColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal10$",
+      "value" : 0
+    }, {
+      "display" : "$literal5$",
+      "value" : 1
+    }, {
+      "display" : "$literal6$",
+      "value" : 2
+    }, {
+      "display" : "$literal7$",
+      "value" : 3
+    }, {
+      "display" : "$literal8$",
+      "value" : 4
+    }, {
+      "display" : "$literal11$",
+      "value" : 5
+    }, {
+      "display" : "$literal9$",
+      "value" : 6
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "colonColor",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingColonColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal10$",
+      "value" : 0
+    }, {
+      "display" : "$literal5$",
+      "value" : 1
+    }, {
+      "display" : "$literal6$",
+      "value" : 2
+    }, {
+      "display" : "$literal7$",
+      "value" : 3
+    }, {
+      "display" : "$literal8$",
+      "value" : 4
+    }, {
+      "display" : "$literal11$",
+      "value" : 5
+    }, {
+      "display" : "$literal9$",
+      "value" : 6
+    }, {
+      "display" : "$literal12$",
+      "value" : 7
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "bottomBlock",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingBottomBlock",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal13$",
+      "value" : 0
+    }, {
+      "display" : "$literal14$",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "precipRing",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingPrecipRing",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "precipForecast",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingPrecipForecast",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "weatherDisplay",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingWeather",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "heartRate",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingHeartRate",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  } ],
+  "supportsLiveValidation" : false,
+  "languages" : {
+    "valyrian" : {
+      "SettingMinuteColor" : "Minute color",
+      "SettingBottomBlock" : "Bottom block",
+      "SettingPrecipRing" : "Precip ring",
+      "Off" : "OFF",
+      "AppName" : "Dark Watch",
+      "Month" : "MONTH",
+      "$literal0$" : "5 min",
+      "$literal2$" : "15 min",
+      "$literal14$" : "Sport",
+      "$literal4$" : "60 min",
+      "Phone" : "PHONE",
+      "SettingWeekendColor" : "Weekend color",
+      "Battery" : "BATTERY",
+      "$literal6$" : "Orange",
+      "$literal8$" : "Blue",
+      "TillSunset" : "TILL SUNSET",
+      "SettingWeather" : "Weather",
+      "$literal12$" : "Hidden",
+      "$literal10$" : "White",
+      "SettingHourColor" : "Hour color",
+      "SettingWeatherInterval" : "Weather update",
+      "SettingColonColor" : "Colon color",
+      "Date" : "DATE",
+      "Sunset" : "SUNSET",
+      "$literal1$" : "10 min",
+      "$literal3$" : "30 min",
+      "$literal13$" : "Calendar",
+      "$literal5$" : "Red",
+      "$literal7$" : "Green",
+      "Alarm" : "ALARM",
+      "$literal9$" : "Gray",
+      "Sunrise" : "SUNRISE",
+      "SettingHeartRate" : "Heart rate",
+      "$literal11$" : "Yellow",
+      "Day" : "DAY",
+      "SettingPrecipForecast" : "Precip forecast",
+      "On" : "ON"
+    }
+  }
+}
