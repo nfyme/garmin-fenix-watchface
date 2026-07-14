@@ -105,8 +105,38 @@
     <setting propertyKey="@Properties.heartRate"      title="@Strings.SettingHeartRate">
         <settingConfig type="boolean"/>
     </setting>
-    <setting propertyKey="@Properties.stepsBar"       title="@Strings.SettingStepsBar">
-        <settingConfig type="boolean"/>
+    <setting propertyKey="@Properties.underWeatherMode" title="@Strings.SettingUnderWeatherMode">
+        <settingConfig type="list">
+            <listEntry value="0">None</listEntry>
+            <listEntry value="1">Steps bar</listEntry>
+            <listEntry value="2">Pressure</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.barFillColor" title="@Strings.SettingBarFillColor">
+        <settingConfig type="list">
+            <listEntry value="0">Green</listEntry>
+            <listEntry value="1">Blue</listEntry>
+            <listEntry value="2">Red</listEntry>
+            <listEntry value="3">Orange</listEntry>
+            <listEntry value="4">Yellow</listEntry>
+            <listEntry value="5">White</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.barBgColor" title="@Strings.SettingBarBgColor">
+        <settingConfig type="list">
+            <listEntry value="0">Gray</listEntry>
+            <listEntry value="1">White</listEntry>
+            <listEntry value="2">Transparent</listEntry>
+            <listEntry value="3">Dark gray</listEntry>
+            <listEntry value="4">Dark blue</listEntry>
+            <listEntry value="5">Outline</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.pressureUnit" title="@Strings.SettingPressureUnit">
+        <settingConfig type="list">
+            <listEntry value="0">hPa</listEntry>
+            <listEntry value="1">mmHg</listEntry>
+        </settingConfig>
     </setting>
     <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
         <settingConfig type="boolean"/>

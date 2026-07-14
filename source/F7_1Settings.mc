@@ -109,9 +109,40 @@ class AppSettings {
         return val;
     }
 
-    static function getStepsBar() {
-        var val = Application.Properties.getValue("stepsBar");
-        if (val == null) { val = true; }
+    // Что показывать под погодой: 0=Ничего, 1=Прогресс-бар шагов, 2=Давление
+    static var UNDER_WEATHER_MODES = ["None", "Steps bar", "Pressure"];
+
+    static function getUnderWeatherMode() {
+        var val = Application.Properties.getValue("underWeatherMode");
+        if (val == null) { val = 1; }
+        return val;
+    }
+
+    static var BAR_FILL_COLORS = [0x00AA44, 0x0055FF, 0xFF2222, 0xFF5500, 0xFFFF00, Graphics.COLOR_WHITE];
+    static var BAR_FILL_COLOR_NAMES = ["Green", "Blue", "Red", "Orange", "Yellow", "White"];
+
+    static function getBarFillColor() {
+        var idx = Application.Properties.getValue("barFillColor");
+        if (idx == null || idx < 0 || idx >= BAR_FILL_COLORS.size()) { idx = 0; }
+        return BAR_FILL_COLORS[idx];
+    }
+
+    // Цвет пустой (незаполненной) части бара. -1 = не рисовать фон вообще,
+    // -2 = только контур (обводка без заливки) — обрабатываются отдельно в drawBar*.
+    static var BAR_BG_COLORS = [Graphics.COLOR_DK_GRAY, Graphics.COLOR_WHITE, -1, 0x333333, 0x000044, -2];
+    static var BAR_BG_COLOR_NAMES = ["Gray", "White", "Transparent", "Dark gray", "Dark blue", "Outline"];
+
+    static function getBarBgColor() {
+        var idx = Application.Properties.getValue("barBgColor");
+        if (idx == null || idx < 0 || idx >= BAR_BG_COLORS.size()) { idx = 0; }
+        return BAR_BG_COLORS[idx];
+    }
+
+    static var PRESSURE_UNITS = ["hPa", "mmHg"];
+
+    static function getPressureUnit() {
+        var val = Application.Properties.getValue("pressureUnit");
+        if (val == null) { val = 0; }
         return val;
     }
 
@@ -279,11 +310,43 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
-        Menu2.addItem(new WatchUi.ToggleMenuItem(
-            "Steps bar",
-            null,
-            :stepsBar,
-            AppSettings.getStepsBar(),
+        var uwmIdx = Application.Properties.getValue("underWeatherMode");
+        if (uwmIdx == null) { uwmIdx = 1; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Under weather",
+            AppSettings.UNDER_WEATHER_MODES[uwmIdx],
+            :underWeatherMode,
+            {}
+        ));
+
+        var bfcIdx = Application.Properties.getValue("barFillColor");
+        if (bfcIdx == null) { bfcIdx = 0; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Bar fill color",
+            AppSettings.BAR_FILL_COLOR_NAMES[bfcIdx],
+            :barFillColor,
+            {}
+        ));
+
+        var bbcIdx = Application.Properties.getValue("barBgColor");
+        if (bbcIdx == null) { bbcIdx = 0; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Bar empty color",
+            AppSettings.BAR_BG_COLOR_NAMES[bbcIdx],
+            :barBgColor,
+            {}
+        ));
+
+        var puIdx = Application.Properties.getValue("pressureUnit");
+        if (puIdx == null) { puIdx = 0; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Pressure unit",
+            AppSettings.PRESSURE_UNITS[puIdx],
+            :pressureUnit,
             {}
         ));
 
@@ -377,8 +440,33 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         else if (id == :heartRate) {
             Application.Properties.setValue("heartRate", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
-        else if (id == :stepsBar) {
-            Application.Properties.setValue("stepsBar", (item as WatchUi.ToggleMenuItem).isEnabled());
+        else if (id == :underWeatherMode) {
+            WatchUi.pushView(
+                new ColorPicker("Under weather", "underWeatherMode", AppSettings.UNDER_WEATHER_MODES),
+                new ColorPickerDelegate(item, "underWeatherMode", AppSettings.UNDER_WEATHER_MODES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :barFillColor) {
+            WatchUi.pushView(
+                new ColorPicker("Bar fill color", "barFillColor", AppSettings.BAR_FILL_COLOR_NAMES),
+                new ColorPickerDelegate(item, "barFillColor", AppSettings.BAR_FILL_COLOR_NAMES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :barBgColor) {
+            WatchUi.pushView(
+                new ColorPicker("Bar empty color", "barBgColor", AppSettings.BAR_BG_COLOR_NAMES),
+                new ColorPickerDelegate(item, "barBgColor", AppSettings.BAR_BG_COLOR_NAMES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :pressureUnit) {
+            WatchUi.pushView(
+                new ColorPicker("Pressure unit", "pressureUnit", AppSettings.PRESSURE_UNITS),
+                new ColorPickerDelegate(item, "pressureUnit", AppSettings.PRESSURE_UNITS),
+                WatchUi.SLIDE_LEFT
+            );
         }
         else if (id == :weatherDemoMode) {
             Application.Properties.setValue("weatherDemoMode", (item as WatchUi.ToggleMenuItem).isEnabled());

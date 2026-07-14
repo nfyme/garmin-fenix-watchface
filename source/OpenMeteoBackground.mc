@@ -71,7 +71,7 @@ class OpenMeteoBackground extends System.ServiceDelegate {
         var params = {
             "latitude"        => latStr,
             "longitude"       => lonStr,
-            "hourly"          => "temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,weathercode",
+            "hourly"          => "temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,weathercode,surface_pressure",
             "timezone"        => "auto",
             "forecast_days"   => "3",
             "wind_speed_unit" => "ms"
@@ -120,6 +120,7 @@ class OpenMeteoBackground extends System.ServiceDelegate {
         var winds  = hourly.get("wind_speed_10m") as Lang.Array?;
         var wdirs  = hourly.get("wind_direction_10m")          as Lang.Array?;
         var precip = hourly.get("precipitation_probability")   as Lang.Array?;
+        var pressure = hourly.get("surface_pressure")          as Lang.Array?;
 
         var count = (temps != null) ? temps.size() : 0;
         System.println("[OM-BG] Hourly entries count: " + count);
@@ -137,12 +138,13 @@ class OpenMeteoBackground extends System.ServiceDelegate {
                 + " temp=" + (temps != null ? temps[12].toString() : "?"));
         }
 
-        Application.Storage.setValue("om_temps",   temps);
-        Application.Storage.setValue("om_times",   times);
-        Application.Storage.setValue("om_codes",   codes);
-        Application.Storage.setValue("om_winds",   winds);
-        Application.Storage.setValue("om_wdir",    wdirs);
-        Application.Storage.setValue("om_precip",  precip);
+        Application.Storage.setValue("om_temps",    temps);
+        Application.Storage.setValue("om_times",    times);
+        Application.Storage.setValue("om_codes",    codes);
+        Application.Storage.setValue("om_winds",    winds);
+        Application.Storage.setValue("om_wdir",     wdirs);
+        Application.Storage.setValue("om_precip",   precip);
+        Application.Storage.setValue("om_pressure", pressure);
 
         var nowSecs = Time.now().value();
         Application.Storage.setValue("om_updated", nowSecs);

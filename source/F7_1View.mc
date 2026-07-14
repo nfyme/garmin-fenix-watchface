@@ -29,6 +29,7 @@ class F7_1View extends WatchUi.WatchFace {
     var cachedPrecipData    = null;  // полный форecast (сколько отдал API), каждый элемент содержит "time" (unix sec)
     var lastWeatherMin      = -1;
     var omUpdatedAt         = 0;    // unix timestamp последнего успешного OM-запроса
+    var cachedPressure      = null; // текущее давление, hPa (null пока не получено)
 
     // Настройки (читаются при старте и после изменения)
     var settingWeatherInterval = 15;
@@ -320,12 +321,13 @@ class F7_1View extends WatchUi.WatchFace {
     // Обновление кэша погоды из Open-Meteo Storage
     // -------------------------------------------------------------------------
     function refreshWeatherCacheOpenMeteo(nowMin) {
-        var temps  = Application.Storage.getValue("om_temps")  as Lang.Array?;
-        var times  = Application.Storage.getValue("om_times")  as Lang.Array?;
-        var codes  = Application.Storage.getValue("om_codes")  as Lang.Array?;
-        var winds  = Application.Storage.getValue("om_winds")  as Lang.Array?;
-        var wdirs  = Application.Storage.getValue("om_wdir")   as Lang.Array?;
-        var precip = Application.Storage.getValue("om_precip") as Lang.Array?;
+        var temps    = Application.Storage.getValue("om_temps")    as Lang.Array?;
+        var times    = Application.Storage.getValue("om_times")    as Lang.Array?;
+        var codes    = Application.Storage.getValue("om_codes")    as Lang.Array?;
+        var winds    = Application.Storage.getValue("om_winds")    as Lang.Array?;
+        var wdirs    = Application.Storage.getValue("om_wdir")     as Lang.Array?;
+        var precip   = Application.Storage.getValue("om_precip")   as Lang.Array?;
+        var pressure = Application.Storage.getValue("om_pressure") as Lang.Array?;
 
         if (temps == null || temps.size() == 0 || times == null) {
             System.println("[OM-FG] refreshWeatherCacheOpenMeteo: no data in Storage");
@@ -377,6 +379,11 @@ class F7_1View extends WatchUi.WatchFace {
             }
         }
         cachedWeatherBlocks = newBlocks;
+
+        // Давление — только текущий час, Open-Meteo уже отдаёт hPa напрямую
+        if (pressure != null && curIdx < pressure.size()) {
+            cachedPressure = pressure[curIdx];
+        }
 
         // Кольцо осадков: держим ВЕСЬ форecast от текущего часа до конца массива
         // (сколько Open-Meteo отдал — forecast_days=3 даёт до 72ч), а не только 12.
@@ -433,6 +440,7 @@ class F7_1View extends WatchUi.WatchFace {
     const DEMO_BLOCK_WINDS          = [3.5, 9.0, 5.0];
     const DEMO_BLOCK_WDIRS          = [45, 180, 270];
     const DEMO_BLOCK_PRECIP_CHANCES = [40, 80, 60];
+    const DEMO_PRESSURE             = 995; // hPa, ниже нормы — видно заполнение влево от центра
 
     function refreshWeatherCacheDemo(nowMin) {
         var newBlocks = new [3];
@@ -446,6 +454,7 @@ class F7_1View extends WatchUi.WatchFace {
             };
         }
         cachedWeatherBlocks = newBlocks;
+        cachedPressure = DEMO_PRESSURE;
 
         var nowSecs = Time.now().value();
         var newPrecip = new [ DEMO_RING_CONDITIONS.size() ];
@@ -480,6 +489,8 @@ class F7_1View extends WatchUi.WatchFace {
                 newBlocks[0] = { "temp" => cur.temperature, "wind" => cur.windSpeed,
                                  "wdir" => cur.windBearing, "precip" => cur.precipitationChance,
                                  "cond" => cur.condition };
+                // Garmin отдаёт давление в Pa, переводим в hPa для отображения
+                if (cur.pressure != null) { cachedPressure = cur.pressure / 100.0; }
             } else if (cachedWeatherBlocks != null) {
                 newBlocks[0] = cachedWeatherBlocks[0];
             }
@@ -619,6 +630,22 @@ class F7_1View extends WatchUi.WatchFace {
 }
 
     // -------------------------------------------------------------------------
+    // Общий фон бара (заполняемая полоска): -1 = не рисовать (прозрачный),
+    // -2 = только контур без заливки, иначе обычная заливка цветом.
+    // -------------------------------------------------------------------------
+    function drawBarBg(dc, barX, barY, barW, barH) {
+        var bgColor = AppSettings.getBarBgColor();
+        if (bgColor == -1) { return; }
+        if (bgColor == -2) {
+            dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+            dc.drawRoundedRectangle(barX, barY, barW, barH, barH / 2);
+            return;
+        }
+        dc.setColor(bgColor, Graphics.COLOR_TRANSPARENT);
+        dc.fillRoundedRectangle(barX, barY, barW, barH, barH / 2);
+    }
+
+    // -------------------------------------------------------------------------
     // Прогресс-бар шагов. Координаты полностью задаются вызывающим кодом:
     // y — вертикальный центр бара, s/e — левая/правая граница по X (по
     // умолчанию 0 и ширина экрана). Никакой автоматической геометрии внутри.
@@ -655,13 +682,91 @@ class F7_1View extends WatchUi.WatchFace {
         if (pct > 1.0) { pct = 1.0; }
         var fillW = (barW * pct).toNumber();
 
-        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.fillRoundedRectangle(barX, barY, barW, barH, barH / 2);
+        drawBarBg(dc, barX, barY, barW, barH);
         if (fillW > 0) {
-            dc.setColor(0x00AA44, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.getBarFillColor(), Graphics.COLOR_TRANSPARENT);
             dc.fillRoundedRectangle(barX, barY, fillW, barH, barH / 2);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+    }
+
+    // -------------------------------------------------------------------------
+    // Давление: число по центру (в выбранных единицах), вокруг — пустые
+    // квадратики, которые заполняются в сторону отклонения от нормы (1013 hPa,
+    // ±25 hPa на квадратик). Повышенное давление — заполнение вправо от цифры,
+    // пониженное — влево. Координаты (y, s, e) задаются вызывающим кодом,
+    // как и у drawStepsBar.
+    // -------------------------------------------------------------------------
+    const PRESSURE_CENTER    = 1013; // hPa, стандартное давление на уровне моря
+    const PRESSURE_STEP_HPA  = 10;   // hPa на один квадратик
+    const PRESSURE_BOXES     = 10;   // квадратиков в каждую сторону от цифры
+    const PRESSURE_FONT      = Graphics.FONT_XTINY; // шрифт центрального числа давления
+    const PRESSURE_BOX_SIZE_RATIO = 4.0 / 10.0;     // размер квадратика = эта доля высоты шрифта
+
+    function drawPressureBar(dc, y, s, e) {
+        if (cachedPressure == null) { return; }
+        if (s == null) { s = 0; }
+        if (e == null) { e = dc.getWidth(); }
+
+        var unit = AppSettings.getPressureUnit();
+        var pressureStr;
+        if (unit == 1) {
+            // mmHg: 1 hPa = 0.750062 mmHg
+            pressureStr = (cachedPressure * 0.750062).format("%.0f");
+        } else {
+            pressureStr = cachedPressure.format("%.0f");
+        }
+
+        var fontH = dc.getFontHeight(PRESSURE_FONT);
+        var numDims = dc.getTextDimensions(pressureStr, PRESSURE_FONT);
+        var cx = (s + e) / 2;
+
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, y - fontH / 2, PRESSURE_FONT, pressureStr, Graphics.TEXT_JUSTIFY_CENTER);
+
+        // Сколько квадратиков заполнено и в какую сторону (шаг всегда в hPa,
+        // единица отображения на диапазон заполнения не влияет)
+        var deltaHpa = cachedPressure - PRESSURE_CENTER;
+        var filledBoxes = (deltaHpa.abs() / PRESSURE_STEP_HPA).toNumber();
+        if (filledBoxes > PRESSURE_BOXES) { filledBoxes = PRESSURE_BOXES; }
+        var risingRight = (deltaHpa >= 0);
+
+        var boxSize = (fontH * PRESSURE_BOX_SIZE_RATIO).toNumber();
+        var boxGap = boxSize / 3;
+        var textGap = numDims[0] / 2 + boxGap;
+
+        // Правая сторона (от края числа до e)
+        var availRight = e - (cx + textGap);
+        var stepRight = (PRESSURE_BOXES > 0) ? availRight / PRESSURE_BOXES : 0;
+        for (var i = 0; i < PRESSURE_BOXES; i++) {
+            var bx = cx + textGap + i * stepRight;
+            var by = y - boxSize / 2;
+            var filled = risingRight && (i < filledBoxes);
+            drawPressureBox(dc, bx, by, boxSize, filled);
+        }
+
+        // Левая сторона (от s до края числа, считаем справа налево)
+        var availLeft = (cx - textGap) - s;
+        var stepLeft = (PRESSURE_BOXES > 0) ? availLeft / PRESSURE_BOXES : 0;
+        for (var i = 0; i < PRESSURE_BOXES; i++) {
+            var bx = cx - textGap - (i + 1) * stepLeft;
+            var by = y - boxSize / 2;
+            var filled = !risingRight && (i < filledBoxes);
+            drawPressureBox(dc, bx, by, boxSize, filled);
+        }
+    }
+
+    function drawPressureBox(dc, x, y, size, filled) {
+        if (filled) {
+            dc.setColor(AppSettings.getBarFillColor(), Graphics.COLOR_TRANSPARENT);
+            dc.fillRoundedRectangle(x, y, size, size, size / 4);
+        } else {
+            var bgColor = AppSettings.getBarBgColor();
+            if (bgColor == -1) { return; }
+            var c = (bgColor == -2) ? Graphics.COLOR_LT_GRAY : bgColor;
+            dc.setColor(c, Graphics.COLOR_TRANSPARENT);
+            dc.drawRoundedRectangle(x, y, size, size, size / 4);
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -1085,13 +1190,12 @@ class F7_1View extends WatchUi.WatchFace {
         // -----------------------------------------------------------------------
 
         // Луна
-        var moonR     = (w * 9 / 100);          // 9% от ширины → 25px @ 280, 40px @ 454  (было const 9)
         // (было 9px — это примерно 3.2% от 280; возьмём 3.2% чтобы на 7 было как прежде)
         // Пересчёт: 9/280 ≈ 3.2% → moonR = w * 32 / 1000
         // Но 9/280 = 0.0321, для простоты moonR = (w * 32 + 500) / 1000
         // Итого: при w=280 → (280*32+500)/1000 = (8960+500)/1000 = 9 ✓
         //        при w=454 → (454*32+500)/1000 = (14528+500)/1000 = 15
-        moonR = (w * 32 + 500) / 1000;
+        var moonR = (w * 32 + 900) / 1000;
 
         // Верхняя строка
         var rowY     = (h * 8 / 100);           // 8% сверху — уже пропорционально, ok
@@ -1216,23 +1320,25 @@ class F7_1View extends WatchUi.WatchFace {
             drawWeather(dc, timeY, isStale);
         }
 
-        // Прогресс-бар шагов — Y/старт/конец задаются здесь явно
-        if (AppSettings.getStepsBar()) {
+        // Под погодой: Ничего / Прогресс-бар шагов / Давление — Y/старт/конец
+        // считаются одинаково для обоих режимов, отличается только что рисуется
+        var underWeatherMode = AppSettings.getUnderWeatherMode();
+        if (underWeatherMode != 0) {
+            // Получаем высоту буквы (область) и высоту цифры
+            var height = dc.getFontHeight(Graphics.FONT_NUMBER_THAI_HOT); // делаем положительным
+            var r = w / 2;
+            var barCy = timeY + height/5;
+            var dy = barCy - cy;
+            var chordLength = (dy <= r && dy >= -r) ? 2 * Math.sqrt(r * r - dy * dy) : 0;
+            var inset = chordLength * 0.1;
+            var barS = cx - chordLength / 2 + inset;
+            var barE = cx + chordLength / 2 - inset;
 
-        // Получаем высоту буквы (область) и высоту цифры
-        var height = dc.getFontHeight(Graphics.FONT_NUMBER_THAI_HOT); // делаем положительным
-        var r = w / 2;
-        var barCy = timeY + height/5;
-        var dy = barCy - cy;
-        var chordLength = (dy <= r && dy >= -r) ? 2 * Math.sqrt(r * r - dy * dy) : 0;
-        var inset = chordLength * 0.1;
-        var barS = cx - chordLength / 2 + inset;
-        var barE = cx + chordLength / 2 - inset;
-
-        drawStepsBar(dc, barCy, barS, barE);
-
-            
-            
+            if (underWeatherMode == 1) {
+                drawStepsBar(dc, barCy, barS, barE);
+            } else if (underWeatherMode == 2) {
+                drawPressureBar(dc, barCy, barS, barE);
+            }
         }
 
         // Нижний блок

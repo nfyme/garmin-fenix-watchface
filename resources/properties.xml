@@ -9,7 +9,10 @@
     <property id="precipForecast"  type="boolean">true</property>
     <property id="weatherDisplay"  type="boolean">true</property>
     <property id="heartRate"       type="boolean">true</property>
-    <property id="stepsBar"        type="boolean">true</property>
+    <property id="underWeatherMode" type="number">1</property>
+    <property id="barFillColor"    type="number">0</property>
+    <property id="barBgColor"      type="number">0</property>
+    <property id="pressureUnit"    type="number">0</property>
     <property id="hourColor"      type="number">0</property>
     <property id="minuteColor"    type="number">0</property>
     <property id="colonColor"     type="number">0</property>

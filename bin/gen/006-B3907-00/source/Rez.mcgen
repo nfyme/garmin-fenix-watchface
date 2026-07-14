@@ -6,9 +6,6 @@ using Toybox.Graphics as Gfx;
 
 module Rez {
     module Drawables {
-        (:initialized) var IconSunny as ResourceId;
-        (:initialized) var IconCloudy as ResourceId;
-        (:initialized) var IconThunderstorm as ResourceId;
         (:initialized) var LauncherIcon as ResourceId;
     } // Drawables
 
@@ -25,6 +22,7 @@ module Rez {
         (:initialized) var SettingBottomBlock as ResourceId;
         (:initialized) var SettingPrecipRing as ResourceId;
         (:initialized) var Off as ResourceId;
+        (:initialized) var SettingUnderWeatherMode as ResourceId;
         (:initialized) var AppName as ResourceId;
         (:initialized) var Month as ResourceId;
         (:initialized) var SettingWeatherDemoMode as ResourceId;
@@ -34,12 +32,15 @@ module Rez {
         (:initialized) var SettingWeatherSource as ResourceId;
         (:initialized) var TillSunset as ResourceId;
         (:initialized) var SettingWeather as ResourceId;
+        (:initialized) var SettingBarBgColor as ResourceId;
         (:initialized) var SettingHourColor as ResourceId;
         (:initialized) var SettingWeatherInterval as ResourceId;
         (:initialized) var SettingColonColor as ResourceId;
+        (:initialized) var SettingPressureUnit as ResourceId;
         (:initialized) var Date as ResourceId;
         (:initialized) var Sunset as ResourceId;
         (:initialized) var Alarm as ResourceId;
+        (:initialized) var SettingBarFillColor as ResourceId;
         (:initialized) var SettingDangerRing as ResourceId;
         (:initialized) var Sunrise as ResourceId;
         (:initialized) var SettingHeartRate as ResourceId;

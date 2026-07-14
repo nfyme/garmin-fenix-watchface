@@ -366,17 +366,113 @@
     "configMax" : null,
     "configMaxLength" : null
   }, {
-    "key" : "stepsBar",
-    "valueType" : "boolean",
-    "defaultValue" : true,
-    "configTitle" : "SettingStepsBar",
+    "key" : "underWeatherMode",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "SettingUnderWeatherMode",
     "configPrompt" : null,
-    "configType" : "boolean",
+    "configType" : "list",
     "configError" : null,
     "configHelpUrl" : null,
     "configReadonly" : false,
     "configRequired" : false,
-    "configOptions" : null,
+    "configOptions" : [ {
+      "display" : "$literal32$",
+      "value" : 0
+    }, {
+      "display" : "$literal33$",
+      "value" : 1
+    }, {
+      "display" : "$literal34$",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "barFillColor",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingBarFillColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal11$",
+      "value" : 0
+    }, {
+      "display" : "$literal12$",
+      "value" : 1
+    }, {
+      "display" : "$literal9$",
+      "value" : 2
+    }, {
+      "display" : "$literal10$",
+      "value" : 3
+    }, {
+      "display" : "$literal15$",
+      "value" : 4
+    }, {
+      "display" : "$literal14$",
+      "value" : 5
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "barBgColor",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingBarBgColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal13$",
+      "value" : 0
+    }, {
+      "display" : "$literal14$",
+      "value" : 1
+    }, {
+      "display" : "$literal35$",
+      "value" : 2
+    }, {
+      "display" : "$literal36$",
+      "value" : 3
+    }, {
+      "display" : "$literal37$",
+      "value" : 4
+    }, {
+      "display" : "$literal38$",
+      "value" : 5
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "pressureUnit",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingPressureUnit",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal39$",
+      "value" : 0
+    }, {
+      "display" : "$literal40$",
+      "value" : 1
+    } ],
     "configMin" : null,
     "configMax" : null,
     "configMaxLength" : null
@@ -402,23 +498,31 @@
       "SettingRingMinPrecip" : "Ring min precip",
       "SettingMinuteColor" : "Minute color",
       "SettingPrecipRing" : "Precip ring",
+      "SettingUnderWeatherMode" : "Under weather",
       "Month" : "MONTH",
       "$literal0$" : "Garmin",
       "$literal16$" : "Hidden",
       "$literal24$" : "30%",
+      "$literal36$" : "Dark gray",
       "$literal4$" : "5 min",
       "$literal28$" : "70%",
       "Battery" : "BATTERY",
       "SettingWeatherSource" : "Weather source",
+      "$literal40$" : "mmHg",
       "$literal8$" : "60 min",
+      "SettingBarBgColor" : "Bar empty color",
       "$literal12$" : "Blue",
       "$literal20$" : "Outside",
+      "$literal32$" : "None",
       "SettingWeatherInterval" : "Weather update",
+      "SettingPressureUnit" : "Pressure unit",
       "$literal15$" : "Yellow",
       "$literal27$" : "60%",
       "$literal3$" : "Garmin Weather",
+      "$literal35$" : "Transparent",
       "$literal19$" : "Inside",
       "$literal7$" : "30 min",
+      "$literal39$" : "hPa",
       "SettingHeartRate" : "Heart rate",
       "$literal11$" : "Green",
       "$literal23$" : "20%",
@@ -427,8 +531,8 @@
       "SettingBottomBlock" : "Bottom block",
       "Off" : "OFF",
       "AppName" : "Dark Watch",
-      "SettingStepsBar" : "Steps bar",
       "$literal26$" : "50%",
+      "$literal38$" : "Outline",
       "SettingWeatherDemoMode" : "Weather demo mode",
       "$literal2$" : "GPS",
       "$literal14$" : "White",
@@ -440,21 +544,25 @@
       "TillSunset" : "TILL SUNSET",
       "SettingWeather" : "Weather",
       "$literal22$" : "10%",
+      "$literal34$" : "Pressure",
       "$literal10$" : "Orange",
       "SettingHourColor" : "Hour color",
       "SettingColonColor" : "Colon color",
       "Date" : "DATE",
       "Sunset" : "SUNSET",
       "$literal1$" : "Open-Meteo",
+      "$literal37$" : "Dark blue",
       "$literal13$" : "Gray",
       "$literal25$" : "40%",
       "$literal5$" : "10 min",
       "$literal17$" : "Calendar",
       "Alarm" : "ALARM",
+      "SettingBarFillColor" : "Bar fill color",
       "$literal29$" : "80%",
       "SettingDangerRing" : "Danger ring",
       "$literal9$" : "Red",
       "Sunrise" : "SUNRISE",
+      "$literal33$" : "Steps bar",
       "Day" : "DAY",
       "SettingPrecipForecast" : "Precip forecast",
       "On" : "ON",
