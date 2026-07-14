@@ -18,6 +18,7 @@ module Rez {
     module Strings {
         (:initialized) var SettingHourColor as ResourceId;
         (:initialized) var SettingMinuteColor as ResourceId;
+        (:initialized) var SettingLocationSource as ResourceId;
         (:initialized) var SettingWeatherInterval as ResourceId;
         (:initialized) var SettingColonColor as ResourceId;
         (:initialized) var SettingBottomBlock as ResourceId;
@@ -31,6 +32,7 @@ module Rez {
         (:initialized) var SettingWeekendColor as ResourceId;
         (:initialized) var Battery as ResourceId;
         (:initialized) var Alarm as ResourceId;
+        (:initialized) var SettingWeatherSource as ResourceId;
         (:initialized) var Sunrise as ResourceId;
         (:initialized) var TillSunset as ResourceId;
         (:initialized) var SettingWeather as ResourceId;

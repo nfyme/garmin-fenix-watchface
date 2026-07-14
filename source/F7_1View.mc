@@ -26,8 +26,9 @@ class F7_1View extends WatchUi.WatchFace {
 
     // Кэш погоды
     var cachedWeatherBlocks = null;
-    var cachedPrecipData    = null;
+    var cachedPrecipData    = null;  // полный форecast (сколько отдал API), каждый элемент содержит "time" (unix sec)
     var lastWeatherMin      = -1;
+    var omUpdatedAt         = 0;    // unix timestamp последнего успешного OM-запроса
 
     // Настройки (читаются при старте и после изменения)
     var settingWeatherInterval = 15;
@@ -38,6 +39,12 @@ class F7_1View extends WatchUi.WatchFace {
     const COLORS_SNOW   = Graphics.COLOR_WHITE;
     const COLORS_MIX    = 0x4488FF;
     const COLORS_DANGER = 0xFF5500;
+
+    // Верхний потолок для кэша forecast'а (в часах). Берём столько, сколько
+    // реально отдаёт API (не завязываемся на фиксированное число слотов), но
+    // не более этого предела — на случай, если API однажды начнёт отдавать
+    // существенно больше, чтобы не раздувать память бесконечно.
+    const MAX_FORECAST_HOURS = 72;
 
     function initialize() {
         WatchFace.initialize();
@@ -52,9 +59,10 @@ class F7_1View extends WatchUi.WatchFace {
     function onShow() {
         loadSettings();
         lastCalcDay    = -1;
-        lastWeatherMin = -1;
+        lastWeatherMin = -1;  // форсируем попытку обновления, но кэш НЕ обнуляем —
+                              // старые данные остаются на экране, пока не придут свежие
         lastMoonDay    = -1;
-        moonBuffer     = null; // сбрасываем буфер — экран мог смениться
+        moonBuffer     = null;
     }
 
     // -------------------------------------------------------------------------
@@ -211,81 +219,324 @@ class F7_1View extends WatchUi.WatchFace {
     }
 
     // -------------------------------------------------------------------------
-    // Обновление кэша погоды
+    // WMO код (Open-Meteo) → Garmin condition code
     // -------------------------------------------------------------------------
+    function wmoToGarminCond(wmo as Lang.Number) as Lang.Number {
+        if (wmo == 95 || wmo == 96 || wmo == 99) { return 12; }  // гроза
+        if (wmo == 65 || wmo == 82)               { return 25; }  // сильный дождь
+        if (wmo == 61 || wmo == 63 || wmo == 80 || wmo == 81) { return 3; }  // дождь
+        if (wmo == 51 || wmo == 53 || wmo == 55) { return 14; }  // морось
+        if (wmo == 56 || wmo == 57 || wmo == 66 || wmo == 67) { return 18; }  // ледяной дождь
+        if (wmo == 75 || wmo == 77 || wmo == 86) { return 17; }  // сильный снег (CONDITION_HEAVY_SNOW)
+        if (wmo == 71 || wmo == 73 || wmo == 85) { return 4; }   // снег
+        if (wmo == 45 || wmo == 48)              { return 8; }   // туман (CONDITION_FOG)
+        return 0;
+    }
+
+    // -------------------------------------------------------------------------
+    // Единая классификация Garmin CONDITION_* кода погоды.
+    // Один источник правды для кольца осадков и текстовых блоков — оба места
+    // рисуют по type/intensity/isDanger, вместо трёх рассинхронизированных
+    // списков кодов, как было раньше.
+    // -------------------------------------------------------------------------
+    const COND_NONE = 0;
+    const COND_RAIN = 1;
+    const COND_SNOW = 2;
+    const COND_MIX  = 3;
+
+    const INTENSITY_LIGHT  = 0;
+    const INTENSITY_NORMAL = 1;
+    const INTENSITY_HEAVY  = 2;
+
+    function classifyCondition(cond) {
+        // isDanger: экстремальные единичные явления — гроза, торнадо, ураган,
+        // тропический шторм, град, гололёд, sandstorm/volcanic ash.
+        // Осознанно не включает WINDY (5) — "просто ветрено" не осадки и не
+        // экстремальное явление само по себе.
+        var isDanger = (cond==6 || cond==12 || cond==28          // гроза
+                     || cond==32 || cond==41 || cond==42          // торнадо/ураган/тропич.шторм
+                     || cond==10 || cond==34                      // град/гололёд
+                     || cond==36 || cond==37 || cond==38);        // squall/sandstorm/volcanic ash
+
+        // Дождь: морось, ливни, обычный/сильный дождь
+        if (cond==31 || cond==24 || cond==14) {
+            return { "type" => COND_RAIN, "intensity" => INTENSITY_LIGHT,  "isDanger" => isDanger };
+        }
+        if (cond==3 || cond==11 || cond==13 || cond==45 || cond==27) {
+            return { "type" => COND_RAIN, "intensity" => INTENSITY_NORMAL, "isDanger" => isDanger };
+        }
+        if (cond==15 || cond==25 || cond==26) {
+            return { "type" => COND_RAIN, "intensity" => INTENSITY_HEAVY,  "isDanger" => isDanger };
+        }
+
+        // Снег
+        if (cond==16 || cond==43 || cond==48) {
+            return { "type" => COND_SNOW, "intensity" => INTENSITY_LIGHT,  "isDanger" => isDanger };
+        }
+        if (cond==4 || cond==46) {
+            return { "type" => COND_SNOW, "intensity" => INTENSITY_NORMAL, "isDanger" => isDanger };
+        }
+        if (cond==17) {
+            return { "type" => COND_SNOW, "intensity" => INTENSITY_HEAVY,  "isDanger" => isDanger };
+        }
+
+        // Микс (дождь+снег, ледяной дождь, мокрый снег)
+        if (cond==18 || cond==44 || cond==47) {
+            return { "type" => COND_MIX, "intensity" => INTENSITY_LIGHT,  "isDanger" => isDanger };
+        }
+        if (cond==21 || cond==50 || cond==7 || cond==49 || cond==51) {
+            return { "type" => COND_MIX, "intensity" => INTENSITY_NORMAL, "isDanger" => isDanger };
+        }
+        if (cond==19) {
+            return { "type" => COND_MIX, "intensity" => INTENSITY_HEAVY,  "isDanger" => isDanger };
+        }
+
+        // Явления без выраженных осадков (гроза без указанной интенсивности
+        // осадков, торнадо/ураган/град и т.п.) — если danger, всё равно нужен
+        // тип для второго кольца/линии; используем MIX как нейтральный визуал.
+        if (isDanger) {
+            return { "type" => COND_MIX, "intensity" => INTENSITY_NORMAL, "isDanger" => true };
+        }
+
+        return { "type" => COND_NONE, "intensity" => INTENSITY_LIGHT, "isDanger" => false };
+    }
+
+    function condTypeColor(type) {
+        if (type == COND_RAIN) { return COLORS_RAIN; }
+        if (type == COND_SNOW) { return COLORS_SNOW; }
+        if (type == COND_MIX)  { return COLORS_MIX; }
+        return Graphics.COLOR_TRANSPARENT;
+    }
+
+    function condIntensityThickness(intensity) {
+        if (intensity == INTENSITY_HEAVY)  { return 6; }
+        if (intensity == INTENSITY_NORMAL) { return 4; }
+        return 2;
+    }
+
+    // -------------------------------------------------------------------------
+    // Обновление кэша погоды из Open-Meteo Storage
+    // -------------------------------------------------------------------------
+    function refreshWeatherCacheOpenMeteo(nowMin) {
+        var temps  = Application.Storage.getValue("om_temps")  as Lang.Array?;
+        var times  = Application.Storage.getValue("om_times")  as Lang.Array?;
+        var codes  = Application.Storage.getValue("om_codes")  as Lang.Array?;
+        var winds  = Application.Storage.getValue("om_winds")  as Lang.Array?;
+        var wdirs  = Application.Storage.getValue("om_wdir")   as Lang.Array?;
+        var precip = Application.Storage.getValue("om_precip") as Lang.Array?;
+
+        if (temps == null || temps.size() == 0 || times == null) {
+            System.println("[OM-FG] refreshWeatherCacheOpenMeteo: no data in Storage");
+            return;
+        }
+
+        // Находим индекс текущего часа по массиву времён "YYYY-MM-DDTHH:00"
+        // Это надёжнее чем nowInfo.hour — работает корректно даже если данные
+        // получены несколько часов/дней назад
+        var nowInfo = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+        var curStr  = nowInfo.year.format("%04d") + "-"
+                    + nowInfo.month.format("%02d") + "-"
+                    + nowInfo.day.format("%02d") + "T"
+                    + nowInfo.hour.format("%02d") + ":00";
+
+        var curIdx = -1;
+        for (var i = 0; i < times.size(); i++) {
+            if ((times[i] as Lang.String).equals(curStr)) {
+                curIdx = i;
+                break;
+            }
+        }
+
+        if (curIdx < 0) {
+            System.println("[OM-FG] curHour=" + curStr + " not found in times — data expired");
+            // Данные устарели (все часы прошли), кэш не обновляем
+            return;
+        }
+
+        System.println("[OM-FG] refreshWeatherCacheOpenMeteo: curIdx=" + curIdx + "/" + temps.size() + " time=" + curStr);
+
+        // 3 блока погоды: сейчас, +3ч, +6ч
+        var newBlocks = new [3];
+        var offsets = [0, 3, 6];
+        for (var i = 0; i < 3; i++) {
+            var idx = curIdx + offsets[i];
+            if (idx < temps.size()) {
+                var windMs = (winds != null && idx < winds.size()) ? (winds[idx] as Lang.Float) : null;
+                newBlocks[i] = {
+                    "temp"   => temps[idx],
+                    "wind"   => windMs,
+                    "wdir"   => (wdirs  != null && idx < wdirs.size())  ? (wdirs[idx]  as Lang.Number) : null,
+                    "precip" => (precip != null && idx < precip.size()) ? (precip[idx] as Lang.Number) : null,
+                    "cond"   => (codes  != null && idx < codes.size())  ? wmoToGarminCond(codes[idx] as Lang.Number) : 0
+                };
+                System.println("[OM-FG] block[" + i + "]: temp=" + newBlocks[i]["temp"]
+                    + " wind=" + newBlocks[i]["wind"] + " cond=" + newBlocks[i]["cond"]
+                    + " precip=" + newBlocks[i]["precip"]);
+            }
+        }
+        cachedWeatherBlocks = newBlocks;
+
+        // Кольцо осадков: держим ВЕСЬ форecast от текущего часа до конца массива
+        // (сколько Open-Meteo отдал — forecast_days=3 даёт до 72ч), а не только 12.
+        // Каждый слот идёт ровно на 1 час дальше curIdx, поэтому abs.время
+        // считаем как смещение от "сейчас", не парся строку times[idx].
+        var nowSecs = Time.now().value();
+        var total   = temps.size() - curIdx;
+        if (total > MAX_FORECAST_HOURS) { total = MAX_FORECAST_HOURS; }
+        var newPrecip = new [total];
+        for (var i = 0; i < total; i++) {
+            var idx = curIdx + i;
+            newPrecip[i] = {
+                "time"         => nowSecs + i * 3600,
+                "condition"    => (codes  != null && idx < codes.size())  ? wmoToGarminCond(codes[idx] as Lang.Number) : 0,
+                "precipChance" => (precip != null && idx < precip.size()) ? (precip[idx] as Lang.Number) : 0
+            };
+        }
+        cachedPrecipData = newPrecip;
+
+        var updated = Application.Storage.getValue("om_updated");
+        omUpdatedAt = (updated != null) ? updated : 0;
+
+        lastWeatherMin = nowMin;
+        System.println("[OM-FG] refreshWeatherCacheOpenMeteo done, omUpdatedAt=" + omUpdatedAt);
+    }
+
+    // -------------------------------------------------------------------------
+    // Демо-режим: захардкоженный набор данных, покрывающий все варианты
+    // type/intensity/isDanger — для тестирования отрисовки и скриншотов
+    // без реальных запросов к Garmin Weather / Open-Meteo.
+    // -------------------------------------------------------------------------
+    // 12 часовых слотов кольца — все Garmin CONDITION_* коды подобраны так,
+    // чтобы classifyCondition() прошла через каждую комбинацию type×intensity,
+    // плюс несколько isDanger случаев (гроза, торнадо, град).
+    const DEMO_RING_CONDITIONS = [
+        14, // rain light
+        3,  // rain normal
+        15, // rain heavy
+        16, // snow light
+        4,  // snow normal
+        17, // snow heavy
+        18, // mix light
+        21, // mix normal
+        19, // mix heavy
+        6,  // thunder (danger)
+        32, // tornado (danger)
+        10  // hail (danger)
+    ];
+    const DEMO_RING_PRECIP_CHANCES = [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    // 3 текстовых блока: показательные разные случаи (лёгкий дождь, гроза/danger, снег)
+    const DEMO_BLOCK_CONDITIONS     = [14, 6, 4];
+    const DEMO_BLOCK_TEMPS          = [12, 18, -3];
+    const DEMO_BLOCK_WINDS          = [3.5, 9.0, 5.0];
+    const DEMO_BLOCK_WDIRS          = [45, 180, 270];
+    const DEMO_BLOCK_PRECIP_CHANCES = [40, 80, 60];
+
+    function refreshWeatherCacheDemo(nowMin) {
+        var newBlocks = new [3];
+        for (var i = 0; i < 3; i++) {
+            newBlocks[i] = {
+                "temp"   => DEMO_BLOCK_TEMPS[i],
+                "wind"   => DEMO_BLOCK_WINDS[i],
+                "wdir"   => DEMO_BLOCK_WDIRS[i],
+                "precip" => DEMO_BLOCK_PRECIP_CHANCES[i],
+                "cond"   => DEMO_BLOCK_CONDITIONS[i]
+            };
+        }
+        cachedWeatherBlocks = newBlocks;
+
+        var nowSecs = Time.now().value();
+        var newPrecip = new [ DEMO_RING_CONDITIONS.size() ];
+        for (var i = 0; i < DEMO_RING_CONDITIONS.size(); i++) {
+            newPrecip[i] = {
+                "time"         => nowSecs + i * 3600,
+                "condition"    => DEMO_RING_CONDITIONS[i],
+                "precipChance" => DEMO_RING_PRECIP_CHANCES[i]
+            };
+        }
+        cachedPrecipData = newPrecip;
+
+        omUpdatedAt    = nowSecs;
+        lastWeatherMin = nowMin;
+    }
+
+    // -------------------------------------------------------------------------
+    // Обновление кэша погоды (Garmin)
+    // -------------------------------------------------------------------------
+    // Кэш хранит ВЕСЬ форecast, который в этот раз отдало API (не ограничиваем
+    // фиксированным числом слотов — сколько дали, столько и держим). Если API
+    // сейчас ничего не отдаёт (null), старый кэш не трогаем — он и так уже
+    // содержит максимум того, что было получено ранее, и остаётся доступным
+    // для отрисовки, пока не придут свежие данные.
     function refreshWeatherCache(nowMin) {
         var cur    = Weather.getCurrentConditions();
         var hourly = Weather.getHourlyForecast();
-        var gotSomething = false;
-        var newBlocks    = new [3];
 
-        if (cur != null) {
-            newBlocks[0] = { "temp" => cur.temperature, "wind" => cur.windSpeed,
-                             "wdir" => cur.windBearing, "precip" => cur.precipitationChance,
-                             "cond" => cur.condition };
-            gotSomething = true;
-        } else if (cachedWeatherBlocks != null) {
-            newBlocks[0] = cachedWeatherBlocks[0];
-        }
-
-        if (hourly != null) {
-            var now = Time.now().value(); var found3 = false; var found6 = false;
-            for (var i = 0; i < hourly.size(); i++) {
-                var h = hourly[i];
-                if (h == null || h.forecastTime == null) { continue; }
-                var diff = (h.forecastTime.value() - now) / 3600;
-                if (!found3 && diff >= 2 && diff <= 4) {
-                    newBlocks[1] = { "temp" => h.temperature, "wind" => h.windSpeed,
-                                     "wdir" => h.windBearing, "precip" => h.precipitationChance,
-                                     "cond" => h.condition };
-                    found3 = true;
-                }
-                if (!found6 && diff >= 5 && diff <= 7) {
-                    newBlocks[2] = { "temp" => h.temperature, "wind" => h.windSpeed,
-                                     "wdir" => h.windBearing, "precip" => h.precipitationChance,
-                                     "cond" => h.condition };
-                    found6 = true;
-                }
+        if (cur != null || hourly != null) {
+            var newBlocks = new [3];
+            if (cur != null) {
+                newBlocks[0] = { "temp" => cur.temperature, "wind" => cur.windSpeed,
+                                 "wdir" => cur.windBearing, "precip" => cur.precipitationChance,
+                                 "cond" => cur.condition };
+            } else if (cachedWeatherBlocks != null) {
+                newBlocks[0] = cachedWeatherBlocks[0];
             }
-            gotSomething = true;
-        } else if (cachedWeatherBlocks != null) {
-            newBlocks[1] = cachedWeatherBlocks[1];
-            newBlocks[2] = cachedWeatherBlocks[2];
-        }
 
-        if (gotSomething || cachedWeatherBlocks == null) {
+            if (hourly != null) {
+                var now = Time.now().value(); var found3 = false; var found6 = false;
+                for (var i = 0; i < hourly.size(); i++) {
+                    var h = hourly[i];
+                    if (h == null || h.forecastTime == null) { continue; }
+                    var diff = (h.forecastTime.value() - now) / 3600;
+                    if (!found3 && diff >= 2 && diff <= 4) {
+                        newBlocks[1] = { "temp" => h.temperature, "wind" => h.windSpeed,
+                                         "wdir" => h.windBearing, "precip" => h.precipitationChance,
+                                         "cond" => h.condition };
+                        found3 = true;
+                    }
+                    if (!found6 && diff >= 5 && diff <= 7) {
+                        newBlocks[2] = { "temp" => h.temperature, "wind" => h.windSpeed,
+                                         "wdir" => h.windBearing, "precip" => h.precipitationChance,
+                                         "cond" => h.condition };
+                        found6 = true;
+                    }
+                }
+            } else if (cachedWeatherBlocks != null) {
+                newBlocks[1] = cachedWeatherBlocks[1];
+                newBlocks[2] = cachedWeatherBlocks[2];
+            }
             cachedWeatherBlocks = newBlocks;
-        }
 
-        var newPrecip = new [12];
-        if (cur != null) {
-            var ti = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-            newPrecip[0] = { "hour" => ti.hour,
-                             "condition"    => (cur.condition != null)           ? cur.condition           : 0,
-                             "precipChance" => (cur.precipitationChance != null) ? cur.precipitationChance : 0 };
-        } else if (cachedPrecipData != null) {
-            newPrecip[0] = cachedPrecipData[0];
-        }
-
-        if (hourly != null) {
-            var limit = hourly.size() < 11 ? hourly.size() : 11;
-            for (var i = 0; i < limit; i++) {
-                var hh = hourly[i];
-                if (hh == null || hh.forecastTime == null) {
-                    if (cachedPrecipData != null) { newPrecip[i + 1] = cachedPrecipData[i + 1]; }
-                    continue;
-                }
-                var ti = Gregorian.info(hh.forecastTime, Time.FORMAT_SHORT);
-                newPrecip[i + 1] = { "hour" => ti.hour,
-                                     "condition"    => (hh.condition != null)           ? hh.condition           : 0,
-                                     "precipChance" => (hh.precipitationChance != null) ? hh.precipitationChance : 0 };
+            // Полный список: текущие условия + весь hourly forecast, сколько API
+            // отдал (не ограничиваемся фиксированным числом слотов), но не
+            // больше MAX_FORECAST_HOURS на случай, если API станет отдавать
+            // существенно больше часов вперёд.
+            var hourlyCount = hourly != null ? hourly.size() : 0;
+            if (hourlyCount > MAX_FORECAST_HOURS) { hourlyCount = MAX_FORECAST_HOURS; }
+            var newPrecip = new [ hourlyCount + (cur != null ? 1 : 0) ];
+            var idx = 0;
+            if (cur != null) {
+                newPrecip[idx] = { "time"         => Time.now().value(),
+                                    "condition"    => (cur.condition != null)           ? cur.condition           : 0,
+                                    "precipChance" => (cur.precipitationChance != null) ? cur.precipitationChance : 0 };
+                idx++;
             }
-        } else if (cachedPrecipData != null) {
-            for (var i = 1; i < 12; i++) { newPrecip[i] = cachedPrecipData[i]; }
+            if (hourly != null) {
+                for (var i = 0; i < hourlyCount; i++) {
+                    var hh = hourly[i];
+                    if (hh == null || hh.forecastTime == null) { continue; }
+                    newPrecip[idx] = { "time"         => hh.forecastTime.value(),
+                                        "condition"    => (hh.condition != null)           ? hh.condition           : 0,
+                                        "precipChance" => (hh.precipitationChance != null) ? hh.precipitationChance : 0 };
+                    idx++;
+                }
+            }
+            cachedPrecipData = newPrecip;
+            lastWeatherMin = nowMin;
         }
-
-        cachedPrecipData = newPrecip;
-        if (gotSomething) { lastWeatherMin = nowMin; }
+        // Оба null: API пока ничего не отдал — оставляем весь предыдущий кэш
+        // как есть и попробуем снова на следующем тике (onUpdate вызовет
+        // refreshWeatherCache опять, т.к. lastWeatherMin не обновлён).
     }
 
     // -------------------------------------------------------------------------
@@ -454,7 +705,7 @@ class F7_1View extends WatchUi.WatchFace {
     // -------------------------------------------------------------------------
     // Погода (из кэша)
     // -------------------------------------------------------------------------
-    function drawWeather(dc, y) {
+    function drawWeather(dc, y, isStale) {
         if (cachedWeatherBlocks == null) { return; }
         var w    = dc.getWidth();
         var xPos = [w/4, w/2, w*3/4];
@@ -464,18 +715,13 @@ class F7_1View extends WatchUi.WatchFace {
             if (b == null) { continue; }
             var cond   = b["cond"];
             var precip = b["precip"];
-            var isRain = (cond==3||cond==11||cond==14||cond==15||cond==24||cond==25||cond==26||cond==27||cond==31);
-            var isSnow = (cond==4||cond==16||cond==17||cond==7);
-            var isThunder = (cond==6||cond==12||cond==28||cond==32||cond==41||cond==42);
-            var thickness = 2;
-            if (cond==15||cond==25||cond==26||cond==17) { thickness = 4; }
-            if (isThunder) { thickness = 6; }
+            var cls = classifyCondition(cond);
+            var thickness = condIntensityThickness(cls["intensity"]);
             var colW = w / 3;
-            var hasPrecip = (precip != null && precip > 0 && (isRain || isSnow || isThunder));
+            var hasPrecip = (precip != null && precip > 0 && cls["type"] != COND_NONE);
             var lineW = 0; var startX = bx;
             if (hasPrecip) { lineW = (colW * precip / 100).toNumber(); startX = bx - lineW / 2; }
-            var tempColor = Graphics.COLOR_WHITE;
-            if (isThunder) { tempColor = 0xFF5500; }
+            var tempColor = isStale ? Graphics.COLOR_LT_GRAY : (cls["isDanger"] ? COLORS_DANGER : Graphics.COLOR_WHITE);
 
             var tempStr = (b["temp"] != null) ? b["temp"].format("%+d") + "°" : "--°";
             var windStr = (b["wind"] != null) ? b["wind"].format("%d") : "--";
@@ -501,20 +747,10 @@ class F7_1View extends WatchUi.WatchFace {
                 drawWindArrow(dc, windX + arrowOffset, y + fontHeight / 2, b["wdir"]);
             }
 
-            if (AppSettings.getPrecipForecast()) {
-                if (hasPrecip) {
-                    dc.setColor((isRain || isThunder) ? 0x0000AA : Graphics.COLOR_LT_GRAY,
-                                Graphics.COLOR_TRANSPARENT);
-                    for (var t = 0; t < thickness; t++) {
-                        dc.drawLine(startX, y - thickness + t + 2, startX + lineW, y - thickness + t + 2);
-                    }
-                }
-                if (hasPrecip && isThunder) {
-                    dc.setColor(0xFF5500, Graphics.COLOR_TRANSPARENT);
-                    var botY = y + 20;
-                    dc.drawLine(startX, botY, startX+lineW, botY);
-                    dc.drawLine(startX, botY+1, startX+lineW, botY+1);
-                    dc.drawLine(startX, botY+2, startX+lineW, botY+2);
+            if (AppSettings.getPrecipForecast() && hasPrecip) {
+                dc.setColor(condTypeColor(cls["type"]), Graphics.COLOR_TRANSPARENT);
+                for (var t = 0; t < thickness; t++) {
+                    dc.drawLine(startX, y - thickness + t + 2, startX + lineW, y - thickness + t + 2);
                 }
             }
         }
@@ -545,15 +781,51 @@ class F7_1View extends WatchUi.WatchFace {
     // -------------------------------------------------------------------------
     // Кольцо осадков
     // -------------------------------------------------------------------------
-    function drawPrecipRing(dc, cx, cy, radius) {
+    function drawPrecipRing(dc, cx, cy, radius, screenWidth, showPrecipRing, showDangerRing, dangerOutside) {
         if (cachedPrecipData == null) { return; }
+        // Демо-режим: фиксируем сектор 0 на позиции 12 часов (00), без
+        // зависимости от реального времени и без фильтра по временному окну —
+        // так скриншоты/тест выглядят одинаково в любой момент дня.
+        var isDemo = AppSettings.getWeatherDemoMode();
+        // Кэш может содержать до 72ч форecast — на диске рисуем только
+        // ближайшие 12 часов вперёд от текущего момента (полукруг = 12 меток).
+        var nowSecs = Time.now().value();
+        var windowEnd = nowSecs + 12 * 3600;
+        // Позиция кольца опасности:
+        // - Outside: у самого края экрана (49.5% от диаметра), рисуется
+        //   поверх кольца осадков (оно и так рисуется после него).
+        // - Inside (по умолчанию): чуть внутри основного кольца — но если
+        //   основное кольцо выключено, занимает его радиус вместо пустого места.
+        var dangerRadius;
+        if (dangerOutside) {
+            dangerRadius = screenWidth * 495 / 1000;
+        } else {
+            dangerRadius = showPrecipRing ? radius - (radius * 5 / 100) : radius;
+        }
         for (var i = 0; i < cachedPrecipData.size(); i++) {
-            var entry = cachedPrecipData[i];
+            var entry = cachedPrecipData[i] as Lang.Dictionary?;
             if (entry == null) { continue; }
-            drawDashedArc(dc, cx, cy, radius,
-                (entry as Lang.Dictionary)["hour"],
-                (entry as Lang.Dictionary)["condition"],
-                (entry as Lang.Dictionary)["precipChance"]);
+            var hourOfDay;
+            if (isDemo) {
+                hourOfDay = i;
+            } else {
+                var t = entry["time"];
+                if (t == null || t < nowSecs - 1800 || t >= windowEnd) { continue; }
+                hourOfDay = Gregorian.info(new Time.Moment(t), Time.FORMAT_SHORT).hour;
+            }
+            var precipChance = entry["precipChance"];
+            var cls = classifyCondition(entry["condition"]);
+
+            // Основное кольцо: тип/вероятность осадков — штрихи, густота растёт с precipChance.
+            if (showPrecipRing) {
+                drawPrecipArc(dc, cx, cy, radius, hourOfDay, precipChance,
+                    condTypeColor(cls["type"]), condIntensityThickness(cls["intensity"]));
+            }
+
+            // Кольцо опасности: просто сигнал "да/нет" — сплошная дуга, без гэпов.
+            if (showDangerRing && cls["isDanger"]) {
+                drawSolidHourArc(dc, cx, cy, dangerRadius, hourOfDay, COLORS_DANGER, 2);
+            }
         }
 
         var nowInfo  = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
@@ -571,57 +843,147 @@ class F7_1View extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
     }
 
-    function getColorByCondition(cond) {
-        if (cond==6||cond==12||cond==28||cond==32||cond==41||cond==42||
-            cond==36||cond==37||cond==10||cond==34||cond==49||cond==51||
-            cond==5||cond==7||cond==38) { return COLORS_DANGER; }
-        if (cond==18||cond==44||cond==21||cond==19||cond==50) { return COLORS_MIX; }
-        if (cond==16||cond==48||cond==43||cond==46||cond==4||cond==47||cond==17) { return COLORS_SNOW; }
-        if (cond==14||cond==24||cond==11||cond==31||cond==3||cond==25||
-            cond==13||cond==45||cond==15||cond==26) { return COLORS_RAIN; }
-        return Graphics.COLOR_TRANSPARENT;
-    }
+    const RING_EDGE_PAD_DEG  = 0.5; // отступ от границ сектора, градусы
 
-    function getThicknessByCondition(cond) {
-        if (cond==6||cond==12||cond==28||cond==32||cond==41||cond==42) { return 6; }
-        if (cond==15||cond==17||cond==19||cond==26||cond==10||cond==51||
-            cond==49||cond==36||cond==37) { return 5; }
-        if (cond==3||cond==4||cond==7||cond==11||cond==18||
-            cond==21||cond==25||cond==50||cond==34) { return 4; }
-        return 2;
-    }
+    // Диспетчер: часовой сектор (30° дуги) кольца погоды на заданном радиусе.
+    // Выбирает один из 12 независимых рисовальщиков по диапазону precipChance
+    // (совпадают с демо-данными: 0,5,10,20,30,40,50,60,70,80,90,100). Каждый
+    // рисовальщик правится отдельно, глядя на реальный результат на экране —
+    // без единой "универсальной" формулы на весь диапазон.
+    function drawPrecipArc(dc, cx, cy, radius, hour, precipChance, color, thickness) {
+        if (precipChance == null || precipChance < AppSettings.getRingMinPrecip()) { return; }
 
-    function drawDashedArc(dc, cx, cy, radius, hour, condition, precipChance) {
-        if (precipChance < 10) { return; }
-        var dashPx; var gapPx;
-        if      (precipChance>=90){dashPx=12;gapPx= 0;}
-        else if (precipChance>=80){dashPx=12;gapPx= 3;}
-        else if (precipChance>=70){dashPx=10;gapPx= 4;}
-        else if (precipChance>=60){dashPx= 9;gapPx= 5;}
-        else if (precipChance>=50){dashPx= 7;gapPx= 6;}
-        else if (precipChance>=40){dashPx= 6;gapPx= 7;}
-        else if (precipChance>=30){dashPx= 5;gapPx= 8;}
-        else if (precipChance>=20){dashPx= 3;gapPx= 9;}
-        else                      {dashPx= 3;gapPx=10;}
-        var arcFrom = 90 - (hour % 12) * 30;
-        var arcTo   = arcFrom - 29;
-        dc.setColor(getColorByCondition(condition), Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(getThicknessByCondition(condition));
+        var sectorStart = 90.0 - (hour % 12) * 30.0;  // угол начала сектора (0°=3ч, 90°=12ч, по часовой убывает)
+        var arcFrom = sectorStart - RING_EDGE_PAD_DEG;
+        var arcTo   = sectorStart - (30.0 - RING_EDGE_PAD_DEG);
+
+        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(thickness);
         dc.setAntiAlias(true);
-        if (gapPx == 0) {
+
+        if      (precipChance < 10)  { drawRing_05(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 20)  { drawRing_10(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 30)  { drawRing_20(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 40)  { drawRing_30(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 50)  { drawRing_40(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 60)  { drawRing_50(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 70)  { drawRing_60(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 80)  { drawRing_70(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 90)  { drawRing_80(dc, cx, cy, radius, arcFrom, arcTo); }
+        else if (precipChance < 100) { drawRing_90(dc, cx, cy, radius, arcFrom, arcTo); }
+        else                         { drawRing_100(dc, cx, cy, radius, arcFrom, arcTo); }
+
+        dc.setPenWidth(1);
+    }
+
+    const RING_SEGMENT_GAP_DEG = 2.0;  // зазор между секторами, градусы (регулируемый)
+
+    // Общий помощник: segmentCount равных секторов, разделённых фиксированным
+    // зазором RING_SEGMENT_GAP_DEG (в градусах, не в пикселях). При
+    // segmentCount==1 зазоров нет — рисуется один сплошной сектор на всю дугу.
+    function drawRingSegments(dc, cx, cy, radius, arcFrom, arcTo, segmentCount) {
+        var usableDeg = arcFrom - arcTo;
+        if (segmentCount <= 1) {
             dc.drawArc(cx, cy, radius, Graphics.ARC_CLOCKWISE, arcFrom, arcTo);
-            dc.setPenWidth(1); return;
+            return;
         }
-        var degPerPx = 180.0 / (Math.PI * radius.toFloat());
-        var dashDeg  = dashPx * degPerPx; var gapDeg = gapPx * degPerPx;
-        var cur = arcFrom.toFloat(); var target = arcTo.toFloat();
-        while (cur > target + 0.01) {
-            var segEnd = cur - dashDeg;
-            if (segEnd < target) { segEnd = target; }
-            if (cur > segEnd + 0.01) { dc.drawArc(cx, cy, radius, Graphics.ARC_CLOCKWISE, cur, segEnd); }
-            cur = segEnd - gapDeg;
-            if (cur < target + 0.5) { break; }
+        var totalGapDeg = RING_SEGMENT_GAP_DEG * (segmentCount - 1);
+        var segDeg = (usableDeg - totalGapDeg) / segmentCount;
+        var pos = arcFrom;
+        for (var i = 0; i < segmentCount; i++) {
+            var segEnd = pos - segDeg;
+            dc.drawArc(cx, cy, radius, Graphics.ARC_CLOCKWISE, pos, segEnd);
+            pos = segEnd - RING_SEGMENT_GAP_DEG;
         }
+    }
+
+    // Помощник: segmentCount секторов ФИКСИРОВАННОЙ ширины segDeg (не доля от
+    // usableDeg, а жёсткое значение в градусах), равномерно распределённых по
+    // сектору. Зазоры одинаковы ВЕЗДЕ — перед первым блоком, между блоками, и
+    // после последнего (segmentCount+1 равных зазоров, а не segmentCount-1) —
+    // так первый и последний блок не "прилипают" к границам отрезка.
+    function drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, segmentCount, segDeg) {
+        var usableDeg = arcFrom - arcTo;
+        if (segmentCount <= 1) {
+            dc.drawArc(cx, cy, radius, Graphics.ARC_CLOCKWISE, arcFrom, arcTo);
+            return;
+        }
+        var gapDeg = (usableDeg - segmentCount * segDeg) / (segmentCount + 1);
+        var pos = arcFrom - gapDeg;
+        for (var i = 0; i < segmentCount; i++) {
+            var segEnd = pos - segDeg;
+            dc.drawArc(cx, cy, radius, Graphics.ARC_CLOCKWISE, pos, segEnd);
+            pos = segEnd - gapDeg;
+        }
+    }
+
+    // precipChance < 10 (демо: 0-5%) — 5 секторов по 1° каждый, равномерно
+    // по сектору, крайние — впритык к краям (с общим отступом RING_EDGE_PAD_DEG).
+    function drawRing_05(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, 3, 1);
+    }
+
+    // precipChance < 20 (демо: 10%) — 5 секторов по 1.5° каждый
+    function drawRing_10(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, 4, 1);
+    }
+
+    // precipChance < 30 (демо: 20%) — 5 секторов по 2° каждый
+    function drawRing_20(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, 5, 1);
+    }
+
+    // precipChance < 40 (демо: 30%) — 5 секторов по 2.5° каждый
+    function drawRing_30(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, 5, 1.5);
+    }
+
+    // precipChance < 50 (демо: 40%) — 5 секторов по 3° каждый
+    function drawRing_40(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, 5, 2);
+    }
+
+    // precipChance < 60 (демо: 50%) — 5 секторов по 3.5° каждый
+    function drawRing_50(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, 5, 2.5);
+    }
+
+    // precipChance < 70 (демо: 60%) — 4 сектора
+    function drawRing_60(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingFixedSegments(dc, cx, cy, radius, arcFrom, arcTo, 5, 4);
+    }
+
+    // precipChance < 80 (демо: 70%) — 4 сектора (шаг замедляется к концу)
+    function drawRing_70(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingSegments(dc, cx, cy, radius, arcFrom, arcTo, 4);
+    }
+
+    // precipChance < 90 (демо: 80%) — 3 сектора
+    function drawRing_80(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingSegments(dc, cx, cy, radius, arcFrom, arcTo, 3);
+    }
+
+    // precipChance < 100 (демо: 90%) — 2 сектора
+    function drawRing_90(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingSegments(dc, cx, cy, radius, arcFrom, arcTo, 2);
+    }
+
+    // precipChance == 100 (демо: 100%) — 1 сектор, сплошная заливка, без зазоров
+    function drawRing_100(dc, cx, cy, radius, arcFrom, arcTo) {
+        drawRingSegments(dc, cx, cy, radius, arcFrom, arcTo, 1);
+    }
+
+    // Сплошная дуга на весь часовой сектор — используется для кольца
+    // опасности, где нет градации, только да/нет.
+    function drawSolidHourArc(dc, cx, cy, radius, hour, color, thickness) {
+        var sectorStart = 90.0 - (hour % 12) * 30.0;
+        var sectorEnd   = sectorStart - (30.0 - 2.0 * RING_EDGE_PAD_DEG);
+        var arcFrom = sectorStart - RING_EDGE_PAD_DEG;
+
+        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(thickness);
+        dc.setAntiAlias(true);
+        dc.drawArc(cx, cy, radius, Graphics.ARC_CLOCKWISE, arcFrom, sectorEnd);
         dc.setPenWidth(1);
     }
 
@@ -696,9 +1058,46 @@ class F7_1View extends WatchUi.WatchFace {
         if (info.day != lastCalcDay) { recalcDaily(info); }
 
         var absoluteMin = info.hour * 60 + info.min;
-        if (lastWeatherMin < 0 ||
-            (absoluteMin - lastWeatherMin + 1440) % 1440 >= settingWeatherInterval) {
-            refreshWeatherCache(absoluteMin);
+        var weatherSrc  = AppSettings.getWeatherSource();
+        var locationSrc = AppSettings.getLocationSource();
+
+        if (AppSettings.getWeatherDemoMode()) {
+            // Демо-режим: подменяем реальные данные погоды захардкоженным
+            // набором, покрывающим все варианты type/intensity/danger — для
+            // тестирования отрисовки и скриншотов в стор, без реальных
+            // API-запросов и системных данных погоды.
+            if (lastWeatherMin < 0 || absoluteMin != lastWeatherMin) {
+                refreshWeatherCacheDemo(absoluteMin);
+            }
+        } else if (weatherSrc == 1) {
+            // When locationSource==1 (Garmin Weather): cache coords from Weather service
+            // so that the BG service can use them for OM requests.
+            // Do this once per minute (or on first update) so Storage stays fresh.
+            if (locationSrc == 1) {
+                if (lastWeatherMin < 0 || absoluteMin != lastWeatherMin) {
+                    var wCur = Weather.getCurrentConditions();
+                    if (wCur != null && (wCur has :observationLocationPosition) && wCur.observationLocationPosition != null) {
+                        var wCoords = wCur.observationLocationPosition.toDegrees();
+                        Application.Storage.setValue("om_lat", wCoords[0].toDouble());
+                        Application.Storage.setValue("om_lon", wCoords[1].toDouble());
+                        System.println("[OM-FG] Cached Garmin Weather coords: lat=" + wCoords[0].format("%.5f") + " lon=" + wCoords[1].format("%.5f"));
+                    } else {
+                        System.println("[OM-FG] Garmin Weather coords not available in Weather.getCurrentConditions()");
+                    }
+                }
+            }
+
+            // Open-Meteo: данные в Storage, обновляем кэш раз в минуту
+            if (lastWeatherMin < 0 || absoluteMin != lastWeatherMin) {
+                System.println("[OM-FG] onUpdate: calling refreshWeatherCacheOpenMeteo, absoluteMin=" + absoluteMin);
+                refreshWeatherCacheOpenMeteo(absoluteMin);
+            }
+        } else {
+            // Garmin weather: обновляем по интервалу из настроек
+            if (lastWeatherMin < 0 ||
+                (absoluteMin - lastWeatherMin + 1440) % 1440 >= settingWeatherInterval) {
+                refreshWeatherCache(absoluteMin);
+            }
         }
 
         ensureMoonBuffer(info.day, moonR);
@@ -708,10 +1107,14 @@ class F7_1View extends WatchUi.WatchFace {
         var hourStr = info.hour.format("%02d");
         var minStr  = info.min.format("%02d");
 
-        // Кольцо осадков
+        // Кольцо осадков / кольцо опасности
         var ringRadius = (w * 49 / 100);
-        if (AppSettings.getPrecipRing()) {
-            drawPrecipRing(dc, cx, cy, ringRadius);
+        var showPrecipRing = AppSettings.getPrecipRing();
+        var dangerRingMode = AppSettings.getDangerRingMode();  // 0=Off, 1=Inside, 2=Outside
+        var showDangerRing = (dangerRingMode != 0);
+        var dangerOutside  = (dangerRingMode == 2);
+        if (showPrecipRing || showDangerRing) {
+            drawPrecipRing(dc, cx, cy, ringRadius, w, showPrecipRing, showDangerRing, dangerOutside);
         }
 
         // Восход
@@ -728,7 +1131,7 @@ class F7_1View extends WatchUi.WatchFace {
         var isToFull = phaseResult[1];
         var moonLabel = daysTo.format("%d");
         dc.setColor(isToFull ? Graphics.COLOR_BLUE : Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, moonY - (moonR + 2), Graphics.FONT_XTINY, moonLabel, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(cx, moonY - (moonR + 1), Graphics.FONT_XTINY, moonLabel, Graphics.TEXT_JUSTIFY_CENTER);
 
         // Закат
         drawSunset(dc, setX + iconSize/2 - 2, rowY + iconSize / 2, iconSize);
@@ -746,7 +1149,10 @@ class F7_1View extends WatchUi.WatchFace {
 
         // Погода
         if (AppSettings.getWeatherDisplay()) {
-            drawWeather(dc, timeY);
+            var isStale = (AppSettings.getWeatherSource() == 1)
+                && (omUpdatedAt > 0)
+                && (Time.now().value() - omUpdatedAt > 43200); // старше 12 часов
+            drawWeather(dc, timeY, isStale);
         }
 
         // Нижний блок

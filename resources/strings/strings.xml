@@ -16,11 +16,16 @@
     <string id="SettingWeekendColor">Weekend color</string>
     <string id="SettingBottomBlock">Bottom block</string>
     <string id="SettingPrecipRing">Precip ring</string>
+    <string id="SettingDangerRing">Danger ring</string>
+    <string id="SettingRingMinPrecip">Ring min precip</string>
     <string id="SettingPrecipForecast">Precip forecast</string>
     <string id="SettingWeather">Weather</string>
     <string id="SettingHeartRate">Heart rate</string>
     <string id="SettingHourColor">Hour color</string>
     <string id="SettingMinuteColor">Minute color</string>
     <string id="SettingColonColor">Colon color</string>
+    <string id="SettingWeatherSource">Weather source</string>
+    <string id="SettingLocationSource">Location source</string>
+    <string id="SettingWeatherDemoMode">Weather demo mode</string>
 
 </strings>

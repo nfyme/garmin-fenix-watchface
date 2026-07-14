@@ -9,6 +9,16 @@ class AppSettings {
 
     static var WEATHER_INTERVALS = [5, 10, 15, 30, 60];
 
+    // Минимальный % вероятности осадков, ниже которого кольцо для часа не рисуется
+    static var RING_MIN_PRECIP_VALUES = [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+    static var RING_MIN_PRECIP_LABELS = ["5%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"];
+
+    static function getRingMinPrecip() {
+        var idx = Application.Properties.getValue("ringMinPrecip");
+        if (idx == null || idx < 0 || idx >= RING_MIN_PRECIP_VALUES.size()) { idx = 0; }
+        return RING_MIN_PRECIP_VALUES[idx];
+    }
+
     static var WEEKEND_COLORS = [
         0xAA0000,
         0xFF5500,
@@ -49,6 +59,8 @@ class AppSettings {
         return TIME_COLORS[idx];
     }
 
+    static var WEATHER_SOURCES   = ["Garmin", "Open-Meteo"];
+    static var LOCATION_SOURCES  = ["GPS", "Garmin Weather"];
     static var WEEKEND_COLOR_NAMES = ["Red", "Orange", "Green", "Blue", "Gray"];
     static var BLOCK_NAMES = ["Calendar", "Sport"];
 
@@ -76,6 +88,15 @@ class AppSettings {
         return val;
     }
 
+    static var DANGER_RING_MODES = ["Off", "Inside", "Outside"];
+
+    // 0 = Off, 1 = Inside (чуть внутри основного кольца), 2 = Outside (у самого края экрана)
+    static function getDangerRingMode() {
+        var val = Application.Properties.getValue("dangerRingMode");
+        if (val == null) { val = 1; }
+        return val;
+    }
+
     static function getPrecipForecast() {
         var val = Application.Properties.getValue("precipForecast");
         if (val == null) { val = true; }
@@ -93,6 +114,24 @@ class AppSettings {
         if (val == null) { val = true; }
         return val;
     }
+
+    static function getWeatherSource() {
+        var val = Application.Properties.getValue("weatherSource");
+        if (val == null) { val = 0; }
+        return val;
+    }
+
+    static function getLocationSource() {
+        var val = Application.Properties.getValue("locationSource");
+        if (val == null) { val = 0; }
+        return val;
+    }
+
+    static function getWeatherDemoMode() {
+        var val = Application.Properties.getValue("weatherDemoMode");
+        if (val == null) { val = false; }
+        return val;
+    }
 }
 
 // ============================================================================
@@ -102,6 +141,26 @@ class SettingsMenuView extends WatchUi.Menu2 {
 
     function initialize() {
         Menu2.initialize({ :title => "Dark Watch" });
+
+        var wsIdx = Application.Properties.getValue("weatherSource");
+        if (wsIdx == null) { wsIdx = 0; }
+        var lsIdx = Application.Properties.getValue("locationSource");
+        if (lsIdx == null) { lsIdx = 0; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Weather source",
+            AppSettings.WEATHER_SOURCES[wsIdx],
+            :weatherSource,
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Location source",
+            AppSettings.LOCATION_SOURCES[lsIdx],
+            :locationSource,
+            {}
+        ));
+
 
         var wIdx = Application.Properties.getValue("weatherInterval");
         if (wIdx == null) { wIdx = 2; }
@@ -170,6 +229,26 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
+        var drmIdx = Application.Properties.getValue("dangerRingMode");
+        if (drmIdx == null) { drmIdx = 1; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Danger ring",
+            AppSettings.DANGER_RING_MODES[drmIdx],
+            :dangerRingMode,
+            {}
+        ));
+
+        var rmpIdx = Application.Properties.getValue("ringMinPrecip");
+        if (rmpIdx == null) { rmpIdx = 0; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Ring min precip",
+            AppSettings.RING_MIN_PRECIP_LABELS[rmpIdx],
+            :ringMinPrecip,
+            {}
+        ));
+
         Menu2.addItem(new WatchUi.ToggleMenuItem(
             "Precip forecast",
             null,
@@ -194,6 +273,14 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
+        Menu2.addItem(new WatchUi.ToggleMenuItem(
+            "Weather demo mode",
+            null,
+            :weatherDemoMode,
+            AppSettings.getWeatherDemoMode(),
+            {}
+        ));
+
 
 
     }
@@ -212,10 +299,24 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item) {
         var id = item.getId();
 
-        if (id == :weatherInterval) {
+        if (id == :weatherSource) {
+            WatchUi.pushView(
+                new ColorPicker("Weather source", "weatherSource", AppSettings.WEATHER_SOURCES),
+                new BgTriggerPickerDelegate(item, "weatherSource", AppSettings.WEATHER_SOURCES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :locationSource) {
+            WatchUi.pushView(
+                new ColorPicker("Location source", "locationSource", AppSettings.LOCATION_SOURCES),
+                new BgTriggerPickerDelegate(item, "locationSource", AppSettings.LOCATION_SOURCES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :weatherInterval) {
             WatchUi.pushView(
                 new WeatherIntervalPicker(),
-                new WeatherIntervalDelegate(item),  // передаём item
+                new WeatherIntervalDelegate(item),
                 WatchUi.SLIDE_LEFT
             );
         }
@@ -239,6 +340,20 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         else if (id == :precipRing) {
             Application.Properties.setValue("precipRing",      (item as WatchUi.ToggleMenuItem).isEnabled());
         }
+        else if (id == :dangerRingMode) {
+            WatchUi.pushView(
+                new ColorPicker("Danger ring", "dangerRingMode", AppSettings.DANGER_RING_MODES),
+                new ColorPickerDelegate(item, "dangerRingMode", AppSettings.DANGER_RING_MODES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :ringMinPrecip) {
+            WatchUi.pushView(
+                new ColorPicker("Ring min precip", "ringMinPrecip", AppSettings.RING_MIN_PRECIP_LABELS),
+                new ColorPickerDelegate(item, "ringMinPrecip", AppSettings.RING_MIN_PRECIP_LABELS),
+                WatchUi.SLIDE_LEFT
+            );
+        }
         else if (id == :precipForecast) {
             Application.Properties.setValue("precipForecast", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
@@ -247,6 +362,9 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         }
         else if (id == :heartRate) {
             Application.Properties.setValue("heartRate", (item as WatchUi.ToggleMenuItem).isEnabled());
+        }
+        else if (id == :weatherDemoMode) {
+            Application.Properties.setValue("weatherDemoMode", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
 
         else if (id == :hourColor) {
@@ -281,6 +399,33 @@ class ColorPicker extends WatchUi.Menu2 {
             Menu2.addItem(new WatchUi.MenuItem(label, null, i, {}));
         }
         Menu2.setFocus(currentIdx);
+    }
+}
+
+// Picker delegate that also triggers an immediate BG weather fetch on confirm.
+// Used for weatherSource and locationSource settings.
+class BgTriggerPickerDelegate extends WatchUi.Menu2InputDelegate {
+    var _parentItem;
+    var _key;
+    var _names;
+
+    function initialize(parentItem, key, names) {
+        Menu2InputDelegate.initialize();
+        _parentItem = parentItem;
+        _key        = key;
+        _names      = names;
+    }
+
+    function onSelect(item) {
+        var idx = item.getId();
+        Application.Properties.setValue(_key, idx);
+        _parentItem.setSubLabel(_names[idx]);
+        (Application.getApp() as F7_1App)._updateBackgroundImmediate();
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
+    }
+
+    function onBack() {
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 }
 
@@ -342,8 +487,8 @@ class WeatherIntervalDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item) {
         var idx = item.getId();
         Application.Properties.setValue("weatherInterval", idx);
-        // Обновляем subLabel прямо в родительском меню — оно живёт в стеке
         _parentItem.setSubLabel(AppSettings.WEATHER_INTERVALS[idx] + " min");
+        (Application.getApp() as F7_1App)._updateBackgroundImmediate();
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 

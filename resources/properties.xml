@@ -4,11 +4,16 @@
     <property id="weekendColor"    type="number">0</property>
     <property id="bottomBlock"     type="number">0</property>
     <property id="precipRing"      type="boolean">true</property>
+    <property id="dangerRingMode"  type="number">1</property>
+    <property id="ringMinPrecip"   type="number">0</property>
     <property id="precipForecast"  type="boolean">true</property>
     <property id="weatherDisplay"  type="boolean">true</property>
     <property id="heartRate"       type="boolean">true</property>
-    <property id="hourColor"   type="number">0</property>
-    <property id="minuteColor" type="number">0</property>
-    <property id="colonColor" type="number">0</property>
+    <property id="hourColor"      type="number">0</property>
+    <property id="minuteColor"    type="number">0</property>
+    <property id="colonColor"     type="number">0</property>
+    <property id="weatherSource"  type="number">0</property>
+    <property id="locationSource" type="number">0</property>
+    <property id="weatherDemoMode" type="boolean">false</property>
 
 </properties>

@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
 <settings>
+    <setting propertyKey="@Properties.weatherSource" title="@Strings.SettingWeatherSource">
+        <settingConfig type="list">
+            <listEntry value="0">Garmin</listEntry>
+            <listEntry value="1">Open-Meteo</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.locationSource" title="@Strings.SettingLocationSource">
+        <settingConfig type="list">
+            <listEntry value="0">GPS</listEntry>
+            <listEntry value="1">Garmin Weather</listEntry>
+        </settingConfig>
+    </setting>
     <setting propertyKey="@Properties.weatherInterval" title="@Strings.SettingWeatherInterval">
         <settingConfig type="list">
             <listEntry value="0">5 min</listEntry>
@@ -62,6 +74,28 @@
     <setting propertyKey="@Properties.precipRing"     title="@Strings.SettingPrecipRing">
         <settingConfig type="boolean"/>
     </setting>
+    <setting propertyKey="@Properties.dangerRingMode" title="@Strings.SettingDangerRing">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Inside</listEntry>
+            <listEntry value="2">Outside</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.ringMinPrecip" title="@Strings.SettingRingMinPrecip">
+        <settingConfig type="list">
+            <listEntry value="0">5%</listEntry>
+            <listEntry value="1">10%</listEntry>
+            <listEntry value="2">20%</listEntry>
+            <listEntry value="3">30%</listEntry>
+            <listEntry value="4">40%</listEntry>
+            <listEntry value="5">50%</listEntry>
+            <listEntry value="6">60%</listEntry>
+            <listEntry value="7">70%</listEntry>
+            <listEntry value="8">80%</listEntry>
+            <listEntry value="9">90%</listEntry>
+            <listEntry value="10">100%</listEntry>
+        </settingConfig>
+    </setting>
     <setting propertyKey="@Properties.precipForecast" title="@Strings.SettingPrecipForecast">
         <settingConfig type="boolean"/>
     </setting>
@@ -69,6 +103,9 @@
         <settingConfig type="boolean"/>
     </setting>
     <setting propertyKey="@Properties.heartRate"      title="@Strings.SettingHeartRate">
+        <settingConfig type="boolean"/>
+    </setting>
+    <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
         <settingConfig type="boolean"/>
     </setting>
 
