@@ -6,6 +6,9 @@ using Toybox.Graphics as Gfx;
 
 module Rez {
     module Drawables {
+        (:initialized) var IconSunny as ResourceId;
+        (:initialized) var IconCloudy as ResourceId;
+        (:initialized) var IconThunderstorm as ResourceId;
         (:initialized) var LauncherIcon as ResourceId;
     } // Drawables
 

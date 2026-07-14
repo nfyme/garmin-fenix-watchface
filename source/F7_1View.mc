@@ -709,6 +709,14 @@ class F7_1View extends WatchUi.WatchFace {
         if (cachedWeatherBlocks == null) { return; }
         var w    = dc.getWidth();
         var xPos = [w/4, w/2, w*3/4];
+        var fontHeight = dc.getFontHeight(Graphics.FONT_XTINY);
+        y = y + fontHeight/6;
+        var colW = w / 3;
+        var showPrecipForecast = AppSettings.getPrecipForecast();
+        // Доп. сужение полосы осадков независимо слева/справа от расчётных
+        // краёв (в px). Положительное значение — сдвигает край внутрь полосы.
+        var precipBarStartInset = fontHeight/2;
+        var precipBarEndInset   = fontHeight;
 
         for (var i = 0; i < 3; i++) {
             var bx = xPos[i]; var b = cachedWeatherBlocks[i];
@@ -717,7 +725,6 @@ class F7_1View extends WatchUi.WatchFace {
             var precip = b["precip"];
             var cls = classifyCondition(cond);
             var thickness = condIntensityThickness(cls["intensity"]);
-            var colW = w / 3;
             var hasPrecip = (precip != null && precip > 0 && cls["type"] != COND_NONE);
             var lineW = 0; var startX = bx;
             if (hasPrecip) { lineW = (colW * precip / 100).toNumber(); startX = bx - lineW / 2; }
@@ -727,7 +734,6 @@ class F7_1View extends WatchUi.WatchFace {
             var windStr = (b["wind"] != null) ? b["wind"].format("%d") : "--";
 
             var tempDims = dc.getTextDimensions(tempStr + " ", Graphics.FONT_XTINY);
-            var fontHeight = dc.getFontHeight(Graphics.FONT_XTINY);
 
             var windDims = dc.getTextDimensions(windStr, Graphics.FONT_XTINY);
             var totalWidth = dc.getTextDimensions(tempStr + " " + windStr, Graphics.FONT_XTINY)[0] + 13;
@@ -747,10 +753,12 @@ class F7_1View extends WatchUi.WatchFace {
                 drawWindArrow(dc, windX + arrowOffset, y + fontHeight / 2, b["wdir"]);
             }
 
-            if (AppSettings.getPrecipForecast() && hasPrecip) {
+            if (showPrecipForecast && hasPrecip) {
+                var barStart = startX + precipBarStartInset;
+                var barEnd   = startX + lineW - precipBarEndInset;
                 dc.setColor(condTypeColor(cls["type"]), Graphics.COLOR_TRANSPARENT);
                 for (var t = 0; t < thickness; t++) {
-                    dc.drawLine(startX, y - thickness + t + 2, startX + lineW, y - thickness + t + 2);
+                    dc.drawLine(barStart, y - thickness + t + 2, barEnd, y - thickness + t + 2);
                 }
             }
         }

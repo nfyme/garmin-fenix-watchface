@@ -16,6 +16,7 @@ module Rez {
     } // Layouts
 
     module Strings {
+        (:initialized) var SettingRingMinPrecip as ResourceId;
         (:initialized) var SettingMinuteColor as ResourceId;
         (:initialized) var SettingLocationSource as ResourceId;
         (:initialized) var SettingBottomBlock as ResourceId;
@@ -30,7 +31,6 @@ module Rez {
         (:initialized) var SettingWeatherSource as ResourceId;
         (:initialized) var TillSunset as ResourceId;
         (:initialized) var SettingWeather as ResourceId;
-        (:initialized) var SettingDangerRingPosition as ResourceId;
         (:initialized) var SettingHourColor as ResourceId;
         (:initialized) var SettingWeatherInterval as ResourceId;
         (:initialized) var SettingColonColor as ResourceId;
