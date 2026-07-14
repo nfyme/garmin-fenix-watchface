@@ -308,6 +308,8 @@ class F7_1View extends WatchUi.WatchFace {
         return Graphics.COLOR_TRANSPARENT;
     }
 
+    const MAX_PRECIP_THICKNESS = 6; // должно совпадать с макс. значением из condIntensityThickness
+
     function condIntensityThickness(intensity) {
         if (intensity == INTENSITY_HEAVY)  { return 6; }
         if (intensity == INTENSITY_NORMAL) { return 4; }
@@ -716,7 +718,7 @@ class F7_1View extends WatchUi.WatchFace {
         // Доп. сужение полосы осадков независимо слева/справа от расчётных
         // краёв (в px). Положительное значение — сдвигает край внутрь полосы.
         var precipBarStartInset = fontHeight/2;
-        var precipBarEndInset   = fontHeight;
+        var precipBarEndInset   = fontHeight/2;
 
         for (var i = 0; i < 3; i++) {
             var bx = xPos[i]; var b = cachedWeatherBlocks[i];
@@ -756,9 +758,14 @@ class F7_1View extends WatchUi.WatchFace {
             if (showPrecipForecast && hasPrecip) {
                 var barStart = startX + precipBarStartInset;
                 var barEnd   = startX + lineW - precipBarEndInset;
-                dc.setColor(condTypeColor(cls["type"]), Graphics.COLOR_TRANSPARENT);
-                for (var t = 0; t < thickness; t++) {
-                    dc.drawLine(barStart, y - thickness + t + 2, barEnd, y - thickness + t + 2);
+                var barW     = barEnd - barStart;
+                if (barW > 0) {
+                    // Центр полосы фиксирован (barCy) и не зависит от thickness,
+                    // чтобы тонкая/средняя/толстая полосы были на одной высоте
+                    // по центру, а не "росли" вниз от общего верхнего края.
+                    var barCy = y - MAX_PRECIP_THICKNESS / 2 + 2;
+                    dc.setColor(condTypeColor(cls["type"]), Graphics.COLOR_TRANSPARENT);
+                    dc.fillRoundedRectangle(barStart, barCy - thickness / 2, barW, thickness, thickness / 2);
                 }
             }
         }
