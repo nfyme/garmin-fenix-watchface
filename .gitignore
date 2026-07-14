@@ -1,0 +1,10 @@
+# Build output
+bin/
+.vscode/gen/
+.vscode/mir/
+.vscode/internal-mir/
+.vscode/*.prg
+.vscode/*.prg.debug.xml
+
+# Editor/tooling backups
+*.bak
