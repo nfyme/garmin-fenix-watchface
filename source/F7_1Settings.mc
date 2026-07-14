@@ -109,6 +109,12 @@ class AppSettings {
         return val;
     }
 
+    static function getStepsBar() {
+        var val = Application.Properties.getValue("stepsBar");
+        if (val == null) { val = true; }
+        return val;
+    }
+
     static function getHeartRate() {
         var val = Application.Properties.getValue("heartRate");
         if (val == null) { val = true; }
@@ -274,6 +280,14 @@ class SettingsMenuView extends WatchUi.Menu2 {
         ));
 
         Menu2.addItem(new WatchUi.ToggleMenuItem(
+            "Steps bar",
+            null,
+            :stepsBar,
+            AppSettings.getStepsBar(),
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.ToggleMenuItem(
             "Weather demo mode",
             null,
             :weatherDemoMode,
@@ -362,6 +376,9 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         }
         else if (id == :heartRate) {
             Application.Properties.setValue("heartRate", (item as WatchUi.ToggleMenuItem).isEnabled());
+        }
+        else if (id == :stepsBar) {
+            Application.Properties.setValue("stepsBar", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
         else if (id == :weatherDemoMode) {
             Application.Properties.setValue("weatherDemoMode", (item as WatchUi.ToggleMenuItem).isEnabled());

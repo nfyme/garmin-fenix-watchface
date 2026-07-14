@@ -105,6 +105,9 @@
     <setting propertyKey="@Properties.heartRate"      title="@Strings.SettingHeartRate">
         <settingConfig type="boolean"/>
     </setting>
+    <setting propertyKey="@Properties.stepsBar"       title="@Strings.SettingStepsBar">
+        <settingConfig type="boolean"/>
+    </setting>
     <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
         <settingConfig type="boolean"/>
     </setting>

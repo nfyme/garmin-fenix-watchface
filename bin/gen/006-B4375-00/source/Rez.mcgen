@@ -23,6 +23,7 @@ module Rez {
         (:initialized) var SettingPrecipRing as ResourceId;
         (:initialized) var Off as ResourceId;
         (:initialized) var AppName as ResourceId;
+        (:initialized) var SettingStepsBar as ResourceId;
         (:initialized) var Month as ResourceId;
         (:initialized) var SettingWeatherDemoMode as ResourceId;
         (:initialized) var Phone as ResourceId;

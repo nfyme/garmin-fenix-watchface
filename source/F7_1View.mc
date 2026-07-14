@@ -619,6 +619,52 @@ class F7_1View extends WatchUi.WatchFace {
 }
 
     // -------------------------------------------------------------------------
+    // Прогресс-бар шагов. Координаты полностью задаются вызывающим кодом:
+    // y — вертикальный центр бара, s/e — левая/правая граница по X (по
+    // умолчанию 0 и ширина экрана). Никакой автоматической геометрии внутри.
+    // -------------------------------------------------------------------------
+    const DEMO_STEPS      = 7000;
+    const DEMO_STEPS_GOAL = 10000; // 70%, для скриншотов/теста в демо-режиме
+
+    function drawStepsBar(dc, y, s, e) {
+        var steps;
+        var stepsGoal;
+        if (AppSettings.getWeatherDemoMode()) {
+            steps     = DEMO_STEPS;
+            stepsGoal = DEMO_STEPS_GOAL;
+        } else {
+            var amInfo = ActivityMonitor.getInfo();
+            if (amInfo == null) { return; }
+            steps     = amInfo.steps;
+            stepsGoal = amInfo.stepGoal;
+        }
+        if (steps == null || stepsGoal == null || stepsGoal <= 0) { return; }
+
+        var h = dc.getHeight();
+
+        if (s == null) { s = 0; }
+        if (e == null) { e = dc.getWidth(); }
+
+        var barH = (h * 2 / 100);
+        if (barH < 3) { barH = 3; }
+        var barY = y - barH / 2;
+        var barX = s;
+        var barW = e - s;
+
+        var pct = steps.toFloat() / stepsGoal.toFloat();
+        if (pct > 1.0) { pct = 1.0; }
+        var fillW = (barW * pct).toNumber();
+
+        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.fillRoundedRectangle(barX, barY, barW, barH, barH / 2);
+        if (fillW > 0) {
+            dc.setColor(0x00AA44, Graphics.COLOR_TRANSPARENT);
+            dc.fillRoundedRectangle(barX, barY, fillW, barH, barH / 2);
+        }
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+    }
+
+    // -------------------------------------------------------------------------
     // Спортивный блок
     // -------------------------------------------------------------------------
     function drawSportBlock(dc, startY) {
@@ -712,7 +758,7 @@ class F7_1View extends WatchUi.WatchFace {
         var w    = dc.getWidth();
         var xPos = [w/4, w/2, w*3/4];
         var fontHeight = dc.getFontHeight(Graphics.FONT_XTINY);
-        y = y + fontHeight/6;
+        y = y + fontHeight/10;
         var colW = w / 3;
         var showPrecipForecast = AppSettings.getPrecipForecast();
         // Доп. сужение полосы осадков независимо слева/справа от расчётных
@@ -1168,6 +1214,25 @@ class F7_1View extends WatchUi.WatchFace {
                 && (omUpdatedAt > 0)
                 && (Time.now().value() - omUpdatedAt > 43200); // старше 12 часов
             drawWeather(dc, timeY, isStale);
+        }
+
+        // Прогресс-бар шагов — Y/старт/конец задаются здесь явно
+        if (AppSettings.getStepsBar()) {
+
+        // Получаем высоту буквы (область) и высоту цифры
+        var height = dc.getFontHeight(Graphics.FONT_NUMBER_THAI_HOT); // делаем положительным
+        var r = w / 2;
+        var barCy = timeY + height/5;
+        var dy = barCy - cy;
+        var chordLength = (dy <= r && dy >= -r) ? 2 * Math.sqrt(r * r - dy * dy) : 0;
+        var inset = chordLength * 0.1;
+        var barS = cx - chordLength / 2 + inset;
+        var barE = cx + chordLength / 2 - inset;
+
+        drawStepsBar(dc, barCy, barS, barE);
+
+            
+            
         }
 
         // Нижний блок

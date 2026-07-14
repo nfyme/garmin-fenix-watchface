@@ -21,6 +21,7 @@
     <string id="SettingPrecipForecast">Precip forecast</string>
     <string id="SettingWeather">Weather</string>
     <string id="SettingHeartRate">Heart rate</string>
+    <string id="SettingStepsBar">Steps bar</string>
     <string id="SettingHourColor">Hour color</string>
     <string id="SettingMinuteColor">Minute color</string>
     <string id="SettingColonColor">Colon color</string>
