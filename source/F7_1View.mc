@@ -1191,8 +1191,10 @@ class F7_1View extends WatchUi.WatchFace {
         // На Fenix 8 (454px): масштабируются автоматически
         // -----------------------------------------------------------------------
 
-        // Луна: радиус ~3.2% ширины экрана (9px при w=280, как в исходной версии)
-        var moonR = (w * 32 + 900) / 1000;
+        // Луна: радиус пропорционален ширине экрана.
+        // Чтобы луна реально росла сильнее на
+        // больших экранах, увеличиваем сам процент (числитель при w).
+        var moonR = (w * 40) / 1000; // ~4% ширины экрана
 
         // Верхняя строка
         var rowY     = (h * 8 / 100);           // 8% сверху — уже пропорционально, ok
@@ -1279,7 +1281,7 @@ class F7_1View extends WatchUi.WatchFace {
         // Луна
         blitMoon(dc, cx, moonY, moonR);
 
-        // Дни до фазы
+        // Дни до фазы — цифра должна помещаться внутри круга луны
         var phaseResult = getDaysToNextPhase();
         var daysTo = phaseResult[0];
         var isToFull = phaseResult[1];
@@ -1316,7 +1318,12 @@ class F7_1View extends WatchUi.WatchFace {
             // Получаем высоту буквы (область) и высоту цифры
             var height = dc.getFontHeight(Graphics.FONT_NUMBER_THAI_HOT); // делаем положительным
             var r = w / 2;
-            var barCy = timeY + height/5;
+            // Делитель height/N не масштабируется линейно с шириной экрана —
+            // на Fenix 7 Pro (280px) красиво при N=5, на Fenix 8 (454px) при
+            // N=5.2. Линейно интерполируем между этими двумя опорными точками
+            // вместо жёсткой константы, чтобы не гадать на каждом новом экране.
+            var heightDivisor = 5.0 + (w - 280.0) * (5.2 - 5.0) / (454.0 - 280.0);
+            var barCy = timeY + height / heightDivisor;
             var dy = barCy - cy;
             var chordLength = (dy <= r && dy >= -r) ? 2 * Math.sqrt(r * r - dy * dy) : 0;
             var inset = chordLength * 0.1;
