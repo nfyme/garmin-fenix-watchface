@@ -31,6 +31,13 @@ class F7_1View extends WatchUi.WatchFace {
     var lastWeatherMin      = -1;
     var omUpdatedAt         = 0;    // unix timestamp последнего успешного OM-запроса
     var cachedPressure      = null; // текущее давление, hPa (null пока не получено)
+    var omForecastExpired   = false; // весь Open-Meteo forecast в Storage прошёл — свежих часов нет
+    // Какому источнику принадлежат текущие cachedWeatherBlocks (-1=нет данных
+    // вообще, 0=Garmin, 1=Open-Meteo). Нужно отдельно от cachedWeatherBlocks==null,
+    // потому что при переключении Garmin→OM кэш не обнуляется (см. onShow) —
+    // не будь этого флага, "ждём данные" никогда бы не показалось: старые
+    // Garmin-блоки лежат в том же cachedWeatherBlocks и выглядят валидными.
+    var weatherCacheSource  = -1;
 
     // Настройки (читаются при старте и после изменения)
     var settingWeatherInterval = 15;
@@ -360,9 +367,13 @@ class F7_1View extends WatchUi.WatchFace {
         }
 
         if (curIdx < 0) {
-            // Данные устарели (все часы прошли), кэш не обновляем
+            // Данные устарели (все часы прошли), кэш не обновляем, но
+            // помечаем forecast как истёкший — drawWeather покажет "Last upd: ..."
+            // вместо старых блоков вместо того, чтобы молча показывать протухшее.
+            omForecastExpired = true;
             return;
         }
+        omForecastExpired = false;
 
         // 3 блока погоды: сейчас, +3ч, +6ч
         var newBlocks = new [3];
@@ -381,6 +392,7 @@ class F7_1View extends WatchUi.WatchFace {
             }
         }
         cachedWeatherBlocks = newBlocks;
+        weatherCacheSource  = 1;
 
         // Давление — только текущий час, Open-Meteo уже отдаёт hPa напрямую
         if (pressure != null && curIdx < pressure.size()) {
@@ -520,6 +532,7 @@ class F7_1View extends WatchUi.WatchFace {
                 newBlocks[2] = cachedWeatherBlocks[2];
             }
             cachedWeatherBlocks = newBlocks;
+            weatherCacheSource  = 0;
 
             // Полный список: текущие условия + весь hourly forecast, сколько API
             // отдал (не ограничиваемся фиксированным числом слотов), но не
@@ -850,6 +863,26 @@ class F7_1View extends WatchUi.WatchFace {
             dc.drawText(w / 2, row2 + labelOffset, Graphics.FONT_XTINY, "floors", Graphics.TEXT_JUSTIFY_CENTER);
         }
 
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+    }
+
+    // -------------------------------------------------------------------------
+    // Статусная строка вместо блоков погоды: либо ждём первых данных Open-Meteo,
+    // либо forecast полностью прошёл и свежих часов нет — показываем честно,
+    // когда данные были получены в последний раз, вместо протухших цифр.
+    // -------------------------------------------------------------------------
+    function drawWeatherStatus(dc, y, waiting) {
+        var w = dc.getWidth();
+        var text;
+        if (waiting || omUpdatedAt <= 0) {
+            text = "Last upd: waiting...";
+        } else {
+            var updInfo = Gregorian.info(new Time.Moment(omUpdatedAt), Time.FORMAT_SHORT);
+            text = "Last upd: " + updInfo.day.format("%02d") + "." + updInfo.month.format("%02d")
+                 + " " + updInfo.hour.format("%02d") + ":" + updInfo.min.format("%02d");
+        }
+        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, y, Graphics.FONT_XTINY, text, Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
     }
 
@@ -1305,10 +1338,22 @@ class F7_1View extends WatchUi.WatchFace {
 
         // Погода
         if (AppSettings.getWeatherDisplay()) {
-            var isStale = (AppSettings.getWeatherSource() == 1)
+            var isOpenMeteo = (AppSettings.getWeatherSource() == 1);
+            var isStale = isOpenMeteo
                 && (omUpdatedAt > 0)
                 && (Time.now().value() - omUpdatedAt > 43200); // старше 12 часов
-            drawWeather(dc, timeY, isStale);
+            // Open-Meteo: пока нет ни одного успешного ответа для ЭТОГО источника
+            // — ждём первых данных. Проверяем weatherCacheSource, а не просто
+            // cachedWeatherBlocks==null: при переключении Garmin→OM кэш не
+            // обнуляется (см. onShow), и без этой проверки "ждём данные" не
+            // показалось бы — старые Garmin-блоки остались бы на экране молча.
+            var weatherWaiting = isOpenMeteo && (weatherCacheSource != 1);
+            var weatherExpired = isOpenMeteo && omForecastExpired && (weatherCacheSource == 1);
+            if (weatherWaiting || weatherExpired) {
+                drawWeatherStatus(dc, timeY, weatherWaiting);
+            } else {
+                drawWeather(dc, timeY, isStale);
+            }
         }
 
         // Под погодой: Ничего / Прогресс-бар шагов / Давление — Y/старт/конец
