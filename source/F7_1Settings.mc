@@ -231,7 +231,7 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
-                Menu2.addItem(new WatchUi.MenuItem(
+        Menu2.addItem(new WatchUi.MenuItem(
             "Hour color",
             AppSettings.TIME_COLOR_NAMES[hcIdx],
             :hourColor,
@@ -357,9 +357,6 @@ class SettingsMenuView extends WatchUi.Menu2 {
             AppSettings.getWeatherDemoMode(),
             {}
         ));
-
-
-
     }
 }
 
@@ -411,9 +408,6 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
                 WatchUi.SLIDE_LEFT
             );
         }
-
-        
-
         else if (id == :precipRing) {
             Application.Properties.setValue("precipRing",      (item as WatchUi.ToggleMenuItem).isEnabled());
         }
@@ -569,10 +563,9 @@ class WeatherIntervalPicker extends WatchUi.Menu2 {
         var currentIdx = Application.Properties.getValue("weatherInterval");
         if (currentIdx == null) { currentIdx = 2; }
 
-        var labels = ["5 min", "10 min", "15 min", "30 min", "60 min"];
-
-        for (var i = 0; i < labels.size(); i++) {
-            var label = (i == currentIdx) ? "[ " + labels[i] + " ]" : labels[i];
+        for (var i = 0; i < AppSettings.WEATHER_INTERVALS.size(); i++) {
+            var text = AppSettings.WEATHER_INTERVALS[i] + " min";
+            var label = (i == currentIdx) ? "[ " + text + " ]" : text;
             Menu2.addItem(new WatchUi.MenuItem(label, null, i, {}));
         }
 

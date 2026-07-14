@@ -19,7 +19,8 @@ class F7_1View extends WatchUi.WatchFace {
     var moonPhase   = 0.0;
     var lastCalcDay = -1;
 
-    // Буфер луны (CIQ 4.x: createBufferedBitmap → Reference)
+    // Буфер луны (CIQ 4.x: createBufferedBitmap → Reference, да, не сам bitmap —
+    // словил на этом NPE один раз, теперь помню навсегда)
     var moonBuffer  = null;
     var lastMoonDay = -1;
     // MOON_R теперь вычисляется динамически в ensureMoonBuffer
@@ -45,6 +46,7 @@ class F7_1View extends WatchUi.WatchFace {
     // реально отдаёт API (не завязываемся на фиксированное число слотов), но
     // не более этого предела — на случай, если API однажды начнёт отдавать
     // существенно больше, чтобы не раздувать память бесконечно.
+    // Часы на watch — не заметят, а вот память там жмётся будь здоров.
     const MAX_FORECAST_HOURS = 72;
 
     function initialize() {
@@ -61,7 +63,8 @@ class F7_1View extends WatchUi.WatchFace {
         loadSettings();
         lastCalcDay    = -1;
         lastWeatherMin = -1;  // форсируем попытку обновления, но кэш НЕ обнуляем —
-                              // старые данные остаются на экране, пока не придут свежие
+                              // старые данные остаются на экране, пока не придут свежие.
+                              // Обнулишь тут кэш — экран мигнёт пустотой, дизайнер не простит.
         lastMoonDay    = -1;
         moonBuffer     = null;
     }
@@ -77,6 +80,9 @@ class F7_1View extends WatchUi.WatchFace {
         moonBuffer  = null; // размер радиуса мог измениться
     }
 
+    // Стандартная астроформула восхода/заката (NOAA). Магические числа
+    // ниже — не от балды, это уравнение времени и наклон эклиптики,
+    // трогать только если реально шаришь в астрономии.
     function calculateSunTimes() {
         riseStr = "--:--";
         setStr  = "--:--";
@@ -120,6 +126,8 @@ class F7_1View extends WatchUi.WatchFace {
         setStr  = sH.format("%02d") + ":" + sM.format("%02d");
     }
 
+    // Юлианская дата: a/y/m/jd — целочисленное деление (Number / Number в Monkey C).
+    // Забудешь — фаза луны едет на пару дней, ищи потом баг неделю.
     function getMoonPhase(year, month, day) {
         var a  = (14 - month) / 12;
         var y  = year + 4800 - a;
@@ -238,7 +246,8 @@ class F7_1View extends WatchUi.WatchFace {
     // Единая классификация Garmin CONDITION_* кода погоды.
     // Один источник правды для кольца осадков и текстовых блоков — оба места
     // рисуют по type/intensity/isDanger, вместо трёх рассинхронизированных
-    // списков кодов, как было раньше.
+    // списков кодов, как было раньше. Ну наконец-то, а то задолбался в трёх
+    // местах один и тот же код погоды на глаз сверять.
     // -------------------------------------------------------------------------
     const COND_NONE = 0;
     const COND_RAIN = 1;
@@ -330,7 +339,6 @@ class F7_1View extends WatchUi.WatchFace {
         var pressure = Application.Storage.getValue("om_pressure") as Lang.Array?;
 
         if (temps == null || temps.size() == 0 || times == null) {
-            System.println("[OM-FG] refreshWeatherCacheOpenMeteo: no data in Storage");
             return;
         }
 
@@ -352,12 +360,9 @@ class F7_1View extends WatchUi.WatchFace {
         }
 
         if (curIdx < 0) {
-            System.println("[OM-FG] curHour=" + curStr + " not found in times — data expired");
             // Данные устарели (все часы прошли), кэш не обновляем
             return;
         }
-
-        System.println("[OM-FG] refreshWeatherCacheOpenMeteo: curIdx=" + curIdx + "/" + temps.size() + " time=" + curStr);
 
         // 3 блока погоды: сейчас, +3ч, +6ч
         var newBlocks = new [3];
@@ -373,9 +378,6 @@ class F7_1View extends WatchUi.WatchFace {
                     "precip" => (precip != null && idx < precip.size()) ? (precip[idx] as Lang.Number) : null,
                     "cond"   => (codes  != null && idx < codes.size())  ? wmoToGarminCond(codes[idx] as Lang.Number) : 0
                 };
-                System.println("[OM-FG] block[" + i + "]: temp=" + newBlocks[i]["temp"]
-                    + " wind=" + newBlocks[i]["wind"] + " cond=" + newBlocks[i]["cond"]
-                    + " precip=" + newBlocks[i]["precip"]);
             }
         }
         cachedWeatherBlocks = newBlocks;
@@ -407,7 +409,6 @@ class F7_1View extends WatchUi.WatchFace {
         omUpdatedAt = (updated != null) ? updated : 0;
 
         lastWeatherMin = nowMin;
-        System.println("[OM-FG] refreshWeatherCacheOpenMeteo done, omUpdatedAt=" + omUpdatedAt);
     }
 
     // -------------------------------------------------------------------------
@@ -573,61 +574,58 @@ class F7_1View extends WatchUi.WatchFace {
     // Календарь
     // -------------------------------------------------------------------------
     function drawCalendar(dc, startY) {
-    var now  = Time.now();
-    var info = Gregorian.info(now, Time.FORMAT_SHORT);
-    var w    = dc.getWidth();
-    var h    = dc.getHeight();
-    var today       = info.day;
-    var firstDow    = getFirstDayOfMonth(info.year, info.month);
-    var daysInMonth = getDaysInMonth(info.year, info.month);
-    var firstDowMon = (firstDow + 6) % 7;
-    var todayDow    = (info.day_of_week - 2 + 7) % 7;
-    var days = ["Mo","Tu","We","Th","Fr","Sa","Su"];
+        var now  = Time.now();
+        var info = Gregorian.info(now, Time.FORMAT_SHORT);
+        var w    = dc.getWidth();
+        var h    = dc.getHeight();
+        var today       = info.day;
+        var firstDow    = getFirstDayOfMonth(info.year, info.month);
+        var daysInMonth = getDaysInMonth(info.year, info.month);
+        var firstDowMon = (firstDow + 6) % 7;
+        var todayDow    = (info.day_of_week - 2 + 7) % 7;
+        var days = ["Mo","Tu","We","Th","Fr","Sa","Su"];
 
-    //var fontH = dc.getFontHeight(Graphics.FONT_XTINY);
+        var cellW = w / 10.5;
+        if (cellW > 40) { cellW = 40; }
+        var offsetX = (w - cellW * 7) / 2;
 
-    var cellW = w / 10.5;
-    if (cellW > 40) { cellW = 40; }
-    var offsetX = (w - cellW * 7) / 2;
+        // Доступная высота для календаря: от startY до нижней метки BT (10% снизу)
+        var availH = h - (h * 10 / 100) - startY;
+        // 7 строк: 1 заголовок + 6 недель. rowH — высота одной строки.
+        var rowH = availH / 6.5;
 
-    // Доступная высота для календаря: от startY до нижней метки BT (10% снизу)
-    var availH = h - (h * 10 / 100) - startY;
-    // 7 строк: 1 заголовок + 6 недель. rowH — высота одной строки.
-    var rowH = availH / 6.5;
-    //if (rowH < fontH + 1) { rowH = fontH + 1; }
+        var underlineLen = (w * 7 / 100);
 
-    var underlineLen = (w * 7 / 100);
-
-    for (var i = 0; i < 7; i++) {
-        dc.setColor((i >= 5) ? settingWeekendColor : Graphics.COLOR_LT_GRAY,
-                    Graphics.COLOR_TRANSPARENT);
-        var textX = offsetX + cellW * i + cellW / 2;
-        dc.drawText(textX, startY, Graphics.FONT_XTINY, days[i], Graphics.TEXT_JUSTIFY_CENTER);
-        if (i == todayDow) {
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawLine(textX - underlineLen/2, startY + rowH+2,
-                        textX + underlineLen/2, startY + rowH+2);
-            dc.drawLine(textX - underlineLen/2, startY + rowH+1,
-                        textX + underlineLen/2, startY + rowH+1);
+        for (var i = 0; i < 7; i++) {
+            dc.setColor((i >= 5) ? settingWeekendColor : Graphics.COLOR_LT_GRAY,
+                        Graphics.COLOR_TRANSPARENT);
+            var textX = offsetX + cellW * i + cellW / 2;
+            dc.drawText(textX, startY, Graphics.FONT_XTINY, days[i], Graphics.TEXT_JUSTIFY_CENTER);
+            if (i == todayDow) {
+                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                dc.drawLine(textX - underlineLen/2, startY + rowH+2,
+                            textX + underlineLen/2, startY + rowH+2);
+                dc.drawLine(textX - underlineLen/2, startY + rowH+1,
+                            textX + underlineLen/2, startY + rowH+1);
+            }
         }
-    }
 
-    var col = firstDowMon; var row = 1;
-    for (var d = 1; d <= daysInMonth; d++) {
-        var x = offsetX + col * cellW + cellW / 2;
-        var y = startY + row * rowH;
-        if (d == today) {
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawRectangle(offsetX + col * cellW + 2, y + 1, cellW - 2, rowH+2 );
+        var col = firstDowMon; var row = 1;
+        for (var d = 1; d <= daysInMonth; d++) {
+            var x = offsetX + col * cellW + cellW / 2;
+            var y = startY + row * rowH;
+            if (d == today) {
+                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                dc.drawRectangle(offsetX + col * cellW + 2, y + 1, cellW - 2, rowH+2 );
+            }
+            dc.setColor((col >= 5) ? settingWeekendColor : Graphics.COLOR_WHITE,
+                        Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, y, Graphics.FONT_XTINY, d.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
+            col++;
+            if (col > 6) { col = 0; row++; }
         }
-        dc.setColor((col >= 5) ? settingWeekendColor : Graphics.COLOR_WHITE,
-                    Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, Graphics.FONT_XTINY, d.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
-        col++;
-        if (col > 6) { col = 0; row++; }
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
     }
-    dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-}
 
     // -------------------------------------------------------------------------
     // Общий фон бара (заполняемая полоска): -1 = не рисовать (прозрачный),
@@ -925,23 +923,23 @@ class F7_1View extends WatchUi.WatchFace {
 
     function drawWindArrow(dc, cx, cy, bearingDeg) {
         if (bearingDeg == null) { return; }
-        var size=10; var headLen=4; var headWidth=3;
-        var h=size/2; var d=h;
-        var dir=((bearingDeg+22+180)/45).toNumber()%8;
-        var tips =[[0,-h],[d,-d],[h,0],[d,d],[0,h],[-d,d],[-h,0],[-d,-d]];
-        var tails=[[0,h],[-d,d],[-h,0],[-d,-d],[0,-h],[d,-d],[h,0],[d,d]];
-        var tipX=cx+tips[dir][0]; var tipY=cy+tips[dir][1];
-        var tailX=cx+tails[dir][0]; var tailY=cy+tails[dir][1];
-        var dx=tipX-tailX; var dy=tipY-tailY;
-        var len=Math.sqrt(dx*dx+dy*dy);
-        if (len<0.1){return;}
-        var ux=dx/len; var uy=dy/len;
-        var baseX=tipX-ux*headLen; var baseY=tipY-uy*headLen;
-        var px=-uy; var py=ux;
-        dc.drawLine(tailX.toNumber(),tailY.toNumber(),baseX.toNumber(),baseY.toNumber());
-        dc.fillPolygon([[tipX.toNumber(),tipY.toNumber()],
-                        [(baseX+px*headWidth).toNumber(),(baseY+py*headWidth).toNumber()],
-                        [(baseX-px*headWidth).toNumber(),(baseY-py*headWidth).toNumber()]]);
+        var size = 10; var headLen = 4; var headWidth = 3;
+        var h = size / 2; var d = h;
+        var dir = ((bearingDeg + 22 + 180) / 45).toNumber() % 8;
+        var tips  = [[0,-h],[d,-d],[h,0],[d,d],[0,h],[-d,d],[-h,0],[-d,-d]];
+        var tails = [[0,h],[-d,d],[-h,0],[-d,-d],[0,-h],[d,-d],[h,0],[d,d]];
+        var tipX  = cx + tips[dir][0];  var tipY  = cy + tips[dir][1];
+        var tailX = cx + tails[dir][0]; var tailY = cy + tails[dir][1];
+        var dx = tipX - tailX; var dy = tipY - tailY;
+        var len = Math.sqrt(dx * dx + dy * dy);
+        if (len < 0.1) { return; }
+        var ux = dx / len; var uy = dy / len;
+        var baseX = tipX - ux * headLen; var baseY = tipY - uy * headLen;
+        var px = -uy; var py = ux;
+        dc.drawLine(tailX.toNumber(), tailY.toNumber(), baseX.toNumber(), baseY.toNumber());
+        dc.fillPolygon([[tipX.toNumber(), tipY.toNumber()],
+                        [(baseX + px * headWidth).toNumber(), (baseY + py * headWidth).toNumber()],
+                        [(baseX - px * headWidth).toNumber(), (baseY - py * headWidth).toNumber()]]);
     }
 
     // -------------------------------------------------------------------------
@@ -1083,6 +1081,10 @@ class F7_1View extends WatchUi.WatchFace {
         }
     }
 
+    // 12 функций на 12 диапазонов вместо одной формулы — да, руками подбирал
+    // каждую на глаз по скриншоту, зато выглядит ровно так как надо. Не трогай
+    // без причины, а то опять сидеть подгонять полчаса.
+    //
     // precipChance < 10 (демо: 0-5%) — 5 секторов по 1° каждый, равномерно
     // по сектору, крайние — впритык к краям (с общим отступом RING_EDGE_PAD_DEG).
     function drawRing_05(dc, cx, cy, radius, arcFrom, arcTo) {
@@ -1189,12 +1191,7 @@ class F7_1View extends WatchUi.WatchFace {
         // На Fenix 8 (454px): масштабируются автоматически
         // -----------------------------------------------------------------------
 
-        // Луна
-        // (было 9px — это примерно 3.2% от 280; возьмём 3.2% чтобы на 7 было как прежде)
-        // Пересчёт: 9/280 ≈ 3.2% → moonR = w * 32 / 1000
-        // Но 9/280 = 0.0321, для простоты moonR = (w * 32 + 500) / 1000
-        // Итого: при w=280 → (280*32+500)/1000 = (8960+500)/1000 = 9 ✓
-        //        при w=454 → (454*32+500)/1000 = (14528+500)/1000 = 15
+        // Луна: радиус ~3.2% ширины экрана (9px при w=280, как в исходной версии)
         var moonR = (w * 32 + 900) / 1000;
 
         // Верхняя строка
@@ -1202,13 +1199,9 @@ class F7_1View extends WatchUi.WatchFace {
         var iconSize = (w * 4 / 100);           // 4% от ширины — уже пропорционально, ok
         var moonY    = (h * 11 / 100);          // 11% сверху
 
-        // Отступ иконок восхода/заката от центра
-        // было: cx ± (w*4/100) ± 45  — здесь 45px — фиксированный, не масштабируется
-        // 45/280 ≈ 16%, берём 16%: w * 16 / 100
-        var sunOffset = (w * 16 / 100);         // @ 280 → 44px ≈ 45 ✓,  @ 454 → 72px
+        // Отступ иконок восхода/заката от центра: ~16% ширины экрана
+        var sunOffset = (w * 16 / 100);
 
-        // Смещение текста относительно иконки
-        // было: riseX = cx - (w*4/100) - 45  → cx - iconSize - sunOffset
         var riseX = cx - iconSize - sunOffset;
         var setX  = cx + iconSize + sunOffset;
 
@@ -1245,16 +1238,12 @@ class F7_1View extends WatchUi.WatchFace {
                         var wCoords = wCur.observationLocationPosition.toDegrees();
                         Application.Storage.setValue("om_lat", wCoords[0].toDouble());
                         Application.Storage.setValue("om_lon", wCoords[1].toDouble());
-                        System.println("[OM-FG] Cached Garmin Weather coords: lat=" + wCoords[0].format("%.5f") + " lon=" + wCoords[1].format("%.5f"));
-                    } else {
-                        System.println("[OM-FG] Garmin Weather coords not available in Weather.getCurrentConditions()");
                     }
                 }
             }
 
             // Open-Meteo: данные в Storage, обновляем кэш раз в минуту
             if (lastWeatherMin < 0 || absoluteMin != lastWeatherMin) {
-                System.println("[OM-FG] onUpdate: calling refreshWeatherCacheOpenMeteo, absoluteMin=" + absoluteMin);
                 refreshWeatherCacheOpenMeteo(absoluteMin);
             }
         } else {

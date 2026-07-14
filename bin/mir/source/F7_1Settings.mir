@@ -1451,7 +1451,7 @@ class SettingsMenuView extends WatchUi.Menu2 {
     }
     [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 179; @symbol_functiondef = [initialize,179,13,23]; ]
     function initialize() as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start:
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 180 8 ]
         symbol [ Menu2 %tmp.2 180 8 13 ];
         %tmp.2 = getv ? :Menu2;
@@ -1465,7 +1465,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start:
         %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
         invoke %tmp.2 %tmp.3(%tmp.9);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 182 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %wsIdx.1 = local;
         symbol [ wsIdx %wsIdx.1 182 12 17 ];
         symbol [ Application %tmp.10 182 20 31 ];
@@ -1495,7 +1495,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_183_27_183_40_stop:
         goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_183_8_183_40_if_end;
 D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_183_8_183_40_if_end:
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 184 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %lsIdx.2 = local;
         symbol [ lsIdx %lsIdx.2 184 12 17 ];
         symbol [ Application %tmp.19 184 20 31 ];
@@ -1569,7 +1569,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_185_8_185_40_if_end:
         %tmp.47 = newc %tmp.50 (%tmp.51, %tmp.56, %tmp.58, %tmp.59);
         invoke %tmp.45 %tmp.46(%tmp.47);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 202 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %wIdx.3 = local;
         symbol [ wIdx %wIdx.3 202 12 16 ];
         symbol [ Application %tmp.60 202 19 30 ];
@@ -1599,7 +1599,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_203_26_203_38_stop:
         goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_203_8_203_38_if_end;
 D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_203_8_203_38_if_end:
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 205 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %cIdx.4 = local;
         symbol [ cIdx %cIdx.4 205 12 16 ];
         symbol [ Application %tmp.69 205 19 30 ];
@@ -1629,7 +1629,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_206_26_206_38_stop:
         goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_206_8_206_38_if_end;
 D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_206_8_206_38_if_end:
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 208 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %bIdx.5 = local;
         symbol [ bIdx %bIdx.5 208 12 16 ];
         symbol [ Application %tmp.78 208 19 30 ];
@@ -1659,7 +1659,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_209_26_209_38_stop:
         goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_209_8_209_38_if_end;
 D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_209_8_209_38_if_end:
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 211 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %hcIdx.6 = local;
         symbol [ hcIdx %hcIdx.6 211 12 17 ];
         symbol [ Application %tmp.87 211 20 31 ];
@@ -1689,7 +1689,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_212_27_212_40_stop:
         goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_212_8_212_40_if_end;
 D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_212_8_212_40_if_end:
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 214 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %mcIdx.7 = local;
         symbol [ mcIdx %mcIdx.7 214 12 17 ];
         symbol [ Application %tmp.96 214 20 31 ];
@@ -1719,7 +1719,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_215_27_215_40_stop:
         goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_215_8_215_40_if_end;
 D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_215_8_215_40_if_end:
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 217 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %ccIdx.8 = local;
         symbol [ ccIdx %ccIdx.8 217 12 17 ];
         symbol [ Application %tmp.105 217 20 31 ];
@@ -1794,14 +1794,14 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_218_8_218_40_if_end:
         %tmp.147 = newd 0;
         %tmp.135 = newc %tmp.138 (%tmp.139, %tmp.144, %tmp.146, %tmp.147);
         invoke %tmp.133 %tmp.134(%tmp.135);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 234 16 ]
-        symbol [ Menu2 %tmp.149 234 16 21 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 234 8 ]
+        symbol [ Menu2 %tmp.149 234 8 13 ];
         %tmp.149 = getv ? :Menu2;
-        symbol [ addItem %tmp.150 234 22 29 ];
+        symbol [ addItem %tmp.150 234 14 21 ];
         %tmp.150 = getv function %tmp.149 :addItem;
-        symbol [ WatchUi %tmp.153 234 34 41 ];
+        symbol [ WatchUi %tmp.153 234 26 33 ];
         %tmp.153 = getm $.Toybox.WatchUi;
-        symbol [ MenuItem %tmp.154 234 42 50 ];
+        symbol [ MenuItem %tmp.154 234 34 42 ];
         %tmp.154 = getv function ? %tmp.153 :MenuItem;
         %tmp.155 = "Hour color";
         symbol [ AppSettings %tmp.157 236 12 23 ];
@@ -1904,7 +1904,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_218_8_218_40_if_end:
         %tmp.215 = newc %tmp.218 (%tmp.219, %tmp.220, %tmp.222, %tmp.226, %tmp.227);
         invoke %tmp.213 %tmp.214(%tmp.215);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 269 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %drmIdx.9 = local;
         symbol [ drmIdx %drmIdx.9 269 12 18 ];
         symbol [ Application %tmp.228 269 21 32 ];
@@ -1956,7 +1956,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_270_8_270_42_if_end:
         %tmp.240 = newc %tmp.243 (%tmp.244, %tmp.249, %tmp.251, %tmp.252);
         invoke %tmp.238 %tmp.239(%tmp.240);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 279 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %rmpIdx.10 = local;
         symbol [ rmpIdx %rmpIdx.10 279 12 18 ];
         symbol [ Application %tmp.253 279 21 32 ];
@@ -2071,7 +2071,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_280_8_280_42_if_end:
         %tmp.313 = newc %tmp.316 (%tmp.317, %tmp.318, %tmp.320, %tmp.324, %tmp.325);
         invoke %tmp.311 %tmp.312(%tmp.313);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 313 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %uwmIdx.11 = local;
         symbol [ uwmIdx %uwmIdx.11 313 12 18 ];
         symbol [ Application %tmp.326 313 21 32 ];
@@ -2123,7 +2123,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_314_8_314_42_if_end:
         %tmp.338 = newc %tmp.341 (%tmp.342, %tmp.347, %tmp.349, %tmp.350);
         invoke %tmp.336 %tmp.337(%tmp.338);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 323 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %bfcIdx.12 = local;
         symbol [ bfcIdx %bfcIdx.12 323 12 18 ];
         symbol [ Application %tmp.351 323 21 32 ];
@@ -2175,7 +2175,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_324_8_324_42_if_end:
         %tmp.363 = newc %tmp.366 (%tmp.367, %tmp.372, %tmp.374, %tmp.375);
         invoke %tmp.361 %tmp.362(%tmp.363);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 333 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %bbcIdx.13 = local;
         symbol [ bbcIdx %bbcIdx.13 333 12 18 ];
         symbol [ Application %tmp.376 333 21 32 ];
@@ -2227,7 +2227,7 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_334_8_334_42_if_end:
         %tmp.388 = newc %tmp.391 (%tmp.392, %tmp.397, %tmp.399, %tmp.400);
         invoke %tmp.386 %tmp.387(%tmp.388);
 [ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 343 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop" ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop" ]
         %puIdx.14 = local;
         symbol [ puIdx %puIdx.14 343 12 17 ];
         symbol [ Application %tmp.401 343 20 31 ];
@@ -2299,1921 +2299,1910 @@ D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_344_8_344_40_if_end:
         %tmp.441 = newd 0;
         %tmp.429 = newc %tmp.432 (%tmp.433, %tmp.434, %tmp.436, %tmp.440, %tmp.441);
         invoke %tmp.427 %tmp.428(%tmp.429);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_363_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_179_26_360_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 370; @symbol_classdef = [SettingsMenuDelegate,370,6,26]; @symbol_extends<0> = [WatchUi,370,35,42]; @symbol_extends<1> = [Menu2InputDelegate,370,43,61]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 367; @symbol_classdef = [SettingsMenuDelegate,367,6,26]; @symbol_extends<0> = [WatchUi,367,35,42]; @symbol_extends<1> = [Menu2InputDelegate,367,43,61]; ]
 class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 370; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 367; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 370; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 367; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 372; @symbol_functiondef = [initialize,372,13,23]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 369; @symbol_functiondef = [initialize,369,13,23]; ]
     function initialize() as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_372_26_374_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 373 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 373 8 26 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_369_26_371_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 370 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 370 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 373 27 37 ];
+        symbol [ initialize %tmp.3 370 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_372_26_374_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_369_26_371_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 376; @symbol_functiondef = [onSelect,376,13,21]; @symbol_param<0> = [item,376,22,26]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 373; @symbol_functiondef = [onSelect,373,13,21]; @symbol_param<0> = [item,373,22,26]; ]
     function onSelect(item) {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_28_490_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 377 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_28_490_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_28_490_4_stop" ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_373_28_484_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 374 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_373_28_484_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_373_28_484_4_stop" ]
         %id.1 = local;
-        symbol [ id %id.1 377 12 14 ];
+        symbol [ id %id.1 374 12 14 ];
         %tmp.1 = lgetv %item;
-        symbol [ item %tmp.1 377 17 21 ];
-        symbol [ getId %tmp.2 377 22 27 ];
+        symbol [ item %tmp.1 374 17 21 ];
+        symbol [ getId %tmp.2 374 22 27 ];
         %tmp.2 = getv function %tmp.1 :getId;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %id.1 %tmp.3;
-        symbol [ id %id.1 377 12 14 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 379 8 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_8_489_8_if_stmt:
+        symbol [ id %id.1 374 12 14 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 376 8 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_8_483_8_if_stmt:
         %tmp.4 = lgetv %id.1;
-        symbol [ id %tmp.4 379 12 14 ];
+        symbol [ id %tmp.4 376 12 14 ];
         %tmp.6 = const :weatherSource;
-        symbol [ weatherSource %tmp.6 379 19 32 const ];
+        symbol [ weatherSource %tmp.6 376 19 32 const ];
         %tmp.7 = eq %tmp.4 %tmp.6;
-        bf %tmp.7 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_8_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_8_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_34_385_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 380 12 ]
-        symbol [ WatchUi %tmp.8 380 12 19 ];
+        bf %tmp.7 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_8_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_8_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_34_382_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 377 12 ]
+        symbol [ WatchUi %tmp.8 377 12 19 ];
         %tmp.8 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.9 380 20 28 ];
+        symbol [ pushView %tmp.9 377 20 28 ];
         %tmp.9 = getv function %tmp.8 :pushView;
-        symbol [ ColorPicker %tmp.13 381 20 31 ];
+        symbol [ ColorPicker %tmp.13 378 20 31 ];
         %tmp.13 = getv ? :ColorPicker;
         %tmp.14 = "Weather source";
         %tmp.15 = "weatherSource";
-        symbol [ AppSettings %tmp.17 381 67 78 ];
+        symbol [ AppSettings %tmp.17 378 67 78 ];
         %tmp.17 = getv ? :AppSettings;
-        symbol [ WEATHER_SOURCES %tmp.18 381 79 94 ];
+        symbol [ WEATHER_SOURCES %tmp.18 378 79 94 ];
         %tmp.18 = getv %tmp.17 :WEATHER_SOURCES;
         %tmp.10 = newc %tmp.13 (%tmp.14, %tmp.15, %tmp.18);
-        symbol [ BgTriggerPickerDelegate %tmp.22 382 20 43 ];
+        symbol [ BgTriggerPickerDelegate %tmp.22 379 20 43 ];
         %tmp.22 = getv ? :BgTriggerPickerDelegate;
         %tmp.23 = lgetv %item;
-        symbol [ item %tmp.23 382 44 48 ];
+        symbol [ item %tmp.23 379 44 48 ];
         %tmp.24 = "weatherSource";
-        symbol [ AppSettings %tmp.26 382 67 78 ];
+        symbol [ AppSettings %tmp.26 379 67 78 ];
         %tmp.26 = getv ? :AppSettings;
-        symbol [ WEATHER_SOURCES %tmp.27 382 79 94 ];
+        symbol [ WEATHER_SOURCES %tmp.27 379 79 94 ];
         %tmp.27 = getv %tmp.26 :WEATHER_SOURCES;
         %tmp.19 = newc %tmp.22 (%tmp.23, %tmp.24, %tmp.27);
-        symbol [ WatchUi %tmp.28 383 16 23 ];
+        symbol [ WatchUi %tmp.28 380 16 23 ];
         %tmp.28 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.29 383 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.29 380 24 34 ];
         %tmp.29 = getv %tmp.28 :SLIDE_LEFT;
         invoke %tmp.8 %tmp.9(%tmp.10, %tmp.19, %tmp.29);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_34_385_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_8_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_8_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 386 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_34_382_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_8_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_8_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 383 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_13_483_8_if_stmt:
         %tmp.30 = lgetv %id.1;
-        symbol [ id %tmp.30 386 17 19 ];
+        symbol [ id %tmp.30 383 17 19 ];
         %tmp.32 = const :locationSource;
-        symbol [ locationSource %tmp.32 386 24 38 const ];
+        symbol [ locationSource %tmp.32 383 24 38 const ];
         %tmp.33 = eq %tmp.30 %tmp.32;
-        bf %tmp.33 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_40_392_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 387 12 ]
-        symbol [ WatchUi %tmp.34 387 12 19 ];
+        bf %tmp.33 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_40_389_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 384 12 ]
+        symbol [ WatchUi %tmp.34 384 12 19 ];
         %tmp.34 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.35 387 20 28 ];
+        symbol [ pushView %tmp.35 384 20 28 ];
         %tmp.35 = getv function %tmp.34 :pushView;
-        symbol [ ColorPicker %tmp.39 388 20 31 ];
+        symbol [ ColorPicker %tmp.39 385 20 31 ];
         %tmp.39 = getv ? :ColorPicker;
         %tmp.40 = "Location source";
         %tmp.41 = "locationSource";
-        symbol [ AppSettings %tmp.43 388 69 80 ];
+        symbol [ AppSettings %tmp.43 385 69 80 ];
         %tmp.43 = getv ? :AppSettings;
-        symbol [ LOCATION_SOURCES %tmp.44 388 81 97 ];
+        symbol [ LOCATION_SOURCES %tmp.44 385 81 97 ];
         %tmp.44 = getv %tmp.43 :LOCATION_SOURCES;
         %tmp.36 = newc %tmp.39 (%tmp.40, %tmp.41, %tmp.44);
-        symbol [ BgTriggerPickerDelegate %tmp.48 389 20 43 ];
+        symbol [ BgTriggerPickerDelegate %tmp.48 386 20 43 ];
         %tmp.48 = getv ? :BgTriggerPickerDelegate;
         %tmp.49 = lgetv %item;
-        symbol [ item %tmp.49 389 44 48 ];
+        symbol [ item %tmp.49 386 44 48 ];
         %tmp.50 = "locationSource";
-        symbol [ AppSettings %tmp.52 389 68 79 ];
+        symbol [ AppSettings %tmp.52 386 68 79 ];
         %tmp.52 = getv ? :AppSettings;
-        symbol [ LOCATION_SOURCES %tmp.53 389 80 96 ];
+        symbol [ LOCATION_SOURCES %tmp.53 386 80 96 ];
         %tmp.53 = getv %tmp.52 :LOCATION_SOURCES;
         %tmp.45 = newc %tmp.48 (%tmp.49, %tmp.50, %tmp.53);
-        symbol [ WatchUi %tmp.54 390 16 23 ];
+        symbol [ WatchUi %tmp.54 387 16 23 ];
         %tmp.54 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.55 390 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.55 387 24 34 ];
         %tmp.55 = getv %tmp.54 :SLIDE_LEFT;
         invoke %tmp.34 %tmp.35(%tmp.36, %tmp.45, %tmp.55);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_40_392_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 393 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_40_389_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 390 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_13_483_8_if_stmt:
         %tmp.56 = lgetv %id.1;
-        symbol [ id %tmp.56 393 17 19 ];
+        symbol [ id %tmp.56 390 17 19 ];
         %tmp.58 = const :weatherInterval;
-        symbol [ weatherInterval %tmp.58 393 24 39 const ];
+        symbol [ weatherInterval %tmp.58 390 24 39 const ];
         %tmp.59 = eq %tmp.56 %tmp.58;
-        bf %tmp.59 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_41_399_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 394 12 ]
-        symbol [ WatchUi %tmp.60 394 12 19 ];
+        bf %tmp.59 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_41_396_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 391 12 ]
+        symbol [ WatchUi %tmp.60 391 12 19 ];
         %tmp.60 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.61 394 20 28 ];
+        symbol [ pushView %tmp.61 391 20 28 ];
         %tmp.61 = getv function %tmp.60 :pushView;
-        symbol [ WeatherIntervalPicker %tmp.65 395 20 41 ];
+        symbol [ WeatherIntervalPicker %tmp.65 392 20 41 ];
         %tmp.65 = getv ? :WeatherIntervalPicker;
         %tmp.62 = newc %tmp.65 ();
-        symbol [ WeatherIntervalDelegate %tmp.69 396 20 43 ];
+        symbol [ WeatherIntervalDelegate %tmp.69 393 20 43 ];
         %tmp.69 = getv ? :WeatherIntervalDelegate;
         %tmp.70 = lgetv %item;
-        symbol [ item %tmp.70 396 44 48 ];
+        symbol [ item %tmp.70 393 44 48 ];
         %tmp.66 = newc %tmp.69 (%tmp.70);
-        symbol [ WatchUi %tmp.71 397 16 23 ];
+        symbol [ WatchUi %tmp.71 394 16 23 ];
         %tmp.71 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.72 397 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.72 394 24 34 ];
         %tmp.72 = getv %tmp.71 :SLIDE_LEFT;
         invoke %tmp.60 %tmp.61(%tmp.62, %tmp.66, %tmp.72);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_41_399_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 400 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_41_396_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 397 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_13_483_8_if_stmt:
         %tmp.73 = lgetv %id.1;
-        symbol [ id %tmp.73 400 17 19 ];
+        symbol [ id %tmp.73 397 17 19 ];
         %tmp.75 = const :weekendColor;
-        symbol [ weekendColor %tmp.75 400 24 36 const ];
+        symbol [ weekendColor %tmp.75 397 24 36 const ];
         %tmp.76 = eq %tmp.73 %tmp.75;
-        bf %tmp.76 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_38_406_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 401 12 ]
-        symbol [ WatchUi %tmp.77 401 12 19 ];
+        bf %tmp.76 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_38_403_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 398 12 ]
+        symbol [ WatchUi %tmp.77 398 12 19 ];
         %tmp.77 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.78 401 20 28 ];
+        symbol [ pushView %tmp.78 398 20 28 ];
         %tmp.78 = getv function %tmp.77 :pushView;
-        symbol [ WeekendColorPicker %tmp.82 402 20 38 ];
+        symbol [ WeekendColorPicker %tmp.82 399 20 38 ];
         %tmp.82 = getv ? :WeekendColorPicker;
         %tmp.79 = newc %tmp.82 ();
-        symbol [ WeekendColorDelegate %tmp.86 403 20 40 ];
+        symbol [ WeekendColorDelegate %tmp.86 400 20 40 ];
         %tmp.86 = getv ? :WeekendColorDelegate;
         %tmp.87 = lgetv %item;
-        symbol [ item %tmp.87 403 41 45 ];
+        symbol [ item %tmp.87 400 41 45 ];
         %tmp.83 = newc %tmp.86 (%tmp.87);
-        symbol [ WatchUi %tmp.88 404 16 23 ];
+        symbol [ WatchUi %tmp.88 401 16 23 ];
         %tmp.88 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.89 404 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.89 401 24 34 ];
         %tmp.89 = getv %tmp.88 :SLIDE_LEFT;
         invoke %tmp.77 %tmp.78(%tmp.79, %tmp.83, %tmp.89);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_38_406_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 407 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_38_403_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 404 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_13_483_8_if_stmt:
         %tmp.90 = lgetv %id.1;
-        symbol [ id %tmp.90 407 17 19 ];
+        symbol [ id %tmp.90 404 17 19 ];
         %tmp.92 = const :bottomBlock;
-        symbol [ bottomBlock %tmp.92 407 24 35 const ];
+        symbol [ bottomBlock %tmp.92 404 24 35 const ];
         %tmp.93 = eq %tmp.90 %tmp.92;
-        bf %tmp.93 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_37_413_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 408 12 ]
-        symbol [ WatchUi %tmp.94 408 12 19 ];
+        bf %tmp.93 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_37_410_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 405 12 ]
+        symbol [ WatchUi %tmp.94 405 12 19 ];
         %tmp.94 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.95 408 20 28 ];
+        symbol [ pushView %tmp.95 405 20 28 ];
         %tmp.95 = getv function %tmp.94 :pushView;
-        symbol [ BottomBlockPicker %tmp.99 409 20 37 ];
+        symbol [ BottomBlockPicker %tmp.99 406 20 37 ];
         %tmp.99 = getv ? :BottomBlockPicker;
         %tmp.96 = newc %tmp.99 ();
-        symbol [ BottomBlockDelegate %tmp.103 410 20 39 ];
+        symbol [ BottomBlockDelegate %tmp.103 407 20 39 ];
         %tmp.103 = getv ? :BottomBlockDelegate;
         %tmp.104 = lgetv %item;
-        symbol [ item %tmp.104 410 40 44 ];
+        symbol [ item %tmp.104 407 40 44 ];
         %tmp.100 = newc %tmp.103 (%tmp.104);
-        symbol [ WatchUi %tmp.105 411 16 23 ];
+        symbol [ WatchUi %tmp.105 408 16 23 ];
         %tmp.105 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.106 411 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.106 408 24 34 ];
         %tmp.106 = getv %tmp.105 :SLIDE_LEFT;
         invoke %tmp.94 %tmp.95(%tmp.96, %tmp.100, %tmp.106);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_37_413_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 417 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_37_410_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 411 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_13_483_8_if_stmt:
         %tmp.107 = lgetv %id.1;
-        symbol [ id %tmp.107 417 17 19 ];
+        symbol [ id %tmp.107 411 17 19 ];
         %tmp.109 = const :precipRing;
-        symbol [ precipRing %tmp.109 417 24 34 const ];
+        symbol [ precipRing %tmp.109 411 24 34 const ];
         %tmp.110 = eq %tmp.107 %tmp.109;
-        bf %tmp.110 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_36_419_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 418 12 ]
-        symbol [ Application %tmp.111 418 12 23 ];
+        bf %tmp.110 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_36_413_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 412 12 ]
+        symbol [ Application %tmp.111 412 12 23 ];
         %tmp.111 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.112 418 24 34 ];
+        symbol [ Properties %tmp.112 412 24 34 ];
         %tmp.112 = getv %tmp.111 :Properties;
-        symbol [ setValue %tmp.113 418 35 43 ];
+        symbol [ setValue %tmp.113 412 35 43 ];
         %tmp.113 = getv function %tmp.112 :setValue;
         %tmp.114 = "precipRing";
         %tmp.115 = lgetv %item;
-        symbol [ item %tmp.115 418 64 68 ];
+        symbol [ item %tmp.115 412 64 68 ];
         %tmp.116 = as %tmp.115 WatchUi.ToggleMenuItem;
-        symbol [ WatchUi %tmp.116 418 72 79 ];
-        symbol [ ToggleMenuItem %tmp.116 418 80 94 ];
-        symbol [ isEnabled %tmp.117 418 96 105 ];
+        symbol [ WatchUi %tmp.116 412 72 79 ];
+        symbol [ ToggleMenuItem %tmp.116 412 80 94 ];
+        symbol [ isEnabled %tmp.117 412 96 105 ];
         %tmp.117 = getv function %tmp.116 :isEnabled;
         %tmp.118 = invoke %tmp.116 %tmp.117();
         invoke %tmp.112 %tmp.113(%tmp.114, %tmp.118);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_36_419_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 420 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_36_413_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 414 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_13_483_8_if_stmt:
         %tmp.119 = lgetv %id.1;
-        symbol [ id %tmp.119 420 17 19 ];
+        symbol [ id %tmp.119 414 17 19 ];
         %tmp.121 = const :dangerRingMode;
-        symbol [ dangerRingMode %tmp.121 420 24 38 const ];
+        symbol [ dangerRingMode %tmp.121 414 24 38 const ];
         %tmp.122 = eq %tmp.119 %tmp.121;
-        bf %tmp.122 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_40_426_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 421 12 ]
-        symbol [ WatchUi %tmp.123 421 12 19 ];
+        bf %tmp.122 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_40_420_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 415 12 ]
+        symbol [ WatchUi %tmp.123 415 12 19 ];
         %tmp.123 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.124 421 20 28 ];
+        symbol [ pushView %tmp.124 415 20 28 ];
         %tmp.124 = getv function %tmp.123 :pushView;
-        symbol [ ColorPicker %tmp.128 422 20 31 ];
+        symbol [ ColorPicker %tmp.128 416 20 31 ];
         %tmp.128 = getv ? :ColorPicker;
         %tmp.129 = "Danger ring";
         %tmp.130 = "dangerRingMode";
-        symbol [ AppSettings %tmp.132 422 65 76 ];
+        symbol [ AppSettings %tmp.132 416 65 76 ];
         %tmp.132 = getv ? :AppSettings;
-        symbol [ DANGER_RING_MODES %tmp.133 422 77 94 ];
+        symbol [ DANGER_RING_MODES %tmp.133 416 77 94 ];
         %tmp.133 = getv %tmp.132 :DANGER_RING_MODES;
         %tmp.125 = newc %tmp.128 (%tmp.129, %tmp.130, %tmp.133);
-        symbol [ ColorPickerDelegate %tmp.137 423 20 39 ];
+        symbol [ ColorPickerDelegate %tmp.137 417 20 39 ];
         %tmp.137 = getv ? :ColorPickerDelegate;
         %tmp.138 = lgetv %item;
-        symbol [ item %tmp.138 423 40 44 ];
+        symbol [ item %tmp.138 417 40 44 ];
         %tmp.139 = "dangerRingMode";
-        symbol [ AppSettings %tmp.141 423 64 75 ];
+        symbol [ AppSettings %tmp.141 417 64 75 ];
         %tmp.141 = getv ? :AppSettings;
-        symbol [ DANGER_RING_MODES %tmp.142 423 76 93 ];
+        symbol [ DANGER_RING_MODES %tmp.142 417 76 93 ];
         %tmp.142 = getv %tmp.141 :DANGER_RING_MODES;
         %tmp.134 = newc %tmp.137 (%tmp.138, %tmp.139, %tmp.142);
-        symbol [ WatchUi %tmp.143 424 16 23 ];
+        symbol [ WatchUi %tmp.143 418 16 23 ];
         %tmp.143 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.144 424 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.144 418 24 34 ];
         %tmp.144 = getv %tmp.143 :SLIDE_LEFT;
         invoke %tmp.123 %tmp.124(%tmp.125, %tmp.134, %tmp.144);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_40_426_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 427 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_40_420_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 421 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_13_483_8_if_stmt:
         %tmp.145 = lgetv %id.1;
-        symbol [ id %tmp.145 427 17 19 ];
+        symbol [ id %tmp.145 421 17 19 ];
         %tmp.147 = const :ringMinPrecip;
-        symbol [ ringMinPrecip %tmp.147 427 24 37 const ];
+        symbol [ ringMinPrecip %tmp.147 421 24 37 const ];
         %tmp.148 = eq %tmp.145 %tmp.147;
-        bf %tmp.148 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_39_433_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 428 12 ]
-        symbol [ WatchUi %tmp.149 428 12 19 ];
+        bf %tmp.148 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_39_427_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 422 12 ]
+        symbol [ WatchUi %tmp.149 422 12 19 ];
         %tmp.149 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.150 428 20 28 ];
+        symbol [ pushView %tmp.150 422 20 28 ];
         %tmp.150 = getv function %tmp.149 :pushView;
-        symbol [ ColorPicker %tmp.154 429 20 31 ];
+        symbol [ ColorPicker %tmp.154 423 20 31 ];
         %tmp.154 = getv ? :ColorPicker;
         %tmp.155 = "Ring min precip";
         %tmp.156 = "ringMinPrecip";
-        symbol [ AppSettings %tmp.158 429 68 79 ];
+        symbol [ AppSettings %tmp.158 423 68 79 ];
         %tmp.158 = getv ? :AppSettings;
-        symbol [ RING_MIN_PRECIP_LABELS %tmp.159 429 80 102 ];
+        symbol [ RING_MIN_PRECIP_LABELS %tmp.159 423 80 102 ];
         %tmp.159 = getv %tmp.158 :RING_MIN_PRECIP_LABELS;
         %tmp.151 = newc %tmp.154 (%tmp.155, %tmp.156, %tmp.159);
-        symbol [ ColorPickerDelegate %tmp.163 430 20 39 ];
+        symbol [ ColorPickerDelegate %tmp.163 424 20 39 ];
         %tmp.163 = getv ? :ColorPickerDelegate;
         %tmp.164 = lgetv %item;
-        symbol [ item %tmp.164 430 40 44 ];
+        symbol [ item %tmp.164 424 40 44 ];
         %tmp.165 = "ringMinPrecip";
-        symbol [ AppSettings %tmp.167 430 63 74 ];
+        symbol [ AppSettings %tmp.167 424 63 74 ];
         %tmp.167 = getv ? :AppSettings;
-        symbol [ RING_MIN_PRECIP_LABELS %tmp.168 430 75 97 ];
+        symbol [ RING_MIN_PRECIP_LABELS %tmp.168 424 75 97 ];
         %tmp.168 = getv %tmp.167 :RING_MIN_PRECIP_LABELS;
         %tmp.160 = newc %tmp.163 (%tmp.164, %tmp.165, %tmp.168);
-        symbol [ WatchUi %tmp.169 431 16 23 ];
+        symbol [ WatchUi %tmp.169 425 16 23 ];
         %tmp.169 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.170 431 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.170 425 24 34 ];
         %tmp.170 = getv %tmp.169 :SLIDE_LEFT;
         invoke %tmp.149 %tmp.150(%tmp.151, %tmp.160, %tmp.170);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_39_433_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 434 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_39_427_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 428 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_13_483_8_if_stmt:
         %tmp.171 = lgetv %id.1;
-        symbol [ id %tmp.171 434 17 19 ];
+        symbol [ id %tmp.171 428 17 19 ];
         %tmp.173 = const :precipForecast;
-        symbol [ precipForecast %tmp.173 434 24 38 const ];
+        symbol [ precipForecast %tmp.173 428 24 38 const ];
         %tmp.174 = eq %tmp.171 %tmp.173;
-        bf %tmp.174 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_40_436_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 435 12 ]
-        symbol [ Application %tmp.175 435 12 23 ];
+        bf %tmp.174 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_40_430_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 429 12 ]
+        symbol [ Application %tmp.175 429 12 23 ];
         %tmp.175 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.176 435 24 34 ];
+        symbol [ Properties %tmp.176 429 24 34 ];
         %tmp.176 = getv %tmp.175 :Properties;
-        symbol [ setValue %tmp.177 435 35 43 ];
+        symbol [ setValue %tmp.177 429 35 43 ];
         %tmp.177 = getv function %tmp.176 :setValue;
         %tmp.178 = "precipForecast";
         %tmp.179 = lgetv %item;
-        symbol [ item %tmp.179 435 63 67 ];
+        symbol [ item %tmp.179 429 63 67 ];
         %tmp.180 = as %tmp.179 WatchUi.ToggleMenuItem;
-        symbol [ WatchUi %tmp.180 435 71 78 ];
-        symbol [ ToggleMenuItem %tmp.180 435 79 93 ];
-        symbol [ isEnabled %tmp.181 435 95 104 ];
+        symbol [ WatchUi %tmp.180 429 71 78 ];
+        symbol [ ToggleMenuItem %tmp.180 429 79 93 ];
+        symbol [ isEnabled %tmp.181 429 95 104 ];
         %tmp.181 = getv function %tmp.180 :isEnabled;
         %tmp.182 = invoke %tmp.180 %tmp.181();
         invoke %tmp.176 %tmp.177(%tmp.178, %tmp.182);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_40_436_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 437 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_40_430_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 431 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_13_483_8_if_stmt:
         %tmp.183 = lgetv %id.1;
-        symbol [ id %tmp.183 437 17 19 ];
+        symbol [ id %tmp.183 431 17 19 ];
         %tmp.185 = const :weatherDisplay;
-        symbol [ weatherDisplay %tmp.185 437 24 38 const ];
+        symbol [ weatherDisplay %tmp.185 431 24 38 const ];
         %tmp.186 = eq %tmp.183 %tmp.185;
-        bf %tmp.186 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_40_439_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 438 12 ]
-        symbol [ Application %tmp.187 438 12 23 ];
+        bf %tmp.186 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_40_433_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 432 12 ]
+        symbol [ Application %tmp.187 432 12 23 ];
         %tmp.187 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.188 438 24 34 ];
+        symbol [ Properties %tmp.188 432 24 34 ];
         %tmp.188 = getv %tmp.187 :Properties;
-        symbol [ setValue %tmp.189 438 35 43 ];
+        symbol [ setValue %tmp.189 432 35 43 ];
         %tmp.189 = getv function %tmp.188 :setValue;
         %tmp.190 = "weatherDisplay";
         %tmp.191 = lgetv %item;
-        symbol [ item %tmp.191 438 63 67 ];
+        symbol [ item %tmp.191 432 63 67 ];
         %tmp.192 = as %tmp.191 WatchUi.ToggleMenuItem;
-        symbol [ WatchUi %tmp.192 438 71 78 ];
-        symbol [ ToggleMenuItem %tmp.192 438 79 93 ];
-        symbol [ isEnabled %tmp.193 438 95 104 ];
+        symbol [ WatchUi %tmp.192 432 71 78 ];
+        symbol [ ToggleMenuItem %tmp.192 432 79 93 ];
+        symbol [ isEnabled %tmp.193 432 95 104 ];
         %tmp.193 = getv function %tmp.192 :isEnabled;
         %tmp.194 = invoke %tmp.192 %tmp.193();
         invoke %tmp.188 %tmp.189(%tmp.190, %tmp.194);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_40_439_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 440 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_40_433_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 434 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_483_8_if_stmt:
         %tmp.195 = lgetv %id.1;
-        symbol [ id %tmp.195 440 17 19 ];
+        symbol [ id %tmp.195 434 17 19 ];
         %tmp.197 = const :heartRate;
-        symbol [ heartRate %tmp.197 440 24 33 const ];
+        symbol [ heartRate %tmp.197 434 24 33 const ];
         %tmp.198 = eq %tmp.195 %tmp.197;
-        bf %tmp.198 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_35_442_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 441 12 ]
-        symbol [ Application %tmp.199 441 12 23 ];
+        bf %tmp.198 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_35_436_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 435 12 ]
+        symbol [ Application %tmp.199 435 12 23 ];
         %tmp.199 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.200 441 24 34 ];
+        symbol [ Properties %tmp.200 435 24 34 ];
         %tmp.200 = getv %tmp.199 :Properties;
-        symbol [ setValue %tmp.201 441 35 43 ];
+        symbol [ setValue %tmp.201 435 35 43 ];
         %tmp.201 = getv function %tmp.200 :setValue;
         %tmp.202 = "heartRate";
         %tmp.203 = lgetv %item;
-        symbol [ item %tmp.203 441 58 62 ];
+        symbol [ item %tmp.203 435 58 62 ];
         %tmp.204 = as %tmp.203 WatchUi.ToggleMenuItem;
-        symbol [ WatchUi %tmp.204 441 66 73 ];
-        symbol [ ToggleMenuItem %tmp.204 441 74 88 ];
-        symbol [ isEnabled %tmp.205 441 90 99 ];
+        symbol [ WatchUi %tmp.204 435 66 73 ];
+        symbol [ ToggleMenuItem %tmp.204 435 74 88 ];
+        symbol [ isEnabled %tmp.205 435 90 99 ];
         %tmp.205 = getv function %tmp.204 :isEnabled;
         %tmp.206 = invoke %tmp.204 %tmp.205();
         invoke %tmp.200 %tmp.201(%tmp.202, %tmp.206);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_35_442_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 443 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_35_436_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 437 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_483_8_if_stmt:
         %tmp.207 = lgetv %id.1;
-        symbol [ id %tmp.207 443 17 19 ];
+        symbol [ id %tmp.207 437 17 19 ];
         %tmp.209 = const :underWeatherMode;
-        symbol [ underWeatherMode %tmp.209 443 24 40 const ];
+        symbol [ underWeatherMode %tmp.209 437 24 40 const ];
         %tmp.210 = eq %tmp.207 %tmp.209;
-        bf %tmp.210 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_42_449_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 444 12 ]
-        symbol [ WatchUi %tmp.211 444 12 19 ];
+        bf %tmp.210 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_42_443_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 438 12 ]
+        symbol [ WatchUi %tmp.211 438 12 19 ];
         %tmp.211 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.212 444 20 28 ];
+        symbol [ pushView %tmp.212 438 20 28 ];
         %tmp.212 = getv function %tmp.211 :pushView;
-        symbol [ ColorPicker %tmp.216 445 20 31 ];
+        symbol [ ColorPicker %tmp.216 439 20 31 ];
         %tmp.216 = getv ? :ColorPicker;
         %tmp.217 = "Under weather";
         %tmp.218 = "underWeatherMode";
-        symbol [ AppSettings %tmp.220 445 69 80 ];
+        symbol [ AppSettings %tmp.220 439 69 80 ];
         %tmp.220 = getv ? :AppSettings;
-        symbol [ UNDER_WEATHER_MODES %tmp.221 445 81 100 ];
+        symbol [ UNDER_WEATHER_MODES %tmp.221 439 81 100 ];
         %tmp.221 = getv %tmp.220 :UNDER_WEATHER_MODES;
         %tmp.213 = newc %tmp.216 (%tmp.217, %tmp.218, %tmp.221);
-        symbol [ ColorPickerDelegate %tmp.225 446 20 39 ];
+        symbol [ ColorPickerDelegate %tmp.225 440 20 39 ];
         %tmp.225 = getv ? :ColorPickerDelegate;
         %tmp.226 = lgetv %item;
-        symbol [ item %tmp.226 446 40 44 ];
+        symbol [ item %tmp.226 440 40 44 ];
         %tmp.227 = "underWeatherMode";
-        symbol [ AppSettings %tmp.229 446 66 77 ];
+        symbol [ AppSettings %tmp.229 440 66 77 ];
         %tmp.229 = getv ? :AppSettings;
-        symbol [ UNDER_WEATHER_MODES %tmp.230 446 78 97 ];
+        symbol [ UNDER_WEATHER_MODES %tmp.230 440 78 97 ];
         %tmp.230 = getv %tmp.229 :UNDER_WEATHER_MODES;
         %tmp.222 = newc %tmp.225 (%tmp.226, %tmp.227, %tmp.230);
-        symbol [ WatchUi %tmp.231 447 16 23 ];
+        symbol [ WatchUi %tmp.231 441 16 23 ];
         %tmp.231 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.232 447 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.232 441 24 34 ];
         %tmp.232 = getv %tmp.231 :SLIDE_LEFT;
         invoke %tmp.211 %tmp.212(%tmp.213, %tmp.222, %tmp.232);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_42_449_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 450 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_42_443_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 444 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_13_483_8_if_stmt:
         %tmp.233 = lgetv %id.1;
-        symbol [ id %tmp.233 450 17 19 ];
+        symbol [ id %tmp.233 444 17 19 ];
         %tmp.235 = const :barFillColor;
-        symbol [ barFillColor %tmp.235 450 24 36 const ];
+        symbol [ barFillColor %tmp.235 444 24 36 const ];
         %tmp.236 = eq %tmp.233 %tmp.235;
-        bf %tmp.236 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_38_456_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 451 12 ]
-        symbol [ WatchUi %tmp.237 451 12 19 ];
+        bf %tmp.236 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_38_450_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 445 12 ]
+        symbol [ WatchUi %tmp.237 445 12 19 ];
         %tmp.237 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.238 451 20 28 ];
+        symbol [ pushView %tmp.238 445 20 28 ];
         %tmp.238 = getv function %tmp.237 :pushView;
-        symbol [ ColorPicker %tmp.242 452 20 31 ];
+        symbol [ ColorPicker %tmp.242 446 20 31 ];
         %tmp.242 = getv ? :ColorPicker;
         %tmp.243 = "Bar fill color";
         %tmp.244 = "barFillColor";
-        symbol [ AppSettings %tmp.246 452 66 77 ];
+        symbol [ AppSettings %tmp.246 446 66 77 ];
         %tmp.246 = getv ? :AppSettings;
-        symbol [ BAR_FILL_COLOR_NAMES %tmp.247 452 78 98 ];
+        symbol [ BAR_FILL_COLOR_NAMES %tmp.247 446 78 98 ];
         %tmp.247 = getv %tmp.246 :BAR_FILL_COLOR_NAMES;
         %tmp.239 = newc %tmp.242 (%tmp.243, %tmp.244, %tmp.247);
-        symbol [ ColorPickerDelegate %tmp.251 453 20 39 ];
+        symbol [ ColorPickerDelegate %tmp.251 447 20 39 ];
         %tmp.251 = getv ? :ColorPickerDelegate;
         %tmp.252 = lgetv %item;
-        symbol [ item %tmp.252 453 40 44 ];
+        symbol [ item %tmp.252 447 40 44 ];
         %tmp.253 = "barFillColor";
-        symbol [ AppSettings %tmp.255 453 62 73 ];
+        symbol [ AppSettings %tmp.255 447 62 73 ];
         %tmp.255 = getv ? :AppSettings;
-        symbol [ BAR_FILL_COLOR_NAMES %tmp.256 453 74 94 ];
+        symbol [ BAR_FILL_COLOR_NAMES %tmp.256 447 74 94 ];
         %tmp.256 = getv %tmp.255 :BAR_FILL_COLOR_NAMES;
         %tmp.248 = newc %tmp.251 (%tmp.252, %tmp.253, %tmp.256);
-        symbol [ WatchUi %tmp.257 454 16 23 ];
+        symbol [ WatchUi %tmp.257 448 16 23 ];
         %tmp.257 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.258 454 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.258 448 24 34 ];
         %tmp.258 = getv %tmp.257 :SLIDE_LEFT;
         invoke %tmp.237 %tmp.238(%tmp.239, %tmp.248, %tmp.258);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_38_456_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 457 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_38_450_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 451 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_13_483_8_if_stmt:
         %tmp.259 = lgetv %id.1;
-        symbol [ id %tmp.259 457 17 19 ];
+        symbol [ id %tmp.259 451 17 19 ];
         %tmp.261 = const :barBgColor;
-        symbol [ barBgColor %tmp.261 457 24 34 const ];
+        symbol [ barBgColor %tmp.261 451 24 34 const ];
         %tmp.262 = eq %tmp.259 %tmp.261;
-        bf %tmp.262 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_36_463_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 458 12 ]
-        symbol [ WatchUi %tmp.263 458 12 19 ];
+        bf %tmp.262 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_36_457_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 452 12 ]
+        symbol [ WatchUi %tmp.263 452 12 19 ];
         %tmp.263 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.264 458 20 28 ];
+        symbol [ pushView %tmp.264 452 20 28 ];
         %tmp.264 = getv function %tmp.263 :pushView;
-        symbol [ ColorPicker %tmp.268 459 20 31 ];
+        symbol [ ColorPicker %tmp.268 453 20 31 ];
         %tmp.268 = getv ? :ColorPicker;
         %tmp.269 = "Bar empty color";
         %tmp.270 = "barBgColor";
-        symbol [ AppSettings %tmp.272 459 65 76 ];
+        symbol [ AppSettings %tmp.272 453 65 76 ];
         %tmp.272 = getv ? :AppSettings;
-        symbol [ BAR_BG_COLOR_NAMES %tmp.273 459 77 95 ];
+        symbol [ BAR_BG_COLOR_NAMES %tmp.273 453 77 95 ];
         %tmp.273 = getv %tmp.272 :BAR_BG_COLOR_NAMES;
         %tmp.265 = newc %tmp.268 (%tmp.269, %tmp.270, %tmp.273);
-        symbol [ ColorPickerDelegate %tmp.277 460 20 39 ];
+        symbol [ ColorPickerDelegate %tmp.277 454 20 39 ];
         %tmp.277 = getv ? :ColorPickerDelegate;
         %tmp.278 = lgetv %item;
-        symbol [ item %tmp.278 460 40 44 ];
+        symbol [ item %tmp.278 454 40 44 ];
         %tmp.279 = "barBgColor";
-        symbol [ AppSettings %tmp.281 460 60 71 ];
+        symbol [ AppSettings %tmp.281 454 60 71 ];
         %tmp.281 = getv ? :AppSettings;
-        symbol [ BAR_BG_COLOR_NAMES %tmp.282 460 72 90 ];
+        symbol [ BAR_BG_COLOR_NAMES %tmp.282 454 72 90 ];
         %tmp.282 = getv %tmp.281 :BAR_BG_COLOR_NAMES;
         %tmp.274 = newc %tmp.277 (%tmp.278, %tmp.279, %tmp.282);
-        symbol [ WatchUi %tmp.283 461 16 23 ];
+        symbol [ WatchUi %tmp.283 455 16 23 ];
         %tmp.283 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.284 461 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.284 455 24 34 ];
         %tmp.284 = getv %tmp.283 :SLIDE_LEFT;
         invoke %tmp.263 %tmp.264(%tmp.265, %tmp.274, %tmp.284);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_36_463_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 464 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_36_457_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 458 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_13_483_8_if_stmt:
         %tmp.285 = lgetv %id.1;
-        symbol [ id %tmp.285 464 17 19 ];
+        symbol [ id %tmp.285 458 17 19 ];
         %tmp.287 = const :pressureUnit;
-        symbol [ pressureUnit %tmp.287 464 24 36 const ];
+        symbol [ pressureUnit %tmp.287 458 24 36 const ];
         %tmp.288 = eq %tmp.285 %tmp.287;
-        bf %tmp.288 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_38_470_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 465 12 ]
-        symbol [ WatchUi %tmp.289 465 12 19 ];
+        bf %tmp.288 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_38_464_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 459 12 ]
+        symbol [ WatchUi %tmp.289 459 12 19 ];
         %tmp.289 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.290 465 20 28 ];
+        symbol [ pushView %tmp.290 459 20 28 ];
         %tmp.290 = getv function %tmp.289 :pushView;
-        symbol [ ColorPicker %tmp.294 466 20 31 ];
+        symbol [ ColorPicker %tmp.294 460 20 31 ];
         %tmp.294 = getv ? :ColorPicker;
         %tmp.295 = "Pressure unit";
         %tmp.296 = "pressureUnit";
-        symbol [ AppSettings %tmp.298 466 65 76 ];
+        symbol [ AppSettings %tmp.298 460 65 76 ];
         %tmp.298 = getv ? :AppSettings;
-        symbol [ PRESSURE_UNITS %tmp.299 466 77 91 ];
+        symbol [ PRESSURE_UNITS %tmp.299 460 77 91 ];
         %tmp.299 = getv %tmp.298 :PRESSURE_UNITS;
         %tmp.291 = newc %tmp.294 (%tmp.295, %tmp.296, %tmp.299);
-        symbol [ ColorPickerDelegate %tmp.303 467 20 39 ];
+        symbol [ ColorPickerDelegate %tmp.303 461 20 39 ];
         %tmp.303 = getv ? :ColorPickerDelegate;
         %tmp.304 = lgetv %item;
-        symbol [ item %tmp.304 467 40 44 ];
+        symbol [ item %tmp.304 461 40 44 ];
         %tmp.305 = "pressureUnit";
-        symbol [ AppSettings %tmp.307 467 62 73 ];
+        symbol [ AppSettings %tmp.307 461 62 73 ];
         %tmp.307 = getv ? :AppSettings;
-        symbol [ PRESSURE_UNITS %tmp.308 467 74 88 ];
+        symbol [ PRESSURE_UNITS %tmp.308 461 74 88 ];
         %tmp.308 = getv %tmp.307 :PRESSURE_UNITS;
         %tmp.300 = newc %tmp.303 (%tmp.304, %tmp.305, %tmp.308);
-        symbol [ WatchUi %tmp.309 468 16 23 ];
+        symbol [ WatchUi %tmp.309 462 16 23 ];
         %tmp.309 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.310 468 24 34 ];
+        symbol [ SLIDE_LEFT %tmp.310 462 24 34 ];
         %tmp.310 = getv %tmp.309 :SLIDE_LEFT;
         invoke %tmp.289 %tmp.290(%tmp.291, %tmp.300, %tmp.310);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_38_470_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 471 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_38_464_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 465 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_13_483_8_if_stmt:
         %tmp.311 = lgetv %id.1;
-        symbol [ id %tmp.311 471 17 19 ];
+        symbol [ id %tmp.311 465 17 19 ];
         %tmp.313 = const :weatherDemoMode;
-        symbol [ weatherDemoMode %tmp.313 471 24 39 const ];
+        symbol [ weatherDemoMode %tmp.313 465 24 39 const ];
         %tmp.314 = eq %tmp.311 %tmp.313;
-        bf %tmp.314 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_41_473_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 472 12 ]
-        symbol [ Application %tmp.315 472 12 23 ];
+        bf %tmp.314 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_41_467_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 466 12 ]
+        symbol [ Application %tmp.315 466 12 23 ];
         %tmp.315 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.316 472 24 34 ];
+        symbol [ Properties %tmp.316 466 24 34 ];
         %tmp.316 = getv %tmp.315 :Properties;
-        symbol [ setValue %tmp.317 472 35 43 ];
+        symbol [ setValue %tmp.317 466 35 43 ];
         %tmp.317 = getv function %tmp.316 :setValue;
         %tmp.318 = "weatherDemoMode";
         %tmp.319 = lgetv %item;
-        symbol [ item %tmp.319 472 64 68 ];
+        symbol [ item %tmp.319 466 64 68 ];
         %tmp.320 = as %tmp.319 WatchUi.ToggleMenuItem;
-        symbol [ WatchUi %tmp.320 472 72 79 ];
-        symbol [ ToggleMenuItem %tmp.320 472 80 94 ];
-        symbol [ isEnabled %tmp.321 472 96 105 ];
+        symbol [ WatchUi %tmp.320 466 72 79 ];
+        symbol [ ToggleMenuItem %tmp.320 466 80 94 ];
+        symbol [ isEnabled %tmp.321 466 96 105 ];
         %tmp.321 = getv function %tmp.320 :isEnabled;
         %tmp.322 = invoke %tmp.320 %tmp.321();
         invoke %tmp.316 %tmp.317(%tmp.318, %tmp.322);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_41_473_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 475 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_41_467_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 469 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_13_483_8_if_stmt:
         %tmp.323 = lgetv %id.1;
-        symbol [ id %tmp.323 475 17 19 ];
+        symbol [ id %tmp.323 469 17 19 ];
         %tmp.325 = const :hourColor;
-        symbol [ hourColor %tmp.325 475 24 33 const ];
+        symbol [ hourColor %tmp.325 469 24 33 const ];
         %tmp.326 = eq %tmp.323 %tmp.325;
-        bf %tmp.326 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_35_479_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 476 12 ]
-        symbol [ WatchUi %tmp.327 476 12 19 ];
+        bf %tmp.326 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_35_473_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 470 12 ]
+        symbol [ WatchUi %tmp.327 470 12 19 ];
         %tmp.327 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.328 476 20 28 ];
+        symbol [ pushView %tmp.328 470 20 28 ];
         %tmp.328 = getv function %tmp.327 :pushView;
-        symbol [ ColorPicker %tmp.332 476 33 44 ];
+        symbol [ ColorPicker %tmp.332 470 33 44 ];
         %tmp.332 = getv ? :ColorPicker;
         %tmp.333 = "Hour color";
         %tmp.334 = "hourColor";
-        symbol [ AppSettings %tmp.336 476 72 83 ];
+        symbol [ AppSettings %tmp.336 470 72 83 ];
         %tmp.336 = getv ? :AppSettings;
-        symbol [ TIME_COLOR_NAMES %tmp.337 476 84 100 ];
+        symbol [ TIME_COLOR_NAMES %tmp.337 470 84 100 ];
         %tmp.337 = getv %tmp.336 :TIME_COLOR_NAMES;
         %tmp.329 = newc %tmp.332 (%tmp.333, %tmp.334, %tmp.337);
-        symbol [ ColorPickerDelegate %tmp.341 477 32 51 ];
+        symbol [ ColorPickerDelegate %tmp.341 471 32 51 ];
         %tmp.341 = getv ? :ColorPickerDelegate;
         %tmp.342 = lgetv %item;
-        symbol [ item %tmp.342 477 52 56 ];
+        symbol [ item %tmp.342 471 52 56 ];
         %tmp.343 = "hourColor";
-        symbol [ AppSettings %tmp.345 477 71 82 ];
+        symbol [ AppSettings %tmp.345 471 71 82 ];
         %tmp.345 = getv ? :AppSettings;
-        symbol [ TIME_COLOR_NAMES %tmp.346 477 83 99 ];
+        symbol [ TIME_COLOR_NAMES %tmp.346 471 83 99 ];
         %tmp.346 = getv %tmp.345 :TIME_COLOR_NAMES;
         %tmp.338 = newc %tmp.341 (%tmp.342, %tmp.343, %tmp.346);
-        symbol [ WatchUi %tmp.347 478 28 35 ];
+        symbol [ WatchUi %tmp.347 472 28 35 ];
         %tmp.347 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.348 478 36 46 ];
+        symbol [ SLIDE_LEFT %tmp.348 472 36 46 ];
         %tmp.348 = getv %tmp.347 :SLIDE_LEFT;
         invoke %tmp.327 %tmp.328(%tmp.329, %tmp.338, %tmp.348);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_35_479_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 480 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_35_473_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 474 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_13_483_8_if_stmt:
         %tmp.349 = lgetv %id.1;
-        symbol [ id %tmp.349 480 17 19 ];
+        symbol [ id %tmp.349 474 17 19 ];
         %tmp.351 = const :minuteColor;
-        symbol [ minuteColor %tmp.351 480 24 35 const ];
+        symbol [ minuteColor %tmp.351 474 24 35 const ];
         %tmp.352 = eq %tmp.349 %tmp.351;
-        bf %tmp.352 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_13_489_8_if_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_37_484_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 481 12 ]
-        symbol [ WatchUi %tmp.353 481 12 19 ];
+        bf %tmp.352 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_13_483_8_if_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_37_478_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 475 12 ]
+        symbol [ WatchUi %tmp.353 475 12 19 ];
         %tmp.353 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.354 481 20 28 ];
+        symbol [ pushView %tmp.354 475 20 28 ];
         %tmp.354 = getv function %tmp.353 :pushView;
-        symbol [ ColorPicker %tmp.358 481 33 44 ];
+        symbol [ ColorPicker %tmp.358 475 33 44 ];
         %tmp.358 = getv ? :ColorPicker;
         %tmp.359 = "Minute color";
         %tmp.360 = "minuteColor";
-        symbol [ AppSettings %tmp.362 481 76 87 ];
+        symbol [ AppSettings %tmp.362 475 76 87 ];
         %tmp.362 = getv ? :AppSettings;
-        symbol [ TIME_COLOR_NAMES %tmp.363 481 88 104 ];
+        symbol [ TIME_COLOR_NAMES %tmp.363 475 88 104 ];
         %tmp.363 = getv %tmp.362 :TIME_COLOR_NAMES;
         %tmp.355 = newc %tmp.358 (%tmp.359, %tmp.360, %tmp.363);
-        symbol [ ColorPickerDelegate %tmp.367 482 32 51 ];
+        symbol [ ColorPickerDelegate %tmp.367 476 32 51 ];
         %tmp.367 = getv ? :ColorPickerDelegate;
         %tmp.368 = lgetv %item;
-        symbol [ item %tmp.368 482 52 56 ];
+        symbol [ item %tmp.368 476 52 56 ];
         %tmp.369 = "minuteColor";
-        symbol [ AppSettings %tmp.371 482 73 84 ];
+        symbol [ AppSettings %tmp.371 476 73 84 ];
         %tmp.371 = getv ? :AppSettings;
-        symbol [ TIME_COLOR_NAMES %tmp.372 482 85 101 ];
+        symbol [ TIME_COLOR_NAMES %tmp.372 476 85 101 ];
         %tmp.372 = getv %tmp.371 :TIME_COLOR_NAMES;
         %tmp.364 = newc %tmp.367 (%tmp.368, %tmp.369, %tmp.372);
-        symbol [ WatchUi %tmp.373 483 28 35 ];
+        symbol [ WatchUi %tmp.373 477 28 35 ];
         %tmp.373 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.374 483 36 46 ];
+        symbol [ SLIDE_LEFT %tmp.374 477 36 46 ];
         %tmp.374 = getv %tmp.373 :SLIDE_LEFT;
         invoke %tmp.353 %tmp.354(%tmp.355, %tmp.364, %tmp.374);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_37_484_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_13_489_8_if_false:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 485 13 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_485_13_489_8_if_stmt:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_37_478_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_13_483_8_if_false:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 479 13 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_479_13_483_8_if_stmt:
         %tmp.375 = lgetv %id.1;
-        symbol [ id %tmp.375 485 17 19 ];
+        symbol [ id %tmp.375 479 17 19 ];
         %tmp.377 = const :colonColor;
-        symbol [ colonColor %tmp.377 485 24 34 const ];
+        symbol [ colonColor %tmp.377 479 24 34 const ];
         %tmp.378 = eq %tmp.375 %tmp.377;
-        bf %tmp.378 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_485_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_485_13_489_8_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_485_36_489_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 486 12 ]
-        symbol [ WatchUi %tmp.379 486 12 19 ];
+        bf %tmp.378 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_479_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_479_13_483_8_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_479_36_483_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 480 12 ]
+        symbol [ WatchUi %tmp.379 480 12 19 ];
         %tmp.379 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.380 486 20 28 ];
+        symbol [ pushView %tmp.380 480 20 28 ];
         %tmp.380 = getv function %tmp.379 :pushView;
-        symbol [ ColorPicker %tmp.384 486 33 44 ];
+        symbol [ ColorPicker %tmp.384 480 33 44 ];
         %tmp.384 = getv ? :ColorPicker;
         %tmp.385 = "Colon color";
         %tmp.386 = "colonColor";
-        symbol [ AppSettings %tmp.388 486 74 85 ];
+        symbol [ AppSettings %tmp.388 480 74 85 ];
         %tmp.388 = getv ? :AppSettings;
-        symbol [ COLON_COLOR_NAMES %tmp.389 486 86 103 ];
+        symbol [ COLON_COLOR_NAMES %tmp.389 480 86 103 ];
         %tmp.389 = getv %tmp.388 :COLON_COLOR_NAMES;
         %tmp.381 = newc %tmp.384 (%tmp.385, %tmp.386, %tmp.389);
-        symbol [ ColorPickerDelegate %tmp.393 487 32 51 ];
+        symbol [ ColorPickerDelegate %tmp.393 481 32 51 ];
         %tmp.393 = getv ? :ColorPickerDelegate;
         %tmp.394 = lgetv %item;
-        symbol [ item %tmp.394 487 52 56 ];
+        symbol [ item %tmp.394 481 52 56 ];
         %tmp.395 = "colonColor";
-        symbol [ AppSettings %tmp.397 487 72 83 ];
+        symbol [ AppSettings %tmp.397 481 72 83 ];
         %tmp.397 = getv ? :AppSettings;
-        symbol [ COLON_COLOR_NAMES %tmp.398 487 84 101 ];
+        symbol [ COLON_COLOR_NAMES %tmp.398 481 84 101 ];
         %tmp.398 = getv %tmp.397 :COLON_COLOR_NAMES;
         %tmp.390 = newc %tmp.393 (%tmp.394, %tmp.395, %tmp.398);
-        symbol [ WatchUi %tmp.399 488 28 35 ];
+        symbol [ WatchUi %tmp.399 482 28 35 ];
         %tmp.399 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.400 488 36 46 ];
+        symbol [ SLIDE_LEFT %tmp.400 482 36 46 ];
         %tmp.400 = getv %tmp.399 :SLIDE_LEFT;
         invoke %tmp.379 %tmp.380(%tmp.381, %tmp.390, %tmp.400);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_485_36_489_8_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_485_13_489_8_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_485_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_480_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_475_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_471_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_464_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_457_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_450_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_443_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_440_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_427_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_420_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_417_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_407_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_400_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_393_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_386_13_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_379_8_489_8_if_end:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_28_490_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_479_36_483_8_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_479_13_483_8_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_479_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_474_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_469_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_465_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_458_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_451_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_444_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_437_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_434_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_431_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_428_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_421_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_414_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_411_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_404_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_397_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_390_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_383_13_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_376_8_483_8_if_end:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_373_28_484_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 492; @symbol_functiondef = [onBack,492,13,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 486; @symbol_functiondef = [onBack,486,13,19]; ]
     function onBack() {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_492_22_494_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 493 8 ]
-        symbol [ WatchUi %tmp.1 493 8 15 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_486_22_488_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 487 8 ]
+        symbol [ WatchUi %tmp.1 487 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 493 16 23 ];
+        symbol [ popView %tmp.2 487 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 493 24 31 ];
+        symbol [ WatchUi %tmp.3 487 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.4 493 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.4 487 32 43 ];
         %tmp.4 = getv %tmp.3 :SLIDE_RIGHT;
         invoke %tmp.1 %tmp.2(%tmp.4);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_492_22_494_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_486_22_488_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 497; @symbol_classdef = [ColorPicker,497,6,17]; @symbol_extends<0> = [WatchUi,497,26,33]; @symbol_extends<1> = [Menu2,497,34,39]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 491; @symbol_classdef = [ColorPicker,491,6,17]; @symbol_extends<0> = [WatchUi,491,26,33]; @symbol_extends<1> = [Menu2,491,34,39]; ]
 class ColorPicker extends WatchUi.Menu2 {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 497; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 491; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 497; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 491; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 498; @symbol_functiondef = [initialize,498,13,23]; @symbol_param<0> = [title,498,24,29]; @symbol_param<1> = [key,498,31,34]; @symbol_param<2> = [names,498,36,41]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 492; @symbol_functiondef = [initialize,492,13,23]; @symbol_param<0> = [title,492,24,29]; @symbol_param<1> = [key,492,31,34]; @symbol_param<2> = [names,492,36,41]; ]
     function initialize(title, key, names) as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_498_43_507_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 499 8 ]
-        symbol [ Menu2 %tmp.2 499 8 13 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_492_43_501_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 493 8 ]
+        symbol [ Menu2 %tmp.2 493 8 13 ];
         %tmp.2 = getv ? :Menu2;
-        symbol [ initialize %tmp.3 499 14 24 ];
+        symbol [ initialize %tmp.3 493 14 24 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         %tmp.4 = newd 1;
         %tmp.6 = const :title;
-        symbol [ title %tmp.6 499 28 33 const ];
+        symbol [ title %tmp.6 493 28 33 const ];
         %tmp.7 = lgetv %title;
-        symbol [ title %tmp.7 499 37 42 ];
+        symbol [ title %tmp.7 493 37 42 ];
         %tmp.8 = dup %tmp.4;
         %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
         invoke %tmp.2 %tmp.3(%tmp.9);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 500 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_498_43_507_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_498_43_507_4_stop" ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 494 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_492_43_501_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_492_43_501_4_stop" ]
         %currentIdx.1 = local;
-        symbol [ currentIdx %currentIdx.1 500 12 22 ];
-        symbol [ Application %tmp.10 500 25 36 ];
+        symbol [ currentIdx %currentIdx.1 494 12 22 ];
+        symbol [ Application %tmp.10 494 25 36 ];
         %tmp.10 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.11 500 37 47 ];
+        symbol [ Properties %tmp.11 494 37 47 ];
         %tmp.11 = getv %tmp.10 :Properties;
-        symbol [ getValue %tmp.12 500 48 56 ];
+        symbol [ getValue %tmp.12 494 48 56 ];
         %tmp.12 = getv function %tmp.11 :getValue;
         %tmp.13 = lgetv %key;
-        symbol [ key %tmp.13 500 57 60 ];
+        symbol [ key %tmp.13 494 57 60 ];
         %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
         lputv %currentIdx.1 %tmp.14;
-        symbol [ currentIdx %currentIdx.1 500 12 22 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 501 8 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_501_8_501_50_if_stmt:
+        symbol [ currentIdx %currentIdx.1 494 12 22 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 495 8 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_495_8_495_50_if_stmt:
         %tmp.15 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.15 501 12 22 ];
+        symbol [ currentIdx %tmp.15 495 12 22 ];
         %tmp.16 = null;
         %tmp.17 = eq %tmp.15 %tmp.16;
-        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_501_8_501_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_501_8_501_50_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_501_32_501_50_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 501 34 ]
+        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_495_8_495_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_495_8_495_50_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_495_32_495_50_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 495 34 ]
         %tmp.18 = 0;
         lputv %currentIdx.1 %tmp.18;
-        symbol [ currentIdx %currentIdx.1 501 34 44 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_501_32_501_50_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_501_8_501_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_501_8_501_50_if_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 502 8 ]
-        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_init:
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_end" ]
+        symbol [ currentIdx %currentIdx.1 495 34 44 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_495_32_495_50_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_495_8_495_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_495_8_495_50_if_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 496 8 ]
+        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_init:
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_end" ]
         %i.2 = local;
-        symbol [ i %i.2 502 17 18 ];
+        symbol [ i %i.2 496 17 18 ];
         %tmp.19 = 0;
         lputv %i.2 %tmp.19;
-        symbol [ i %i.2 502 17 18 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_test:
+        symbol [ i %i.2 496 17 18 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_test:
         %tmp.20 = lgetv %i.2;
-        symbol [ i %tmp.20 502 24 25 ];
+        symbol [ i %tmp.20 496 24 25 ];
         %tmp.21 = lgetv %names;
-        symbol [ names %tmp.21 502 28 33 ];
-        symbol [ size %tmp.22 502 34 38 ];
+        symbol [ names %tmp.21 496 28 33 ];
+        symbol [ size %tmp.22 496 34 38 ];
         %tmp.22 = getv function %tmp.21 :size;
         %tmp.23 = invoke %tmp.21 %tmp.22();
         %tmp.24 = lt %tmp.20 %tmp.23;
-        bf %tmp.24 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_begin:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_47_505_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 503 12 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_47_505_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_47_505_8_stop" ]
+        bf %tmp.24 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_begin:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_47_499_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 497 12 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_47_499_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_47_499_8_stop" ]
         %label.3 = local;
-        symbol [ label %label.3 503 16 21 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_begin:
+        symbol [ label %label.3 497 16 21 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_begin:
         %tmp.25 = lgetv %i.2;
-        symbol [ i %tmp.25 503 25 26 ];
+        symbol [ i %tmp.25 497 25 26 ];
         %tmp.26 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.26 503 30 40 ];
+        symbol [ currentIdx %tmp.26 497 30 40 ];
         %tmp.27 = eq %tmp.25 %tmp.26;
-        bf %tmp.27 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_else_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_true:
+        bf %tmp.27 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_else_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_true:
         %tmp.28 = "[ ";
         %tmp.29 = lgetv %names;
-        symbol [ names %tmp.29 503 51 56 ];
+        symbol [ names %tmp.29 497 51 56 ];
         %tmp.30 = lgetv %i.2;
-        symbol [ i %tmp.30 503 57 58 ];
+        symbol [ i %tmp.30 497 57 58 ];
         %tmp.31 = agetv %tmp.29 %tmp.30;
         %tmp.32 = add %tmp.28 %tmp.31;
         %tmp.33 = " ]";
         %tmp.34 = add %tmp.32 %tmp.33;
         push %tmp.34;
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_else_false:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_else_false:
         %tmp.35 = lgetv %names;
-        symbol [ names %tmp.35 503 69 74 ];
+        symbol [ names %tmp.35 497 69 74 ];
         %tmp.36 = lgetv %i.2;
-        symbol [ i %tmp.36 503 75 76 ];
+        symbol [ i %tmp.36 497 75 76 ];
         %tmp.37 = agetv %tmp.35 %tmp.36;
         push %tmp.37;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_end:
-        %tmp.38 = phi [%tmp.27 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_begin] [%tmp.34 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_true] [%tmp.37 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_else_false] [%tmp.38 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_503_24_503_76_end];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_end:
+        %tmp.38 = phi [%tmp.27 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_begin] [%tmp.34 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_true] [%tmp.37 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_else_false] [%tmp.38 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_497_24_497_76_end];
         lputv %label.3 %tmp.38;
-        symbol [ label %label.3 503 16 21 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 504 12 ]
-        symbol [ Menu2 %tmp.40 504 12 17 ];
+        symbol [ label %label.3 497 16 21 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 498 12 ]
+        symbol [ Menu2 %tmp.40 498 12 17 ];
         %tmp.40 = getv ? :Menu2;
-        symbol [ addItem %tmp.41 504 18 25 ];
+        symbol [ addItem %tmp.41 498 18 25 ];
         %tmp.41 = getv function %tmp.40 :addItem;
-        symbol [ WatchUi %tmp.44 504 30 37 ];
+        symbol [ WatchUi %tmp.44 498 30 37 ];
         %tmp.44 = getm $.Toybox.WatchUi;
-        symbol [ MenuItem %tmp.45 504 38 46 ];
+        symbol [ MenuItem %tmp.45 498 38 46 ];
         %tmp.45 = getv function ? %tmp.44 :MenuItem;
         %tmp.46 = lgetv %label.3;
-        symbol [ label %tmp.46 504 47 52 ];
+        symbol [ label %tmp.46 498 47 52 ];
         %tmp.47 = null;
         %tmp.48 = lgetv %i.2;
-        symbol [ i %tmp.48 504 60 61 ];
+        symbol [ i %tmp.48 498 60 61 ];
         %tmp.49 = newd 0;
         %tmp.42 = newc %tmp.45 (%tmp.46, %tmp.47, %tmp.48, %tmp.49);
         invoke %tmp.40 %tmp.41(%tmp.42);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_47_505_8_stop:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_incr:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 502 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_47_499_8_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_incr:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 496 ]
         %tmp.52 = lgetv %i.2;
-        symbol [ i %tmp.52 502 42 43 ];
+        symbol [ i %tmp.52 496 42 43 ];
         %tmp.53 = add %tmp.52 1;
         lputv %i.2 %tmp.53;
-        symbol [ i %i.2 502 42 43 ];
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_test;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_502_8_505_8_for_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 506 8 ]
-        symbol [ Menu2 %tmp.55 506 8 13 ];
+        symbol [ i %i.2 496 42 43 ];
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_test;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_496_8_499_8_for_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 500 8 ]
+        symbol [ Menu2 %tmp.55 500 8 13 ];
         %tmp.55 = getv ? :Menu2;
-        symbol [ setFocus %tmp.56 506 14 22 ];
+        symbol [ setFocus %tmp.56 500 14 22 ];
         %tmp.56 = getv function %tmp.55 :setFocus;
         %tmp.57 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.57 506 23 33 ];
+        symbol [ currentIdx %tmp.57 500 23 33 ];
         invoke %tmp.55 %tmp.56(%tmp.57);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_498_43_507_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_492_43_501_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 512; @symbol_classdef = [BgTriggerPickerDelegate,512,6,29]; @symbol_extends<0> = [WatchUi,512,38,45]; @symbol_extends<1> = [Menu2InputDelegate,512,46,64]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 506; @symbol_classdef = [BgTriggerPickerDelegate,506,6,29]; @symbol_extends<0> = [WatchUi,506,38,45]; @symbol_extends<1> = [Menu2InputDelegate,506,46,64]; ]
 class BgTriggerPickerDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 512; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 506; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 512; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 506; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 513; @position = 8; @symbol_vardef = [_parentItem,513,8,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 507; @position = 8; @symbol_vardef = [_parentItem,507,8,19]; ]
     var _parentItem;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 514; @position = 8; @symbol_vardef = [_key,514,8,12]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 508; @position = 8; @symbol_vardef = [_key,508,8,12]; ]
     var _key;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 515; @position = 8; @symbol_vardef = [_names,515,8,14]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 509; @position = 8; @symbol_vardef = [_names,509,8,14]; ]
     var _names;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 517; @symbol_functiondef = [initialize,517,13,23]; @symbol_param<0> = [parentItem,517,24,34]; @symbol_param<1> = [key,517,36,39]; @symbol_param<2> = [names,517,41,46]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 511; @symbol_functiondef = [initialize,511,13,23]; @symbol_param<0> = [parentItem,511,24,34]; @symbol_param<1> = [key,511,36,39]; @symbol_param<2> = [names,511,41,46]; ]
     function initialize(parentItem, key, names) as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_517_48_522_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 518 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 518 8 26 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_511_48_516_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 512 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 512 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 518 27 37 ];
+        symbol [ initialize %tmp.3 512 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 519 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 513 8 ]
         %tmp.4 = lgetv %parentItem;
-        symbol [ parentItem %tmp.4 519 22 32 ];
-        symbol [ _parentItem ? 519 8 19 ];
+        symbol [ parentItem %tmp.4 513 22 32 ];
+        symbol [ _parentItem ? 513 8 19 ];
         putv self :_parentItem %tmp.4;
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 520 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 514 8 ]
         %tmp.5 = lgetv %key;
-        symbol [ key %tmp.5 520 22 25 ];
-        symbol [ _key ? 520 8 12 ];
+        symbol [ key %tmp.5 514 22 25 ];
+        symbol [ _key ? 514 8 12 ];
         putv self :_key %tmp.5;
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 521 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 515 8 ]
         %tmp.6 = lgetv %names;
-        symbol [ names %tmp.6 521 22 27 ];
-        symbol [ _names ? 521 8 14 ];
+        symbol [ names %tmp.6 515 22 27 ];
+        symbol [ _names ? 515 8 14 ];
         putv self :_names %tmp.6;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_517_48_522_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_511_48_516_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 524; @symbol_functiondef = [onSelect,524,13,21]; @symbol_param<0> = [item,524,22,26]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 518; @symbol_functiondef = [onSelect,518,13,21]; @symbol_param<0> = [item,518,22,26]; ]
     function onSelect(item) {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_524_28_530_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 525 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_524_28_530_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_524_28_530_4_stop" ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_518_28_524_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 519 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_518_28_524_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_518_28_524_4_stop" ]
         %idx.1 = local;
-        symbol [ idx %idx.1 525 12 15 ];
+        symbol [ idx %idx.1 519 12 15 ];
         %tmp.1 = lgetv %item;
-        symbol [ item %tmp.1 525 18 22 ];
-        symbol [ getId %tmp.2 525 23 28 ];
+        symbol [ item %tmp.1 519 18 22 ];
+        symbol [ getId %tmp.2 519 23 28 ];
         %tmp.2 = getv function %tmp.1 :getId;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %idx.1 %tmp.3;
-        symbol [ idx %idx.1 525 12 15 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 526 8 ]
-        symbol [ Application %tmp.4 526 8 19 ];
+        symbol [ idx %idx.1 519 12 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 520 8 ]
+        symbol [ Application %tmp.4 520 8 19 ];
         %tmp.4 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.5 526 20 30 ];
+        symbol [ Properties %tmp.5 520 20 30 ];
         %tmp.5 = getv %tmp.4 :Properties;
-        symbol [ setValue %tmp.6 526 31 39 ];
+        symbol [ setValue %tmp.6 520 31 39 ];
         %tmp.6 = getv function %tmp.5 :setValue;
-        symbol [ _key %tmp.8 526 40 44 ];
+        symbol [ _key %tmp.8 520 40 44 ];
         %tmp.8 = getv ? :_key;
         %tmp.9 = lgetv %idx.1;
-        symbol [ idx %tmp.9 526 46 49 ];
+        symbol [ idx %tmp.9 520 46 49 ];
         invoke %tmp.5 %tmp.6(%tmp.8, %tmp.9);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 527 8 ]
-        symbol [ _parentItem %tmp.11 527 8 19 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 521 8 ]
+        symbol [ _parentItem %tmp.11 521 8 19 ];
         %tmp.11 = getv ? :_parentItem;
-        symbol [ setSubLabel %tmp.12 527 20 31 ];
+        symbol [ setSubLabel %tmp.12 521 20 31 ];
         %tmp.12 = getv function %tmp.11 :setSubLabel;
-        symbol [ _names %tmp.14 527 32 38 ];
+        symbol [ _names %tmp.14 521 32 38 ];
         %tmp.14 = getv ? :_names;
         %tmp.15 = lgetv %idx.1;
-        symbol [ idx %tmp.15 527 39 42 ];
+        symbol [ idx %tmp.15 521 39 42 ];
         %tmp.16 = agetv %tmp.14 %tmp.15;
         invoke %tmp.11 %tmp.12(%tmp.16);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 528 8 ]
-        symbol [ Application %tmp.17 528 9 20 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 522 8 ]
+        symbol [ Application %tmp.17 522 9 20 ];
         %tmp.17 = getm $.Toybox.Application;
-        symbol [ getApp %tmp.18 528 21 27 ];
+        symbol [ getApp %tmp.18 522 21 27 ];
         %tmp.18 = getv function %tmp.17 :getApp;
         %tmp.19 = invoke %tmp.17 %tmp.18();
         %tmp.20 = as %tmp.19 F7_1App;
-        symbol [ F7_1App %tmp.20 528 33 40 ];
-        symbol [ _updateBackgroundImmediate %tmp.21 528 42 68 ];
+        symbol [ F7_1App %tmp.20 522 33 40 ];
+        symbol [ _updateBackgroundImmediate %tmp.21 522 42 68 ];
         %tmp.21 = getv function %tmp.20 :_updateBackgroundImmediate;
         invoke %tmp.20 %tmp.21();
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 529 8 ]
-        symbol [ WatchUi %tmp.22 529 8 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 523 8 ]
+        symbol [ WatchUi %tmp.22 523 8 15 ];
         %tmp.22 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.23 529 16 23 ];
+        symbol [ popView %tmp.23 523 16 23 ];
         %tmp.23 = getv function %tmp.22 :popView;
-        symbol [ WatchUi %tmp.24 529 24 31 ];
+        symbol [ WatchUi %tmp.24 523 24 31 ];
         %tmp.24 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.25 529 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.25 523 32 43 ];
         %tmp.25 = getv %tmp.24 :SLIDE_RIGHT;
         invoke %tmp.22 %tmp.23(%tmp.25);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_524_28_530_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_518_28_524_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 532; @symbol_functiondef = [onBack,532,13,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 526; @symbol_functiondef = [onBack,526,13,19]; ]
     function onBack() {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_532_22_534_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 533 8 ]
-        symbol [ WatchUi %tmp.1 533 8 15 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_526_22_528_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 527 8 ]
+        symbol [ WatchUi %tmp.1 527 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 533 16 23 ];
+        symbol [ popView %tmp.2 527 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 533 24 31 ];
+        symbol [ WatchUi %tmp.3 527 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.4 533 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.4 527 32 43 ];
         %tmp.4 = getv %tmp.3 :SLIDE_RIGHT;
         invoke %tmp.1 %tmp.2(%tmp.4);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_532_22_534_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_526_22_528_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 537; @symbol_classdef = [ColorPickerDelegate,537,6,25]; @symbol_extends<0> = [WatchUi,537,34,41]; @symbol_extends<1> = [Menu2InputDelegate,537,42,60]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 531; @symbol_classdef = [ColorPickerDelegate,531,6,25]; @symbol_extends<0> = [WatchUi,531,34,41]; @symbol_extends<1> = [Menu2InputDelegate,531,42,60]; ]
 class ColorPickerDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 537; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 531; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 537; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 531; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 538; @position = 8; @symbol_vardef = [_parentItem,538,8,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 532; @position = 8; @symbol_vardef = [_parentItem,532,8,19]; ]
     var _parentItem;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 539; @position = 8; @symbol_vardef = [_key,539,8,12]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 533; @position = 8; @symbol_vardef = [_key,533,8,12]; ]
     var _key;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 540; @position = 8; @symbol_vardef = [_names,540,8,14]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 534; @position = 8; @symbol_vardef = [_names,534,8,14]; ]
     var _names;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 542; @symbol_functiondef = [initialize,542,13,23]; @symbol_param<0> = [parentItem,542,24,34]; @symbol_param<1> = [key,542,36,39]; @symbol_param<2> = [names,542,41,46]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 536; @symbol_functiondef = [initialize,536,13,23]; @symbol_param<0> = [parentItem,536,24,34]; @symbol_param<1> = [key,536,36,39]; @symbol_param<2> = [names,536,41,46]; ]
     function initialize(parentItem, key, names) as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_542_48_547_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 543 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 543 8 26 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_536_48_541_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 537 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 537 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 543 27 37 ];
+        symbol [ initialize %tmp.3 537 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 544 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 538 8 ]
         %tmp.4 = lgetv %parentItem;
-        symbol [ parentItem %tmp.4 544 22 32 ];
-        symbol [ _parentItem ? 544 8 19 ];
+        symbol [ parentItem %tmp.4 538 22 32 ];
+        symbol [ _parentItem ? 538 8 19 ];
         putv self :_parentItem %tmp.4;
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 545 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 539 8 ]
         %tmp.5 = lgetv %key;
-        symbol [ key %tmp.5 545 22 25 ];
-        symbol [ _key ? 545 8 12 ];
+        symbol [ key %tmp.5 539 22 25 ];
+        symbol [ _key ? 539 8 12 ];
         putv self :_key %tmp.5;
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 546 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 540 8 ]
         %tmp.6 = lgetv %names;
-        symbol [ names %tmp.6 546 22 27 ];
-        symbol [ _names ? 546 8 14 ];
+        symbol [ names %tmp.6 540 22 27 ];
+        symbol [ _names ? 540 8 14 ];
         putv self :_names %tmp.6;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_542_48_547_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_536_48_541_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 549; @symbol_functiondef = [onSelect,549,13,21]; @symbol_param<0> = [item,549,22,26]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 543; @symbol_functiondef = [onSelect,543,13,21]; @symbol_param<0> = [item,543,22,26]; ]
     function onSelect(item) {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_549_28_554_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 550 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_549_28_554_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_549_28_554_4_stop" ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_543_28_548_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 544 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_543_28_548_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_543_28_548_4_stop" ]
         %idx.1 = local;
-        symbol [ idx %idx.1 550 12 15 ];
+        symbol [ idx %idx.1 544 12 15 ];
         %tmp.1 = lgetv %item;
-        symbol [ item %tmp.1 550 18 22 ];
-        symbol [ getId %tmp.2 550 23 28 ];
+        symbol [ item %tmp.1 544 18 22 ];
+        symbol [ getId %tmp.2 544 23 28 ];
         %tmp.2 = getv function %tmp.1 :getId;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %idx.1 %tmp.3;
-        symbol [ idx %idx.1 550 12 15 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 551 8 ]
-        symbol [ Application %tmp.4 551 8 19 ];
+        symbol [ idx %idx.1 544 12 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 545 8 ]
+        symbol [ Application %tmp.4 545 8 19 ];
         %tmp.4 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.5 551 20 30 ];
+        symbol [ Properties %tmp.5 545 20 30 ];
         %tmp.5 = getv %tmp.4 :Properties;
-        symbol [ setValue %tmp.6 551 31 39 ];
+        symbol [ setValue %tmp.6 545 31 39 ];
         %tmp.6 = getv function %tmp.5 :setValue;
-        symbol [ _key %tmp.8 551 40 44 ];
+        symbol [ _key %tmp.8 545 40 44 ];
         %tmp.8 = getv ? :_key;
         %tmp.9 = lgetv %idx.1;
-        symbol [ idx %tmp.9 551 46 49 ];
+        symbol [ idx %tmp.9 545 46 49 ];
         invoke %tmp.5 %tmp.6(%tmp.8, %tmp.9);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 552 8 ]
-        symbol [ _parentItem %tmp.11 552 8 19 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 546 8 ]
+        symbol [ _parentItem %tmp.11 546 8 19 ];
         %tmp.11 = getv ? :_parentItem;
-        symbol [ setSubLabel %tmp.12 552 20 31 ];
+        symbol [ setSubLabel %tmp.12 546 20 31 ];
         %tmp.12 = getv function %tmp.11 :setSubLabel;
-        symbol [ _names %tmp.14 552 32 38 ];
+        symbol [ _names %tmp.14 546 32 38 ];
         %tmp.14 = getv ? :_names;
         %tmp.15 = lgetv %idx.1;
-        symbol [ idx %tmp.15 552 39 42 ];
+        symbol [ idx %tmp.15 546 39 42 ];
         %tmp.16 = agetv %tmp.14 %tmp.15;
         invoke %tmp.11 %tmp.12(%tmp.16);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 553 8 ]
-        symbol [ WatchUi %tmp.17 553 8 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 547 8 ]
+        symbol [ WatchUi %tmp.17 547 8 15 ];
         %tmp.17 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.18 553 16 23 ];
+        symbol [ popView %tmp.18 547 16 23 ];
         %tmp.18 = getv function %tmp.17 :popView;
-        symbol [ WatchUi %tmp.19 553 24 31 ];
+        symbol [ WatchUi %tmp.19 547 24 31 ];
         %tmp.19 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.20 553 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.20 547 32 43 ];
         %tmp.20 = getv %tmp.19 :SLIDE_RIGHT;
         invoke %tmp.17 %tmp.18(%tmp.20);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_549_28_554_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_543_28_548_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 556; @symbol_functiondef = [onBack,556,13,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 550; @symbol_functiondef = [onBack,550,13,19]; ]
     function onBack() {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_556_22_558_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 557 8 ]
-        symbol [ WatchUi %tmp.1 557 8 15 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_550_22_552_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 551 8 ]
+        symbol [ WatchUi %tmp.1 551 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 557 16 23 ];
+        symbol [ popView %tmp.2 551 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 557 24 31 ];
+        symbol [ WatchUi %tmp.3 551 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.4 557 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.4 551 32 43 ];
         %tmp.4 = getv %tmp.3 :SLIDE_RIGHT;
         invoke %tmp.1 %tmp.2(%tmp.4);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_556_22_558_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_550_22_552_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 564; @symbol_classdef = [WeatherIntervalPicker,564,6,27]; @symbol_extends<0> = [WatchUi,564,36,43]; @symbol_extends<1> = [Menu2,564,44,49]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 558; @symbol_classdef = [WeatherIntervalPicker,558,6,27]; @symbol_extends<0> = [WatchUi,558,36,43]; @symbol_extends<1> = [Menu2,558,44,49]; ]
 class WeatherIntervalPicker extends WatchUi.Menu2 {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 564; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 558; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 564; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 558; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 566; @symbol_functiondef = [initialize,566,13,23]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 560; @symbol_functiondef = [initialize,560,13,23]; ]
     function initialize() as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_26_580_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 567 8 ]
-        symbol [ Menu2 %tmp.2 567 8 13 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_560_26_573_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 561 8 ]
+        symbol [ Menu2 %tmp.2 561 8 13 ];
         %tmp.2 = getv ? :Menu2;
-        symbol [ initialize %tmp.3 567 14 24 ];
+        symbol [ initialize %tmp.3 561 14 24 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         %tmp.4 = newd 1;
         %tmp.6 = const :title;
-        symbol [ title %tmp.6 567 28 33 const ];
+        symbol [ title %tmp.6 561 28 33 const ];
         %tmp.7 = "Weather update";
         %tmp.8 = dup %tmp.4;
         %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
         invoke %tmp.2 %tmp.3(%tmp.9);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 569 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_26_580_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_26_580_4_stop" ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 563 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_560_26_573_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_560_26_573_4_stop" ]
         %currentIdx.1 = local;
-        symbol [ currentIdx %currentIdx.1 569 12 22 ];
-        symbol [ Application %tmp.10 569 25 36 ];
+        symbol [ currentIdx %currentIdx.1 563 12 22 ];
+        symbol [ Application %tmp.10 563 25 36 ];
         %tmp.10 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.11 569 37 47 ];
+        symbol [ Properties %tmp.11 563 37 47 ];
         %tmp.11 = getv %tmp.10 :Properties;
-        symbol [ getValue %tmp.12 569 48 56 ];
+        symbol [ getValue %tmp.12 563 48 56 ];
         %tmp.12 = getv function %tmp.11 :getValue;
         %tmp.13 = "weatherInterval";
         %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
         lputv %currentIdx.1 %tmp.14;
-        symbol [ currentIdx %currentIdx.1 569 12 22 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 570 8 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_570_8_570_50_if_stmt:
+        symbol [ currentIdx %currentIdx.1 563 12 22 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 564 8 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_564_8_564_50_if_stmt:
         %tmp.15 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.15 570 12 22 ];
+        symbol [ currentIdx %tmp.15 564 12 22 ];
         %tmp.16 = null;
         %tmp.17 = eq %tmp.15 %tmp.16;
-        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_570_8_570_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_570_8_570_50_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_570_32_570_50_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 570 34 ]
+        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_564_8_564_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_564_8_564_50_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_564_32_564_50_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 564 34 ]
         %tmp.18 = 2;
         lputv %currentIdx.1 %tmp.18;
-        symbol [ currentIdx %currentIdx.1 570 34 44 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_570_32_570_50_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_570_8_570_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_570_8_570_50_if_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 572 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_26_580_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_26_580_4_stop" ]
-        %labels.2 = local;
-        symbol [ labels %labels.2 572 12 18 ];
-        %tmp.19 = newa 5;
-        %tmp.20 = "5 min";
-        %tmp.21 = dup %tmp.19;
-        %tmp.22 = aputv %tmp.21 0 %tmp.20;
-        %tmp.23 = "10 min";
-        %tmp.24 = dup %tmp.22;
-        %tmp.25 = aputv %tmp.24 1 %tmp.23;
-        %tmp.26 = "15 min";
-        %tmp.27 = dup %tmp.25;
-        %tmp.28 = aputv %tmp.27 2 %tmp.26;
-        %tmp.29 = "30 min";
-        %tmp.30 = dup %tmp.28;
-        %tmp.31 = aputv %tmp.30 3 %tmp.29;
-        %tmp.32 = "60 min";
-        %tmp.33 = dup %tmp.31;
-        %tmp.34 = aputv %tmp.33 4 %tmp.32;
-        lputv %labels.2 %tmp.34;
-        symbol [ labels %labels.2 572 12 18 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 574 8 ]
-        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_init:
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_end" ]
-        %i.3 = local;
-        symbol [ i %i.3 574 17 18 ];
-        %tmp.35 = 0;
-        lputv %i.3 %tmp.35;
-        symbol [ i %i.3 574 17 18 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_test:
-        %tmp.36 = lgetv %i.3;
-        symbol [ i %tmp.36 574 24 25 ];
-        %tmp.37 = lgetv %labels.2;
-        symbol [ labels %tmp.37 574 28 34 ];
-        symbol [ size %tmp.38 574 35 39 ];
-        %tmp.38 = getv function %tmp.37 :size;
-        %tmp.39 = invoke %tmp.37 %tmp.38();
-        %tmp.40 = lt %tmp.36 %tmp.39;
-        bf %tmp.40 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_begin:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_48_577_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 575 12 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_48_577_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_48_577_8_stop" ]
+        symbol [ currentIdx %currentIdx.1 564 34 44 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_564_32_564_50_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_564_8_564_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_564_8_564_50_if_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 566 8 ]
+        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_init:
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_end" ]
+        %i.2 = local;
+        symbol [ i %i.2 566 17 18 ];
+        %tmp.19 = 0;
+        lputv %i.2 %tmp.19;
+        symbol [ i %i.2 566 17 18 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_test:
+        %tmp.20 = lgetv %i.2;
+        symbol [ i %tmp.20 566 24 25 ];
+        symbol [ AppSettings %tmp.22 566 28 39 ];
+        %tmp.22 = getv ? :AppSettings;
+        symbol [ WEATHER_INTERVALS %tmp.23 566 40 57 ];
+        %tmp.23 = getv %tmp.22 :WEATHER_INTERVALS;
+        symbol [ size %tmp.24 566 58 62 ];
+        %tmp.24 = getv function %tmp.23 :size;
+        %tmp.25 = invoke %tmp.23 %tmp.24();
+        %tmp.26 = lt %tmp.20 %tmp.25;
+        bf %tmp.26 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_begin:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_71_570_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 567 12 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_71_570_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_71_570_8_stop" ]
+        %text.3 = local;
+        symbol [ text %text.3 567 16 20 ];
+        symbol [ AppSettings %tmp.28 567 23 34 ];
+        %tmp.28 = getv ? :AppSettings;
+        symbol [ WEATHER_INTERVALS %tmp.29 567 35 52 ];
+        %tmp.29 = getv %tmp.28 :WEATHER_INTERVALS;
+        %tmp.30 = lgetv %i.2;
+        symbol [ i %tmp.30 567 53 54 ];
+        %tmp.31 = agetv %tmp.29 %tmp.30;
+        %tmp.32 = " min";
+        %tmp.33 = add %tmp.31 %tmp.32;
+        lputv %text.3 %tmp.33;
+        symbol [ text %text.3 567 16 20 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 568 12 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_71_570_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_71_570_8_stop" ]
         %label.4 = local;
-        symbol [ label %label.4 575 16 21 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_begin:
-        %tmp.41 = lgetv %i.3;
-        symbol [ i %tmp.41 575 25 26 ];
-        %tmp.42 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.42 575 30 40 ];
-        %tmp.43 = eq %tmp.41 %tmp.42;
-        bf %tmp.43 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_else_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_true:
-        %tmp.44 = "[ ";
-        %tmp.45 = lgetv %labels.2;
-        symbol [ labels %tmp.45 575 51 57 ];
-        %tmp.46 = lgetv %i.3;
-        symbol [ i %tmp.46 575 58 59 ];
-        %tmp.47 = agetv %tmp.45 %tmp.46;
-        %tmp.48 = add %tmp.44 %tmp.47;
-        %tmp.49 = " ]";
-        %tmp.50 = add %tmp.48 %tmp.49;
-        push %tmp.50;
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_else_false:
-        %tmp.51 = lgetv %labels.2;
-        symbol [ labels %tmp.51 575 70 76 ];
-        %tmp.52 = lgetv %i.3;
-        symbol [ i %tmp.52 575 77 78 ];
-        %tmp.53 = agetv %tmp.51 %tmp.52;
-        push %tmp.53;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_end:
-        %tmp.54 = phi [%tmp.43 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_begin] [%tmp.50 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_true] [%tmp.53 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_else_false] [%tmp.54 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_575_24_575_78_end];
-        lputv %label.4 %tmp.54;
-        symbol [ label %label.4 575 16 21 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 576 12 ]
-        symbol [ Menu2 %tmp.56 576 12 17 ];
-        %tmp.56 = getv ? :Menu2;
-        symbol [ addItem %tmp.57 576 18 25 ];
-        %tmp.57 = getv function %tmp.56 :addItem;
-        symbol [ WatchUi %tmp.60 576 30 37 ];
-        %tmp.60 = getm $.Toybox.WatchUi;
-        symbol [ MenuItem %tmp.61 576 38 46 ];
-        %tmp.61 = getv function ? %tmp.60 :MenuItem;
-        %tmp.62 = lgetv %label.4;
-        symbol [ label %tmp.62 576 47 52 ];
-        %tmp.63 = null;
-        %tmp.64 = lgetv %i.3;
-        symbol [ i %tmp.64 576 60 61 ];
-        %tmp.65 = newd 0;
-        %tmp.58 = newc %tmp.61 (%tmp.62, %tmp.63, %tmp.64, %tmp.65);
-        invoke %tmp.56 %tmp.57(%tmp.58);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_48_577_8_stop:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_incr:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 574 ]
-        %tmp.68 = lgetv %i.3;
-        symbol [ i %tmp.68 574 43 44 ];
-        %tmp.69 = add %tmp.68 1;
-        lputv %i.3 %tmp.69;
-        symbol [ i %i.3 574 43 44 ];
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_test;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_574_8_577_8_for_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 579 8 ]
-        symbol [ Menu2 %tmp.71 579 8 13 ];
-        %tmp.71 = getv ? :Menu2;
-        symbol [ setFocus %tmp.72 579 14 22 ];
-        %tmp.72 = getv function %tmp.71 :setFocus;
-        %tmp.73 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.73 579 23 33 ];
-        invoke %tmp.71 %tmp.72(%tmp.73);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_26_580_4_stop:
+        symbol [ label %label.4 568 16 21 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_begin:
+        %tmp.34 = lgetv %i.2;
+        symbol [ i %tmp.34 568 25 26 ];
+        %tmp.35 = lgetv %currentIdx.1;
+        symbol [ currentIdx %tmp.35 568 30 40 ];
+        %tmp.36 = eq %tmp.34 %tmp.35;
+        bf %tmp.36 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_else_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_true:
+        %tmp.37 = "[ ";
+        %tmp.38 = lgetv %text.3;
+        symbol [ text %tmp.38 568 51 55 ];
+        %tmp.39 = add %tmp.37 %tmp.38;
+        %tmp.40 = " ]";
+        %tmp.41 = add %tmp.39 %tmp.40;
+        push %tmp.41;
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_else_false:
+        %tmp.42 = lgetv %text.3;
+        symbol [ text %tmp.42 568 65 69 ];
+        push %tmp.42;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_end:
+        %tmp.43 = phi [%tmp.36 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_begin] [%tmp.41 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_true] [%tmp.42 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_else_false] [%tmp.43 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_568_24_568_65_end];
+        lputv %label.4 %tmp.43;
+        symbol [ label %label.4 568 16 21 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 569 12 ]
+        symbol [ Menu2 %tmp.45 569 12 17 ];
+        %tmp.45 = getv ? :Menu2;
+        symbol [ addItem %tmp.46 569 18 25 ];
+        %tmp.46 = getv function %tmp.45 :addItem;
+        symbol [ WatchUi %tmp.49 569 30 37 ];
+        %tmp.49 = getm $.Toybox.WatchUi;
+        symbol [ MenuItem %tmp.50 569 38 46 ];
+        %tmp.50 = getv function ? %tmp.49 :MenuItem;
+        %tmp.51 = lgetv %label.4;
+        symbol [ label %tmp.51 569 47 52 ];
+        %tmp.52 = null;
+        %tmp.53 = lgetv %i.2;
+        symbol [ i %tmp.53 569 60 61 ];
+        %tmp.54 = newd 0;
+        %tmp.47 = newc %tmp.50 (%tmp.51, %tmp.52, %tmp.53, %tmp.54);
+        invoke %tmp.45 %tmp.46(%tmp.47);
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_71_570_8_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_incr:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 566 ]
+        %tmp.57 = lgetv %i.2;
+        symbol [ i %tmp.57 566 66 67 ];
+        %tmp.58 = add %tmp.57 1;
+        lputv %i.2 %tmp.58;
+        symbol [ i %i.2 566 66 67 ];
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_test;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_566_8_570_8_for_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 572 8 ]
+        symbol [ Menu2 %tmp.60 572 8 13 ];
+        %tmp.60 = getv ? :Menu2;
+        symbol [ setFocus %tmp.61 572 14 22 ];
+        %tmp.61 = getv function %tmp.60 :setFocus;
+        %tmp.62 = lgetv %currentIdx.1;
+        symbol [ currentIdx %tmp.62 572 23 33 ];
+        invoke %tmp.60 %tmp.61(%tmp.62);
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_560_26_573_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 583; @symbol_classdef = [WeatherIntervalDelegate,583,6,29]; @symbol_extends<0> = [WatchUi,583,38,45]; @symbol_extends<1> = [Menu2InputDelegate,583,46,64]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 576; @symbol_classdef = [WeatherIntervalDelegate,576,6,29]; @symbol_extends<0> = [WatchUi,576,38,45]; @symbol_extends<1> = [Menu2InputDelegate,576,46,64]; ]
 class WeatherIntervalDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 583; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 576; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 583; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 576; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 585; @position = 8; @symbol_vardef = [_parentItem,585,8,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 578; @position = 8; @symbol_vardef = [_parentItem,578,8,19]; ]
     var _parentItem;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 587; @symbol_functiondef = [initialize,587,13,23]; @symbol_param<0> = [parentItem,587,24,34]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 580; @symbol_functiondef = [initialize,580,13,23]; @symbol_param<0> = [parentItem,580,24,34]; ]
     function initialize(parentItem) as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_587_36_590_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 588 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 588 8 26 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_580_36_583_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 581 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 581 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 588 27 37 ];
+        symbol [ initialize %tmp.3 581 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 589 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 582 8 ]
         %tmp.4 = lgetv %parentItem;
-        symbol [ parentItem %tmp.4 589 22 32 ];
-        symbol [ _parentItem ? 589 8 19 ];
+        symbol [ parentItem %tmp.4 582 22 32 ];
+        symbol [ _parentItem ? 582 8 19 ];
         putv self :_parentItem %tmp.4;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_587_36_590_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_580_36_583_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 592; @symbol_functiondef = [onSelect,592,13,21]; @symbol_param<0> = [item,592,22,26]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 585; @symbol_functiondef = [onSelect,585,13,21]; @symbol_param<0> = [item,585,22,26]; ]
     function onSelect(item) {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_592_28_598_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 593 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_592_28_598_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_592_28_598_4_stop" ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_585_28_591_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 586 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_585_28_591_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_585_28_591_4_stop" ]
         %idx.1 = local;
-        symbol [ idx %idx.1 593 12 15 ];
+        symbol [ idx %idx.1 586 12 15 ];
         %tmp.1 = lgetv %item;
-        symbol [ item %tmp.1 593 18 22 ];
-        symbol [ getId %tmp.2 593 23 28 ];
+        symbol [ item %tmp.1 586 18 22 ];
+        symbol [ getId %tmp.2 586 23 28 ];
         %tmp.2 = getv function %tmp.1 :getId;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %idx.1 %tmp.3;
-        symbol [ idx %idx.1 593 12 15 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 594 8 ]
-        symbol [ Application %tmp.4 594 8 19 ];
+        symbol [ idx %idx.1 586 12 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 587 8 ]
+        symbol [ Application %tmp.4 587 8 19 ];
         %tmp.4 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.5 594 20 30 ];
+        symbol [ Properties %tmp.5 587 20 30 ];
         %tmp.5 = getv %tmp.4 :Properties;
-        symbol [ setValue %tmp.6 594 31 39 ];
+        symbol [ setValue %tmp.6 587 31 39 ];
         %tmp.6 = getv function %tmp.5 :setValue;
         %tmp.7 = "weatherInterval";
         %tmp.8 = lgetv %idx.1;
-        symbol [ idx %tmp.8 594 59 62 ];
+        symbol [ idx %tmp.8 587 59 62 ];
         invoke %tmp.5 %tmp.6(%tmp.7, %tmp.8);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 595 8 ]
-        symbol [ _parentItem %tmp.10 595 8 19 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 588 8 ]
+        symbol [ _parentItem %tmp.10 588 8 19 ];
         %tmp.10 = getv ? :_parentItem;
-        symbol [ setSubLabel %tmp.11 595 20 31 ];
+        symbol [ setSubLabel %tmp.11 588 20 31 ];
         %tmp.11 = getv function %tmp.10 :setSubLabel;
-        symbol [ AppSettings %tmp.13 595 32 43 ];
+        symbol [ AppSettings %tmp.13 588 32 43 ];
         %tmp.13 = getv ? :AppSettings;
-        symbol [ WEATHER_INTERVALS %tmp.14 595 44 61 ];
+        symbol [ WEATHER_INTERVALS %tmp.14 588 44 61 ];
         %tmp.14 = getv %tmp.13 :WEATHER_INTERVALS;
         %tmp.15 = lgetv %idx.1;
-        symbol [ idx %tmp.15 595 62 65 ];
+        symbol [ idx %tmp.15 588 62 65 ];
         %tmp.16 = agetv %tmp.14 %tmp.15;
         %tmp.17 = " min";
         %tmp.18 = add %tmp.16 %tmp.17;
         invoke %tmp.10 %tmp.11(%tmp.18);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 596 8 ]
-        symbol [ Application %tmp.19 596 9 20 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 589 8 ]
+        symbol [ Application %tmp.19 589 9 20 ];
         %tmp.19 = getm $.Toybox.Application;
-        symbol [ getApp %tmp.20 596 21 27 ];
+        symbol [ getApp %tmp.20 589 21 27 ];
         %tmp.20 = getv function %tmp.19 :getApp;
         %tmp.21 = invoke %tmp.19 %tmp.20();
         %tmp.22 = as %tmp.21 F7_1App;
-        symbol [ F7_1App %tmp.22 596 33 40 ];
-        symbol [ _updateBackgroundImmediate %tmp.23 596 42 68 ];
+        symbol [ F7_1App %tmp.22 589 33 40 ];
+        symbol [ _updateBackgroundImmediate %tmp.23 589 42 68 ];
         %tmp.23 = getv function %tmp.22 :_updateBackgroundImmediate;
         invoke %tmp.22 %tmp.23();
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 597 8 ]
-        symbol [ WatchUi %tmp.24 597 8 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 590 8 ]
+        symbol [ WatchUi %tmp.24 590 8 15 ];
         %tmp.24 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.25 597 16 23 ];
+        symbol [ popView %tmp.25 590 16 23 ];
         %tmp.25 = getv function %tmp.24 :popView;
-        symbol [ WatchUi %tmp.26 597 24 31 ];
+        symbol [ WatchUi %tmp.26 590 24 31 ];
         %tmp.26 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.27 597 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.27 590 32 43 ];
         %tmp.27 = getv %tmp.26 :SLIDE_RIGHT;
         invoke %tmp.24 %tmp.25(%tmp.27);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_592_28_598_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_585_28_591_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 600; @symbol_functiondef = [onBack,600,13,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 593; @symbol_functiondef = [onBack,593,13,19]; ]
     function onBack() {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_600_22_602_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 601 8 ]
-        symbol [ WatchUi %tmp.1 601 8 15 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_593_22_595_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 594 8 ]
+        symbol [ WatchUi %tmp.1 594 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 601 16 23 ];
+        symbol [ popView %tmp.2 594 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 601 24 31 ];
+        symbol [ WatchUi %tmp.3 594 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.4 601 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.4 594 32 43 ];
         %tmp.4 = getv %tmp.3 :SLIDE_RIGHT;
         invoke %tmp.1 %tmp.2(%tmp.4);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_600_22_602_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_593_22_595_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 608; @symbol_classdef = [WeekendColorPicker,608,6,24]; @symbol_extends<0> = [WatchUi,608,33,40]; @symbol_extends<1> = [Menu2,608,41,46]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 601; @symbol_classdef = [WeekendColorPicker,601,6,24]; @symbol_extends<0> = [WatchUi,601,33,40]; @symbol_extends<1> = [Menu2,601,41,46]; ]
 class WeekendColorPicker extends WatchUi.Menu2 {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 608; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 601; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 608; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 601; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 610; @symbol_functiondef = [initialize,610,13,23]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 603; @symbol_functiondef = [initialize,603,13,23]; ]
     function initialize() as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_26_622_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 611 8 ]
-        symbol [ Menu2 %tmp.2 611 8 13 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_603_26_615_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 604 8 ]
+        symbol [ Menu2 %tmp.2 604 8 13 ];
         %tmp.2 = getv ? :Menu2;
-        symbol [ initialize %tmp.3 611 14 24 ];
+        symbol [ initialize %tmp.3 604 14 24 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         %tmp.4 = newd 1;
         %tmp.6 = const :title;
-        symbol [ title %tmp.6 611 28 33 const ];
+        symbol [ title %tmp.6 604 28 33 const ];
         %tmp.7 = "Weekend color";
         %tmp.8 = dup %tmp.4;
         %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
         invoke %tmp.2 %tmp.3(%tmp.9);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 613 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_26_622_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_26_622_4_stop" ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 606 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_603_26_615_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_603_26_615_4_stop" ]
         %currentIdx.1 = local;
-        symbol [ currentIdx %currentIdx.1 613 12 22 ];
-        symbol [ Application %tmp.10 613 25 36 ];
+        symbol [ currentIdx %currentIdx.1 606 12 22 ];
+        symbol [ Application %tmp.10 606 25 36 ];
         %tmp.10 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.11 613 37 47 ];
+        symbol [ Properties %tmp.11 606 37 47 ];
         %tmp.11 = getv %tmp.10 :Properties;
-        symbol [ getValue %tmp.12 613 48 56 ];
+        symbol [ getValue %tmp.12 606 48 56 ];
         %tmp.12 = getv function %tmp.11 :getValue;
         %tmp.13 = "weekendColor";
         %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
         lputv %currentIdx.1 %tmp.14;
-        symbol [ currentIdx %currentIdx.1 613 12 22 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 614 8 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_614_8_614_50_if_stmt:
+        symbol [ currentIdx %currentIdx.1 606 12 22 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 607 8 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_607_8_607_50_if_stmt:
         %tmp.15 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.15 614 12 22 ];
+        symbol [ currentIdx %tmp.15 607 12 22 ];
         %tmp.16 = null;
         %tmp.17 = eq %tmp.15 %tmp.16;
-        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_614_8_614_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_614_8_614_50_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_614_32_614_50_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 614 34 ]
+        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_607_8_607_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_607_8_607_50_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_607_32_607_50_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 607 34 ]
         %tmp.18 = 0;
         lputv %currentIdx.1 %tmp.18;
-        symbol [ currentIdx %currentIdx.1 614 34 44 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_614_32_614_50_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_614_8_614_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_614_8_614_50_if_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 616 8 ]
-        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_init:
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_end" ]
+        symbol [ currentIdx %currentIdx.1 607 34 44 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_607_32_607_50_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_607_8_607_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_607_8_607_50_if_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 609 8 ]
+        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_init:
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_end" ]
         %i.2 = local;
-        symbol [ i %i.2 616 17 18 ];
+        symbol [ i %i.2 609 17 18 ];
         %tmp.19 = 0;
         lputv %i.2 %tmp.19;
-        symbol [ i %i.2 616 17 18 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_test:
+        symbol [ i %i.2 609 17 18 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_test:
         %tmp.20 = lgetv %i.2;
-        symbol [ i %tmp.20 616 24 25 ];
-        symbol [ AppSettings %tmp.22 616 28 39 ];
+        symbol [ i %tmp.20 609 24 25 ];
+        symbol [ AppSettings %tmp.22 609 28 39 ];
         %tmp.22 = getv ? :AppSettings;
-        symbol [ WEEKEND_COLOR_NAMES %tmp.23 616 40 59 ];
+        symbol [ WEEKEND_COLOR_NAMES %tmp.23 609 40 59 ];
         %tmp.23 = getv %tmp.22 :WEEKEND_COLOR_NAMES;
-        symbol [ size %tmp.24 616 60 64 ];
+        symbol [ size %tmp.24 609 60 64 ];
         %tmp.24 = getv function %tmp.23 :size;
         %tmp.25 = invoke %tmp.23 %tmp.24();
         %tmp.26 = lt %tmp.20 %tmp.25;
-        bf %tmp.26 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_begin:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_73_619_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 617 12 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_73_619_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_73_619_8_stop" ]
+        bf %tmp.26 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_begin:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_73_612_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 610 12 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_73_612_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_73_612_8_stop" ]
         %label.3 = local;
-        symbol [ label %label.3 617 16 21 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_begin:
+        symbol [ label %label.3 610 16 21 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_begin:
         %tmp.27 = lgetv %i.2;
-        symbol [ i %tmp.27 617 25 26 ];
+        symbol [ i %tmp.27 610 25 26 ];
         %tmp.28 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.28 617 30 40 ];
+        symbol [ currentIdx %tmp.28 610 30 40 ];
         %tmp.29 = eq %tmp.27 %tmp.28;
-        bf %tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_else_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_true:
+        bf %tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_else_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_true:
         %tmp.30 = "[ ";
-        symbol [ AppSettings %tmp.32 617 51 62 ];
+        symbol [ AppSettings %tmp.32 610 51 62 ];
         %tmp.32 = getv ? :AppSettings;
-        symbol [ WEEKEND_COLOR_NAMES %tmp.33 617 63 82 ];
+        symbol [ WEEKEND_COLOR_NAMES %tmp.33 610 63 82 ];
         %tmp.33 = getv %tmp.32 :WEEKEND_COLOR_NAMES;
         %tmp.34 = lgetv %i.2;
-        symbol [ i %tmp.34 617 83 84 ];
+        symbol [ i %tmp.34 610 83 84 ];
         %tmp.35 = agetv %tmp.33 %tmp.34;
         %tmp.36 = add %tmp.30 %tmp.35;
         %tmp.37 = " ]";
         %tmp.38 = add %tmp.36 %tmp.37;
         push %tmp.38;
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_else_false:
-        symbol [ AppSettings %tmp.40 617 95 106 ];
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_else_false:
+        symbol [ AppSettings %tmp.40 610 95 106 ];
         %tmp.40 = getv ? :AppSettings;
-        symbol [ WEEKEND_COLOR_NAMES %tmp.41 617 107 126 ];
+        symbol [ WEEKEND_COLOR_NAMES %tmp.41 610 107 126 ];
         %tmp.41 = getv %tmp.40 :WEEKEND_COLOR_NAMES;
         %tmp.42 = lgetv %i.2;
-        symbol [ i %tmp.42 617 127 128 ];
+        symbol [ i %tmp.42 610 127 128 ];
         %tmp.43 = agetv %tmp.41 %tmp.42;
         push %tmp.43;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_end:
-        %tmp.44 = phi [%tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_begin] [%tmp.38 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_true] [%tmp.43 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_else_false] [%tmp.44 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_617_24_617_128_end];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_end:
+        %tmp.44 = phi [%tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_begin] [%tmp.38 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_true] [%tmp.43 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_else_false] [%tmp.44 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_24_610_128_end];
         lputv %label.3 %tmp.44;
-        symbol [ label %label.3 617 16 21 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 618 12 ]
-        symbol [ Menu2 %tmp.46 618 12 17 ];
+        symbol [ label %label.3 610 16 21 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 611 12 ]
+        symbol [ Menu2 %tmp.46 611 12 17 ];
         %tmp.46 = getv ? :Menu2;
-        symbol [ addItem %tmp.47 618 18 25 ];
+        symbol [ addItem %tmp.47 611 18 25 ];
         %tmp.47 = getv function %tmp.46 :addItem;
-        symbol [ WatchUi %tmp.50 618 30 37 ];
+        symbol [ WatchUi %tmp.50 611 30 37 ];
         %tmp.50 = getm $.Toybox.WatchUi;
-        symbol [ MenuItem %tmp.51 618 38 46 ];
+        symbol [ MenuItem %tmp.51 611 38 46 ];
         %tmp.51 = getv function ? %tmp.50 :MenuItem;
         %tmp.52 = lgetv %label.3;
-        symbol [ label %tmp.52 618 47 52 ];
+        symbol [ label %tmp.52 611 47 52 ];
         %tmp.53 = null;
         %tmp.54 = lgetv %i.2;
-        symbol [ i %tmp.54 618 60 61 ];
+        symbol [ i %tmp.54 611 60 61 ];
         %tmp.55 = newd 0;
         %tmp.48 = newc %tmp.51 (%tmp.52, %tmp.53, %tmp.54, %tmp.55);
         invoke %tmp.46 %tmp.47(%tmp.48);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_73_619_8_stop:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_incr:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 616 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_73_612_8_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_incr:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 609 ]
         %tmp.58 = lgetv %i.2;
-        symbol [ i %tmp.58 616 68 69 ];
+        symbol [ i %tmp.58 609 68 69 ];
         %tmp.59 = add %tmp.58 1;
         lputv %i.2 %tmp.59;
-        symbol [ i %i.2 616 68 69 ];
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_test;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_616_8_619_8_for_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 621 8 ]
-        symbol [ Menu2 %tmp.61 621 8 13 ];
+        symbol [ i %i.2 609 68 69 ];
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_test;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_609_8_612_8_for_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 614 8 ]
+        symbol [ Menu2 %tmp.61 614 8 13 ];
         %tmp.61 = getv ? :Menu2;
-        symbol [ setFocus %tmp.62 621 14 22 ];
+        symbol [ setFocus %tmp.62 614 14 22 ];
         %tmp.62 = getv function %tmp.61 :setFocus;
         %tmp.63 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.63 621 23 33 ];
+        symbol [ currentIdx %tmp.63 614 23 33 ];
         invoke %tmp.61 %tmp.62(%tmp.63);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_610_26_622_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_603_26_615_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 625; @symbol_classdef = [WeekendColorDelegate,625,6,26]; @symbol_extends<0> = [WatchUi,625,35,42]; @symbol_extends<1> = [Menu2InputDelegate,625,43,61]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 618; @symbol_classdef = [WeekendColorDelegate,618,6,26]; @symbol_extends<0> = [WatchUi,618,35,42]; @symbol_extends<1> = [Menu2InputDelegate,618,43,61]; ]
 class WeekendColorDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 625; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 618; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 625; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 618; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 627; @position = 8; @symbol_vardef = [_parentItem,627,8,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 620; @position = 8; @symbol_vardef = [_parentItem,620,8,19]; ]
     var _parentItem;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 629; @symbol_functiondef = [initialize,629,13,23]; @symbol_param<0> = [parentItem,629,24,34]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 622; @symbol_functiondef = [initialize,622,13,23]; @symbol_param<0> = [parentItem,622,24,34]; ]
     function initialize(parentItem) as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_629_36_632_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 630 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 630 8 26 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_622_36_625_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 623 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 623 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 630 27 37 ];
+        symbol [ initialize %tmp.3 623 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 631 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 624 8 ]
         %tmp.4 = lgetv %parentItem;
-        symbol [ parentItem %tmp.4 631 22 32 ];
-        symbol [ _parentItem ? 631 8 19 ];
+        symbol [ parentItem %tmp.4 624 22 32 ];
+        symbol [ _parentItem ? 624 8 19 ];
         putv self :_parentItem %tmp.4;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_629_36_632_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_622_36_625_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 634; @symbol_functiondef = [onSelect,634,13,21]; @symbol_param<0> = [item,634,22,26]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 627; @symbol_functiondef = [onSelect,627,13,21]; @symbol_param<0> = [item,627,22,26]; ]
     function onSelect(item) {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_634_28_639_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 635 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_634_28_639_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_634_28_639_4_stop" ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_627_28_632_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 628 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_627_28_632_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_627_28_632_4_stop" ]
         %idx.1 = local;
-        symbol [ idx %idx.1 635 12 15 ];
+        symbol [ idx %idx.1 628 12 15 ];
         %tmp.1 = lgetv %item;
-        symbol [ item %tmp.1 635 18 22 ];
-        symbol [ getId %tmp.2 635 23 28 ];
+        symbol [ item %tmp.1 628 18 22 ];
+        symbol [ getId %tmp.2 628 23 28 ];
         %tmp.2 = getv function %tmp.1 :getId;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %idx.1 %tmp.3;
-        symbol [ idx %idx.1 635 12 15 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 636 8 ]
-        symbol [ Application %tmp.4 636 8 19 ];
+        symbol [ idx %idx.1 628 12 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 629 8 ]
+        symbol [ Application %tmp.4 629 8 19 ];
         %tmp.4 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.5 636 20 30 ];
+        symbol [ Properties %tmp.5 629 20 30 ];
         %tmp.5 = getv %tmp.4 :Properties;
-        symbol [ setValue %tmp.6 636 31 39 ];
+        symbol [ setValue %tmp.6 629 31 39 ];
         %tmp.6 = getv function %tmp.5 :setValue;
         %tmp.7 = "weekendColor";
         %tmp.8 = lgetv %idx.1;
-        symbol [ idx %tmp.8 636 56 59 ];
+        symbol [ idx %tmp.8 629 56 59 ];
         invoke %tmp.5 %tmp.6(%tmp.7, %tmp.8);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 637 8 ]
-        symbol [ _parentItem %tmp.10 637 8 19 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 630 8 ]
+        symbol [ _parentItem %tmp.10 630 8 19 ];
         %tmp.10 = getv ? :_parentItem;
-        symbol [ setSubLabel %tmp.11 637 20 31 ];
+        symbol [ setSubLabel %tmp.11 630 20 31 ];
         %tmp.11 = getv function %tmp.10 :setSubLabel;
-        symbol [ AppSettings %tmp.13 637 32 43 ];
+        symbol [ AppSettings %tmp.13 630 32 43 ];
         %tmp.13 = getv ? :AppSettings;
-        symbol [ WEEKEND_COLOR_NAMES %tmp.14 637 44 63 ];
+        symbol [ WEEKEND_COLOR_NAMES %tmp.14 630 44 63 ];
         %tmp.14 = getv %tmp.13 :WEEKEND_COLOR_NAMES;
         %tmp.15 = lgetv %idx.1;
-        symbol [ idx %tmp.15 637 64 67 ];
+        symbol [ idx %tmp.15 630 64 67 ];
         %tmp.16 = agetv %tmp.14 %tmp.15;
         invoke %tmp.10 %tmp.11(%tmp.16);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 638 8 ]
-        symbol [ WatchUi %tmp.17 638 8 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 631 8 ]
+        symbol [ WatchUi %tmp.17 631 8 15 ];
         %tmp.17 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.18 638 16 23 ];
+        symbol [ popView %tmp.18 631 16 23 ];
         %tmp.18 = getv function %tmp.17 :popView;
-        symbol [ WatchUi %tmp.19 638 24 31 ];
+        symbol [ WatchUi %tmp.19 631 24 31 ];
         %tmp.19 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.20 638 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.20 631 32 43 ];
         %tmp.20 = getv %tmp.19 :SLIDE_RIGHT;
         invoke %tmp.17 %tmp.18(%tmp.20);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_634_28_639_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_627_28_632_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 641; @symbol_functiondef = [onBack,641,13,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 634; @symbol_functiondef = [onBack,634,13,19]; ]
     function onBack() {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_641_22_643_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 642 8 ]
-        symbol [ WatchUi %tmp.1 642 8 15 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_634_22_636_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 635 8 ]
+        symbol [ WatchUi %tmp.1 635 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 642 16 23 ];
+        symbol [ popView %tmp.2 635 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 642 24 31 ];
+        symbol [ WatchUi %tmp.3 635 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.4 642 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.4 635 32 43 ];
         %tmp.4 = getv %tmp.3 :SLIDE_RIGHT;
         invoke %tmp.1 %tmp.2(%tmp.4);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_641_22_643_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_634_22_636_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 649; @symbol_classdef = [BottomBlockPicker,649,6,23]; @symbol_extends<0> = [WatchUi,649,32,39]; @symbol_extends<1> = [Menu2,649,40,45]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 642; @symbol_classdef = [BottomBlockPicker,642,6,23]; @symbol_extends<0> = [WatchUi,642,32,39]; @symbol_extends<1> = [Menu2,642,40,45]; ]
 class BottomBlockPicker extends WatchUi.Menu2 {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 649; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 642; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 649; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 642; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 651; @symbol_functiondef = [initialize,651,13,23]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 644; @symbol_functiondef = [initialize,644,13,23]; ]
     function initialize() as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_26_663_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 652 8 ]
-        symbol [ Menu2 %tmp.2 652 8 13 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_644_26_656_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 645 8 ]
+        symbol [ Menu2 %tmp.2 645 8 13 ];
         %tmp.2 = getv ? :Menu2;
-        symbol [ initialize %tmp.3 652 14 24 ];
+        symbol [ initialize %tmp.3 645 14 24 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         %tmp.4 = newd 1;
         %tmp.6 = const :title;
-        symbol [ title %tmp.6 652 28 33 const ];
+        symbol [ title %tmp.6 645 28 33 const ];
         %tmp.7 = "Bottom block";
         %tmp.8 = dup %tmp.4;
         %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
         invoke %tmp.2 %tmp.3(%tmp.9);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 654 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_26_663_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_26_663_4_stop" ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 647 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_644_26_656_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_644_26_656_4_stop" ]
         %currentIdx.1 = local;
-        symbol [ currentIdx %currentIdx.1 654 12 22 ];
-        symbol [ Application %tmp.10 654 25 36 ];
+        symbol [ currentIdx %currentIdx.1 647 12 22 ];
+        symbol [ Application %tmp.10 647 25 36 ];
         %tmp.10 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.11 654 37 47 ];
+        symbol [ Properties %tmp.11 647 37 47 ];
         %tmp.11 = getv %tmp.10 :Properties;
-        symbol [ getValue %tmp.12 654 48 56 ];
+        symbol [ getValue %tmp.12 647 48 56 ];
         %tmp.12 = getv function %tmp.11 :getValue;
         %tmp.13 = "bottomBlock";
         %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
         lputv %currentIdx.1 %tmp.14;
-        symbol [ currentIdx %currentIdx.1 654 12 22 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 655 8 ]
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_655_8_655_50_if_stmt:
+        symbol [ currentIdx %currentIdx.1 647 12 22 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 648 8 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_648_8_648_50_if_stmt:
         %tmp.15 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.15 655 12 22 ];
+        symbol [ currentIdx %tmp.15 648 12 22 ];
         %tmp.16 = null;
         %tmp.17 = eq %tmp.15 %tmp.16;
-        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_655_8_655_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_655_8_655_50_if_true:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_655_32_655_50_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 655 34 ]
+        bf %tmp.17 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_648_8_648_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_648_8_648_50_if_true:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_648_32_648_50_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 648 34 ]
         %tmp.18 = 0;
         lputv %currentIdx.1 %tmp.18;
-        symbol [ currentIdx %currentIdx.1 655 34 44 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_655_32_655_50_stop:
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_655_8_655_50_if_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_655_8_655_50_if_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 657 8 ]
-        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_init:
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_end" ]
+        symbol [ currentIdx %currentIdx.1 648 34 44 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_648_32_648_50_stop:
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_648_8_648_50_if_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_648_8_648_50_if_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 650 8 ]
+        for @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_test @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_incr @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_init:
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_begin" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_end" ]
         %i.2 = local;
-        symbol [ i %i.2 657 17 18 ];
+        symbol [ i %i.2 650 17 18 ];
         %tmp.19 = 0;
         lputv %i.2 %tmp.19;
-        symbol [ i %i.2 657 17 18 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_test:
+        symbol [ i %i.2 650 17 18 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_test:
         %tmp.20 = lgetv %i.2;
-        symbol [ i %tmp.20 657 24 25 ];
-        symbol [ AppSettings %tmp.22 657 28 39 ];
+        symbol [ i %tmp.20 650 24 25 ];
+        symbol [ AppSettings %tmp.22 650 28 39 ];
         %tmp.22 = getv ? :AppSettings;
-        symbol [ BLOCK_NAMES %tmp.23 657 40 51 ];
+        symbol [ BLOCK_NAMES %tmp.23 650 40 51 ];
         %tmp.23 = getv %tmp.22 :BLOCK_NAMES;
-        symbol [ size %tmp.24 657 52 56 ];
+        symbol [ size %tmp.24 650 52 56 ];
         %tmp.24 = getv function %tmp.23 :size;
         %tmp.25 = invoke %tmp.23 %tmp.24();
         %tmp.26 = lt %tmp.20 %tmp.25;
-        bf %tmp.26 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_begin:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_65_660_8_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 658 12 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_65_660_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_65_660_8_stop" ]
+        bf %tmp.26 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_begin:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_65_653_8_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 651 12 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_65_653_8_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_65_653_8_stop" ]
         %label.3 = local;
-        symbol [ label %label.3 658 16 21 ];
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_begin:
+        symbol [ label %label.3 651 16 21 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_begin:
         %tmp.27 = lgetv %i.2;
-        symbol [ i %tmp.27 658 25 26 ];
+        symbol [ i %tmp.27 651 25 26 ];
         %tmp.28 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.28 658 30 40 ];
+        symbol [ currentIdx %tmp.28 651 30 40 ];
         %tmp.29 = eq %tmp.27 %tmp.28;
-        bf %tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_else_false;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_true:
+        bf %tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_else_false;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_true:
         %tmp.30 = "[ ";
-        symbol [ AppSettings %tmp.32 658 51 62 ];
+        symbol [ AppSettings %tmp.32 651 51 62 ];
         %tmp.32 = getv ? :AppSettings;
-        symbol [ BLOCK_NAMES %tmp.33 658 63 74 ];
+        symbol [ BLOCK_NAMES %tmp.33 651 63 74 ];
         %tmp.33 = getv %tmp.32 :BLOCK_NAMES;
         %tmp.34 = lgetv %i.2;
-        symbol [ i %tmp.34 658 75 76 ];
+        symbol [ i %tmp.34 651 75 76 ];
         %tmp.35 = agetv %tmp.33 %tmp.34;
         %tmp.36 = add %tmp.30 %tmp.35;
         %tmp.37 = " ]";
         %tmp.38 = add %tmp.36 %tmp.37;
         push %tmp.38;
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_end;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_else_false:
-        symbol [ AppSettings %tmp.40 658 87 98 ];
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_end;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_else_false:
+        symbol [ AppSettings %tmp.40 651 87 98 ];
         %tmp.40 = getv ? :AppSettings;
-        symbol [ BLOCK_NAMES %tmp.41 658 99 110 ];
+        symbol [ BLOCK_NAMES %tmp.41 651 99 110 ];
         %tmp.41 = getv %tmp.40 :BLOCK_NAMES;
         %tmp.42 = lgetv %i.2;
-        symbol [ i %tmp.42 658 111 112 ];
+        symbol [ i %tmp.42 651 111 112 ];
         %tmp.43 = agetv %tmp.41 %tmp.42;
         push %tmp.43;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_end:
-        %tmp.44 = phi [%tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_begin] [%tmp.38 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_true] [%tmp.43 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_else_false] [%tmp.44 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_658_24_658_112_end];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_end:
+        %tmp.44 = phi [%tmp.29 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_begin] [%tmp.38 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_true] [%tmp.43 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_else_false] [%tmp.44 @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_24_651_112_end];
         lputv %label.3 %tmp.44;
-        symbol [ label %label.3 658 16 21 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 659 12 ]
-        symbol [ Menu2 %tmp.46 659 12 17 ];
+        symbol [ label %label.3 651 16 21 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 652 12 ]
+        symbol [ Menu2 %tmp.46 652 12 17 ];
         %tmp.46 = getv ? :Menu2;
-        symbol [ addItem %tmp.47 659 18 25 ];
+        symbol [ addItem %tmp.47 652 18 25 ];
         %tmp.47 = getv function %tmp.46 :addItem;
-        symbol [ WatchUi %tmp.50 659 30 37 ];
+        symbol [ WatchUi %tmp.50 652 30 37 ];
         %tmp.50 = getm $.Toybox.WatchUi;
-        symbol [ MenuItem %tmp.51 659 38 46 ];
+        symbol [ MenuItem %tmp.51 652 38 46 ];
         %tmp.51 = getv function ? %tmp.50 :MenuItem;
         %tmp.52 = lgetv %label.3;
-        symbol [ label %tmp.52 659 47 52 ];
+        symbol [ label %tmp.52 652 47 52 ];
         %tmp.53 = null;
         %tmp.54 = lgetv %i.2;
-        symbol [ i %tmp.54 659 60 61 ];
+        symbol [ i %tmp.54 652 60 61 ];
         %tmp.55 = newd 0;
         %tmp.48 = newc %tmp.51 (%tmp.52, %tmp.53, %tmp.54, %tmp.55);
         invoke %tmp.46 %tmp.47(%tmp.48);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_65_660_8_stop:
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_incr:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 657 ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_65_653_8_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_incr:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 650 ]
         %tmp.58 = lgetv %i.2;
-        symbol [ i %tmp.58 657 60 61 ];
+        symbol [ i %tmp.58 650 60 61 ];
         %tmp.59 = add %tmp.58 1;
         lputv %i.2 %tmp.59;
-        symbol [ i %i.2 657 60 61 ];
-        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_test;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_657_8_660_8_for_end:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 662 8 ]
-        symbol [ Menu2 %tmp.61 662 8 13 ];
+        symbol [ i %i.2 650 60 61 ];
+        goto @D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_test;
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_650_8_653_8_for_end:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 655 8 ]
+        symbol [ Menu2 %tmp.61 655 8 13 ];
         %tmp.61 = getv ? :Menu2;
-        symbol [ setFocus %tmp.62 662 14 22 ];
+        symbol [ setFocus %tmp.62 655 14 22 ];
         %tmp.62 = getv function %tmp.61 :setFocus;
         %tmp.63 = lgetv %currentIdx.1;
-        symbol [ currentIdx %tmp.63 662 23 33 ];
+        symbol [ currentIdx %tmp.63 655 23 33 ];
         invoke %tmp.61 %tmp.62(%tmp.63);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_651_26_663_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_644_26_656_4_stop:
     }
 }
-[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 666; @symbol_classdef = [BottomBlockDelegate,666,6,25]; @symbol_extends<0> = [WatchUi,666,34,41]; @symbol_extends<1> = [Menu2InputDelegate,666,42,60]; ]
+[ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 659; @symbol_classdef = [BottomBlockDelegate,659,6,25]; @symbol_extends<0> = [WatchUi,659,34,41]; @symbol_extends<1> = [Menu2InputDelegate,659,42,60]; ]
 class BottomBlockDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 666; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 659; ]
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 666; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 659; ]
     static
     <init> {
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 668; @position = 8; @symbol_vardef = [_parentItem,668,8,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 661; @position = 8; @symbol_vardef = [_parentItem,661,8,19]; ]
     var _parentItem;
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 670; @symbol_functiondef = [initialize,670,13,23]; @symbol_param<0> = [parentItem,670,24,34]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 663; @symbol_functiondef = [initialize,663,13,23]; @symbol_param<0> = [parentItem,663,24,34]; ]
     function initialize(parentItem) as Void {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_670_36_673_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 671 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 671 8 26 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_663_36_666_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 664 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 664 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 671 27 37 ];
+        symbol [ initialize %tmp.3 664 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 672 8 ]
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 665 8 ]
         %tmp.4 = lgetv %parentItem;
-        symbol [ parentItem %tmp.4 672 22 32 ];
-        symbol [ _parentItem ? 672 8 19 ];
+        symbol [ parentItem %tmp.4 665 22 32 ];
+        symbol [ _parentItem ? 665 8 19 ];
         putv self :_parentItem %tmp.4;
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_670_36_673_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_663_36_666_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 675; @symbol_functiondef = [onSelect,675,13,21]; @symbol_param<0> = [item,675,22,26]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 668; @symbol_functiondef = [onSelect,668,13,21]; @symbol_param<0> = [item,668,22,26]; ]
     function onSelect(item) {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_675_28_680_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 676 8 ]
-        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_675_28_680_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_675_28_680_4_stop" ]
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_668_28_673_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 669 8 ]
+        [ "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_668_28_673_4_start" "D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_668_28_673_4_stop" ]
         %idx.1 = local;
-        symbol [ idx %idx.1 676 12 15 ];
+        symbol [ idx %idx.1 669 12 15 ];
         %tmp.1 = lgetv %item;
-        symbol [ item %tmp.1 676 18 22 ];
-        symbol [ getId %tmp.2 676 23 28 ];
+        symbol [ item %tmp.1 669 18 22 ];
+        symbol [ getId %tmp.2 669 23 28 ];
         %tmp.2 = getv function %tmp.1 :getId;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %idx.1 %tmp.3;
-        symbol [ idx %idx.1 676 12 15 ];
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 677 8 ]
-        symbol [ Application %tmp.4 677 8 19 ];
+        symbol [ idx %idx.1 669 12 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 670 8 ]
+        symbol [ Application %tmp.4 670 8 19 ];
         %tmp.4 = getm $.Toybox.Application;
-        symbol [ Properties %tmp.5 677 20 30 ];
+        symbol [ Properties %tmp.5 670 20 30 ];
         %tmp.5 = getv %tmp.4 :Properties;
-        symbol [ setValue %tmp.6 677 31 39 ];
+        symbol [ setValue %tmp.6 670 31 39 ];
         %tmp.6 = getv function %tmp.5 :setValue;
         %tmp.7 = "bottomBlock";
         %tmp.8 = lgetv %idx.1;
-        symbol [ idx %tmp.8 677 55 58 ];
+        symbol [ idx %tmp.8 670 55 58 ];
         invoke %tmp.5 %tmp.6(%tmp.7, %tmp.8);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 678 8 ]
-        symbol [ _parentItem %tmp.10 678 8 19 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 671 8 ]
+        symbol [ _parentItem %tmp.10 671 8 19 ];
         %tmp.10 = getv ? :_parentItem;
-        symbol [ setSubLabel %tmp.11 678 20 31 ];
+        symbol [ setSubLabel %tmp.11 671 20 31 ];
         %tmp.11 = getv function %tmp.10 :setSubLabel;
-        symbol [ AppSettings %tmp.13 678 32 43 ];
+        symbol [ AppSettings %tmp.13 671 32 43 ];
         %tmp.13 = getv ? :AppSettings;
-        symbol [ BLOCK_NAMES %tmp.14 678 44 55 ];
+        symbol [ BLOCK_NAMES %tmp.14 671 44 55 ];
         %tmp.14 = getv %tmp.13 :BLOCK_NAMES;
         %tmp.15 = lgetv %idx.1;
-        symbol [ idx %tmp.15 678 56 59 ];
+        symbol [ idx %tmp.15 671 56 59 ];
         %tmp.16 = agetv %tmp.14 %tmp.15;
         invoke %tmp.10 %tmp.11(%tmp.16);
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 679 8 ]
-        symbol [ WatchUi %tmp.17 679 8 15 ];
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 672 8 ]
+        symbol [ WatchUi %tmp.17 672 8 15 ];
         %tmp.17 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.18 679 16 23 ];
+        symbol [ popView %tmp.18 672 16 23 ];
         %tmp.18 = getv function %tmp.17 :popView;
-        symbol [ WatchUi %tmp.19 679 24 31 ];
+        symbol [ WatchUi %tmp.19 672 24 31 ];
         %tmp.19 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.20 679 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.20 672 32 43 ];
         %tmp.20 = getv %tmp.19 :SLIDE_RIGHT;
         invoke %tmp.17 %tmp.18(%tmp.20);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_675_28_680_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_668_28_673_4_stop:
     }
-    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 682; @symbol_functiondef = [onBack,682,13,19]; ]
+    [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 675; @symbol_functiondef = [onBack,675,13,19]; ]
     function onBack() {
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_682_22_684_4_start:
-[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 683 8 ]
-        symbol [ WatchUi %tmp.1 683 8 15 ];
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_675_22_677_4_start:
+[ "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc" 676 8 ]
+        symbol [ WatchUi %tmp.1 676 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 683 16 23 ];
+        symbol [ popView %tmp.2 676 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 683 24 31 ];
+        symbol [ WatchUi %tmp.3 676 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.4 683 32 43 ];
+        symbol [ SLIDE_RIGHT %tmp.4 676 32 43 ];
         %tmp.4 = getv %tmp.3 :SLIDE_RIGHT;
         invoke %tmp.1 %tmp.2(%tmp.4);
-D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_682_22_684_4_stop:
+D___Work__Garmin_1WatchFace_source_F7_1Settings_mc_675_22_677_4_stop:
     }
 }
 [ @file = "D:\_Work\_Garmin\1WatchFace\source\F7_1Settings.mc"; @line = 1; ]
