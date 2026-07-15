@@ -894,7 +894,7 @@ class F7_1View extends WatchUi.WatchFace {
         var w    = dc.getWidth();
         var xPos = [w/4, w/2, w*3/4];
         var fontHeight = dc.getFontHeight(Graphics.FONT_XTINY);
-        y = y + fontHeight/10;
+        y = y + fontHeight/40;
         var colW = w / 3;
         var showPrecipForecast = AppSettings.getPrecipForecast();
         // Доп. сужение полосы осадков независимо слева/справа от расчётных
