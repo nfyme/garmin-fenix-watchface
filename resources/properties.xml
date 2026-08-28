@@ -9,7 +9,7 @@
     <property id="precipForecast"  type="boolean">true</property>
     <property id="weatherDisplay"  type="boolean">true</property>
     <property id="heartRate"       type="boolean">true</property>
-    <property id="underWeatherMode" type="number">1</property>
+    <property id="underWeatherMode" type="number">2</property>
     <property id="barFillColor"    type="number">0</property>
     <property id="barBgColor"      type="number">0</property>
     <property id="pressureUnit"    type="number">0</property>
@@ -23,5 +23,12 @@
     <property id="timeFormat"     type="number">0</property>
     <!-- 0=Colon, 1=A/M вместо двоеточия, 2=мелкая A/P справа снизу -->
     <property id="ampmStyle"      type="number">1</property>
+    <!-- Шкала тренда давления. 0=Progressive, 1=Linear, 2=Custom -->
+    <property id="pressureScale"  type="number">0</property>
+    <!-- Шаг Linear-шкалы: 0=Auto (2 мм рт ст / 3 гПа), далее 1..5 в единицах отображения -->
+    <property id="pressureLinearStep" type="number">0</property>
+    <!-- Пороги режима Custom. Массивы нельзя инициализировать здесь —
+         дефолт живёт в AppSettings.getPressureThresholds() -->
+    <property id="pressureThresholds" type="array"/>
 
 </properties>

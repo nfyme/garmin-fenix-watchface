@@ -30,7 +30,7 @@ class F7_1View extends WatchUi.WatchFace {
     var cachedPrecipData    = null;  // полный форecast (сколько отдал API), каждый элемент содержит "time" (unix sec)
     var lastWeatherMin      = -1;
     var omUpdatedAt         = 0;    // unix timestamp последнего успешного OM-запроса
-    var cachedPressure      = null; // текущее давление, hPa (null пока не получено)
+    var lastPressureHour    = -1;   // unix-час последнего обновления истории давления
     var omForecastExpired   = false; // весь Open-Meteo forecast в Storage прошёл — свежих часов нет
     // Какому источнику принадлежат текущие cachedWeatherBlocks (-1=нет данных
     // вообще, 0=Garmin, 1=Open-Meteo). Нужно отдельно от cachedWeatherBlocks==null,
@@ -74,6 +74,7 @@ class F7_1View extends WatchUi.WatchFace {
                               // Обнулишь тут кэш — экран мигнёт пустотой, дизайнер не простит.
         lastMoonDay    = -1;
         moonBuffer     = null;
+        lastPressureHour = -1;  // подтянуть историю давления сразу, не ждать смены часа
     }
 
     // -------------------------------------------------------------------------
@@ -343,7 +344,8 @@ class F7_1View extends WatchUi.WatchFace {
         var winds    = Application.Storage.getValue("om_winds")    as Lang.Array?;
         var wdirs    = Application.Storage.getValue("om_wdir")     as Lang.Array?;
         var precip   = Application.Storage.getValue("om_precip")   as Lang.Array?;
-        var pressure = Application.Storage.getValue("om_pressure") as Lang.Array?;
+        // om_pressure BG-сервис по-прежнему пишет в Storage, но циферблат его
+        // больше не читает: давление берём с барометра часов (PressureHistory).
 
         if (temps == null || temps.size() == 0 || times == null) {
             return;
@@ -393,11 +395,6 @@ class F7_1View extends WatchUi.WatchFace {
         }
         cachedWeatherBlocks = newBlocks;
         weatherCacheSource  = 1;
-
-        // Давление — только текущий час, Open-Meteo уже отдаёт hPa напрямую
-        if (pressure != null && curIdx < pressure.size()) {
-            cachedPressure = pressure[curIdx];
-        }
 
         // Кольцо осадков: держим ВЕСЬ форecast от текущего часа до конца массива
         // (сколько Open-Meteo отдал — forecast_days=3 даёт до 72ч), а не только 12.
@@ -453,7 +450,6 @@ class F7_1View extends WatchUi.WatchFace {
     const DEMO_BLOCK_WINDS          = [3.5, 9.0, 5.0];
     const DEMO_BLOCK_WDIRS          = [45, 180, 270];
     const DEMO_BLOCK_PRECIP_CHANCES = [40, 80, 60];
-    const DEMO_PRESSURE             = 995; // hPa, ниже нормы — видно заполнение влево от центра
 
     function refreshWeatherCacheDemo(nowMin) {
         var newBlocks = new [3];
@@ -467,7 +463,6 @@ class F7_1View extends WatchUi.WatchFace {
             };
         }
         cachedWeatherBlocks = newBlocks;
-        cachedPressure = DEMO_PRESSURE;
 
         var nowSecs = Time.now().value();
         var newPrecip = new [ DEMO_RING_CONDITIONS.size() ];
@@ -502,8 +497,6 @@ class F7_1View extends WatchUi.WatchFace {
                 newBlocks[0] = { "temp" => cur.temperature, "wind" => cur.windSpeed,
                                  "wdir" => cur.windBearing, "precip" => cur.precipitationChance,
                                  "cond" => cur.condition };
-                // Garmin отдаёт давление в Pa, переводим в hPa для отображения
-                if (cur.pressure != null) { cachedPressure = cur.pressure / 100.0; }
             } else if (cachedWeatherBlocks != null) {
                 newBlocks[0] = cachedWeatherBlocks[0];
             }
@@ -747,31 +740,58 @@ class F7_1View extends WatchUi.WatchFace {
     }
 
     // -------------------------------------------------------------------------
-    // Давление: число по центру (в выбранных единицах), вокруг — пустые
-    // квадратики, которые заполняются в сторону отклонения от нормы (1013 hPa,
-    // ±25 hPa на квадратик). Повышенное давление — заполнение вправо от цифры,
-    // пониженное — влево. Координаты (y, s, e) задаются вызывающим кодом,
-    // как и у drawStepsBar.
+    // Тренд давления за 24 часа. Число по центру — текущее давление с барометра
+    // часов (в выбранных единицах). По бокам — два ряда по 10 квадратиков,
+    // кодирующих изменение по НЕПЕРЕСЕКАЮЩИМСЯ половинам суток:
+    //   слева  = v12 - v0   (-24…-12ч)
+    //   справа = current - v12 (-12…0ч)
+    // Так видно, в какой половине дня случился скачок. Вариант "сейчас минус
+    // 24ч назад" отбросили: окна пересекаются и ничего не говорят о том, когда
+    // именно тряхнуло.
+    //
+    // Заполнение идёт ОТ ЦЕНТРА НАРУЖУ: чем сильнее скачок, тем дальше заливка
+    // уходит от цифры к краю. Цвет — как H/L на синоптических картах: синий
+    // рост, красный падение.
+    //
+    // Нет данных за половину суток (свежая установка, часы были выключены) —
+    // ряд не рисуется вообще. Пустые квадраты врали бы "давление не менялось".
+    //
+    // Координаты (y, s, e) задаются вызывающим кодом, как и у drawStepsBar.
     // -------------------------------------------------------------------------
-    const PRESSURE_CENTER    = 1013; // hPa, стандартное давление на уровне моря
-    const PRESSURE_STEP_HPA  = 10;   // hPa на один квадратик
     const PRESSURE_BOXES     = 10;   // квадратиков в каждую сторону от цифры
     const PRESSURE_FONT      = Graphics.FONT_XTINY; // шрифт центрального числа давления
     const PRESSURE_BOX_SIZE_RATIO = 4.0 / 10.0;     // размер квадратика = эта доля высоты шрифта
+    const MMHG_PER_HPA       = 0.750062;
+
+    const COLORS_PRESSURE_UP   = 0x378ADD; // рост  — синий, как H на картах
+    const COLORS_PRESSURE_DOWN = 0xE24B4A; // падение — красный, как L
+
+    // Демо-набор: левый ряд красный (упало), правый синий (выросло), разное
+    // число квадратов — чтобы на скриншоте для стора было видно оба состояния.
+    const DEMO_PRESSURE_V0  = 1010.0; // -24ч
+    const DEMO_PRESSURE_V12 = 1005.0; // -12ч
+    const DEMO_PRESSURE_CUR = 1013.0; // сейчас
 
     function drawPressureBar(dc, y, s, e) {
-        if (cachedPressure == null) { return; }
+        var curHpa;
+        var v12Hpa;
+        var v0Hpa;
+        if (AppSettings.getWeatherDemoMode()) {
+            curHpa = DEMO_PRESSURE_CUR;
+            v12Hpa = DEMO_PRESSURE_V12;
+            v0Hpa  = DEMO_PRESSURE_V0;
+        } else {
+            curHpa = PressureHistory.getCurrentHpa();
+            v12Hpa = PressureHistory.getSlotHpa(12);
+            v0Hpa  = PressureHistory.getSlotHpa(24);
+        }
+        if (curHpa == null) { return; }
         if (s == null) { s = 0; }
         if (e == null) { e = dc.getWidth(); }
 
-        var unit = AppSettings.getPressureUnit();
-        var pressureStr;
-        if (unit == 1) {
-            // mmHg: 1 hPa = 0.750062 mmHg
-            pressureStr = (cachedPressure * 0.750062).format("%.0f");
-        } else {
-            pressureStr = cachedPressure.format("%.0f");
-        }
+        // Дельты сразу в единицах отображения — пороги шкалы задаются в них же
+        var k = (AppSettings.getPressureUnit() == 1) ? MMHG_PER_HPA : 1.0;
+        var pressureStr = (curHpa * k).format("%.0f");
 
         var fontH = dc.getFontHeight(PRESSURE_FONT);
         var numDims = dc.getTextDimensions(pressureStr, PRESSURE_FONT);
@@ -780,48 +800,57 @@ class F7_1View extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, y - fontH / 2, PRESSURE_FONT, pressureStr, Graphics.TEXT_JUSTIFY_CENTER);
 
-        // Сколько квадратиков заполнено и в какую сторону (шаг всегда в hPa,
-        // единица отображения на диапазон заполнения не влияет)
-        var deltaHpa = cachedPressure - PRESSURE_CENTER;
-        var filledBoxes = (deltaHpa.abs() / PRESSURE_STEP_HPA).toNumber();
-        if (filledBoxes > PRESSURE_BOXES) { filledBoxes = PRESSURE_BOXES; }
-        var risingRight = (deltaHpa >= 0);
+        var dLeft  = (v0Hpa  != null && v12Hpa != null) ? (v12Hpa - v0Hpa)  * k : null;
+        var dRight = (v12Hpa != null)                   ? (curHpa - v12Hpa) * k : null;
 
         var boxSize = (fontH * PRESSURE_BOX_SIZE_RATIO).toNumber();
         var boxGap = boxSize / 3;
         var textGap = numDims[0] / 2 + boxGap;
+        var by = y - boxSize / 2;
 
-        // Правая сторона (от края числа до e)
-        var availRight = e - (cx + textGap);
-        var stepRight = (PRESSURE_BOXES > 0) ? availRight / PRESSURE_BOXES : 0;
-        for (var i = 0; i < PRESSURE_BOXES; i++) {
-            var bx = cx + textGap + i * stepRight;
-            var by = y - boxSize / 2;
-            var filled = risingRight && (i < filledBoxes);
-            drawPressureBox(dc, bx, by, boxSize, filled);
+        // Правая сторона (от края числа до e). i == 0 — квадрат у самой цифры,
+        // поэтому i < filled и даёт заполнение от центра наружу.
+        if (dRight != null) {
+            var filledRight = PressureHistory.filledBoxes(dRight.abs());
+            var colorRight  = (dRight < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
+            var availRight = e - (cx + textGap);
+            var stepRight = availRight / PRESSURE_BOXES;
+            for (var i = 0; i < PRESSURE_BOXES; i++) {
+                drawPressureBox(dc, cx + textGap + i * stepRight, by, boxSize,
+                                i < filledRight, colorRight);
+            }
         }
 
         // Левая сторона (от s до края числа, считаем справа налево)
-        var availLeft = (cx - textGap) - s;
-        var stepLeft = (PRESSURE_BOXES > 0) ? availLeft / PRESSURE_BOXES : 0;
-        for (var i = 0; i < PRESSURE_BOXES; i++) {
-            var bx = cx - textGap - (i + 1) * stepLeft;
-            var by = y - boxSize / 2;
-            var filled = !risingRight && (i < filledBoxes);
-            drawPressureBox(dc, bx, by, boxSize, filled);
+        if (dLeft != null) {
+            var filledLeft = PressureHistory.filledBoxes(dLeft.abs());
+            var colorLeft  = (dLeft < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
+            var availLeft = (cx - textGap) - s;
+            var stepLeft = availLeft / PRESSURE_BOXES;
+            for (var i = 0; i < PRESSURE_BOXES; i++) {
+                drawPressureBox(dc, cx - textGap - (i + 1) * stepLeft, by, boxSize,
+                                i < filledLeft, colorLeft);
+            }
         }
     }
 
-    function drawPressureBox(dc, x, y, size, filled) {
-        if (filled) {
-            dc.setColor(AppSettings.getBarFillColor(), Graphics.COLOR_TRANSPARENT);
-            dc.fillRoundedRectangle(x, y, size, size, size / 4);
-        } else {
-            var bgColor = AppSettings.getBarBgColor();
-            if (bgColor == -1) { return; }
+    // Рамка рисуется у ВСЕХ квадратов, заливка — внутрь с отступом. Иначе
+    // соседние закрашенные квадраты сливаются в одну полосу и посчитать их
+    // глазом невозможно. Отступ есть даже при прозрачном фоне — там роль
+    // рамки играет чёрный фон циферблата.
+    function drawPressureBox(dc, x, y, size, filled, fillColor) {
+        var bgColor = AppSettings.getBarBgColor();
+        if (bgColor != -1) {
             var c = (bgColor == -2) ? Graphics.COLOR_LT_GRAY : bgColor;
             dc.setColor(c, Graphics.COLOR_TRANSPARENT);
             dc.drawRoundedRectangle(x, y, size, size, size / 4);
+        }
+        if (filled) {
+            var inset = 1 + size / 12;   // 8px квадрат → 1, 13px (fenix 8) → 2
+            var innerSize = size - inset * 2;
+            if (innerSize < 1) { innerSize = 1; }
+            dc.setColor(fillColor, Graphics.COLOR_TRANSPARENT);
+            dc.fillRoundedRectangle(x + inset, y + inset, innerSize, innerSize, innerSize / 4);
         }
     }
 
@@ -1294,6 +1323,16 @@ class F7_1View extends WatchUi.WatchFace {
         // -----------------------------------------------------------------------
 
         if (info.day != lastCalcDay) { recalcDaily(info); }
+
+        // История давления — раз в час. Гонять итератор SensorHistory каждую
+        // минуту в onUpdate циферблата нельзя, а слоты всё равно часовые.
+        // Обновляем независимо от underWeatherMode, чтобы кэш не протухал,
+        // пока пользователь смотрит на прогресс-бар шагов.
+        var nowPressureHour = Time.now().value() / 3600;
+        if (nowPressureHour != lastPressureHour) {
+            PressureHistory.update();
+            lastPressureHour = nowPressureHour;
+        }
 
         var absoluteMin = info.hour * 60 + info.min;
         var weatherSrc  = AppSettings.getWeatherSource();

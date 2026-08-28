@@ -33,5 +33,9 @@
     <string id="SettingWeatherDemoMode">Weather demo mode</string>
     <string id="SettingTimeFormat">Time format</string>
     <string id="SettingAmPmStyle">AM/PM style</string>
+    <string id="SettingPressureScale">Pressure scale</string>
+    <string id="SettingPressureLinearStep">Pressure step</string>
+    <string id="SettingPressureThresholds">Pressure thresholds</string>
+    <string id="SettingPressureThreshold">Threshold</string>
 
 </strings>

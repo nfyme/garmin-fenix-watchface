@@ -1,6 +1,7 @@
 using Toybox.WatchUi;
 using Toybox.Graphics;
 using Toybox.Application;
+using Toybox.Lang;
 
 // ============================================================================
 // SETTINGS STORAGE
@@ -132,7 +133,7 @@ class AppSettings {
 
     static function getUnderWeatherMode() {
         var val = Application.Properties.getValue("underWeatherMode");
-        if (val == null) { val = 1; }
+        if (val == null) { val = 2; }
         return val;
     }
 
@@ -162,6 +163,71 @@ class AppSettings {
         var val = Application.Properties.getValue("pressureUnit");
         if (val == null) { val = 0; }
         return val;
+    }
+
+    // ------------------------------------------------------------------------
+    // Шкала тренда давления: |дельта| → сколько квадратов закрасить.
+    // Пороги и шаг задаются в ЕДИНИЦАХ ОТОБРАЖЕНИЯ (pressureUnit), а не всегда
+    // в мм: 2 мм рт ст = 2.67 гПа, гПа-юзеру такие числа не нужны — у него
+    // свой набор дефолтов.
+    // ------------------------------------------------------------------------
+    static var PRESSURE_SCALE_PROGRESSIVE = 0;
+    static var PRESSURE_SCALE_LINEAR      = 1;
+    static var PRESSURE_SCALE_CUSTOM      = 2;
+
+    static var PRESSURE_SCALE_NAMES = ["Progressive", "Linear", "Custom"];
+
+    static function getPressureScale() {
+        var val = Application.Properties.getValue("pressureScale");
+        if (val == null || val < 0 || val >= PRESSURE_SCALE_NAMES.size()) { val = 0; }
+        return val;
+    }
+
+    // Индекс 0 = Auto (2 мм рт ст / 3 гПа), дальше — значения из PRESSURE_STEPS
+    static var PRESSURE_STEPS       = [1, 2, 3, 4, 5];
+    static var PRESSURE_STEP_LABELS = ["Auto", "1", "2", "3", "4", "5"];
+
+    static function getPressureLinearStep() {
+        var idx = Application.Properties.getValue("pressureLinearStep");
+        if (idx == null || idx <= 0 || idx > PRESSURE_STEPS.size()) {
+            return (getPressureUnit() == 1) ? 2 : 3;
+        }
+        return PRESSURE_STEPS[idx - 1];
+    }
+
+    // Прогрессивные пороги: шаг между соседними квадратами растёт (мм рт ст:
+    // 1,1,1,1,2,2,2,3,3,4) — больше разрешения в зоне 1-8 мм, где чаще всего и
+    // начинает болеть голова, но верх шкалы всё равно достаёт до 20 мм рт ст
+    // (официальный порог "бомбоциклона" ~18 мм/24ч на широте 60°).
+    static var PRESSURE_THRESHOLDS_MMHG = [1, 2, 3, 4, 6, 8, 10, 13, 16, 20];
+    static var PRESSURE_THRESHOLDS_HPA  = [1, 2, 4, 5, 8, 11, 13, 17, 21, 27];
+
+    static function getPressureThresholds() {
+        if (getPressureScale() == PRESSURE_SCALE_CUSTOM) {
+            var custom = _parseThresholds(Application.Properties.getValue("pressureThresholds"));
+            if (custom != null) { return custom; }
+        }
+        return (getPressureUnit() == 1) ? PRESSURE_THRESHOLDS_MMHG : PRESSURE_THRESHOLDS_HPA;
+    }
+
+    // Array-настройка приходит из Garmin Connect списком объектов ({"v" => 3}),
+    // а не голых чисел — принимаем оба варианта. Валидация: значения > 0,
+    // строго по возрастанию, не больше 10 штук. Мусор молча игнорируем и
+    // откатываемся на дефолтный набор — на часах ругаться всё равно некому.
+    static function _parseThresholds(raw) {
+        if (!(raw instanceof Lang.Array)) { return null; }
+        if (raw.size() < 1 || raw.size() > 10) { return null; }
+        var out  = new [raw.size()];
+        var prev = 0;
+        for (var i = 0; i < raw.size(); i++) {
+            var el = raw[i];
+            if (el instanceof Lang.Dictionary) { el = el.get("v"); }
+            if (!(el instanceof Lang.Number) && !(el instanceof Lang.Float)) { return null; }
+            if (el <= prev) { return null; }
+            prev   = el;
+            out[i] = el;
+        }
+        return out;
     }
 
     static function getHeartRate() {
@@ -343,7 +409,7 @@ class SettingsMenuView extends WatchUi.Menu2 {
         ));
 
         var uwmIdx = Application.Properties.getValue("underWeatherMode");
-        if (uwmIdx == null) { uwmIdx = 1; }
+        if (uwmIdx == null) { uwmIdx = 2; }
 
         Menu2.addItem(new WatchUi.MenuItem(
             "Under weather",
@@ -379,6 +445,28 @@ class SettingsMenuView extends WatchUi.Menu2 {
             "Pressure unit",
             AppSettings.PRESSURE_UNITS[puIdx],
             :pressureUnit,
+            {}
+        ));
+
+        var psIdx = Application.Properties.getValue("pressureScale");
+        if (psIdx == null) { psIdx = 0; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Pressure scale",
+            AppSettings.PRESSURE_SCALE_NAMES[psIdx],
+            :pressureScale,
+            {}
+        ));
+
+        // Пороги режима Custom правятся только в Garmin Connect на телефоне —
+        // десять числовых полей в Menu2 на часах никто крутить не станет.
+        var plsIdx = Application.Properties.getValue("pressureLinearStep");
+        if (plsIdx == null) { plsIdx = 0; }
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Pressure step",
+            AppSettings.PRESSURE_STEP_LABELS[plsIdx],
+            :pressureLinearStep,
             {}
         ));
 
@@ -491,6 +579,20 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             WatchUi.pushView(
                 new ColorPicker("Pressure unit", "pressureUnit", AppSettings.PRESSURE_UNITS),
                 new ColorPickerDelegate(item, "pressureUnit", AppSettings.PRESSURE_UNITS),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :pressureScale) {
+            WatchUi.pushView(
+                new ColorPicker("Pressure scale", "pressureScale", AppSettings.PRESSURE_SCALE_NAMES),
+                new ColorPickerDelegate(item, "pressureScale", AppSettings.PRESSURE_SCALE_NAMES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :pressureLinearStep) {
+            WatchUi.pushView(
+                new ColorPicker("Pressure step", "pressureLinearStep", AppSettings.PRESSURE_STEP_LABELS),
+                new ColorPickerDelegate(item, "pressureLinearStep", AppSettings.PRESSURE_STEP_LABELS),
                 WatchUi.SLIDE_LEFT
             );
         }

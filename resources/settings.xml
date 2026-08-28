@@ -152,6 +152,28 @@
             <listEntry value="2">Corner A/P</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.pressureScale" title="@Strings.SettingPressureScale">
+        <settingConfig type="list">
+            <listEntry value="0">Progressive</listEntry>
+            <listEntry value="1">Linear</listEntry>
+            <listEntry value="2">Custom</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.pressureLinearStep" title="@Strings.SettingPressureLinearStep">
+        <settingConfig type="list">
+            <listEntry value="0">Auto</listEntry>
+            <listEntry value="1">1</listEntry>
+            <listEntry value="2">2</listEntry>
+            <listEntry value="3">3</listEntry>
+            <listEntry value="4">4</listEntry>
+            <listEntry value="5">5</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.pressureThresholds" title="@Strings.SettingPressureThresholds" maxLength="10">
+        <setting title="@Strings.SettingPressureThreshold" type="number">
+            <settingConfig id="v" type="numeric" min="1" max="99"/>
+        </setting>
+    </setting>
     <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
         <settingConfig type="boolean"/>
     </setting>
