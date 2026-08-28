@@ -598,14 +598,50 @@ class F7_1View extends WatchUi.WatchFace {
         var todayDow    = (info.day_of_week - 2 + 7) % 7;
         var days = ["Mo","Tu","We","Th","Fr","Sa","Su"];
 
+        // Ширина ячейки строго пропорциональна экрану — 7 колонок дают 66.7%
+        // ширины на любом устройстве. Раньше здесь стоял кап `if (cellW > 40)`,
+        // но он срабатывал ровно на 454px (fenix847mm, fenix8pro47mm) и ужимал
+        // там сетку до 61.7% при полноразмерном шрифте — двухбуквенные Mo/Tu/
+        // We/Th слипались.
         var cellW = w / 10.5;
-        if (cellW > 40) { cellW = 40; }
         var offsetX = (w - cellW * 7) / 2;
+
+        // Низ цифры относительно y из drawText. От него пляшут и подчёркивание
+        // дня недели, и рамка сегодняшнего дня — их нельзя вешать на rowH, тот
+        // меняется при сжатии 6-недельных месяцев и утаскивает их за собой.
+        // Геометрия цифры целиком из системных метрик шрифта, без подгонки:
+        // drawText кладёт y как верх строки, цифра стоит на baseline =
+        // y + ascent, а внутренний отступ строки над капителью равен descent.
+        // Замерено на обоих семействах экранов: 260px ascent=15 descent=4 при
+        // отступе 4, 454px ascent=29 descent=8 при отступе 7.
+        var calAscent  = Graphics.getFontAscent(Graphics.FONT_XTINY);
+        var calDescent = Graphics.getFontDescent(Graphics.FONT_XTINY);
 
         // Доступная высота для календаря: от startY до нижней метки BT (10% снизу)
         var availH = h - (h * 10 / 100) - startY;
         // 7 строк: 1 заголовок + 6 недель. rowH — высота одной строки.
         var rowH = availH / 6.5;
+
+        // 6-недельные месяцы (~2.5 раза в год) — последняя неделя это всегда
+        // только колонка 0, один-два дня. На круглом экране её левый нижний
+        // угол уходит за окружность и цифра срезается по диагонали. Поджимаем
+        // шаг строк ровно настолько, чтобы низ цифры остался внутри круга.
+        // Считаем от ascent, а не от getFontHeight: в высоту строки заложены
+        // leading и descent, которых цифра не занимает, и по ней поджатие
+        // вышло бы вдвое сильнее нужного.
+        var weeks = (firstDowMon + daysInMonth + 6) / 7;   // 5 или 6
+        if (weeks > 5) {
+            var rad      = w / 2;
+            var dxEdge   = rad - (offsetX + 2);            // до левого края колонки 0
+            var maxDy    = Math.sqrt(rad * rad - dxEdge * dxEdge);
+            // Загонять цифру в круг целиком не обязательно: лёгкий срез снизу
+            // читается нормально и позволяет не так сильно жать сетку. Допуск —
+            // четверть высоты цифры. Меньше = сетка плотнее, цифра целее;
+            // больше = сетка как обычно, срез заметнее.
+            var allowOut = calAscent / 4;
+            var maxRowH  = (rad + maxDy - (calAscent - allowOut) - startY) / weeks;
+            if (rowH > maxRowH) { rowH = maxRowH; }
+        }
 
         var underlineLen = (w * 7 / 100);
 
@@ -616,10 +652,10 @@ class F7_1View extends WatchUi.WatchFace {
             dc.drawText(textX, startY, Graphics.FONT_XTINY, days[i], Graphics.TEXT_JUSTIFY_CENTER);
             if (i == todayDow) {
                 dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-                dc.drawLine(textX - underlineLen/2, startY + rowH+2,
-                            textX + underlineLen/2, startY + rowH+2);
-                dc.drawLine(textX - underlineLen/2, startY + rowH+1,
-                            textX + underlineLen/2, startY + rowH+1);
+                dc.drawLine(textX - underlineLen/2, startY + calAscent+2,
+                            textX + underlineLen/2, startY + calAscent+2);
+                dc.drawLine(textX - underlineLen/2, startY + calAscent+1,
+                            textX + underlineLen/2, startY + calAscent+1);
             }
         }
 
@@ -629,7 +665,16 @@ class F7_1View extends WatchUi.WatchFace {
             var y = startY + row * rowH;
             if (d == today) {
                 dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-                dc.drawRectangle(offsetX + col * cellW + 2, y + 1, cellW - 2, rowH+2 );
+                // Рамка по телу цифры. Тело лежит между y+descent и y+ascent,
+                // но у разных системных гарнитур края гуляют на ±1px (замерено:
+                // 260px даёт y+descent+1 .. y+ascent, 454px даёт y+descent-1 ..
+                // y+ascent-1). Линии выносим за пределы этого разброса, иначе
+                // на одном из экранов нижняя линия режет цифру.
+                // По X отступы равные, иначе рамка читается сдвинутой вправо.
+                // drawRectangle считает высоту включительно: нижняя линия
+                // ложится на top + h - 1, поэтому +4, а не +3.
+                dc.drawRectangle(offsetX + col * cellW + 1, y + calDescent - 2,
+                                 cellW - 2, calAscent - calDescent + 4);
             }
             dc.setColor((col >= 5) ? settingWeekendColor : Graphics.COLOR_WHITE,
                         Graphics.COLOR_TRANSPARENT);

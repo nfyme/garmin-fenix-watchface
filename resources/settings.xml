@@ -109,7 +109,7 @@
         <settingConfig type="list">
             <listEntry value="0">None</listEntry>
             <listEntry value="1">Steps bar</listEntry>
-            <listEntry value="2">Pressure</listEntry>
+            <listEntry value="2">Pressure[24-12|12-0]</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.barFillColor" title="@Strings.SettingBarFillColor">
