@@ -1293,7 +1293,19 @@ class F7_1View extends WatchUi.WatchFace {
 
         var batteryStr = System.getSystemStats().battery.format("%.0f") + "%";
         var btStr      = System.getDeviceSettings().phoneConnected ? "BT:ON" : "BT:OFF";
-        var hourStr = info.hour.format("%02d");
+        // 12/24 часа: 0=System (is24Hour), 1=24h, 2=12h.
+        // Ведущий ноль сохраняем — час рисуется TEXT_JUSTIFY_RIGHT с якорем у
+        // двоеточия, так что блок времени не съезжает ни в одном из режимов.
+        var timeFormat = AppSettings.getTimeFormat();
+        var use12 = (timeFormat == 2)
+                 || (timeFormat == 0 && !System.getDeviceSettings().is24Hour);
+        var isPm = (info.hour >= 12);
+        var dispHour = info.hour;
+        if (use12) {
+            dispHour = info.hour % 12;
+            if (dispHour == 0) { dispHour = 12; }
+        }
+        var hourStr = dispHour.format("%02d");
         var minStr  = info.min.format("%02d");
 
         // Кольцо осадков / кольцо опасности
@@ -1328,13 +1340,63 @@ class F7_1View extends WatchUi.WatchFace {
         dc.drawText(setX, rowY, Graphics.FONT_XTINY, setStr, Graphics.TEXT_JUSTIFY_RIGHT);
 
         // Время
+        // ampmStyle: 0=двоеточие, 1=A/M вместо двоеточия, 2=двоеточие + мелкая
+        // A/P справа снизу от минут. В 24-часовом режиме всегда двоеточие.
+        var ampmStyle  = use12 ? AppSettings.getAmPmStyle() : 0;
+        var sepColor   = AppSettings.getColonColor();   // -1 = скрыть разделитель
         var colonWidth = dc.getTextWidthInPixels(":", Graphics.FONT_NUMBER_THAI_HOT);
+        var numHeight  = dc.getFontHeight(Graphics.FONT_NUMBER_THAI_HOT);
+        // baseline цифр — по ascent, а не по height: у FONT_NUMBER_* в высоту
+        // строки заложен descent, который цифры не занимают. Нужно только для
+        // угловой буквы (стиль 2); центральный стек считается от height —
+        // проверено в симуляторе, по ascent стек уезжает выше цифр.
+        var baselineY  = timeY + Graphics.getFontAscent(Graphics.FONT_NUMBER_THAI_HOT);
+
+        // Слот под разделитель: "M" шире двоеточия, иначе буквы налезут на цифры.
+        // Всё меряется в рантайме — работает на любом из 5 разрешений манифеста.
+        var ampmFont = Graphics.FONT_TINY;
+        var slotW    = colonWidth;
+        if (ampmStyle == 1) {
+            var mWidth = dc.getTextWidthInPixels("M", ampmFont);
+            if (mWidth > slotW) { slotW = mWidth; }
+        }
+
+        var hourRightX = cx - slotW/2 - 2;
+        var minLeftX   = cx + slotW/2 + 1;
+
         dc.setColor(AppSettings.getHourColor(), Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx - colonWidth/2 - 2, timeY, Graphics.FONT_NUMBER_THAI_HOT, hourStr, Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.setColor(AppSettings.getColonColor(), Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, ":", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(hourRightX, timeY, Graphics.FONT_NUMBER_THAI_HOT, hourStr, Graphics.TEXT_JUSTIFY_RIGHT);
         dc.setColor(AppSettings.getMinuteColor(), Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx + colonWidth/2 + 1, timeY, Graphics.FONT_NUMBER_THAI_HOT, minStr, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(minLeftX, timeY, Graphics.FONT_NUMBER_THAI_HOT, minStr, Graphics.TEXT_JUSTIFY_LEFT);
+
+        if (sepColor != -1) {
+            dc.setColor(sepColor, Graphics.COLOR_TRANSPARENT);
+            if (ampmStyle == 1) {
+                // Две строки стопкой вокруг центра строки цифр. Считаем именно
+                // по getFontHeight обоих шрифтов: внутренние отступы строк
+                // взаимно компенсируются и стек садится по телу цифр.
+                var letterH = dc.getFontHeight(ampmFont);
+                var midY    = timeY + numHeight / 2;
+                // Якоря часа/минут несимметричны (-2 слева, +1 справа), из-за
+                // этого стек по голому cx читается прижатым влево. Компенсируем.
+                var letterX = cx + 1;
+                dc.drawText(letterX, midY - letterH, ampmFont, isPm ? "P" : "A", Graphics.TEXT_JUSTIFY_CENTER);
+                dc.drawText(letterX, midY,           ampmFont, "M",              Graphics.TEXT_JUSTIFY_CENTER);
+            } else {
+                dc.drawText(cx, timeY, Graphics.FONT_NUMBER_THAI_HOT, ":", Graphics.TEXT_JUSTIFY_CENTER);
+            }
+        }
+
+        if (ampmStyle == 2) {
+            // Буква садится на ту же baseline, что и цифры — правый нижний угол
+            // блока времени.
+            var cornerFont = Graphics.FONT_XTINY;
+            var cornerAsc  = Graphics.getFontAscent(cornerFont);
+            var minWidth   = dc.getTextWidthInPixels(minStr, Graphics.FONT_NUMBER_THAI_HOT);
+            dc.setColor(AppSettings.getMinuteColor(), Graphics.COLOR_TRANSPARENT);
+            dc.drawText(minLeftX + minWidth + 2, baselineY - cornerAsc, cornerFont,
+                        isPm ? "P" : "A", Graphics.TEXT_JUSTIFY_LEFT);
+        }
 
         // Погода
         if (AppSettings.getWeatherDisplay()) {

@@ -59,6 +59,24 @@ class AppSettings {
         return TIME_COLORS[idx];
     }
 
+    static var TIME_FORMAT_NAMES = ["System", "24h", "12h"];
+    static var AMPM_STYLE_NAMES  = ["Colon", "A/M center", "Corner A/P"];
+
+    // 0=System (берём is24Hour из настроек часов), 1=24h, 2=12h
+    static function getTimeFormat() {
+        var v = Application.Properties.getValue("timeFormat");
+        if (v == null || v < 0 || v >= TIME_FORMAT_NAMES.size()) { v = 0; }
+        return v;
+    }
+
+    // 0=Colon, 1=A/M вместо двоеточия, 2=мелкая A/P справа снизу от минут.
+    // Действует только в 12-часовом режиме.
+    static function getAmPmStyle() {
+        var v = Application.Properties.getValue("ampmStyle");
+        if (v == null || v < 0 || v >= AMPM_STYLE_NAMES.size()) { v = 0; }
+        return v;
+    }
+
     static var WEATHER_SOURCES   = ["Garmin", "Open-Meteo"];
     static var LOCATION_SOURCES  = ["GPS", "Garmin Weather"];
     static var WEEKEND_COLOR_NAMES = ["Red", "Orange", "Green", "Blue", "Gray"];
@@ -249,6 +267,20 @@ class SettingsMenuView extends WatchUi.Menu2 {
             "Colon color",
             AppSettings.COLON_COLOR_NAMES[ccIdx],
             :colonColor,
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Time format",
+            AppSettings.TIME_FORMAT_NAMES[AppSettings.getTimeFormat()],
+            :timeFormat,
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "AM/PM style",
+            AppSettings.AMPM_STYLE_NAMES[AppSettings.getAmPmStyle()],
+            :ampmStyle,
             {}
         ));
 
@@ -474,6 +506,16 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         else if (id == :minuteColor) {
             WatchUi.pushView(new ColorPicker("Minute color", "minuteColor", AppSettings.TIME_COLOR_NAMES),
                             new ColorPickerDelegate(item, "minuteColor", AppSettings.TIME_COLOR_NAMES),
+                            WatchUi.SLIDE_LEFT);
+        }
+        else if (id == :timeFormat) {
+            WatchUi.pushView(new ColorPicker("Time format", "timeFormat", AppSettings.TIME_FORMAT_NAMES),
+                            new ColorPickerDelegate(item, "timeFormat", AppSettings.TIME_FORMAT_NAMES),
+                            WatchUi.SLIDE_LEFT);
+        }
+        else if (id == :ampmStyle) {
+            WatchUi.pushView(new ColorPicker("AM/PM style", "ampmStyle", AppSettings.AMPM_STYLE_NAMES),
+                            new ColorPickerDelegate(item, "ampmStyle", AppSettings.AMPM_STYLE_NAMES),
                             WatchUi.SLIDE_LEFT);
         }
         else if (id == :colonColor) {

@@ -19,5 +19,9 @@
     <property id="weatherSource"  type="number">0</property>
     <property id="locationSource" type="number">0</property>
     <property id="weatherDemoMode" type="boolean">false</property>
+    <!-- 0=System (берём is24Hour из настроек часов), 1=24h, 2=12h -->
+    <property id="timeFormat"     type="number">0</property>
+    <!-- 0=Colon, 1=A/M вместо двоеточия, 2=мелкая A/P справа снизу -->
+    <property id="ampmStyle"      type="number">1</property>
 
 </properties>

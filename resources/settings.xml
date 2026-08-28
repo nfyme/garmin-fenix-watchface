@@ -138,6 +138,20 @@
             <listEntry value="1">mmHg</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.timeFormat" title="@Strings.SettingTimeFormat">
+        <settingConfig type="list">
+            <listEntry value="0">System</listEntry>
+            <listEntry value="1">24h</listEntry>
+            <listEntry value="2">12h</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.ampmStyle" title="@Strings.SettingAmPmStyle">
+        <settingConfig type="list">
+            <listEntry value="0">Colon</listEntry>
+            <listEntry value="1">A/M center</listEntry>
+            <listEntry value="2">Corner A/P</listEntry>
+        </settingConfig>
+    </setting>
     <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
         <settingConfig type="boolean"/>
     </setting>

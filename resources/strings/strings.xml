@@ -31,5 +31,7 @@
     <string id="SettingWeatherSource">Weather source</string>
     <string id="SettingLocationSource">Location source</string>
     <string id="SettingWeatherDemoMode">Weather demo mode</string>
+    <string id="SettingTimeFormat">Time format</string>
+    <string id="SettingAmPmStyle">AM/PM style</string>
 
 </strings>
