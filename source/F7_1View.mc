@@ -1059,9 +1059,17 @@ class F7_1View extends WatchUi.WatchFace {
         // так скриншоты/тест выглядят одинаково в любой момент дня.
         var isDemo = AppSettings.getWeatherDemoMode();
         // Кэш может содержать до 72ч форecast — на диске рисуем только
-        // ближайшие 12 часов вперёд от текущего момента (полукруг = 12 меток).
-        var nowSecs = Time.now().value();
-        var windowEnd = nowSecs + 12 * 3600;
+        // ближайшие 12 часов (полукруг = 12 меток).
+        //
+        // Окно привязано к НАЧАЛУ текущего часа и строго 12-часовое. Раньше
+        // было [now-30мин, now+12ч) — 12.5 часов на 12 секторов, и запись,
+        // отстоящая ровно на 12 часов, садилась в тот же сектор (hour % 12),
+        // затирая текущий час: под маркером "сейчас" показывалась погода на
+        // +12ч. У Garmin-источника это ловилось всегда, у Open-Meteo — когда
+        // секунда тикала между обновлением кэша и отрисовкой.
+        var nowSecs   = Time.now().value();
+        var hourStart = (nowSecs / 3600) * 3600;
+        var windowEnd = hourStart + 12 * 3600;
         // Позиция кольца опасности:
         // - Outside: у самого края экрана (49.5% от диаметра), рисуется
         //   поверх кольца осадков (оно и так рисуется после него).
@@ -1081,7 +1089,7 @@ class F7_1View extends WatchUi.WatchFace {
                 hourOfDay = i;
             } else {
                 var t = entry["time"];
-                if (t == null || t < nowSecs - 1800 || t >= windowEnd) { continue; }
+                if (t == null || t < hourStart || t >= windowEnd) { continue; }
                 hourOfDay = Gregorian.info(new Time.Moment(t), Time.FORMAT_SHORT).hour;
             }
             var precipChance = entry["precipChance"];
