@@ -129,7 +129,7 @@ class AppSettings {
     }
 
     // Что показывать под погодой: 0=Ничего, 1=Прогресс-бар шагов, 2=Давление
-    static var UNDER_WEATHER_MODES = ["None", "Steps bar", "Pressure"];
+    static var UNDER_WEATHER_MODES = ["None", "Steps bar", "Pressure [24-12|12-0]"];
 
     static function getUnderWeatherMode() {
         var val = Application.Properties.getValue("underWeatherMode");
@@ -261,13 +261,19 @@ class AppSettings {
 class SettingsMenuView extends WatchUi.Menu2 {
 
     function initialize() {
-        Menu2.initialize({ :title => "Dark Watch" });
+        Menu2.initialize({ :title => WatchUi.loadResource(Rez.Strings.AppName) });
+
+        // Погода и погодные кольца
+        Menu2.addItem(new WatchUi.ToggleMenuItem(
+            "Weather",
+            null,
+            :weatherDisplay,
+            AppSettings.getWeatherDisplay(),
+            {}
+        ));
 
         var wsIdx = Application.Properties.getValue("weatherSource");
         if (wsIdx == null) { wsIdx = 0; }
-        var lsIdx = Application.Properties.getValue("locationSource");
-        if (lsIdx == null) { lsIdx = 0; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Weather source",
             AppSettings.WEATHER_SOURCES[wsIdx],
@@ -275,6 +281,8 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
+        var lsIdx = Application.Properties.getValue("locationSource");
+        if (lsIdx == null) { lsIdx = 0; }
         Menu2.addItem(new WatchUi.MenuItem(
             "Location source",
             AppSettings.LOCATION_SOURCES[lsIdx],
@@ -282,25 +290,8 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
-
         var wIdx = Application.Properties.getValue("weatherInterval");
         if (wIdx == null) { wIdx = 2; }
-
-        var cIdx = Application.Properties.getValue("weekendColor");
-        if (cIdx == null) { cIdx = 0; }
-
-        var bIdx = Application.Properties.getValue("bottomBlock");
-        if (bIdx == null) { bIdx = 0; }
-
-        var hcIdx = Application.Properties.getValue("hourColor");
-        if (hcIdx == null) { hcIdx = 0; }
-
-        var mcIdx = Application.Properties.getValue("minuteColor");
-        if (mcIdx == null) { mcIdx = 4; }
-
-        var ccIdx = Application.Properties.getValue("colonColor");
-        if (ccIdx == null) { ccIdx = 0; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Weather update",
             AppSettings.WEATHER_INTERVALS[wIdx] + " min",
@@ -308,54 +299,14 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
-        Menu2.addItem(new WatchUi.MenuItem(
-            "Weekend color",
-            AppSettings.WEEKEND_COLOR_NAMES[cIdx],
-            :weekendColor,
+        Menu2.addItem(new WatchUi.ToggleMenuItem(
+            "Precip forecast",
+            null,
+            :precipForecast,
+            AppSettings.getPrecipForecast(),
             {}
         ));
 
-        Menu2.addItem(new WatchUi.MenuItem(
-            "Hour color",
-            AppSettings.TIME_COLOR_NAMES[hcIdx],
-            :hourColor,
-            {}
-        ));
-
-        Menu2.addItem(new WatchUi.MenuItem(
-            "Minute color",
-            AppSettings.TIME_COLOR_NAMES[mcIdx],
-            :minuteColor,
-            {}
-        ));
-
-        Menu2.addItem(new WatchUi.MenuItem(
-            "Colon color",
-            AppSettings.COLON_COLOR_NAMES[ccIdx],
-            :colonColor,
-            {}
-        ));
-
-        Menu2.addItem(new WatchUi.MenuItem(
-            "Time format",
-            AppSettings.TIME_FORMAT_NAMES[AppSettings.getTimeFormat()],
-            :timeFormat,
-            {}
-        ));
-
-        Menu2.addItem(new WatchUi.MenuItem(
-            "AM/PM style",
-            AppSettings.AMPM_STYLE_NAMES[AppSettings.getAmPmStyle()],
-            :ampmStyle,
-            {}
-        ));
-
-        Menu2.addItem(new WatchUi.MenuItem(
-            "Bottom block",
-            AppSettings.BLOCK_NAMES[bIdx],
-            :bottomBlock,
-            {}
-        ));
         Menu2.addItem(new WatchUi.ToggleMenuItem(
             "Precip ring",
             null,
@@ -385,18 +336,71 @@ class SettingsMenuView extends WatchUi.Menu2 {
         ));
 
         Menu2.addItem(new WatchUi.ToggleMenuItem(
-            "Precip forecast",
+            "Weather demo mode",
             null,
-            :precipForecast,
-            AppSettings.getPrecipForecast(),
+            :weatherDemoMode,
+            AppSettings.getWeatherDemoMode(),
             {}
         ));
 
-        Menu2.addItem(new WatchUi.ToggleMenuItem(
-            "Weather",
-            null,
-            :weatherDisplay,
-            AppSettings.getWeatherDisplay(),
+        // Время
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Time format",
+            AppSettings.TIME_FORMAT_NAMES[AppSettings.getTimeFormat()],
+            :timeFormat,
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.MenuItem(
+            "AM/PM style",
+            AppSettings.AMPM_STYLE_NAMES[AppSettings.getAmPmStyle()],
+            :ampmStyle,
+            {}
+        ));
+
+        var hcIdx = Application.Properties.getValue("hourColor");
+        if (hcIdx == null) { hcIdx = 0; }
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Hour color",
+            AppSettings.TIME_COLOR_NAMES[hcIdx],
+            :hourColor,
+            {}
+        ));
+
+        var mcIdx = Application.Properties.getValue("minuteColor");
+        if (mcIdx == null) { mcIdx = 4; }
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Minute color",
+            AppSettings.TIME_COLOR_NAMES[mcIdx],
+            :minuteColor,
+            {}
+        ));
+
+        var ccIdx = Application.Properties.getValue("colonColor");
+        if (ccIdx == null) { ccIdx = 0; }
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Colon color",
+            AppSettings.COLON_COLOR_NAMES[ccIdx],
+            :colonColor,
+            {}
+        ));
+
+        // Нижний блок
+        var bIdx = Application.Properties.getValue("bottomBlock");
+        if (bIdx == null) { bIdx = 0; }
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Bottom block",
+            AppSettings.BLOCK_NAMES[bIdx],
+            :bottomBlock,
+            {}
+        ));
+
+        var cIdx = Application.Properties.getValue("weekendColor");
+        if (cIdx == null) { cIdx = 0; }
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Weekend color",
+            AppSettings.WEEKEND_COLOR_NAMES[cIdx],
+            :weekendColor,
             {}
         ));
 
@@ -408,9 +412,9 @@ class SettingsMenuView extends WatchUi.Menu2 {
             {}
         ));
 
+        // Блок под погодой и его шкалы
         var uwmIdx = Application.Properties.getValue("underWeatherMode");
         if (uwmIdx == null) { uwmIdx = 2; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Under weather",
             AppSettings.UNDER_WEATHER_MODES[uwmIdx],
@@ -420,7 +424,6 @@ class SettingsMenuView extends WatchUi.Menu2 {
 
         var bfcIdx = Application.Properties.getValue("barFillColor");
         if (bfcIdx == null) { bfcIdx = 0; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Bar fill color",
             AppSettings.BAR_FILL_COLOR_NAMES[bfcIdx],
@@ -430,7 +433,6 @@ class SettingsMenuView extends WatchUi.Menu2 {
 
         var bbcIdx = Application.Properties.getValue("barBgColor");
         if (bbcIdx == null) { bbcIdx = 0; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Bar empty color",
             AppSettings.BAR_BG_COLOR_NAMES[bbcIdx],
@@ -440,7 +442,6 @@ class SettingsMenuView extends WatchUi.Menu2 {
 
         var puIdx = Application.Properties.getValue("pressureUnit");
         if (puIdx == null) { puIdx = 0; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Pressure unit",
             AppSettings.PRESSURE_UNITS[puIdx],
@@ -450,7 +451,6 @@ class SettingsMenuView extends WatchUi.Menu2 {
 
         var psIdx = Application.Properties.getValue("pressureScale");
         if (psIdx == null) { psIdx = 0; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Pressure scale",
             AppSettings.PRESSURE_SCALE_NAMES[psIdx],
@@ -462,19 +462,10 @@ class SettingsMenuView extends WatchUi.Menu2 {
         // десять числовых полей в Menu2 на часах никто крутить не станет.
         var plsIdx = Application.Properties.getValue("pressureLinearStep");
         if (plsIdx == null) { plsIdx = 0; }
-
         Menu2.addItem(new WatchUi.MenuItem(
             "Pressure step",
             AppSettings.PRESSURE_STEP_LABELS[plsIdx],
             :pressureLinearStep,
-            {}
-        ));
-
-        Menu2.addItem(new WatchUi.ToggleMenuItem(
-            "Weather demo mode",
-            null,
-            :weatherDemoMode,
-            AppSettings.getWeatherDemoMode(),
             {}
         ));
     }

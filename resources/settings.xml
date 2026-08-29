@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <settings>
+    <!-- Weather and weather rings -->
+    <setting propertyKey="@Properties.weatherDisplay" title="@Strings.SettingWeather">
+        <settingConfig type="boolean"/>
+    </setting>
     <setting propertyKey="@Properties.weatherSource" title="@Strings.SettingWeatherSource">
         <settingConfig type="list">
             <listEntry value="0">Garmin</listEntry>
@@ -21,17 +25,55 @@
             <listEntry value="4">60 min</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.weekendColor" title="@Strings.SettingWeekendColor">
+    <setting propertyKey="@Properties.precipForecast" title="@Strings.SettingPrecipForecast">
+        <settingConfig type="boolean"/>
+    </setting>
+    <setting propertyKey="@Properties.precipRing" title="@Strings.SettingPrecipRing">
+        <settingConfig type="boolean"/>
+    </setting>
+    <setting propertyKey="@Properties.ringMinPrecip" title="@Strings.SettingRingMinPrecip">
         <settingConfig type="list">
-            <listEntry value="0">Red</listEntry>
-            <listEntry value="1">Orange</listEntry>
-            <listEntry value="2">Green</listEntry>
-            <listEntry value="3">Blue</listEntry>
-            <listEntry value="4">Gray</listEntry>
+            <listEntry value="0">5%</listEntry>
+            <listEntry value="1">10%</listEntry>
+            <listEntry value="2">20%</listEntry>
+            <listEntry value="3">30%</listEntry>
+            <listEntry value="4">40%</listEntry>
+            <listEntry value="5">50%</listEntry>
+            <listEntry value="6">60%</listEntry>
+            <listEntry value="7">70%</listEntry>
+            <listEntry value="8">80%</listEntry>
+            <listEntry value="9">90%</listEntry>
+            <listEntry value="10">100%</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.dangerRingMode" title="@Strings.SettingDangerRing">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Inside</listEntry>
+            <listEntry value="2">Outside</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
+        <settingConfig type="boolean"/>
+    </setting>
+
+    <!-- Time -->
+    <setting propertyKey="@Properties.timeFormat" title="@Strings.SettingTimeFormat">
+        <settingConfig type="list">
+            <listEntry value="0">System</listEntry>
+            <listEntry value="1">24h</listEntry>
+            <listEntry value="2">12h</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.ampmStyle" title="@Strings.SettingAmPmStyle">
+        <settingConfig type="list">
+            <listEntry value="0">Colon</listEntry>
+            <listEntry value="1">A/M center</listEntry>
+            <listEntry value="2">Corner A/P</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.hourColor" title="@Strings.SettingHourColor">
-    <settingConfig type="list">
+        <settingConfig type="list">
             <listEntry value="0">White</listEntry>
             <listEntry value="1">Red</listEntry>
             <listEntry value="2">Orange</listEntry>
@@ -53,63 +95,44 @@
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.colonColor" title="@Strings.SettingColonColor">
-    <settingConfig type="list">
-        <listEntry value="0">White</listEntry>
-        <listEntry value="1">Red</listEntry>
-        <listEntry value="2">Orange</listEntry>
-        <listEntry value="3">Green</listEntry>
-        <listEntry value="4">Blue</listEntry>
-        <listEntry value="5">Yellow</listEntry>
-        <listEntry value="6">Gray</listEntry>
-        <listEntry value="7">Hidden</listEntry>
-    </settingConfig>
-</setting>
+        <settingConfig type="list">
+            <listEntry value="0">White</listEntry>
+            <listEntry value="1">Red</listEntry>
+            <listEntry value="2">Orange</listEntry>
+            <listEntry value="3">Green</listEntry>
+            <listEntry value="4">Blue</listEntry>
+            <listEntry value="5">Yellow</listEntry>
+            <listEntry value="6">Gray</listEntry>
+            <listEntry value="7">Hidden</listEntry>
+        </settingConfig>
+    </setting>
 
+    <!-- Bottom block -->
     <setting propertyKey="@Properties.bottomBlock" title="@Strings.SettingBottomBlock">
         <settingConfig type="list">
             <listEntry value="0">Calendar</listEntry>
             <listEntry value="1">Sport</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.precipRing"     title="@Strings.SettingPrecipRing">
-        <settingConfig type="boolean"/>
-    </setting>
-    <setting propertyKey="@Properties.dangerRingMode" title="@Strings.SettingDangerRing">
+    <setting propertyKey="@Properties.weekendColor" title="@Strings.SettingWeekendColor">
         <settingConfig type="list">
-            <listEntry value="0">Off</listEntry>
-            <listEntry value="1">Inside</listEntry>
-            <listEntry value="2">Outside</listEntry>
+            <listEntry value="0">Red</listEntry>
+            <listEntry value="1">Orange</listEntry>
+            <listEntry value="2">Green</listEntry>
+            <listEntry value="3">Blue</listEntry>
+            <listEntry value="4">Gray</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.ringMinPrecip" title="@Strings.SettingRingMinPrecip">
-        <settingConfig type="list">
-            <listEntry value="0">5%</listEntry>
-            <listEntry value="1">10%</listEntry>
-            <listEntry value="2">20%</listEntry>
-            <listEntry value="3">30%</listEntry>
-            <listEntry value="4">40%</listEntry>
-            <listEntry value="5">50%</listEntry>
-            <listEntry value="6">60%</listEntry>
-            <listEntry value="7">70%</listEntry>
-            <listEntry value="8">80%</listEntry>
-            <listEntry value="9">90%</listEntry>
-            <listEntry value="10">100%</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.precipForecast" title="@Strings.SettingPrecipForecast">
+    <setting propertyKey="@Properties.heartRate" title="@Strings.SettingHeartRate">
         <settingConfig type="boolean"/>
     </setting>
-    <setting propertyKey="@Properties.weatherDisplay" title="@Strings.SettingWeather">
-        <settingConfig type="boolean"/>
-    </setting>
-    <setting propertyKey="@Properties.heartRate"      title="@Strings.SettingHeartRate">
-        <settingConfig type="boolean"/>
-    </setting>
+
+    <!-- Block under weather and pressure scale -->
     <setting propertyKey="@Properties.underWeatherMode" title="@Strings.SettingUnderWeatherMode">
         <settingConfig type="list">
             <listEntry value="0">None</listEntry>
             <listEntry value="1">Steps bar</listEntry>
-            <listEntry value="2">Pressure[24-12|12-0]</listEntry>
+            <listEntry value="2">Pressure [24-12|12-0]</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.barFillColor" title="@Strings.SettingBarFillColor">
@@ -138,20 +161,6 @@
             <listEntry value="1">mmHg</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.timeFormat" title="@Strings.SettingTimeFormat">
-        <settingConfig type="list">
-            <listEntry value="0">System</listEntry>
-            <listEntry value="1">24h</listEntry>
-            <listEntry value="2">12h</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.ampmStyle" title="@Strings.SettingAmPmStyle">
-        <settingConfig type="list">
-            <listEntry value="0">Colon</listEntry>
-            <listEntry value="1">A/M center</listEntry>
-            <listEntry value="2">Corner A/P</listEntry>
-        </settingConfig>
-    </setting>
     <setting propertyKey="@Properties.pressureScale" title="@Strings.SettingPressureScale">
         <settingConfig type="list">
             <listEntry value="0">Progressive</listEntry>
@@ -174,8 +183,4 @@
             <settingConfig id="v" type="numeric" min="1" max="99"/>
         </setting>
     </setting>
-    <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
-        <settingConfig type="boolean"/>
-    </setting>
-
 </settings>

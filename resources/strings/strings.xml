@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <strings>
-    <string id="AppName">Dark Watch</string>
+    <string id="AppName">Calendar and Forecast</string>
     <string id="Month">MONTH</string>
     <string id="Date">DATE</string>
     <string id="Day">DAY</string>
@@ -35,7 +35,7 @@
     <string id="SettingAmPmStyle">AM/PM style</string>
     <string id="SettingPressureScale">Pressure scale</string>
     <string id="SettingPressureLinearStep">Pressure step</string>
-    <string id="SettingPressureThresholds">Pressure thresholds</string>
-    <string id="SettingPressureThreshold">Threshold</string>
+    <string id="SettingPressureThresholds">Custom pressure thresholds</string>
+    <string id="SettingPressureThreshold">Threshold (selected unit)</string>
 
 </strings>

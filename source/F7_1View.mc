@@ -749,12 +749,12 @@ class F7_1View extends WatchUi.WatchFace {
     // 24ч назад" отбросили: окна пересекаются и ничего не говорят о том, когда
     // именно тряхнуло.
     //
-    // Заполнение идёт ОТ ЦЕНТРА НАРУЖУ: чем сильнее скачок, тем дальше заливка
-    // уходит от цифры к краю. Цвет — как H/L на синоптических картах: синий
-    // рост, красный падение.
+    // Контуры и заливка идут СПРАВА НАЛЕВО в обеих половинах ряда. Цвет — как
+    // H/L на синоптических картах: синий рост, красный падение.
     //
-    // Нет данных за половину суток (свежая установка, часы были выключены) —
-    // ряд не рисуется вообще. Пустые квадраты врали бы "давление не менялось".
+    // Контуры появляются постепенно и показывают накопление часовой истории.
+    // Заливка появляется только после готовности соответствующей 12-часовой
+    // дельты, поэтому пустой контур не означает нулевое изменение давления.
     //
     // Координаты (y, s, e) задаются вызывающим кодом, как и у drawStepsBar.
     // -------------------------------------------------------------------------
@@ -763,8 +763,8 @@ class F7_1View extends WatchUi.WatchFace {
     const PRESSURE_BOX_SIZE_RATIO = 4.0 / 10.0;     // размер квадратика = эта доля высоты шрифта
     const MMHG_PER_HPA       = 0.750062;
 
-    const COLORS_PRESSURE_UP   = 0x378ADD; // рост  — синий, как H на картах
-    const COLORS_PRESSURE_DOWN = 0xE24B4A; // падение — красный, как L
+    const COLORS_PRESSURE_UP   = 0x378ADD; // рост — синий, как H на картах
+    const COLORS_PRESSURE_DOWN = 0xE24B4A; // падение — тёплый красный, как L
 
     // Демо-набор: левый ряд красный (упало), правый синий (выросло), разное
     // число квадратов — чтобы на скриншоте для стора было видно оба состояния.
@@ -772,18 +772,39 @@ class F7_1View extends WatchUi.WatchFace {
     const DEMO_PRESSURE_V12 = 1005.0; // -12ч
     const DEMO_PRESSURE_CUR = 1013.0; // сейчас
 
+    // Контуры справа показывают накопление первых 12 часовых значений.
+    // Точные пороги: 1, 3, 5, 6, 7, 8, 9, 10, 11 и 12 часов.
+    function pressureRightVisibleBoxes(hours) {
+        if (hours <= 0)  { return 0; }
+        if (hours < 3)   { return 1; }
+        if (hours < 5)   { return 2; }
+        var count = hours - 2;
+        return (count > PRESSURE_BOXES) ? PRESSURE_BOXES : count;
+    }
+
+    // После готовой правой половины ждём 13-й и 14-й часы. С 15-го значения
+    // добавляем по одному левому контуру; на 24-м видны все десять.
+    function pressureLeftVisibleBoxes(hours) {
+        if (hours < 15) { return 0; }
+        var count = hours - 14;
+        return (count > PRESSURE_BOXES) ? PRESSURE_BOXES : count;
+    }
+
     function drawPressureBar(dc, y, s, e) {
         var curHpa;
         var v12Hpa;
         var v0Hpa;
+        var historyHours;
         if (AppSettings.getWeatherDemoMode()) {
             curHpa = DEMO_PRESSURE_CUR;
             v12Hpa = DEMO_PRESSURE_V12;
             v0Hpa  = DEMO_PRESSURE_V0;
+            historyHours = 24;
         } else {
             curHpa = PressureHistory.getCurrentHpa();
             v12Hpa = PressureHistory.getSlotHpa(12);
             v0Hpa  = PressureHistory.getSlotHpa(24);
+            historyHours = PressureHistory.getAvailableHourCount();
         }
         if (curHpa == null) { return; }
         if (s == null) { s = 0; }
@@ -802,35 +823,33 @@ class F7_1View extends WatchUi.WatchFace {
 
         var dLeft  = (v0Hpa  != null && v12Hpa != null) ? (v12Hpa - v0Hpa)  * k : null;
         var dRight = (v12Hpa != null)                   ? (curHpa - v12Hpa) * k : null;
+        var visibleRight = pressureRightVisibleBoxes(historyHours);
+        var visibleLeft  = pressureLeftVisibleBoxes(historyHours);
 
         var boxSize = (fontH * PRESSURE_BOX_SIZE_RATIO).toNumber();
         var boxGap = boxSize / 3;
         var textGap = numDims[0] / 2 + boxGap;
         var by = y - boxSize / 2;
 
-        // Правая сторона (от края числа до e). i == 0 — квадрат у самой цифры,
-        // поэтому i < filled и даёт заполнение от центра наружу.
-        if (dRight != null) {
-            var filledRight = PressureHistory.filledBoxes(dRight.abs());
-            var colorRight  = (dRight < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
-            var availRight = e - (cx + textGap);
-            var stepRight = availRight / PRESSURE_BOXES;
-            for (var i = 0; i < PRESSURE_BOXES; i++) {
-                drawPressureBox(dc, cx + textGap + i * stepRight, by, boxSize,
-                                i < filledRight, colorRight);
-            }
+        // Правая сторона: первый квадрат у правого края, следующие идут влево
+        // к цифре. Так весь ряд — и справа, и слева — накапливается справа налево.
+        var filledRight = (dRight == null) ? 0 : PressureHistory.filledBoxes(dRight.abs());
+        var colorRight  = (dRight != null && dRight < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
+        var availRight = e - (cx + textGap);
+        var stepRight = availRight / PRESSURE_BOXES;
+        for (var i = 0; i < visibleRight; i++) {
+            drawPressureBox(dc, e - (i + 1) * stepRight, by, boxSize,
+                            dRight != null && i < filledRight, colorRight);
         }
 
         // Левая сторона (от s до края числа, считаем справа налево)
-        if (dLeft != null) {
-            var filledLeft = PressureHistory.filledBoxes(dLeft.abs());
-            var colorLeft  = (dLeft < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
-            var availLeft = (cx - textGap) - s;
-            var stepLeft = availLeft / PRESSURE_BOXES;
-            for (var i = 0; i < PRESSURE_BOXES; i++) {
-                drawPressureBox(dc, cx - textGap - (i + 1) * stepLeft, by, boxSize,
-                                i < filledLeft, colorLeft);
-            }
+        var filledLeft = (dLeft == null) ? 0 : PressureHistory.filledBoxes(dLeft.abs());
+        var colorLeft  = (dLeft != null && dLeft < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
+        var availLeft = (cx - textGap) - s;
+        var stepLeft = availLeft / PRESSURE_BOXES;
+        for (var i = 0; i < visibleLeft; i++) {
+            drawPressureBox(dc, cx - textGap - (i + 1) * stepLeft, by, boxSize,
+                            dLeft != null && i < filledLeft, colorLeft);
         }
     }
 

@@ -44,11 +44,13 @@ class PressureHistory {
         return (Time.now().value() / SEC_PER_HOUR) * SEC_PER_HOUR;
     }
 
-    // Сырое значение с барометра, гПа. null — датчик молчит.
+    // Текущее давление, приведённое к уровню моря, гПа. Оно сопоставимо с
+    // калиброванными значениями SensorHistory; ambientPressure для этого нельзя
+    // использовать, потому что это локальное давление на высоте часов.
     static function _readSensorHpa() {
         var info = Activity.getActivityInfo();
-        if (!(info has :ambientPressure)) { return null; }
-        var p = info.ambientPressure;   // Pa
+        if (!(info has :meanSeaLevelPressure)) { return null; }
+        var p = info.meanSeaLevelPressure;   // Pa
         if (p == null) { return null; }
         return p / 100.0;
     }
@@ -118,17 +120,19 @@ class PressureHistory {
         }
 
         // 2. Свежая история с барометра — поверх сохранённого
-        if ((Toybox has :SensorHistory) && (Toybox.SensorHistory has :getPressureHistory)) {
+        var sensorAvailable = (Toybox has :SensorHistory)
+                           && (Toybox.SensorHistory has :getPressureHistory);
+        if (sensorAvailable) {
             var iter = SensorHistory.getPressureHistory({
-                :period => new Time.Duration((WINDOW_HOURS + 1) * SEC_PER_HOUR),
                 :order  => SensorHistory.ORDER_OLDEST_FIRST
             });
-            var sample = iter.next();
+            var sample = (iter != null) ? iter.next() : null;
             while (sample != null) {
                 if (sample.data != null) {
                     var t = (sample.when.value() / SEC_PER_HOUR) * SEC_PER_HOUR;
+                    var sampleHpa = sample.data / 100.0;
                     if (t >= minHour && t <= nowHour) {
-                        _put(hours, vals, t, sample.data / 100.0);
+                        _put(hours, vals, t, sampleHpa);
                     }
                 }
                 sample = iter.next();
@@ -152,8 +156,30 @@ class PressureHistory {
         _ensureLoaded();
         if (_hours.size() == 0) { return null; }
         var newest = _hours.size() - 1;
-        if (_hours[newest] < _nowHour() - WINDOW_HOURS * SEC_PER_HOUR) { return null; }
+        if (_hours[newest] < _nowHour() - SEC_PER_HOUR) { return null; }
         return _vals[newest];
+    }
+
+    // Количество непрерывных часовых значений, накопленных к текущему моменту.
+    // Считаем только последовательную цепочку от свежего края: старая запись за
+    // дыркой не должна создавать ложное впечатление полной 24-часовой истории.
+    static function getAvailableHourCount() {
+        _ensureLoaded();
+        if (_hours.size() == 0) { return 0; }
+
+        var newestIndex = _hours.size() - 1;
+        var newestHour = _hours[newestIndex];
+        var nowHour = _nowHour();
+        if (newestHour > nowHour || newestHour < nowHour - SEC_PER_HOUR) { return 0; }
+
+        var expectedHour = newestHour;
+        var count = 0;
+        for (var i = newestIndex; i >= 0 && count < WINDOW_HOURS; i--) {
+            if (_hours[i] != expectedHour || _vals[i] == null) { break; }
+            count++;
+            expectedHour -= SEC_PER_HOUR;
+        }
+        return count;
     }
 
     // Давление N часов назад, гПа. Точного слота может не быть: дока прямым
@@ -166,7 +192,7 @@ class PressureHistory {
     //      честными 24/12 часами, а не 22 или 26;
     //   3) данных с одной стороны нет (край истории) — ближайший реально
     //      измеренный слот в пределах допуска, с перекосом окна;
-    //   4) не нашли ничего — null, ряд квадратов не рисуется вообще.
+    //   4) не нашли ничего — null, заливки для этой половины суток ещё нет.
     // Шире MAX_GAP не интерполируем: за 8 часов давление может успеть сходить
     // туда-обратно, и среднее по краям нарисует скачок, которого не было.
     static var SLOT_TOLERANCE_HOURS = 2;
