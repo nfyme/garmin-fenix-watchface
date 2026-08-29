@@ -1419,11 +1419,14 @@ class F7_1View extends WatchUi.WatchFace {
         var iconSize = (w * 4 / 100);           // 4% от ширины — уже пропорционально, ok
         var moonY    = (h * 11 / 100);          // 11% сверху
 
-        // Отступ иконок восхода/заката от центра: ~16% ширины экрана
-        var sunOffset = (w * 16 / 100);
-
-        var riseX = cx - iconSize - sunOffset;
-        var setX  = cx + iconSize + sunOffset;
+        // Времена восхода/заката прижаты к диску луны, а не поставлены на
+        // фиксированный процент ширины: системный шрифт растёт от экрана к
+        // экрану быстрее, чем такой процент, и на 454px (fenix 8) цифры
+        // заезжали на луну. Якорь считаем от края диска, ширину текста меряем
+        // в рантайме — тогда зазор одинаковый на любом разрешении.
+        var sunGap = (w * 2 / 100);
+        var riseX  = cx - moonR - sunGap;   // ПРАВЫЙ край времени восхода
+        var setX   = cx + moonR + sunGap;   // ЛЕВЫЙ край времени заката
 
         // Время по центру
         var timeY = (h * 17 / 100);
@@ -1516,11 +1519,13 @@ class F7_1View extends WatchUi.WatchFace {
         // Восход. Позиция времени от иконок не зависит — с выключенными
         // иконками цифры остаются на своих местах, просто чище по краям.
         var showSunIcons = AppSettings.getSunIcons();
+        var riseW = dc.getTextWidthInPixels(riseStr, Graphics.FONT_XTINY);
+        var setW  = dc.getTextWidthInPixels(setStr,  Graphics.FONT_XTINY);
         if (showSunIcons) {
-            drawSunrise(dc, riseX - iconSize - 3, rowY + iconSize / 2, iconSize);
+            drawSunrise(dc, riseX - riseW - iconSize - 3, rowY + iconSize / 2, iconSize);
         }
         dc.setColor(AppSettings.SUNRISE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(riseX, rowY, Graphics.FONT_XTINY, riseStr, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(riseX, rowY, Graphics.FONT_XTINY, riseStr, Graphics.TEXT_JUSTIFY_RIGHT);
 
         // Луна
         blitMoon(dc, cx, moonY, moonR);
@@ -1539,10 +1544,10 @@ class F7_1View extends WatchUi.WatchFace {
 
         // Закат
         if (showSunIcons) {
-            drawSunset(dc, setX + iconSize/2 - 2, rowY + iconSize / 2, iconSize);
+            drawSunset(dc, setX + setW + iconSize/2 - 2, rowY + iconSize / 2, iconSize);
         }
         dc.setColor(AppSettings.SUNSET, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(setX, rowY, Graphics.FONT_XTINY, setStr, Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(setX, rowY, Graphics.FONT_XTINY, setStr, Graphics.TEXT_JUSTIFY_LEFT);
 
         // Время
         // ampmStyle: 0=двоеточие, 1=A/M вместо двоеточия, 2=двоеточие + мелкая
