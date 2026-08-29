@@ -160,7 +160,12 @@ class PressureHistory {
         return _vals[newest];
     }
 
-    // Количество непрерывных часовых значений, накопленных к текущему моменту.
+    // Количество непрерывных часовых ЗАПИСЕЙ, накопленных к текущему моменту.
+    // Записей, не часов охвата: N записей покрывают N-1 час. Для честного
+    // 12-часового окна нужно 13 записей, для 24-часового — 25. Отсюда и предел
+    // цикла WINDOW_HOURS + 1, а не WINDOW_HOURS: иначе счётчик упирался бы в 24
+    // и слот -24ч, который update() хранит, никогда бы не считался готовым.
+    //
     // Считаем только последовательную цепочку от свежего края: старая запись за
     // дыркой не должна создавать ложное впечатление полной 24-часовой истории.
     static function getAvailableHourCount() {
@@ -174,7 +179,7 @@ class PressureHistory {
 
         var expectedHour = newestHour;
         var count = 0;
-        for (var i = newestIndex; i >= 0 && count < WINDOW_HOURS; i--) {
+        for (var i = newestIndex; i >= 0 && count <= WINDOW_HOURS; i--) {
             if (_hours[i] != expectedHour || _vals[i] == null) { break; }
             count++;
             expectedHour -= SEC_PER_HOUR;

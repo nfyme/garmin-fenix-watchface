@@ -749,12 +749,18 @@ class F7_1View extends WatchUi.WatchFace {
     // 24ч назад" отбросили: окна пересекаются и ничего не говорят о том, когда
     // именно тряхнуло.
     //
-    // Контуры и заливка идут СПРАВА НАЛЕВО в обеих половинах ряда. Цвет — как
-    // H/L на синоптических картах: синий рост, красный падение.
+    // Две разные оси, не перепутать:
+    //   КОНТУРЫ (пустые квадраты) идут СПРАВА НАЛЕВО через весь ряд из двадцати
+    //   и показывают накопление часовой истории: сколько часов уже есть.
+    //   ЗАЛИВКА идёт ОТ ЦЕНТРА НАРУЖУ в обе стороны и показывает величину
+    //   перепада: чем сильнее скачок, тем дальше от цифры уходит цвет.
     //
-    // Контуры появляются постепенно и показывают накопление часовой истории.
-    // Заливка появляется только после готовности соответствующей 12-часовой
-    // дельты, поэтому пустой контур не означает нулевое изменение давления.
+    // Цвет — как H/L на синоптических картах: синий рост, красный падение.
+    //
+    // Заливка половины включается только на полном окне (12ч справа, 24ч
+    // слева), когда все её 10 контуров уже нарисованы. Иначе дельта считалась
+    // бы по обрезанному окну из допуска getSlotHpa и половины сравнивались бы
+    // между собой нечестно. Пустой контур не означает нулевого изменения.
     //
     // Координаты (y, s, e) задаются вызывающим кодом, как и у drawStepsBar.
     // -------------------------------------------------------------------------
@@ -772,21 +778,29 @@ class F7_1View extends WatchUi.WatchFace {
     const DEMO_PRESSURE_V12 = 1005.0; // -12ч
     const DEMO_PRESSURE_CUR = 1013.0; // сейчас
 
-    // Контуры справа показывают накопление первых 12 часовых значений.
-    // Точные пороги: 1, 3, 5, 6, 7, 8, 9, 10, 11 и 12 часов.
+    // hours здесь — число ЗАПИСЕЙ истории, а не часов охвата: N записей
+    // покрывают N-1 час. Правая половина готова на 13 записях (= ровно 12 часов
+    // назад есть свой слот), левая на 25 (= 24 часа). Десятый контур встаёт
+    // именно на этих числах, поэтому полный ряд и появление заливки совпадают.
+    const PRESSURE_RIGHT_READY = 13;  // записей для честной дельты -12…0ч
+    const PRESSURE_LEFT_READY  = 25;  // записей для честной дельты -24…-12ч
+
+    // Контуры справа показывают накопление первых 12 часов истории.
+    // Пороги по записям: 1, 3, 5, 7, 8, 9, 10, 11, 12 и 13.
     function pressureRightVisibleBoxes(hours) {
         if (hours <= 0)  { return 0; }
         if (hours < 3)   { return 1; }
         if (hours < 5)   { return 2; }
-        var count = hours - 2;
+        if (hours < 7)   { return 3; }
+        var count = hours - 3;
         return (count > PRESSURE_BOXES) ? PRESSURE_BOXES : count;
     }
 
-    // После готовой правой половины ждём 13-й и 14-й часы. С 15-го значения
-    // добавляем по одному левому контуру; на 24-м видны все десять.
+    // После готовой правой половины ждём 14-ю и 15-ю записи. С 16-й
+    // добавляем по одному левому контуру; на 25-й видны все десять.
     function pressureLeftVisibleBoxes(hours) {
-        if (hours < 15) { return 0; }
-        var count = hours - 14;
+        if (hours < 16) { return 0; }
+        var count = hours - 15;
         return (count > PRESSURE_BOXES) ? PRESSURE_BOXES : count;
     }
 
@@ -799,7 +813,7 @@ class F7_1View extends WatchUi.WatchFace {
             curHpa = DEMO_PRESSURE_CUR;
             v12Hpa = DEMO_PRESSURE_V12;
             v0Hpa  = DEMO_PRESSURE_V0;
-            historyHours = 24;
+            historyHours = PRESSURE_LEFT_READY;
         } else {
             curHpa = PressureHistory.getCurrentHpa();
             v12Hpa = PressureHistory.getSlotHpa(12);
@@ -832,24 +846,39 @@ class F7_1View extends WatchUi.WatchFace {
         var by = y - boxSize / 2;
 
         // Правая сторона: первый квадрат у правого края, следующие идут влево
-        // к цифре. Так весь ряд — и справа, и слева — накапливается справа налево.
-        var filledRight = (dRight == null) ? 0 : PressureHistory.filledBoxes(dRight.abs());
+        // к цифре. Пустые контуры так и накапливаются справа налево — весь ряд
+        // из двадцати растёт в одну сторону.
+        //
+        // ЗАЛИВКА идёт в обратную сторону — от цифры наружу, потому что она
+        // показывает не накопление, а величину перепада: чем сильнее скачок,
+        // тем дальше от центра уходит цвет. Появляется только с полными
+        // 12 часами истории (все 10 контуров на месте), чтобы дельта всегда
+        // считалась по одинаковому окну. Порог именно в записях: на 12 записях
+        // слота -12ч ещё нет, и getSlotHpa молча подставил бы соседний -11ч по
+        // допуску SLOT_TOLERANCE_HOURS. Ждём 13-ю — тогда попадание точное, а
+        // допуск остаётся тем, чем задуман: аварийным вариантом для дырок.
+        var filledRight = (dRight == null || historyHours < PRESSURE_RIGHT_READY)
+                          ? 0 : PressureHistory.filledBoxes(dRight.abs());
         var colorRight  = (dRight != null && dRight < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
         var availRight = e - (cx + textGap);
         var stepRight = availRight / PRESSURE_BOXES;
         for (var i = 0; i < visibleRight; i++) {
             drawPressureBox(dc, e - (i + 1) * stepRight, by, boxSize,
-                            dRight != null && i < filledRight, colorRight);
+                            i >= PRESSURE_BOXES - filledRight, colorRight);
         }
 
-        // Левая сторона (от s до края числа, считаем справа налево)
-        var filledLeft = (dLeft == null) ? 0 : PressureHistory.filledBoxes(dLeft.abs());
+        // Левая сторона (от s до края числа, считаем справа налево). i = 0 —
+        // квадрат вплотную к цифре, поэтому заливка тут уже растёт от центра
+        // наружу без разворота индекса. Полное окно — 24 часа, те же 25 записей
+        // ради точного попадания в слот -24ч.
+        var filledLeft = (dLeft == null || historyHours < PRESSURE_LEFT_READY)
+                         ? 0 : PressureHistory.filledBoxes(dLeft.abs());
         var colorLeft  = (dLeft != null && dLeft < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
         var availLeft = (cx - textGap) - s;
         var stepLeft = availLeft / PRESSURE_BOXES;
         for (var i = 0; i < visibleLeft; i++) {
             drawPressureBox(dc, cx - textGap - (i + 1) * stepLeft, by, boxSize,
-                            dLeft != null && i < filledLeft, colorLeft);
+                            i < filledLeft, colorLeft);
         }
     }
 
