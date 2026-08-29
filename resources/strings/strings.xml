@@ -12,6 +12,8 @@
     <string id="TillSunset">TILL SUNSET</string>
     <string id="On">ON</string>
     <string id="Off">OFF</string>
+    <string id="SettingTheme">Theme</string>
+    <string id="SettingSunIcons">Sunrise/sunset icons</string>
     <string id="SettingWeatherInterval">Weather update</string>
     <string id="SettingWeekendColor">Weekend color</string>
     <string id="SettingBottomBlock">Bottom block</string>
@@ -22,8 +24,8 @@
     <string id="SettingWeather">Weather</string>
     <string id="SettingHeartRate">Heart rate</string>
     <string id="SettingUnderWeatherMode">Under weather</string>
-    <string id="SettingBarFillColor">Bar fill color</string>
-    <string id="SettingBarBgColor">Bar empty color</string>
+    <string id="SettingBarFillColor">Bar steps color</string>
+    <string id="SettingBarBgColor">Bar empty(steps,pressure) color</string>
     <string id="SettingPressureUnit">Pressure unit</string>
     <string id="SettingHourColor">Hour color</string>
     <string id="SettingMinuteColor">Minute color</string>

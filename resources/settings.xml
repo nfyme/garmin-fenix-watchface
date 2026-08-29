@@ -1,6 +1,72 @@
 <?xml version="1.0"?>
 <settings>
-    <!-- Weather and weather rings -->
+    <!-- Порядок пунктов повторяет циферблат сверху вниз: время → блок погоды →
+         кольца → бар под погодой → нижний блок. Демо-режим — в самом низу.
+         Garmin Connect рисует плоский список, эти комментарии пользователю не
+         видны: единственная структура для него — порядок и названия. -->
+
+    <!-- Appearance -->
+    <setting propertyKey="@Properties.theme" title="@Strings.SettingTheme">
+        <settingConfig type="list">
+            <listEntry value="0">Dark</listEntry>
+            <listEntry value="1">Light</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.sunIcons" title="@Strings.SettingSunIcons">
+        <settingConfig type="boolean"/>
+    </setting>
+
+    <!-- Time -->
+    <setting propertyKey="@Properties.timeFormat" title="@Strings.SettingTimeFormat">
+        <settingConfig type="list">
+            <listEntry value="0">System</listEntry>
+            <listEntry value="1">24h</listEntry>
+            <listEntry value="2">12h</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.ampmStyle" title="@Strings.SettingAmPmStyle">
+        <settingConfig type="list">
+            <listEntry value="0">Colon</listEntry>
+            <listEntry value="1">A/M center</listEntry>
+            <listEntry value="2">Corner A/P</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.hourColor" title="@Strings.SettingHourColor">
+        <settingConfig type="list">
+            <listEntry value="0">Contrast</listEntry>
+            <listEntry value="1">Red</listEntry>
+            <listEntry value="2">Orange</listEntry>
+            <listEntry value="3">Green</listEntry>
+            <listEntry value="4">Blue</listEntry>
+            <listEntry value="5">Yellow</listEntry>
+            <listEntry value="6">Gray</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.minuteColor" title="@Strings.SettingMinuteColor">
+        <settingConfig type="list">
+            <listEntry value="0">Contrast</listEntry>
+            <listEntry value="1">Red</listEntry>
+            <listEntry value="2">Orange</listEntry>
+            <listEntry value="3">Green</listEntry>
+            <listEntry value="4">Blue</listEntry>
+            <listEntry value="5">Yellow</listEntry>
+            <listEntry value="6">Gray</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.colonColor" title="@Strings.SettingColonColor">
+        <settingConfig type="list">
+            <listEntry value="0">Contrast</listEntry>
+            <listEntry value="1">Red</listEntry>
+            <listEntry value="2">Orange</listEntry>
+            <listEntry value="3">Green</listEntry>
+            <listEntry value="4">Blue</listEntry>
+            <listEntry value="5">Yellow</listEntry>
+            <listEntry value="6">Gray</listEntry>
+            <listEntry value="7">Hidden</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Weather block -->
     <setting propertyKey="@Properties.weatherDisplay" title="@Strings.SettingWeather">
         <settingConfig type="boolean"/>
     </setting>
@@ -28,6 +94,8 @@
     <setting propertyKey="@Properties.precipForecast" title="@Strings.SettingPrecipForecast">
         <settingConfig type="boolean"/>
     </setting>
+
+    <!-- Rings -->
     <setting propertyKey="@Properties.precipRing" title="@Strings.SettingPrecipRing">
         <settingConfig type="boolean"/>
     </setting>
@@ -53,81 +121,10 @@
             <listEntry value="2">Outside</listEntry>
         </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
-        <settingConfig type="boolean"/>
-    </setting>
 
-    <!-- Time -->
-    <setting propertyKey="@Properties.timeFormat" title="@Strings.SettingTimeFormat">
-        <settingConfig type="list">
-            <listEntry value="0">System</listEntry>
-            <listEntry value="1">24h</listEntry>
-            <listEntry value="2">12h</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.ampmStyle" title="@Strings.SettingAmPmStyle">
-        <settingConfig type="list">
-            <listEntry value="0">Colon</listEntry>
-            <listEntry value="1">A/M center</listEntry>
-            <listEntry value="2">Corner A/P</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.hourColor" title="@Strings.SettingHourColor">
-        <settingConfig type="list">
-            <listEntry value="0">White</listEntry>
-            <listEntry value="1">Red</listEntry>
-            <listEntry value="2">Orange</listEntry>
-            <listEntry value="3">Green</listEntry>
-            <listEntry value="4">Blue</listEntry>
-            <listEntry value="5">Yellow</listEntry>
-            <listEntry value="6">Gray</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.minuteColor" title="@Strings.SettingMinuteColor">
-        <settingConfig type="list">
-            <listEntry value="0">White</listEntry>
-            <listEntry value="1">Red</listEntry>
-            <listEntry value="2">Orange</listEntry>
-            <listEntry value="3">Green</listEntry>
-            <listEntry value="4">Blue</listEntry>
-            <listEntry value="5">Yellow</listEntry>
-            <listEntry value="6">Gray</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.colonColor" title="@Strings.SettingColonColor">
-        <settingConfig type="list">
-            <listEntry value="0">White</listEntry>
-            <listEntry value="1">Red</listEntry>
-            <listEntry value="2">Orange</listEntry>
-            <listEntry value="3">Green</listEntry>
-            <listEntry value="4">Blue</listEntry>
-            <listEntry value="5">Yellow</listEntry>
-            <listEntry value="6">Gray</listEntry>
-            <listEntry value="7">Hidden</listEntry>
-        </settingConfig>
-    </setting>
-
-    <!-- Bottom block -->
-    <setting propertyKey="@Properties.bottomBlock" title="@Strings.SettingBottomBlock">
-        <settingConfig type="list">
-            <listEntry value="0">Calendar</listEntry>
-            <listEntry value="1">Sport</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.weekendColor" title="@Strings.SettingWeekendColor">
-        <settingConfig type="list">
-            <listEntry value="0">Red</listEntry>
-            <listEntry value="1">Orange</listEntry>
-            <listEntry value="2">Green</listEntry>
-            <listEntry value="3">Blue</listEntry>
-            <listEntry value="4">Gray</listEntry>
-        </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.heartRate" title="@Strings.SettingHeartRate">
-        <settingConfig type="boolean"/>
-    </setting>
-
-    <!-- Block under weather and pressure scale -->
+    <!-- Bar under weather: steps bar / pressure trend.
+         barFillColor — только бар шагов, barBgColor — общий: фон бара шагов и
+         контур квадратиков давления. -->
     <setting propertyKey="@Properties.underWeatherMode" title="@Strings.SettingUnderWeatherMode">
         <settingConfig type="list">
             <listEntry value="0">None</listEntry>
@@ -142,13 +139,13 @@
             <listEntry value="2">Red</listEntry>
             <listEntry value="3">Orange</listEntry>
             <listEntry value="4">Yellow</listEntry>
-            <listEntry value="5">White</listEntry>
+            <listEntry value="5">Contrast</listEntry>
         </settingConfig>
     </setting>
     <setting propertyKey="@Properties.barBgColor" title="@Strings.SettingBarBgColor">
         <settingConfig type="list">
             <listEntry value="0">Gray</listEntry>
-            <listEntry value="1">White</listEntry>
+            <listEntry value="1">Contrast</listEntry>
             <listEntry value="2">Transparent</listEntry>
             <listEntry value="3">Dark gray</listEntry>
             <listEntry value="4">Dark blue</listEntry>
@@ -182,5 +179,30 @@
         <setting title="@Strings.SettingPressureThreshold" type="number">
             <settingConfig id="v" type="numeric" min="1" max="99"/>
         </setting>
+    </setting>
+
+    <!-- Bottom block -->
+    <setting propertyKey="@Properties.bottomBlock" title="@Strings.SettingBottomBlock">
+        <settingConfig type="list">
+            <listEntry value="0">Calendar</listEntry>
+            <listEntry value="1">Sport</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.weekendColor" title="@Strings.SettingWeekendColor">
+        <settingConfig type="list">
+            <listEntry value="0">Red</listEntry>
+            <listEntry value="1">Orange</listEntry>
+            <listEntry value="2">Green</listEntry>
+            <listEntry value="3">Blue</listEntry>
+            <listEntry value="4">Gray</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.heartRate" title="@Strings.SettingHeartRate">
+        <settingConfig type="boolean"/>
+    </setting>
+
+    <!-- Demo -->
+    <setting propertyKey="@Properties.weatherDemoMode" title="@Strings.SettingWeatherDemoMode">
+        <settingConfig type="boolean"/>
     </setting>
 </settings>

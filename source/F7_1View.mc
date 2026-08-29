@@ -39,15 +39,15 @@ class F7_1View extends WatchUi.WatchFace {
     // Garmin-блоки лежат в том же cachedWeatherBlocks и выглядят валидными.
     var weatherCacheSource  = -1;
 
+    // Always-on (low power). На AMOLED в этом режиме белый фон и жрёт батарею,
+    // и упирается в требование Garmin по доле засвеченных пикселей — там тему
+    // принудительно роняем в тёмную, см. applyThemeForFrame.
+    var isSleeping = false;
+
     // Настройки (читаются при старте и после изменения)
     var settingWeatherInterval = 15;
     var settingWeekendColor    = 0xAA0000;
     var settingBottomBlock     = 0;   // 0=calendar, 1=sport
-
-    const COLORS_RAIN   = 0x0000AA;
-    const COLORS_SNOW   = Graphics.COLOR_WHITE;
-    const COLORS_MIX    = 0x4488FF;
-    const COLORS_DANGER = 0xFF5500;
 
     // Верхний потолок для кэша forecast'а (в часах). Берём столько, сколько
     // реально отдаёт API (не завязываемся на фиксированное число слотов), но
@@ -61,9 +61,42 @@ class F7_1View extends WatchUi.WatchFace {
     }
 
     function loadSettings() {
+        applyThemeForFrame();
         settingWeatherInterval = AppSettings.getWeatherInterval();
         settingWeekendColor    = AppSettings.getWeekendColor();
         settingBottomBlock     = AppSettings.getBottomBlock();
+    }
+
+    function onEnterSleep() {
+        isSleeping = true;
+        WatchUi.requestUpdate();
+    }
+
+    function onExitSleep() {
+        isSleeping = false;
+        WatchUi.requestUpdate();
+    }
+
+    // Выбор палитры на текущий кадр. Светлая тема отключается сама, когда
+    // AMOLED уходит в always-on: белый экран там и садит батарею, и нарушает
+    // лимит Garmin на долю горящих пикселей в low power. На MIP-экранах
+    // (fenix 7, fenix 8 solar) requiresBurnInProtection = false, и светлая
+    // тема живёт всегда.
+    //
+    // Смена палитры обнуляет буфер луны — он рисуется цветом FG и кэшируется
+    // на сутки, иначе до полуночи на экране висел бы серп прошлой темы.
+    function applyThemeForFrame() {
+        var burnIn = false;
+        var ds = System.getDeviceSettings();
+        if (ds != null && ds has :requiresBurnInProtection && ds.requiresBurnInProtection) {
+            burnIn = true;
+        }
+        var wantLight = (AppSettings.getTheme() == 1) && !(isSleeping && burnIn);
+        if (wantLight != AppSettings.isLight) {
+            AppSettings.applyTheme(wantLight);
+            lastMoonDay = -1;
+            moonBuffer  = null;
+        }
     }
 
     function onShow() {
@@ -178,8 +211,21 @@ class F7_1View extends WatchUi.WatchFace {
         var phase = moonPhase;
         if (phase >= 1.0) { phase = 0.0; }
 
-        // Освещённая часть
-        if (phase > 0.03 && phase < 0.97) {
+        // Закрашивается ровно одна половина диска, вторая остаётся прозрачной
+        // и её роль играет фон циферблата:
+        //   тёмная тема — красим СВЕТ белым, тенью работает чёрный фон;
+        //   светлая     — красим ТЕНЬ чёрным, светом работает белый фон.
+        // В светлой теме иначе никак: белый серп на белом фоне не виден вовсе,
+        // весь диск сливается в пятно и фаза пропадает.
+        var paintShadow = AppSettings.isLight;
+        var moonInk     = paintShadow ? AppSettings.MOON_SHADOW : Graphics.COLOR_WHITE;
+
+        if (paintShadow && (phase <= 0.03 || phase >= 0.97)) {
+            // Новолуние: света нет совсем, тень занимает весь диск. В тёмной
+            // теме этот случай рисовать нечем — там пустой круг и есть тень.
+            bdc.setColor(moonInk, Graphics.COLOR_TRANSPARENT);
+            bdc.fillCircle(cx, cy, r);
+        } else if (phase > 0.03 && phase < 0.97) {
             for (var dy = -r + 1; dy < r; dy++) {
                 var dxF = Math.sqrt((r * r - dy * dy).toFloat());
                 var dx  = dxF.toNumber();
@@ -188,24 +234,34 @@ class F7_1View extends WatchUi.WatchFace {
                 var xL = cx - dx;
                 var xR = cx + dx;
 
-                bdc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                bdc.setColor(moonInk, Graphics.COLOR_TRANSPARENT);
 
                 if (phase <= 0.5) {
-                    // Растущая: серп справа
+                    // Растущая: свет справа от терминатора, тень слева
                     var k = 1.0 - phase * 4.0;
                     var termX = cx + (dxF * k).toNumber();
-                    if (termX < xR) { bdc.drawLine(termX, cy + dy, xR, cy + dy); }
+                    if (paintShadow) {
+                        if (termX > xL) { bdc.drawLine(xL, cy + dy, termX, cy + dy); }
+                    } else {
+                        if (termX < xR) { bdc.drawLine(termX, cy + dy, xR, cy + dy); }
+                    }
                 } else {
-                    // Убывающая: серп слева
+                    // Убывающая: свет слева от терминатора, тень справа
                     var k = phase * 4.0 - 3.0;
                     var termX = cx - (dxF * k).toNumber();
-                    if (termX > xL) { bdc.drawLine(xL, cy + dy, termX, cy + dy); }
+                    if (paintShadow) {
+                        if (termX < xR) { bdc.drawLine(termX, cy + dy, xR, cy + dy); }
+                    } else {
+                        if (termX > xL) { bdc.drawLine(xL, cy + dy, termX, cy + dy); }
+                    }
                 }
             }
         }
 
-        // Тонкое кольцо поверх
-        bdc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        // Тонкое кольцо поверх. В светлой теме белая заливка сливается с фоном
+        // и весь диск держится на одном этом контуре, поэтому цвет отдельный
+        // (MOON_RING): чёрный по белому читается тяжело, светло-серый — ровно.
+        bdc.setColor(AppSettings.MOON_RING, Graphics.COLOR_TRANSPARENT);
         bdc.setPenWidth(1);
         bdc.drawCircle(cx, cy, r);
 
@@ -320,9 +376,9 @@ class F7_1View extends WatchUi.WatchFace {
     }
 
     function condTypeColor(type) {
-        if (type == COND_RAIN) { return COLORS_RAIN; }
-        if (type == COND_SNOW) { return COLORS_SNOW; }
-        if (type == COND_MIX)  { return COLORS_MIX; }
+        if (type == COND_RAIN) { return AppSettings.RAIN; }
+        if (type == COND_SNOW) { return AppSettings.SNOW; }
+        if (type == COND_MIX)  { return AppSettings.MIX; }
         return Graphics.COLOR_TRANSPARENT;
     }
 
@@ -563,14 +619,14 @@ class F7_1View extends WatchUi.WatchFace {
     // Иконки восход / закат
     // -------------------------------------------------------------------------
     function drawSunrise(dc, x, y, size) {
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.SUNRISE, Graphics.COLOR_TRANSPARENT);
         dc.drawLine(x, y + size, x + size, y);
         dc.drawLine(x + size, y, x + size - size/2, y);
         dc.drawLine(x + size, y, x + size, y + size/2);
     }
 
     function drawSunset(dc, x, y, size) {
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.SUNSET, Graphics.COLOR_TRANSPARENT);
         dc.drawLine(x, y, x + size, y + size);
         dc.drawLine(x + size, y + size, x + size - size/2, y + size);
         dc.drawLine(x + size, y + size, x + size, y + size - size/2);
@@ -639,12 +695,12 @@ class F7_1View extends WatchUi.WatchFace {
         var underlineLen = (w * 7 / 100);
 
         for (var i = 0; i < 7; i++) {
-            dc.setColor((i >= 5) ? settingWeekendColor : Graphics.COLOR_LT_GRAY,
+            dc.setColor((i >= 5) ? settingWeekendColor : AppSettings.DIM,
                         Graphics.COLOR_TRANSPARENT);
             var textX = offsetX + cellW * i + cellW / 2;
             dc.drawText(textX, startY, Graphics.FONT_XTINY, days[i], Graphics.TEXT_JUSTIFY_CENTER);
             if (i == todayDow) {
-                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
                 dc.drawLine(textX - underlineLen/2, startY + calAscent+2,
                             textX + underlineLen/2, startY + calAscent+2);
                 dc.drawLine(textX - underlineLen/2, startY + calAscent+1,
@@ -657,7 +713,7 @@ class F7_1View extends WatchUi.WatchFace {
             var x = offsetX + col * cellW + cellW / 2;
             var y = startY + row * rowH;
             if (d == today) {
-                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
                 // Рамка по телу цифры. Тело лежит между y+descent и y+ascent,
                 // но у разных системных гарнитур края гуляют на ±1px (замерено:
                 // 260px даёт y+descent+1 .. y+ascent, 454px даёт y+descent-1 ..
@@ -669,13 +725,13 @@ class F7_1View extends WatchUi.WatchFace {
                 dc.drawRectangle(offsetX + col * cellW + 1, y + calDescent - 2,
                                  cellW - 2, calAscent - calDescent + 4);
             }
-            dc.setColor((col >= 5) ? settingWeekendColor : Graphics.COLOR_WHITE,
+            dc.setColor((col >= 5) ? settingWeekendColor : AppSettings.FG,
                         Graphics.COLOR_TRANSPARENT);
             dc.drawText(x, y, Graphics.FONT_XTINY, d.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
             col++;
             if (col > 6) { col = 0; row++; }
         }
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
     }
 
     // -------------------------------------------------------------------------
@@ -686,7 +742,7 @@ class F7_1View extends WatchUi.WatchFace {
         var bgColor = AppSettings.getBarBgColor();
         if (bgColor == -1) { return; }
         if (bgColor == -2) {
-            dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
             dc.drawRoundedRectangle(barX, barY, barW, barH, barH / 2);
             return;
         }
@@ -736,7 +792,7 @@ class F7_1View extends WatchUi.WatchFace {
             dc.setColor(AppSettings.getBarFillColor(), Graphics.COLOR_TRANSPARENT);
             dc.fillRoundedRectangle(barX, barY, fillW, barH, barH / 2);
         }
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
     }
 
     // -------------------------------------------------------------------------
@@ -768,9 +824,6 @@ class F7_1View extends WatchUi.WatchFace {
     const PRESSURE_FONT      = Graphics.FONT_XTINY; // шрифт центрального числа давления
     const PRESSURE_BOX_SIZE_RATIO = 4.0 / 10.0;     // размер квадратика = эта доля высоты шрифта
     const MMHG_PER_HPA       = 0.750062;
-
-    const COLORS_PRESSURE_UP   = 0x378ADD; // рост — синий, как H на картах
-    const COLORS_PRESSURE_DOWN = 0xE24B4A; // падение — тёплый красный, как L
 
     // Демо-набор: левый ряд красный (упало), правый синий (выросло), разное
     // число квадратов — чтобы на скриншоте для стора было видно оба состояния.
@@ -832,7 +885,7 @@ class F7_1View extends WatchUi.WatchFace {
         var numDims = dc.getTextDimensions(pressureStr, PRESSURE_FONT);
         var cx = (s + e) / 2;
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, y - fontH / 2, PRESSURE_FONT, pressureStr, Graphics.TEXT_JUSTIFY_CENTER);
 
         var dLeft  = (v0Hpa  != null && v12Hpa != null) ? (v12Hpa - v0Hpa)  * k : null;
@@ -859,7 +912,7 @@ class F7_1View extends WatchUi.WatchFace {
         // допуск остаётся тем, чем задуман: аварийным вариантом для дырок.
         var filledRight = (dRight == null || historyHours < PRESSURE_RIGHT_READY)
                           ? 0 : PressureHistory.filledBoxes(dRight.abs());
-        var colorRight  = (dRight != null && dRight < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
+        var colorRight  = (dRight != null && dRight < 0) ? AppSettings.PRESSURE_DOWN : AppSettings.PRESSURE_UP;
         var availRight = e - (cx + textGap);
         var stepRight = availRight / PRESSURE_BOXES;
         for (var i = 0; i < visibleRight; i++) {
@@ -873,7 +926,7 @@ class F7_1View extends WatchUi.WatchFace {
         // ради точного попадания в слот -24ч.
         var filledLeft = (dLeft == null || historyHours < PRESSURE_LEFT_READY)
                          ? 0 : PressureHistory.filledBoxes(dLeft.abs());
-        var colorLeft  = (dLeft != null && dLeft < 0) ? COLORS_PRESSURE_DOWN : COLORS_PRESSURE_UP;
+        var colorLeft  = (dLeft != null && dLeft < 0) ? AppSettings.PRESSURE_DOWN : AppSettings.PRESSURE_UP;
         var availLeft = (cx - textGap) - s;
         var stepLeft = availLeft / PRESSURE_BOXES;
         for (var i = 0; i < visibleLeft; i++) {
@@ -885,11 +938,11 @@ class F7_1View extends WatchUi.WatchFace {
     // Рамка рисуется у ВСЕХ квадратов, заливка — внутрь с отступом. Иначе
     // соседние закрашенные квадраты сливаются в одну полосу и посчитать их
     // глазом невозможно. Отступ есть даже при прозрачном фоне — там роль
-    // рамки играет чёрный фон циферблата.
+    // рамки играет сам фон циферблата.
     function drawPressureBox(dc, x, y, size, filled, fillColor) {
         var bgColor = AppSettings.getBarBgColor();
         if (bgColor != -1) {
-            var c = (bgColor == -2) ? Graphics.COLOR_LT_GRAY : bgColor;
+            var c = (bgColor == -2) ? AppSettings.DIM : bgColor;
             dc.setColor(c, Graphics.COLOR_TRANSPARENT);
             dc.drawRoundedRectangle(x, y, size, size, size / 4);
         }
@@ -942,10 +995,10 @@ class F7_1View extends WatchUi.WatchFace {
             var pct  = steps.toFloat() / stepsGoal.toFloat();
             if (pct > 1.0) { pct = 1.0; }
             var fillW = (barW * pct).toNumber();
-            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.TRACK, Graphics.COLOR_TRANSPARENT);
             dc.drawRectangle(barX, barY, barW, barH);
             if (fillW > 0) {
-                dc.setColor(0x00AA44, Graphics.COLOR_TRANSPARENT);
+                dc.setColor(AppSettings.GOAL, Graphics.COLOR_TRANSPARENT);
                 dc.fillRectangle(barX, barY, fillW, barH);
             }
         }
@@ -956,36 +1009,36 @@ class F7_1View extends WatchUi.WatchFace {
             var hr = null;
             if (actInfo != null) { hr = actInfo.currentHeartRate; }
             var hrStr = (hr != null && hr > 0) ? hr.format("%d") : "--";
-            dc.setColor(0xFF2222, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.ALERT, Graphics.COLOR_TRANSPARENT);
             dc.drawText(w / 2, startY + hrOffsetY, Graphics.FONT_NUMBER_MILD, hrStr, Graphics.TEXT_JUSTIFY_CENTER);
-            dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
         }
 
         var row2 = startY + stepsOffsetY;
 
         // Шаги
         var stepsStr = (steps != null) ? steps.format("%d") : "--";
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
         dc.drawText(col1, row2, Graphics.FONT_TINY, stepsStr, Graphics.TEXT_JUSTIFY_CENTER);
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(col1, row2 + labelOffset, Graphics.FONT_XTINY, "steps", Graphics.TEXT_JUSTIFY_CENTER);
 
         // Каллории
         var calStr = (calories != null) ? calories.format("%d") : "--";
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
         dc.drawText(col2, row2, Graphics.FONT_TINY, calStr, Graphics.TEXT_JUSTIFY_CENTER);
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(col2, row2 + labelOffset, Graphics.FONT_XTINY, "kcal", Graphics.TEXT_JUSTIFY_CENTER);
 
         // Этажи
         if (floors != null) {
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
             dc.drawText(w / 2, row2, Graphics.FONT_TINY, floors.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
-            dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
             dc.drawText(w / 2, row2 + labelOffset, Graphics.FONT_XTINY, "floors", Graphics.TEXT_JUSTIFY_CENTER);
         }
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
     }
 
     // -------------------------------------------------------------------------
@@ -1003,9 +1056,9 @@ class F7_1View extends WatchUi.WatchFace {
             text = "Last upd: " + updInfo.day.format("%02d") + "." + updInfo.month.format("%02d")
                  + " " + updInfo.hour.format("%02d") + ":" + updInfo.min.format("%02d");
         }
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, y, Graphics.FONT_XTINY, text, Graphics.TEXT_JUSTIFY_CENTER);
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
     }
 
     // -------------------------------------------------------------------------
@@ -1034,7 +1087,7 @@ class F7_1View extends WatchUi.WatchFace {
             var hasPrecip = (precip != null && precip > 0 && cls["type"] != COND_NONE);
             var lineW = 0; var startX = bx;
             if (hasPrecip) { lineW = (colW * precip / 100).toNumber(); startX = bx - lineW / 2; }
-            var tempColor = isStale ? Graphics.COLOR_LT_GRAY : (cls["isDanger"] ? COLORS_DANGER : Graphics.COLOR_WHITE);
+            var tempColor = isStale ? AppSettings.DIM : (cls["isDanger"] ? AppSettings.DANGER : AppSettings.FG);
 
             var tempStr = (b["temp"] != null) ? b["temp"].format("%+d") + "°" : "--°";
             var windStr = (b["wind"] != null) ? b["wind"].format("%d") : "--";
@@ -1050,12 +1103,12 @@ class F7_1View extends WatchUi.WatchFace {
             dc.drawText(startXtemp, y, Graphics.FONT_XTINY, tempStr + " ", Graphics.TEXT_JUSTIFY_LEFT);
 
             var windX = startXtemp + tempDims[0];
-            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(AppSettings.ACCENT, Graphics.COLOR_TRANSPARENT);
             dc.drawText(windX, y, Graphics.FONT_XTINY, windStr, Graphics.TEXT_JUSTIFY_LEFT);
 
             if (b["wdir"] != null) {
                 var arrowOffset = windDims[0] + fontHeight / 3;
-                dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+                dc.setColor(AppSettings.ACCENT, Graphics.COLOR_TRANSPARENT);
                 drawWindArrow(dc, windX + arrowOffset, y + fontHeight / 2, b["wdir"]);
             }
 
@@ -1073,7 +1126,7 @@ class F7_1View extends WatchUi.WatchFace {
                 }
             }
         }
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
     }
 
     function drawWindArrow(dc, cx, cy, bearingDeg) {
@@ -1151,7 +1204,7 @@ class F7_1View extends WatchUi.WatchFace {
 
             // Кольцо опасности: просто сигнал "да/нет" — сплошная дуга, без гэпов.
             if (showDangerRing && cls["isDanger"]) {
-                drawSolidHourArc(dc, cx, cy, dangerRadius, hourOfDay, COLORS_DANGER, 2);
+                drawSolidHourArc(dc, cx, cy, dangerRadius, hourOfDay, AppSettings.DANGER, 2);
             }
         }
 
@@ -1165,9 +1218,9 @@ class F7_1View extends WatchUi.WatchFace {
         var mx = cx + (markerR * Math.cos(markerRad)).toNumber();
         var my = cy - (markerR * Math.sin(markerRad)).toNumber();
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
         drawTriangleMarker(dc, mx, my, markerDeg, 6);
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.FG, Graphics.COLOR_TRANSPARENT);
     }
 
     const RING_EDGE_PAD_DEG  = 0.5; // отступ от границ сектора, градусы
@@ -1338,7 +1391,9 @@ class F7_1View extends WatchUi.WatchFace {
     // -------------------------------------------------------------------------
     function onUpdate(dc) {
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+        applyThemeForFrame();
+
+        dc.setColor(AppSettings.FG, AppSettings.BG);
         dc.clear();
 
         var w    = dc.getWidth();
@@ -1458,9 +1513,13 @@ class F7_1View extends WatchUi.WatchFace {
             drawPrecipRing(dc, cx, cy, ringRadius, w, showPrecipRing, showDangerRing, dangerOutside);
         }
 
-        // Восход
-        drawSunrise(dc, riseX - iconSize - 3, rowY + iconSize / 2, iconSize);
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        // Восход. Позиция времени от иконок не зависит — с выключенными
+        // иконками цифры остаются на своих местах, просто чище по краям.
+        var showSunIcons = AppSettings.getSunIcons();
+        if (showSunIcons) {
+            drawSunrise(dc, riseX - iconSize - 3, rowY + iconSize / 2, iconSize);
+        }
+        dc.setColor(AppSettings.SUNRISE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(riseX, rowY, Graphics.FONT_XTINY, riseStr, Graphics.TEXT_JUSTIFY_LEFT);
 
         // Луна
@@ -1471,12 +1530,18 @@ class F7_1View extends WatchUi.WatchFace {
         var daysTo = phaseResult[0];
         var isToFull = phaseResult[1];
         var moonLabel = daysTo.format("%d");
-        dc.setColor(isToFull ? Graphics.COLOR_BLUE : Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, moonY - (moonR + 1), Graphics.FONT_XTINY, moonLabel, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(isToFull ? AppSettings.ACCENT : AppSettings.MOON_LABEL, Graphics.COLOR_TRANSPARENT);
+        // В светлой теме диск луны не залит, и цифра внутри пустого кольца
+        // читается прижатой к верхнему краю — опускаем её на пиксель.
+        // Тёмную тему не трогаем: там позиция выверена по залитому диску.
+        var moonLabelY = moonY - (moonR + 1) + (AppSettings.isLight ? 1 : 0);
+        dc.drawText(cx, moonLabelY, Graphics.FONT_XTINY, moonLabel, Graphics.TEXT_JUSTIFY_CENTER);
 
         // Закат
-        drawSunset(dc, setX + iconSize/2 - 2, rowY + iconSize / 2, iconSize);
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        if (showSunIcons) {
+            drawSunset(dc, setX + iconSize/2 - 2, rowY + iconSize / 2, iconSize);
+        }
+        dc.setColor(AppSettings.SUNSET, Graphics.COLOR_TRANSPARENT);
         dc.drawText(setX, rowY, Graphics.FONT_XTINY, setStr, Graphics.TEXT_JUSTIFY_RIGHT);
 
         // Время
@@ -1592,11 +1657,11 @@ class F7_1View extends WatchUi.WatchFace {
         }
 
         // Батарея
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, 0, Graphics.FONT_XTINY, batteryStr, Graphics.TEXT_JUSTIFY_CENTER);
 
         // BT
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(AppSettings.DIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, h - (h * 10 / 100), Graphics.FONT_XTINY, btStr, Graphics.TEXT_JUSTIFY_CENTER);
     }
 

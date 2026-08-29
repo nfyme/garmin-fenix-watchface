@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <properties>
+    <!-- 0=Dark (исторический дефолт), 1=Light -->
+    <property id="theme"           type="number">0</property>
+    <property id="sunIcons"       type="boolean">true</property>
     <property id="weatherInterval" type="number">2</property>
     <property id="weekendColor"    type="number">0</property>
     <property id="bottomBlock"     type="number">0</property>

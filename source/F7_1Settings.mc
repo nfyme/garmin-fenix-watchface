@@ -8,6 +8,112 @@ using Toybox.Lang;
 // ============================================================================
 class AppSettings {
 
+    // ------------------------------------------------------------------------
+    // ТЕМА
+    // Тёмная (0) — исторический дефолт, её цвета трогать нельзя: любой сдвиг
+    // тут ломает вид у всех, кто уже носит циферблат. Светлая (1) — отдельный
+    // набор, подобранный под белый фон (жёлтый/белый на белом не видно).
+    //
+    // Палитра живёт в статиках, а не в const'ах View: applyTheme() переключает
+    // её на лету — в том числе принудительно в тёмную, когда AMOLED уходит в
+    // always-on (см. F7_1View.applyThemeForFrame).
+    // ------------------------------------------------------------------------
+    static var THEME_NAMES = ["Dark", "Light"];
+
+    static function getTheme() {
+        var v = Application.Properties.getValue("theme");
+        if (v == null || v < 0 || v >= THEME_NAMES.size()) { v = 0; }
+        return v;
+    }
+
+    static var isLight = false;
+
+    static var BG    = Graphics.COLOR_BLACK;
+    static var FG    = Graphics.COLOR_WHITE;      // основной текст и линии
+    static var DIM   = Graphics.COLOR_LT_GRAY;    // вторичный текст, подписи
+    static var TRACK = Graphics.COLOR_DK_GRAY;    // рельс (пустая часть) баров
+
+    static var RAIN   = 0x0000AA;
+    static var SNOW   = Graphics.COLOR_WHITE;
+    static var MIX    = 0x4488FF;
+    static var DANGER = 0xFF5500;
+
+    static var MOON_RING    = Graphics.COLOR_WHITE; // контур диска луны
+    // Неосвещённая часть диска. В тёмной теме её никто не рисует — там роль
+    // тени играет чёрный фон циферблата, просвечивающий сквозь прозрачные
+    // пиксели буфера. Значение ниже работает только в светлой теме.
+    static var MOON_SHADOW  = Graphics.COLOR_BLACK;
+    // Цифра дней до фазы лежит прямо на диске, и фон под ней ездит от белого
+    // (полнолуние) до чёрного (новолуние) — нужен серый, который тянет оба
+    // края. На MIP fenix 7 палитра 64 цвета, по 4 уровня на канал: между 0x55
+    // и 0xAA там ничего нет, 0xAA на белом диске пропадает.
+    static var MOON_LABEL   = 0x555555;
+    // Восход/закат кодируются контрастом: восход заметнее заката. В тёмной
+    // теме это белый против серого, в светлой — тёмно-серый против светлого;
+    // чистый чёрный на восходе там перетягивает на себя весь верх экрана.
+    static var SUNRISE      = Graphics.COLOR_WHITE;
+    static var SUNSET       = Graphics.COLOR_LT_GRAY;
+    static var ACCENT       = Graphics.COLOR_BLUE; // луна до полнолуния, ветер
+    static var ALERT        = 0xFF2222;            // пульс вне зоны, перебор
+    static var GOAL         = 0x00AA44;            // выполненная норма шагов
+    static var PRESSURE_UP   = 0x378ADD;           // рост — синий, как H на картах
+    static var PRESSURE_DOWN = 0xE24B4A;           // падение — тёплый красный, как L
+
+    static function applyTheme(light) {
+        isLight = light;
+        if (light) {
+            BG    = Graphics.COLOR_WHITE;
+            FG    = Graphics.COLOR_BLACK;
+            DIM   = 0x555555;
+            TRACK = 0xAAAAAA;
+
+            RAIN   = 0x0000AA;
+            SNOW   = 0x3388BB;   // на белом белый снег невидим — берём голубой
+            MIX    = 0x2266DD;
+            DANGER = 0xDD4400;
+
+            MOON_RING     = 0xAAAAAA;  // чёрный контур на белом читается тяжело
+            MOON_SHADOW   = Graphics.COLOR_BLACK;
+            MOON_LABEL    = 0x555555;
+            SUNRISE       = 0x555555;
+            SUNSET        = 0x888888;
+            ACCENT        = 0x0055CC;
+            ALERT         = 0xDD0000;
+            GOAL          = 0x008833;
+            PRESSURE_UP   = 0x1F6FC4;
+            PRESSURE_DOWN = 0xC02C2B;
+        } else {
+            BG    = Graphics.COLOR_BLACK;
+            FG    = Graphics.COLOR_WHITE;
+            DIM   = Graphics.COLOR_LT_GRAY;
+            TRACK = Graphics.COLOR_DK_GRAY;
+
+            RAIN   = 0x0000AA;
+            SNOW   = Graphics.COLOR_WHITE;
+            MIX    = 0x4488FF;
+            DANGER = 0xFF5500;
+
+            MOON_RING     = Graphics.COLOR_WHITE;
+            MOON_SHADOW   = Graphics.COLOR_BLACK;
+            MOON_LABEL    = 0x555555;
+            SUNRISE       = Graphics.COLOR_WHITE;
+            SUNSET        = Graphics.COLOR_LT_GRAY;
+            ACCENT        = Graphics.COLOR_BLUE;
+            ALERT         = 0xFF2222;
+            GOAL          = 0x00AA44;
+            PRESSURE_UP   = 0x378ADD;
+            PRESSURE_DOWN = 0xE24B4A;
+        }
+    }
+
+    // Стрелки слева от восхода и справа от заката. Сами времена читаются и без
+    // них — левое всегда восход, правое закат, — поэтому иконки отключаемы.
+    static function getSunIcons() {
+        var val = Application.Properties.getValue("sunIcons");
+        if (val == null) { val = true; }
+        return val;
+    }
+
     static var WEATHER_INTERVALS = [5, 10, 15, 30, 60];
 
     // Минимальный % вероятности осадков, ниже которого кольцо для часа не рисуется
@@ -28,6 +134,16 @@ class AppSettings {
         Graphics.COLOR_LT_GRAY
     ];
 
+    // Те же названия, но затемнённые — на белом фоне яркие тона плывут,
+    // а LT_GRAY просто пропадает.
+    static var WEEKEND_COLORS_LIGHT = [
+        0xAA0000,
+        0xDD4400,
+        0x008800,
+        0x0044DD,
+        0x777777
+    ];
+
     static var TIME_COLORS = [
         Graphics.COLOR_WHITE,
         0xFF2222,
@@ -38,26 +154,42 @@ class AppSettings {
         Graphics.COLOR_LT_GRAY
     ];
 
-    static var TIME_COLOR_NAMES  = ["White", "Red", "Orange", "Green", "Blue", "Yellow", "Gray"];
-    static var COLON_COLOR_NAMES = ["White", "Red", "Orange", "Green", "Blue", "Yellow", "Gray", "Hidden"];
+    // Индекс 0 — "Contrast": цвет фона наоборот. В тёмной теме это тот же
+    // белый, что и был, так что для существующих настроек ничего не меняется.
+    static var TIME_COLORS_LIGHT = [
+        Graphics.COLOR_BLACK,
+        0xDD0000,
+        0xDD4400,
+        0x008800,
+        0x0044DD,
+        0xBB8800,
+        0x777777
+    ];
+
+    static var TIME_COLOR_NAMES  = ["Contrast", "Red", "Orange", "Green", "Blue", "Yellow", "Gray"];
+    static var COLON_COLOR_NAMES = ["Contrast", "Red", "Orange", "Green", "Blue", "Yellow", "Gray", "Hidden"];
+
+    static function timeColors() {
+        return isLight ? TIME_COLORS_LIGHT : TIME_COLORS;
+    }
 
     static function getHourColor() {
         var idx = Application.Properties.getValue("hourColor");
         if (idx == null || idx < 0 || idx >= TIME_COLORS.size()) { idx = 0; }
-        return TIME_COLORS[idx];
+        return timeColors()[idx];
     }
 
     static function getMinuteColor() {
         var idx = Application.Properties.getValue("minuteColor");
         if (idx == null || idx < 0 || idx >= TIME_COLORS.size()) { idx = 4; }
-        return TIME_COLORS[idx];
+        return timeColors()[idx];
     }
 
     static function getColonColor() {
         var idx = Application.Properties.getValue("colonColor");
         if (idx == null || idx < 0 || idx >= TIME_COLORS.size() + 1) { idx = 0; }
         if (idx == 7) { return -1; } // -1 = скрыть
-        return TIME_COLORS[idx];
+        return timeColors()[idx];
     }
 
     static var TIME_FORMAT_NAMES = ["System", "24h", "12h"];
@@ -92,7 +224,7 @@ class AppSettings {
     static function getWeekendColor() {
         var idx = Application.Properties.getValue("weekendColor");
         if (idx == null || idx < 0 || idx >= WEEKEND_COLORS.size()) { idx = 0; }
-        return WEEKEND_COLORS[idx];
+        return (isLight ? WEEKEND_COLORS_LIGHT : WEEKEND_COLORS)[idx];
     }
 
     static function getBottomBlock() {
@@ -138,23 +270,26 @@ class AppSettings {
     }
 
     static var BAR_FILL_COLORS = [0x00AA44, 0x0055FF, 0xFF2222, 0xFF5500, 0xFFFF00, Graphics.COLOR_WHITE];
-    static var BAR_FILL_COLOR_NAMES = ["Green", "Blue", "Red", "Orange", "Yellow", "White"];
+    static var BAR_FILL_COLORS_LIGHT = [0x008833, 0x0044DD, 0xDD0000, 0xDD4400, 0xBB8800, Graphics.COLOR_BLACK];
+    static var BAR_FILL_COLOR_NAMES = ["Green", "Blue", "Red", "Orange", "Yellow", "Contrast"];
 
     static function getBarFillColor() {
         var idx = Application.Properties.getValue("barFillColor");
         if (idx == null || idx < 0 || idx >= BAR_FILL_COLORS.size()) { idx = 0; }
-        return BAR_FILL_COLORS[idx];
+        return (isLight ? BAR_FILL_COLORS_LIGHT : BAR_FILL_COLORS)[idx];
     }
 
     // Цвет пустой (незаполненной) части бара. -1 = не рисовать фон вообще,
     // -2 = только контур (обводка без заливки) — обрабатываются отдельно в drawBar*.
+    // Служебные -1/-2 в светлом наборе обязаны стоять на тех же индексах.
     static var BAR_BG_COLORS = [Graphics.COLOR_DK_GRAY, Graphics.COLOR_WHITE, -1, 0x333333, 0x000044, -2];
-    static var BAR_BG_COLOR_NAMES = ["Gray", "White", "Transparent", "Dark gray", "Dark blue", "Outline"];
+    static var BAR_BG_COLORS_LIGHT = [0xAAAAAA, Graphics.COLOR_BLACK, -1, 0x888888, 0xB0C0E0, -2];
+    static var BAR_BG_COLOR_NAMES = ["Gray", "Contrast", "Transparent", "Dark gray", "Dark blue", "Outline"];
 
     static function getBarBgColor() {
         var idx = Application.Properties.getValue("barBgColor");
         if (idx == null || idx < 0 || idx >= BAR_BG_COLORS.size()) { idx = 0; }
-        return BAR_BG_COLORS[idx];
+        return (isLight ? BAR_BG_COLORS_LIGHT : BAR_BG_COLORS)[idx];
     }
 
     static var PRESSURE_UNITS = ["hPa", "mmHg"];
@@ -262,6 +397,22 @@ class SettingsMenuView extends WatchUi.Menu2 {
 
     function initialize() {
         Menu2.initialize({ :title => WatchUi.loadResource(Rez.Strings.AppName) });
+
+        // Оформление
+        Menu2.addItem(new WatchUi.MenuItem(
+            "Theme",
+            AppSettings.THEME_NAMES[AppSettings.getTheme()],
+            :theme,
+            {}
+        ));
+
+        Menu2.addItem(new WatchUi.ToggleMenuItem(
+            "Sun icons",
+            null,
+            :sunIcons,
+            AppSettings.getSunIcons(),
+            {}
+        ));
 
         // Погода и погодные кольца
         Menu2.addItem(new WatchUi.ToggleMenuItem(
@@ -484,7 +635,14 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item) {
         var id = item.getId();
 
-        if (id == :weatherSource) {
+        if (id == :theme) {
+            WatchUi.pushView(
+                new ColorPicker("Theme", "theme", AppSettings.THEME_NAMES),
+                new ColorPickerDelegate(item, "theme", AppSettings.THEME_NAMES),
+                WatchUi.SLIDE_LEFT
+            );
+        }
+        else if (id == :weatherSource) {
             WatchUi.pushView(
                 new ColorPicker("Weather source", "weatherSource", AppSettings.WEATHER_SOURCES),
                 new BgTriggerPickerDelegate(item, "weatherSource", AppSettings.WEATHER_SOURCES),
@@ -541,6 +699,9 @@ class SettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         }
         else if (id == :weatherDisplay) {
             Application.Properties.setValue("weatherDisplay", (item as WatchUi.ToggleMenuItem).isEnabled());
+        }
+        else if (id == :sunIcons) {
+            Application.Properties.setValue("sunIcons", (item as WatchUi.ToggleMenuItem).isEnabled());
         }
         else if (id == :heartRate) {
             Application.Properties.setValue("heartRate", (item as WatchUi.ToggleMenuItem).isEnabled());
